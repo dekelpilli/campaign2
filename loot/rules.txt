@@ -1,0 +1,101 @@
+Amulets:
+    As a bonus action, you can transform into the creature contained in the amulet, but with a fifth of the hit points. You can stay in this form for up to a minute, or until you lose all of the creature's hit points. You may also exit the form at will.
+    If your transformation ended due to losing hit points, you cannot transform again until you complete a long rest. Otherwise, you cannot transform again until you complete a short rest.
+    While in this form, you retain all magical bonuses from your gear.
+    Amulets are created with a certain CR capacity. You can combine multiple amulets to create an amulet with a higher CR capacity (resulting amulet's CR is the highest CR whose XP is lower than the sum of the given amulet CR XPs)
+    You can pay 10 * CR gold to replace the creature in an amulet
+
+Prayer Stones:
+    You can use any prayer stone to pray to any Deity, but when using the appropriate prayer stone, you get the option of skipping a step
+
+Wands:
+    Local wand bonuses apply to cantrips
+    While using a wand, you may choose to make cantrip spells with a spell save DC as spell attacks
+
+Spell Focus:
+    +1 spell save DC, +1 spell AB
+
+Moving mods:
+    Between any weapon and any weapon
+    Between rings
+    Between any armour and any armour
+
+Rings:
+    Maximum of 2 mods (if using orb of creation, new formula for mods is simply `min(2, disadvantaged_1d4)`
+
+Relics:
+    Relics related to a specific personality are unlocked at a certain quest state.
+    Relics can only be attuned to one person (old attunements need to be let go, but artifacts are found without attunements). Attunements simply provide a free level up (1 -> 2).
+    Mods with a weighting of <= 3 are not upgradeable until level 10.
+    Last relic level (10) is a choice of level (new random mod from list of mods available on artifact, upgrade existing mod of choice, new random mod)
+    Costs:
+        1:  0,
+        2:  0,
+        3:  200,
+        4:  300,
+        5:  600,
+        6:  800,
+        7:  1100,
+        8:  1300,
+        9:  1500,
+        10: 2000
+
+Vendor valuations:
+    Mundane: 30
+    Ring: 50
+    Magical: 30 + 75*numOfEnchants
+    Amulets: 50 * CR capacity
+    Junk: 0, but can go up with good persuasion
+    Currency items: 100g
+    Prayer stones: 100
+    Relics: 300 + half of money spent on levelling
+    Rations: 1g
+    Health potions: half buy price
+    Other potions: 10g
+
+Sales and services:
+    Orbs of flux: 200g
+    Orb of destruction: 200g
+    Mundanes: 60
+    HP potions: 5 per level per potion
+    Rations: 2, or 1 for perishable
+    Single enchanted item: 210 with mundane, 150 with mundane provided
+
+    Horses: 800
+    Warhorses: 1200
+
+XP      Challenge
+0       10
+1/8     25
+1/4     50
+1/2     100
+1       200
+2       450
+3       700
+4       1,100
+5       1,800
+6       2,300
+7       2,900
+8       3,900
+9       5,000
+10      5,900
+11      7,200
+12      8,400
+13      10,000
+14      11,500
+15      13,000
+16      15,000
+17      18,000
+18      20,000
+19      22,000
+20      25,000
+21      33,000
+22      41,000
+23      50,000
+24      62,000
+25      75,000
+26      90,000
+27      105,000
+28      120,000
+29      135,000
+30      155,000

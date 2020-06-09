@@ -1,0 +1,47 @@
+[
+  {
+    "value": "Chaos Orb(s) - remove all mods on a magical item and replace them with 1d4 mods",
+    "metadata": ["disadvantage"]
+  },
+  {
+    "value": "Orb(s) of Destruction - Remove a random mod from a magic item or relic",
+    "weighting": 7,
+    "metadata": ["advantage"],
+    "enabled": false
+  },
+  {
+    "value": "Annulment Orb(s) - Remove a mod of your choice from a magic item or artifact",
+    "weighting": 5
+  },
+  {
+    "value": "Orb(s) of Creation - Convert a mundane item into a magical item with disadvantaged 1d4 mods",
+    "weighting": 8
+  },
+  {
+    "value": "Orb(s) of Flux - swap magical properties between compatible items, including simply moving enchantments to mundane items"
+  },
+  {
+    "value": "Exalted Orb - add a mod to a magical item, to a maximum of 5",
+    "metadata": ["1"]
+  },
+  {
+    "value": "Orb of Rare Candy - level up a relic, must use within 24 hours",
+    "weighting": 5,
+    "metadata": ["1"],
+    "enabled": false
+  },
+  {
+    "value": "Orb of Empowerment - double a mod on a magic item or artifact (can't be a special relic mod). An item cannot have more than one doubled mod",
+    "weighting": 2,
+    "metadata": ["1"]
+  },
+  {
+    "value": "Orb of Mulligan - completely level down a relic, then level it back up to its current level. Before levelling it back up, you can let go of your attunement to it.",
+    "weighting": 4,
+    "metadata": ["1"]
+  },
+  {
+    "value": "Orb of Purification - Apply to an amulet and roll 1d6. If you roll above its current CR capacity, you may increase its capacity by 1. Contained creature does not change.",
+    "weighting": 7
+  }
+]

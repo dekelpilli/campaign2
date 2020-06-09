@@ -1,0 +1,283 @@
+[
+  {
+    "value": "Club",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Dagger",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Greatclub",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Handaxe",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Javelin",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Light Hammer",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Mace",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Quarterstaff",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Sickle",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Spear",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Light Crossbow",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Dart",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Shortbow",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Sling",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Battleaxe",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Flail",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Glaive",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Greataxe",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Greatsword",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Halberd",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Lance",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Longsword",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Maul",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Morningstar",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Pike",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Rapier",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Scimitar",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Shortsword",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Trident",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "War pick",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Warhammer",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Whip",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Blowgun",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Hexagun",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Heavy Crossbow",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Longbow",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Net",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Wand",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Padded Body Armour (Light, 11AC, Disadvantage stealth)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Leather Body Armour (Light, 11AC)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Studded Leather Body Armour (Light, 12AC)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Hide Body Armour (Medium, 12AC)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Chain Shirt Body Armour (Medium, 13AC)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Scale Mail Body Armour (Medium, 14AC, Disadvantage stealth)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Breastplate Body Armour (Medium, 14AC)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Half Plate Body Armour (Medium, 15AC, Disadvantage stealth)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Ring Mail Body Armour (Heavy, 14AC, Disadvantage stealth)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Chain Mail Body Armour (Heavy, 16AC, Disadvantage stealth)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Splint Body Armour (Heavy, 17AC, Disadvantage stealth)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Plate Body Armour (Heavy, 18AC, Disadvantage stealth)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Shield (+2 AC)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Unarmoured boots",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Unarmoured gloves",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Unarmoured helmet",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Unarmoured body armour (shirt)",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Light boots",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Light gloves",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Light helmet",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Medium boots",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Medium gloves",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Medium helmet",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Heavy boots",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Heavy gloves",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Heavy helmet",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Spell Focus",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Ring"
+  },
+  {
+    "value": "Brass knuckles: regular fist weapon",
+    "comment": "+1 bludgeoning damage with this weapon",
+    "weighting": 4,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Stabber: piercing fist weapon",
+    "comment": "+1 piercing damage with this weapon, your bludgeoning damage is converted to piercing with this weapon",
+    "weighting": 3,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Claw: slashing fist weapon",
+    "comment": "+1 slashing damage with this weapon, your bludgeoning damage is converted to slashing with this weapon",
+    "weighting": 3,
+    "metadata": ["weapon"]
+  }
+]

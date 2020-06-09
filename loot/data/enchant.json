@@ -1,0 +1,807 @@
+[
+  {
+    "value": "Replace this mod with two mods. These only count as 1 for the item's limit.",
+    "weighting": 1
+  },
+  {
+    "value": "+1 AC",
+    "weighting": 2
+  },
+  {
+    "value": "You have an additional spell slot of your second highest spell slot where you have at least one spell slot available",
+    "weighting": 2
+  },
+  {
+    "value": "+5ft attack reach with melee attacks on your turn",
+    "weighting": 2
+  },
+  {
+    "value": "Stone's Endurance (if you already have it, you get another use per long/short rest) (Volo's p109)",
+    "weighting": 2
+  },
+  {
+    "value": "+1 resistance to all damage",
+    "weighting": 2,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Ignore piercing resistance",
+    "weighting": 2
+  },
+  {
+    "value": "Ignore slashing resistance",
+    "weighting": 2
+  },
+  {
+    "value": "Ignore bludgeoning resistance",
+    "weighting": 2
+  },
+  {
+    "value": "This weapon is considered magical for the purposes of overcoming resistances and immunities",
+    "weighting": 2,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+2 bludgeoning damage",
+    "weighting": 4
+  },
+  {
+    "value": "+2 piercing damage",
+    "weighting": 4
+  },
+  {
+    "value": "+2 slashing damage",
+    "weighting": 4
+  },
+  {
+    "value": "+1 to global AB",
+    "weighting": 3
+  },
+  {
+    "value": "+1 to saving throws against spells",
+    "weighting": 3
+  },
+  {
+    "value": "Ignore lightning resistance",
+    "weighting": 3
+  },
+  {
+    "value": "Ignore psychic resistance",
+    "weighting": 3
+  },
+  {
+    "value": "Ignore cold resistance",
+    "weighting": 3
+  },
+  {
+    "value": "Ignore fire resistance",
+    "weighting": 3
+  },
+  {
+    "value": "Ignore necrotic resistance",
+    "weighting": 3
+  },
+  {
+    "value": "Ignore radiant resistance",
+    "weighting": 3
+  },
+  {
+    "value": "Ignore force resistance",
+    "weighting": 5
+  },
+  {
+    "value": "Ignore poison resistance",
+    "weighting": 3
+  },
+  {
+    "value": "Ignore thunder resistance",
+    "weighting": 3
+  },
+  {
+    "value": "Ignore acid resistance",
+    "weighting": 3
+  },
+  {
+    "value": "+1 to this weapon's base damage die size",
+    "weighting": 6,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Recover a 1st-level spell slot when you roll for initiative",
+    "weighting": 3
+  },
+  {
+    "value": "Recover 10% of your maximum class points (minimum 1) when you roll for initiative",
+    "weighting": 3
+  },
+  {
+    "value": "+1d4 acid damage with attacks with this weapon",
+    "weighting": 4,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1d4 cold damage with attacks with this weapon",
+    "weighting": 4,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1d4 fire damage with attacks with this weapon",
+    "weighting": 4,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1d4 force damage with attacks with this weapon",
+    "weighting": 4,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1d4 lightning damage with attacks with this weapon",
+    "weighting": 4,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1d4 necrotic damage with attacks with this weapon",
+    "weighting": 4,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1d4 poison damage with attacks with this weapon",
+    "weighting": 4,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1d4 psychic damage with attacks with this weapon",
+    "weighting": 4,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1d4 radiant damage with attacks with this weapon",
+    "weighting": 4,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1d4 thunder damage with attacks with this weapon",
+    "weighting": 4,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1 spell save DC",
+    "weighting": 4
+  },
+  {
+    "value": "+1 AC while unarmoured (does not work while using a shield)",
+    "weighting": 4
+  },
+  {
+    "value": "+1 AC while using a shield",
+    "weighting": 4
+  },
+  {
+    "value": "Gain resistance to physical damage equal to half the CR total of your highest CR active minion",
+    "weighting": 4
+  },
+  {
+    "value": "+2 acid damage",
+    "weighting": 5
+  },
+  {
+    "value": "+2 cold damage",
+    "weighting": 5
+  },
+  {
+    "value": "+2 fire damage",
+    "weighting": 5
+  },
+  {
+    "value": "+2 force damage",
+    "weighting": 5
+  },
+  {
+    "value": "+2 lightning damage",
+    "weighting": 5
+  },
+  {
+    "value": "+2 necrotic damage",
+    "weighting": 5
+  },
+  {
+    "value": "+2 poison damage",
+    "weighting": 5
+  },
+  {
+    "value": "+2 psychic damage",
+    "weighting": 5
+  },
+  {
+    "value": "+2 radiant damage",
+    "weighting": 5
+  },
+  {
+    "value": "+2 thunder damage",
+    "weighting": 5
+  },
+  {
+    "value": "+1 Dexterity",
+    "weighting": 5
+  },
+  {
+    "value": "+1 Constitution",
+    "weighting": 4
+  },
+  {
+    "value": "+1 Wisdom",
+    "weighting": 5
+  },
+  {
+    "value": "+1 Charisma",
+    "weighting": 5
+  },
+  {
+    "value": "+1 Strength",
+    "weighting": 5
+  },
+  {
+    "value": "+1 Intelligence",
+    "weighting": 5
+  },
+  {
+    "value": "+2 to loot rolls result, -1 loot roll die size",
+    "weighting": 5
+  },
+  {
+    "value": "You have an additional second level spell slot (only if you already had at least 1)",
+    "weighting": 5
+  },
+  {
+    "value": "+1 proficiency bonus if this mod is empowered or appears twice on the same item",
+    "weighting": 3
+  },
+  {
+    "value": "-1 critical strike requirement with attacks (including spell attacks)",
+    "weighting": 5
+  },
+  {
+    "value": "Targets have +1 critical strike avoidance minimum when saving against your spells",
+    "weighting": 6
+  },
+  {
+    "value": "+1 weapon attack AB with attacks that deal non-physical damage",
+    "weighting": 5
+  },
+  {
+    "value": "You have advantage on initiative rolls",
+    "weighting": 5
+  },
+  {
+    "value": "This item's maximum number of mods is increased by 2",
+    "weighting": 5
+  },
+  {
+    "value": "When you score a critical strike, recover a 1st-level spell slot",
+    "weighting": 5
+  },
+  {
+    "value": "When you score a critical strike, recover a 10% of your maximum class points (minimum 1)",
+    "weighting": 5
+  },
+  {
+    "value": "+1 AB with unarmed attacks",
+    "weighting": 5,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1d4 bludgeoning damage with attacks with this weapon",
+    "weighting": 6,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1d4 piercing damage with attacks with this weapon",
+    "weighting": 6,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1d4 slashing damage with attacks with this weapon",
+    "weighting": 6,
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1 to Dexterity saving throws",
+    "weighting": 5,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 to Constitution saving throws",
+    "weighting": 5,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 to Intelligence saving throws",
+    "weighting": 7,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 to Wisdom saving throws",
+    "weighting": 6,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "This weapon deals no base damage. Roll again and empower twice",
+    "metadata": ["weapon"],
+    "weighting": 4
+  },
+  {
+    "value": "You gain telepathy with a range of 10 feet",
+    "weighting": 6
+  },
+  {
+    "value": "+1 question when learning creature stats (must have earned at least one question)",
+    "weighting": 7
+  },
+  {
+    "value": "Your critical strikes add 1 additional damage die from the source's base damage",
+    "weighting": 7
+  },
+  {
+    "value": "You can use your reaction to change any damage you deal into a damage type of your choice. This is visually noticeable.",
+    "weighting": 7
+  },
+  {
+    "value": "+1 resistance to bludgeoning damage",
+    "weighting": 8,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 resistance to piercing damage",
+    "weighting": 8,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 resistance to slashing damage",
+    "weighting": 8,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Once per round, when you take damage from a melee or touch attack, the attacker takes true damage equal to half your level, rounded down",
+    "weighting": 8,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "When a melee or touch fails to hit you, the attacker takes true damage equal to half your level (rounded up)",
+    "weighting": 8,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Roll again, making that result a negative enchant. Then roll again, empowering that result.",
+    "weighting": 8
+  },
+  {
+    "value": "-1 to a creature's saving throws attempting to end an ongoing condition you caused",
+    "weighting": 8
+  },
+  {
+    "value": "Once per long rest, you can make a Persuasion check contested by a non-hostile creature's Wisdom save. The creature must be within 60 feet of you. On a success, you can give them a command as per the Command spell",
+    "weighting": 8
+  },
+  {
+    "value": "+1 to Strength saving throws",
+    "weighting": 8,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "If you take damage exceeding 25% of your maximum hit points in one turn and do not reach 0 hit points by its end, heal hit points equal to your level.",
+    "weighting": 9
+  },
+  {
+    "value": "If you take damage exceeding 25% of your maximum hit points in one round and do not reach 0 hit points by its end, you may move up one place in the initiative tracker, if possible.",
+    "weighting": 9
+  },
+  {
+    "value": "Once per long rest, when you need make an attack roll, ability check, or saving throw, you can use your reaction to replace it with a 50% chance to critically succeed and 50% chance to to critically fail",
+    "weighting": 9
+  },
+  {
+    "value": "+1 to Charisma saves"
+  },
+  {
+    "value": "+1 global damage"
+  },
+  {
+    "value": "+1 to death saves"
+  },
+  {
+    "value": "After you received damage for the first time in a combat, you may choose to become resistant to that damage type for the rest of the combat.\n\tIf you choose to do so, you then become vulnerable to two other damage types (chosen randomly). \n\t\t(random, 1-13, [1 Acid, 2 Bludgeoning, 3 Cold, 4 Fire, 5 Force, 6 Lightning, 7 Necrotic, 8 Piercing, 9 Poison, 10 Psychic, 11  Radiant, 12 Slashing, 13 Thunder]"
+  },
+  {
+    "value": "Gain temporary hit points equal to your lowest ability score (not bonus) at the beginning of each combat."
+  },
+  {
+    "value": "+1 resistance to acid damage",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 resistance to cold damage",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 resistance to fire damage",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 resistance to force damage",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 resistance to lightning damage",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 resistance to necrotic damage",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 resistance to poison damage",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 resistance to psychic damage",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 resistance to radiant damage",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 resistance to thunder damage",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "When you score a critical success on a death saving throw, you gain 1 hit point and immediately end your turn",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "You have an additional first level spell slot"
+  },
+  {
+    "value": "+10ft darkvision"
+  },
+  {
+    "value": "+5ft blindsight"
+  },
+  {
+    "value": "+5ft tremorsense"
+  },
+  {
+    "value": "You cannot be deafened"
+  },
+  {
+    "value": "When you score a critical strike with an attack of opportunity, the target is paralyzed until the end of their turn"
+  },
+  {
+    "value": "When you hit a creature with an attack, they are silenced until the end of their next turn",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "You're acclimated to high altitude, including elevations above 20,000 feet"
+  },
+  {
+    "value": "First wearer chooses a language in which this item grants perfect knowledge"
+  },
+  {
+    "value": "+2 passive perception"
+  },
+  {
+    "value": "+10 feet speed in all of your available speed types"
+  },
+  {
+    "value": "+1 to hit die size for regaining health during short rests"
+  },
+  {
+    "value": "+1 to initiative rolls"
+  },
+  {
+    "value": "+1 damage with spells"
+  },
+  {
+    "value": "+5ft fly speed"
+  },
+  {
+    "value": "+10ft climb speed"
+  },
+  {
+    "value": "+10ft swimming speed, and you can breath under water"
+  },
+  {
+    "value": "+1 insight"
+  },
+  {
+    "value": "+2 investigation"
+  },
+  {
+    "value": "You can jump without a run-up as if you had taken a run-up"
+  },
+  {
+    "value": "+5 points of Lay on Hands per long rest"
+  },
+  {
+    "value": "+4 damage against creatures of a certain type \n\t\t(random, 1-14, [1 Abberation, 2 Beast, 3 Celestial, 4 Construct, 5 Dragon, 6 Elemental, 7 Fey, 8 Fiend, 9 Giant, 10 Humanoid, 11 Monstrosity, 12 Ooze, 13 Plant, 14 Undead]"
+  },
+  {
+    "value": "When you become unconscious as a result of going down to 0 hit points, creatures of your choice within 5 feet of you must succeed a Constitution save against a DC of (8 + prof + attribute mod of your choice) or be stunned until the end of your next turn"
+  },
+  {
+    "value": "Your short rests can be 10 minutes shorter, to a minimum of 20 minutes",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "Your long rests can be 1 hour shorter, to a minimum of 3 hours"
+  },
+  {
+    "value": "You need four failed death save points to die, instead of 3"
+  },
+  {
+    "value": "+1 perception"
+  },
+  {
+    "value": "+2 arcana"
+  },
+  {
+    "value": "+2 athletics"
+  },
+  {
+    "value": "+2 acrobatics"
+  },
+  {
+    "value": "+2 sleight of hand"
+  },
+  {
+    "value": "+2 stealth"
+  },
+  {
+    "value": "+2 history"
+  },
+  {
+    "value": "+2 nature"
+  },
+  {
+    "value": "+2 religion"
+  },
+  {
+    "value": "+2 animal handling"
+  },
+  {
+    "value": "+2 medicine"
+  },
+  {
+    "value": "+2 survival"
+  },
+  {
+    "value": "+1 deception"
+  },
+  {
+    "value": "+2 intimidation"
+  },
+  {
+    "value": "+2 performance"
+  },
+  {
+    "value": "+1 persuasion"
+  },
+  {
+    "value": "+20 feet to both range options on ranged weapons. This does nothing on weapons without range",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Randomise a cantrip. While wearing this item, you may cast that cantrip once per long rest. Spellcasting modifier can be a mental attribute of your choice."
+  },
+  {
+    "value": "+2 to deception in languages other than Common"
+  },
+  {
+    "value": "While wearing this item, you gain sustenance every 24 hours"
+  },
+  {
+    "value": "This item sells for an extra 1d100 gold. You only roll after the item is sold"
+  },
+  {
+    "value": "+4 Strength while restrained"
+  },
+  {
+    "value": "Modifiers to your damage apply to your minions at 50% effectiveness (stacks, max 100%)"
+  },
+  {
+    "value": "Whenever you deal damage, you may choose to instead not deal damage, and the enemy will provide you with an additional loot roll on death, with die size equal to one fifth of the damage nullified. \n\t\t\tIf the number is odd, your minimum result increases by 1. A creature cannot provide more than one such loot roll."
+  },
+  {
+    "value": "+1 incoming healing (not including from potions)"
+  },
+  {
+    "value": "+2 outgoing healing"
+  },
+  {
+    "value": "Once per long rest, when rolling a natural 1 on a d20, you may reroll."
+  },
+  {
+    "value": "Heal 1 HP on hitting a creature with this weapon in combat",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "+1 to saving throws made to end an ongoing condition if your HP is above 0",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "You have resistance to all damage while taking the Dodge action"
+  },
+  {
+    "value": "Reduce the damage bonus of incoming damage you are vulnerable to by 25%"
+  },
+  {
+    "value": "This item emits bright light in a 5 foot radius, and dim light for a further 5 feet"
+  },
+  {
+    "value": "+1 damage to melee and touch attacks"
+  },
+  {
+    "value": "Recover a 1st-level spell slot on Killing Blow"
+  },
+  {
+    "value": "Recover 10% of your maximum class points (minimum 1) on Killing Blow"
+  },
+  {
+    "value": "At the start of your turn in combat, if you haven't taken damage since the start of your last turn, gain 1 temporary hit point. This stacks with any existing temporary hit points.",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "+1 damage with weapon attacks",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Once per long rest, you can choose a target you can see as an action and then cast a random 1st-level spell on that target, ignoring range restrictions",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "When you score a critical strike, the target gains a condition that deals 1d4 damage of the strike's primary damage type every round to the target for 1d4 rounds. If the condition is reapplied, the longer of the two durations becomes the new duration and the damage stacks."
+  },
+  {
+    "value": "When you deliver a Killing Blow, gain +2 global damage for the remainder of the combat"
+  },
+  {
+    "value": "+2 to physical resistance while taking Damage Over Time"
+  },
+  {
+    "value": "+1 to damage with light weapons"
+  },
+  {
+    "value": "Reroll, the resulting enchant is applied to minions instead of the wielder (assuming their basic attacks use weapons)"
+  },
+  {
+    "value": "Your minions have +1 resistance to all damage"
+  },
+  {
+    "value": "When an attack fails to hit you in combat, you can use your reaction to reduce your AC for the attack until it does hit you. Your next instance of damage in the next minute is then increased by 3 for each point of AC you dropped."
+  },
+  {
+    "value": "+1 to Damage Over Time"
+  },
+  {
+    "value": "When you hit a creature with this weapon, they get -1 resistance to all damage dealt by creatures other than yourself for the remainder of combat. This does not stack, though multiple instances of this enchant do."
+  },
+  {
+    "value": "+2 resistance to damage from projectiles",
+    "weighting": 8,
+    "metadata": ["armour"]
+  },
+  {
+    "value": "When you deliver a Killing Blow, gain 10 temporary hit points"
+  },
+  {
+    "value": "Whenever you grant a buff with a duration to a creature, gain outgoing healing +2 until the end of your next turn"
+  },
+  {
+    "value": "Every third spell you cast deals +5 damage, across any amount of time"
+  },
+  {
+    "value": "+2 global AB against creatures of a certain type \n\t\t(random, 1-14, [1 Abberation, 2 Beast, 3 Celestial, 4 Construct, 5 Dragon, 6 Elemental, 7 Fey, 8 Fiend, 9 Giant, 10 Humanoid, 11 Monstrosity, 12 Ooze, 13 Plant, 14 Undead]"
+  },
+  {
+    "value": "+2 global damage while flanking"
+  },
+  {
+    "value": "+2 global damage against creatures behind you in the initiative tracker"
+  },
+  {
+    "value": "This weapon gains the light property",
+    "metadata": ["weapon"]
+  },
+  {
+    "value": "Heal 5 hit points when you roll for initiative"
+  },
+  {
+    "value": "You can travel through 1 inch of solid surface with a full movement action. If you end your turn inside the surface, you are shunted back to your original location."
+  },
+  {
+    "value": "Against creatures of a certain type, all of your damage type-seeks to maximise damage \n\t\t(random, 1-14, [1 Abberation, 2 Beast, 3 Celestial, 4 Construct, 5 Dragon, 6 Elemental, 7 Fey, 8 Fiend, 9 Giant, 10 Humanoid, 11 Monstrosity, 12 Ooze, 13 Plant, 14 Undead]"
+  },
+  {
+    "value": "+2 resistance to damage from creatures of a certain type \n\t\t(random, 1-14, [1 Abberation, 2 Beast, 3 Celestial, 4 Construct, 5 Dragon, 6 Elemental, 7 Fey, 8 Fiend, 9 Giant, 10 Humanoid, 11 Monstrosity, 12 Ooze, 13 Plant, 14 Undead]"
+  },
+  {
+    "value": "+25% chance to ignore bonus damage from incoming critical strikes",
+    "metadata": ["armour"]
+  },
+  {
+    "value": "While you have 3 different enchantments equipped that grant bonuses against the same type of creature, you have +1 to your proficiency bonus"
+  },
+  {
+    "value": "+2 global damage while your hit points are below 50% of your hit point maximum"
+  },
+  {
+    "value": "When you deliver a Killing Blow, heal 5 hit points"
+  },
+  {
+    "value": "+2 health regeneration per round of combat"
+  },
+  {
+    "value": "+3 to maximum HP",
+    "weighting": 7
+  },
+  {
+    "value": "+3 to minion damage"
+  },
+  {
+    "value": "+5 to minion HP per minion CR"
+  },
+  {
+    "value": "+10HP while transformed"
+  },
+  {
+    "value": "When you exit your transformed state, you gain temporary hit points equal to twice the CR of the creature you were transformed into."
+  },
+  {
+    "value": "+2 global damage and +10ft speed while transformed into a Beast"
+  },
+  {
+    "value": "+1d6 radiant damage while transformed into a Celestial"
+  },
+  {
+    "value": "+2 to DCs of effects that cause conditions while transformed"
+  },
+  {
+    "value": "All of your ring mods are empowered while you are transformed"
+  },
+  {
+    "value": "You retain your normal speed while transformed into an Ooze"
+  },
+  {
+    "value": "You may keep your current appearance, minus size, while transformed into a Humanoid."
+  },
+  {
+    "value": "+1d6 psychic damage while transformed into an Aberration."
+  },
+  {
+    "value": "You may ignore conditions while transformed into a Construct"
+  },
+  {
+    "value": "Attacks that would deal fire, cold, or lightning damage have +2AB while you are transformed into an Elemental"
+  },
+  {
+    "value": "While transformed into a Dragon, you are immune to any non-physical damage types you can deal"
+  },
+  {
+    "value": "You have advantage on all skill checks while transformed into a Fey."
+  },
+  {
+    "value": "+1d8 bludgeoning damage while transformed into a Giant."
+  },
+  {
+    "value": "+1d4 fire damage while transformed into a Fiend. +1d4 poison damage if it is also a Demon."
+  },
+  {
+    "value": "While transformed into an undead creature, if you go down to 0 hit points, you do not transform back to your normal form for two more rounds."
+  },
+  {
+    "value": "Once per short rest, while transformed into a Monstrosity, you may take two actions instead of one on your turn."
+  },
+  {
+    "value": "While transformed into a Plant, you regenerate health equal to your Constitution modifier every round, to a minimum of 1 (the plant's value + any of your bonuses)."
+  }
+]
