@@ -1,403 +1,321 @@
 [
   {
-    "value": "Replace this mod with two mods. These only count as 1 for the item's limit.",
-    "weighting": 1
+    "value": "+1 AC"
   },
   {
-    "value": "+1 AC",
-    "weighting": 2
+    "value": "You have an additional spell slot of your second highest spell slot where you have at least one spell slot available"
   },
   {
-    "value": "You have an additional spell slot of your second highest spell slot where you have at least one spell slot available",
-    "weighting": 2
+    "value": "+5ft attack reach with melee attacks on your turn"
   },
   {
-    "value": "+5ft attack reach with melee attacks on your turn",
-    "weighting": 2
-  },
-  {
-    "value": "Stone's Endurance (if you already have it, you get another use per long/short rest) (Volo's p109)",
-    "weighting": 2
+    "value": "Stone's Endurance (if you already have it, you get another use per long/short rest) (Volo's p109)"
   },
   {
     "value": "+1 resistance to all damage",
-    "weighting": 2,
-    "metadata": ["armour"]
-  },
-  {
-    "value": "Ignore piercing resistance",
-    "weighting": 2
-  },
-  {
-    "value": "Ignore slashing resistance",
-    "weighting": 2
-  },
-  {
-    "value": "Ignore bludgeoning resistance",
-    "weighting": 2
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "This weapon is considered magical for the purposes of overcoming resistances and immunities",
-    "weighting": 2,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
-    "value": "+2 bludgeoning damage",
-    "weighting": 4
+    "value": "+2 bludgeoning damage"
   },
   {
-    "value": "+2 piercing damage",
-    "weighting": 4
+    "value": "+2 piercing damage"
   },
   {
-    "value": "+2 slashing damage",
-    "weighting": 4
+    "value": "+2 slashing damage"
   },
   {
-    "value": "+1 to global AB",
-    "weighting": 3
-  },
-  {
-    "value": "+1 to saving throws against spells",
-    "weighting": 3
-  },
-  {
-    "value": "Ignore lightning resistance",
-    "weighting": 3
-  },
-  {
-    "value": "Ignore psychic resistance",
-    "weighting": 3
-  },
-  {
-    "value": "Ignore cold resistance",
-    "weighting": 3
-  },
-  {
-    "value": "Ignore fire resistance",
-    "weighting": 3
-  },
-  {
-    "value": "Ignore necrotic resistance",
-    "weighting": 3
-  },
-  {
-    "value": "Ignore radiant resistance",
-    "weighting": 3
-  },
-  {
-    "value": "Ignore force resistance",
-    "weighting": 5
-  },
-  {
-    "value": "Ignore poison resistance",
-    "weighting": 3
-  },
-  {
-    "value": "Ignore thunder resistance",
-    "weighting": 3
-  },
-  {
-    "value": "Ignore acid resistance",
-    "weighting": 3
+    "value": "+1 to global AB"
   },
   {
     "value": "+1 to this weapon's base damage die size",
-    "weighting": 6,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
-    "value": "Recover a 1st-level spell slot when you roll for initiative",
-    "weighting": 3
+    "value": "Recover a 1st-level spell slot when you roll for initiative"
   },
   {
-    "value": "Recover 10% of your maximum class points (minimum 1) when you roll for initiative",
-    "weighting": 3
+    "value": "Recover 10% of your maximum class points (minimum 1) when you roll for initiative"
   },
   {
     "value": "+1d4 acid damage with attacks with this weapon",
-    "weighting": 4,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1d4 cold damage with attacks with this weapon",
-    "weighting": 4,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1d4 fire damage with attacks with this weapon",
-    "weighting": 4,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1d4 force damage with attacks with this weapon",
-    "weighting": 4,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1d4 lightning damage with attacks with this weapon",
-    "weighting": 4,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1d4 necrotic damage with attacks with this weapon",
-    "weighting": 4,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1d4 poison damage with attacks with this weapon",
-    "weighting": 4,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1d4 psychic damage with attacks with this weapon",
-    "weighting": 4,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1d4 radiant damage with attacks with this weapon",
-    "weighting": 4,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1d4 thunder damage with attacks with this weapon",
-    "weighting": 4,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
-    "value": "+1 spell save DC",
-    "weighting": 4
+    "value": "+1 spell save DC"
   },
   {
-    "value": "+1 AC while unarmoured (does not work while using a shield)",
-    "weighting": 4
+    "value": "+1 AC while unarmoured (does not work while using a shield)"
   },
   {
-    "value": "+1 AC while using a shield",
-    "weighting": 4
+    "value": "+1 AC while using a shield"
   },
   {
-    "value": "Gain resistance to physical damage equal to half the CR total of your highest CR active minion",
-    "weighting": 4
+    "value": "Gain resistance to physical damage equal to half the CR total of your highest CR active minion"
   },
   {
-    "value": "+2 acid damage",
-    "weighting": 5
+    "value": "+2 acid damage"
   },
   {
-    "value": "+2 cold damage",
-    "weighting": 5
+    "value": "+2 cold damage"
   },
   {
-    "value": "+2 fire damage",
-    "weighting": 5
+    "value": "+2 fire damage"
   },
   {
-    "value": "+2 force damage",
-    "weighting": 5
+    "value": "+2 force damage"
   },
   {
-    "value": "+2 lightning damage",
-    "weighting": 5
+    "value": "+2 lightning damage"
   },
   {
-    "value": "+2 necrotic damage",
-    "weighting": 5
+    "value": "+2 necrotic damage"
   },
   {
-    "value": "+2 poison damage",
-    "weighting": 5
+    "value": "+2 poison damage"
   },
   {
-    "value": "+2 psychic damage",
-    "weighting": 5
+    "value": "+2 psychic damage"
   },
   {
-    "value": "+2 radiant damage",
-    "weighting": 5
+    "value": "+2 radiant damage"
   },
   {
-    "value": "+2 thunder damage",
-    "weighting": 5
+    "value": "+2 thunder damage"
   },
   {
-    "value": "+1 Dexterity",
-    "weighting": 5
+    "value": "+1 Dexterity"
   },
   {
-    "value": "+1 Constitution",
-    "weighting": 4
+    "value": "+1 Constitution"
   },
   {
-    "value": "+1 Wisdom",
-    "weighting": 5
+    "value": "+1 Wisdom"
   },
   {
-    "value": "+1 Charisma",
-    "weighting": 5
+    "value": "+1 Charisma"
   },
   {
-    "value": "+1 Strength",
-    "weighting": 5
+    "value": "+1 Strength"
   },
   {
-    "value": "+1 Intelligence",
-    "weighting": 5
+    "value": "+1 Intelligence"
   },
   {
-    "value": "+2 to loot rolls result, -1 loot roll die size",
-    "weighting": 5
+    "value": "+2 to loot rolls result, -1 loot roll die size"
   },
   {
-    "value": "You have an additional second level spell slot (only if you already had at least 1)",
-    "weighting": 5
+    "value": "You have an additional second level spell slot (only if you already had at least 1)"
   },
   {
-    "value": "+1 proficiency bonus if this mod is empowered or appears twice on the same item",
-    "weighting": 3
+    "value": "+1 proficiency bonus if this mod is empowered or appears twice on the same item"
   },
   {
-    "value": "-1 critical strike requirement with attacks (including spell attacks)",
-    "weighting": 5
+    "value": "-1 critical strike requirement with attacks (including spell attacks)"
   },
   {
-    "value": "Targets have +1 critical strike avoidance minimum when saving against your spells",
-    "weighting": 6
+    "value": "Targets have +1 critical strike avoidance minimum when saving against your spells"
   },
   {
-    "value": "+1 weapon attack AB with attacks that deal non-physical damage",
-    "weighting": 5
+    "value": "+1 weapon attack AB with attacks that deal non-physical damage"
   },
   {
-    "value": "You have advantage on initiative rolls",
-    "weighting": 5
+    "value": "You have advantage on initiative rolls"
   },
   {
-    "value": "This item's maximum number of mods is increased by 2",
-    "weighting": 5
+    "value": "This item's maximum number of mods is increased by 2"
   },
   {
-    "value": "When you score a critical strike, recover a 1st-level spell slot",
-    "weighting": 5
+    "value": "When you score a critical strike, recover a 1st-level spell slot"
   },
   {
-    "value": "When you score a critical strike, recover a 10% of your maximum class points (minimum 1)",
-    "weighting": 5
+    "value": "When you score a critical strike, recover a 10% of your maximum class points (minimum 1)"
   },
   {
     "value": "+1 AB with unarmed attacks",
-    "weighting": 5,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1d4 bludgeoning damage with attacks with this weapon",
-    "weighting": 6,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1d4 piercing damage with attacks with this weapon",
-    "weighting": 6,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1d4 slashing damage with attacks with this weapon",
-    "weighting": 6,
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1 to Dexterity saving throws",
-    "weighting": 5,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 to Constitution saving throws",
-    "weighting": 5,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 to Intelligence saving throws",
-    "weighting": 7,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 to Wisdom saving throws",
-    "weighting": 6,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "This weapon deals no base damage. Roll again and empower twice",
-    "metadata": ["weapon"],
-    "weighting": 4
+    "metadata": [
+      "weapon"
+    ]
   },
   {
-    "value": "You gain telepathy with a range of 10 feet",
-    "weighting": 6
+    "value": "You gain telepathy with a range of 10 feet"
   },
   {
-    "value": "+1 question when learning creature stats (must have earned at least one question)",
-    "weighting": 7
+    "value": "+1 question when learning creature stats (must have earned at least one question)"
   },
   {
-    "value": "Your critical strikes add 1 additional damage die from the source's base damage",
-    "weighting": 7
+    "value": "Your critical strikes add 1 additional damage die from the source's base damage"
   },
   {
-    "value": "You can use your reaction to change any damage you deal into a damage type of your choice. This is visually noticeable.",
-    "weighting": 7
+    "value": "You can use your reaction to change any damage you deal into a damage type of your choice. This is visually noticeable."
   },
   {
     "value": "+1 resistance to bludgeoning damage",
-    "weighting": 8,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 resistance to piercing damage",
-    "weighting": 8,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 resistance to slashing damage",
-    "weighting": 8,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "Once per round, when you take damage from a melee or touch attack, the attacker takes true damage equal to half your level, rounded down",
-    "weighting": 8,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "When a melee or touch fails to hit you, the attacker takes true damage equal to half your level (rounded up)",
-    "weighting": 8,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
-    "value": "Roll again, making that result a negative enchant. Then roll again, empowering that result.",
-    "weighting": 8
+    "value": "Roll again, making that result a negative enchant. Then roll again, empowering that result."
   },
   {
-    "value": "-1 to a creature's saving throws attempting to end an ongoing condition you caused",
-    "weighting": 8
+    "value": "-1 to a creature's saving throws attempting to end an ongoing condition you caused"
   },
   {
-    "value": "Once per long rest, you can make a Persuasion check contested by a non-hostile creature's Wisdom save. The creature must be within 60 feet of you. On a success, you can give them a command as per the Command spell",
-    "weighting": 8
+    "value": "Once per long rest, you can make a Persuasion check contested by a non-hostile creature's Wisdom save. The creature must be within 60 feet of you. On a success, you can give them a command as per the Command spell"
   },
   {
     "value": "+1 to Strength saving throws",
-    "weighting": 8,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
-    "value": "If you take damage exceeding 25% of your maximum hit points in one turn and do not reach 0 hit points by its end, heal hit points equal to your level.",
-    "weighting": 9
+    "value": "If you take damage exceeding 25% of your maximum hit points in one turn and do not reach 0 hit points by its end, heal hit points equal to your level."
   },
   {
-    "value": "If you take damage exceeding 25% of your maximum hit points in one round and do not reach 0 hit points by its end, you may move up one place in the initiative tracker, if possible.",
-    "weighting": 9
+    "value": "If you take damage exceeding 25% of your maximum hit points in one round and do not reach 0 hit points by its end, you may move up one place in the initiative tracker, if possible."
   },
   {
-    "value": "Once per long rest, when you need make an attack roll, ability check, or saving throw, you can use your reaction to replace it with a 50% chance to critically succeed and 50% chance to to critically fail",
-    "weighting": 9
+    "value": "Once per long rest, when you need make an attack roll, ability check, or saving throw, you can use your reaction to replace it with a 50% chance to critically succeed and 50% chance to to critically fail"
   },
   {
     "value": "+1 to Charisma saves"
@@ -416,47 +334,69 @@
   },
   {
     "value": "+1 resistance to acid damage",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 resistance to cold damage",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 resistance to fire damage",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 resistance to force damage",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 resistance to lightning damage",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 resistance to necrotic damage",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 resistance to poison damage",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 resistance to psychic damage",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 resistance to radiant damage",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 resistance to thunder damage",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "When you score a critical success on a death saving throw, you gain 1 hit point and immediately end your turn",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "You have an additional first level spell slot"
@@ -478,7 +418,9 @@
   },
   {
     "value": "When you hit a creature with an attack, they are silenced until the end of their next turn",
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "You're acclimated to high altitude, including elevations above 20,000 feet"
@@ -530,7 +472,9 @@
   },
   {
     "value": "Your short rests can be 10 minutes shorter, to a minimum of 20 minutes",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "Your long rests can be 1 hour shorter, to a minimum of 3 hours"
@@ -588,7 +532,9 @@
   },
   {
     "value": "+20 feet to both range options on ranged weapons. This does nothing on weapons without range",
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "Randomise a cantrip. While wearing this item, you may cast that cantrip once per long rest. Spellcasting modifier can be a mental attribute of your choice."
@@ -622,11 +568,15 @@
   },
   {
     "value": "Heal 1 HP on hitting a creature with this weapon in combat",
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "+1 to saving throws made to end an ongoing condition if your HP is above 0",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "You have resistance to all damage while taking the Dodge action"
@@ -648,15 +598,21 @@
   },
   {
     "value": "At the start of your turn in combat, if you haven't taken damage since the start of your last turn, gain 1 temporary hit point. This stacks with any existing temporary hit points.",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "+1 damage with weapon attacks",
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "Once per long rest, you can choose a target you can see as an action and then cast a random 1st-level spell on that target, ignoring range restrictions",
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "When you score a critical strike, the target gains a condition that deals 1d4 damage of the strike's primary damage type every round to the target for 1d4 rounds. If the condition is reapplied, the longer of the two durations becomes the new duration and the damage stacks."
@@ -687,8 +643,9 @@
   },
   {
     "value": "+2 resistance to damage from projectiles",
-    "weighting": 8,
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "When you deliver a Killing Blow, gain 10 temporary hit points"
@@ -710,7 +667,9 @@
   },
   {
     "value": "This weapon gains the light property",
-    "metadata": ["weapon"]
+    "metadata": [
+      "weapon"
+    ]
   },
   {
     "value": "Heal 5 hit points when you roll for initiative"
@@ -726,7 +685,9 @@
   },
   {
     "value": "+25% chance to ignore bonus damage from incoming critical strikes",
-    "metadata": ["armour"]
+    "metadata": [
+      "armour"
+    ]
   },
   {
     "value": "While you have 3 different enchantments equipped that grant bonuses against the same type of creature, you have +1 to your proficiency bonus"
@@ -741,8 +702,7 @@
     "value": "+2 health regeneration per round of combat"
   },
   {
-    "value": "+3 to maximum HP",
-    "weighting": 7
+    "value": "+3 to maximum HP"
   },
   {
     "value": "+3 to minion damage"
