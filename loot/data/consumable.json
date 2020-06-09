@@ -11,47 +11,41 @@
     "metadata": ["disadvantage"]
   },
   {
-    "value": "Poison vial(s) (+1d6 poison damage to weapon for 1 minute), 10d6 poison damage if ingested in full. 2 week decay."
+    "value": "Poison vial(s) (+1d6 poison damage to weapon for 1 minute), 10d6 poison damage if ingested in full."
   },
   {
-    "value": "Greater poison vial(s) (+1d8 poison damage to weapon for 1 minute), enemies poisoned for 2 rounds on critical strike, 10d8 poison damage if ingested in full, ingester poisoned until next long rest. 2 week decay.",
+    "value": "Greater poison vial(s) (+1d8 poison damage to weapon for 1 minute), enemies poisoned for 2 rounds on critical strike, 10d8 poison damage if ingested in full, ingester poisoned until next long rest.",
     "metadata": ["disadvantage"]
   },
   {
-    "value": "Ration(s)",
-    "metadata": ["x2"]
+    "value": "Invulnerability potion(s) - next damage you take is nullified."
   },
   {
-    "value": "Invulnerability potion(s) - next damage you take is nullified. 2 week decay.",
-    "weighting": 5
-  },
-  {
-    "value": "Short rest potions - drink to reduce 10 minutes from your current short rest. 1 month decay.",
+    "value": "Short rest potions - drink to reduce 10 minutes from your current short rest.",
     "metadata": ["advantage"]
   },
   {
-    "value": "Long rest potion(s) - drink to reduce 1 hour from your next long rest. 1 month decay.",
+    "value": "Long rest potion(s) - drink to reduce 1 hour from your next long rest.",
     "metadata": ["advantage"]
   },
   {
-    "value": "Experience potion(s) - Gain 10 XP when drinking this potion",
-    "weighting": 5
+    "value": "Experience potion(s) - Gain 10 XP when drinking this potion"
   },
   {
-    "value": "Potion(s) of Fortune - Gain advantage on your next loot roll. 2 week decay.",
+    "value": "Potion(s) of Fortune - Gain advantage on your next loot roll.",
     "metadata": ["disadvantage"]
   },
   {
-    "value": "Stoneskin potion(s) - When you drink this potion, if you go down within the next day, you become petrified for a minute. While petrified in this way, you do not need to make death saves, and you are immune to damage. 1 month decay."
+    "value": "Stoneskin potion(s) - When you drink this potion, if you go down within the next day, you become petrified for a minute. While petrified in this way, you do not need to make death saves, and you are immune to damage."
   },
   {
-    "value": "Rejuvenation potion(s) - Gain 20 temporary hit points when drunk, but lose all temporary hit points 1 minute later. 2 week decay."
+    "value": "Rejuvenation potion(s) - Gain 20 temporary hit points when drunk, but lose all temporary hit points 1 minute later."
   },
   {
-    "value": "Potion(s) of invisibility - You and everything you're wearing become invisible for up to a minute. This effect ends if you attack or cast a spell. 3 week decay."
+    "value": "Potion(s) of invisibility - You and everything you're wearing become invisible for up to a minute. This effect ends if you attack or cast a spell."
   },
   {
-    "value": "Potion(s) of greater invisibility - You and everything you're wearing become invisible for up to a minute. You may end the invisibility at will. 3 week decay.",
+    "value": "Potion(s) of greater invisibility - You and everything you're wearing become invisible for up to a minute. You may end the invisibility at will.",
     "metadata": ["disadvantage"]
   }
 ]

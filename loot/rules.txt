@@ -4,12 +4,13 @@ Amulets:
     While in this form, you retain all magical bonuses from your gear.
     Amulets are created with a certain CR capacity. You can combine multiple amulets to create an amulet with a higher CR capacity (resulting amulet's CR is the highest CR whose XP is lower than the sum of the given amulet CR XPs)
     You can pay 10 * CR gold to replace the creature in an amulet
+    TODO: temp HP rules
 
 Prayer Stones:
     You can use any prayer stone to pray to any Deity, but when using the appropriate prayer stone, you get the option of skipping a step
 
 Wands:
-    Local wand bonuses apply to cantrips
+    Local wand bonuses apply to spells
     While using a wand, you may choose to make cantrip spells with a spell save DC as spell attacks
 
 Spell Focus:
@@ -21,7 +22,7 @@ Moving mods:
     Between armours
 
 Rings:
-    Maximum of 2 mods (if using orb of creation, new formula for mods is simply `min(2, disadvantaged_1d4)`
+    ?
 
 Relics:
     Relics related to a specific personality are unlocked at a certain quest state.
@@ -53,10 +54,10 @@ Vendor valuations:
 
 Sales and services:
     Orbs of flux: 200g
-    Orb of destruction: 200g
+    Orb of balance: 200g
     Mundanes: 60
-    HP potions: 5 per level per potion
-    Single enchanted item: 210 with mundane, 150 with mundane provided
+    HP potions: 5 per level per potion (TODO: healing surges?)
+    Enchanted item: depends on power, TODO: decide
 
     Horses: 800
     Warhorses: 1200

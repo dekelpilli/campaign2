@@ -2,18 +2,36 @@ from enum import IntEnum
 
 
 class LootType(IntEnum):
-    junk = 1  # negatively enchanted item
+    """
+    1 = negative enchant
+    2 = mundane
+    3 = consumable
+    4 = low gold (40-50)?
+
+    x = medium gold (100-200)
+    x = rings (TODO: wtb ring ideas)
+    x = amulet
+    x = crafting
+    x = magic item (more than one slot for different total allowed mod points) - some with guaranteed not negative
+
+    13 = reroll with advantage? https://anydice.com/program/16a1
+
+    18 = artefact
+    19 = prayer
+    20 = relic
+    """
+    junk = 1  # TODO: negatively enchanted item
     mundane = 2
     consumable = 3
     ring = 4  # TODO: redo rings
     low_gold = 5
     single_enchant_item = 6
     double_enchant_item = 7
-    amulet = 8
+    amulet = 8  # TODO: simplify amulet randomisation weightings
     triple_enchant_item = 9
     crafting_item = 10
     prayer_stone = 11
-    relic = 12  # plus reroll
+    relic = 12
     prayer_stone_2 = -1  # disabled
 
 

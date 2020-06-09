@@ -22,6 +22,7 @@ class LootController:
         self.crafting_items: LootOptions = LootController._create_loot_option("crafting_item", do_flush)
         self.mundanes: LootOptions = LootController._create_loot_option("mundane", do_flush)
         self.rings: LootOptions = LootController._create_loot_option("ring", do_flush)
+        # TODO: need defaults for mod points
         self.enchants: LootOptions = LootController._create_loot_option("enchant", do_flush)
         self.consumables: LootOptions = LootController._create_loot_option("consumable", do_flush)
         self.challenge_ratings: Dict[str, Dict[str, Any]] = LootController._load_challenge_ratings(do_flush)
@@ -45,8 +46,10 @@ class LootController:
         logging.info("Found prayer paths belonging to these characters: %s" % owners)
         prayer_path_owner_choice = input("\nWhich owner's path do you want to level? ")
         readline.set_completer(lambda text, state: None)
+
         if prayer_path_owner_choice not in owners:
-            return prayer_path_owner_choice + " is not a valid prayer path owner choice"
+            logging.warning("%s is not a valid prayer path owner choice" % prayer_path_owner_choice)
+            return None
 
         selected_prayer_stone = list(filter(lambda prayer_stone: prayer_path_owner_choice == prayer_stone.owner,
                                             prayer_paths_started))[0]
