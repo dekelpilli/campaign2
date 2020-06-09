@@ -24,7 +24,7 @@ class LootController:
         self.rings: LootOptions = LootController._create_loot_option("ring", do_flush)
         self.enchants: LootOptions = LootController._create_loot_option("enchant", do_flush)
         self.consumables: LootOptions = LootController._create_loot_option("consumable", do_flush)
-        self.challenge_ratings: Dict[str, Any] = LootController._get_file_contents("monster", do_flush)
+        self.challenge_ratings: Dict[str, Dict[str, Any]] = LootController._load_challenge_ratings(do_flush)
         self.all_crs = list(self.challenge_ratings.keys())
 
         self.found_relics, self.unfound_relics = LootController._create_relics(do_flush)
@@ -228,13 +228,9 @@ class LootController:
         return item_string
 
     @staticmethod
-    def _create_challenge_ratings(do_flush=False) -> Dict[str, str]:
-        file_contents = LootController._get_file_contents("monster", do_flush)
-        cr_dicts = json.loads(file_contents)
-        crs = dict()
-        for cr in cr_dicts:
-            crs[cr] = loot_types.ChallengeRating(cr, cr_dicts[cr]["monsters"], cr_dicts[cr]["XP"])
-        return crs
+    def _load_challenge_ratings(do_flush=False) -> Dict[str, Dict[str, Any]]:
+        file_contents = LootController._load_file_contents("monster", do_flush)
+        return json.loads(file_contents)
 
     @staticmethod
     def _create_loot_option(name, do_flush=False) -> LootOptions:
@@ -256,21 +252,21 @@ class LootController:
 
     @staticmethod
     def _load_with_defaults(filename: str, do_flush: bool, defaults: LootOption) -> LootOptions:
-        file_contents = LootController._get_file_contents(filename, do_flush)
+        file_contents = LootController._load_file_contents(filename, do_flush)
         dicts = json.loads(file_contents)
         return list(map(lambda option: {**defaults, **option}, dicts))
 
     @staticmethod
-    def _get_file_contents(name, do_flush=False):
+    def _load_file_contents(name, do_flush=False):
         with open(DATA_DIR + name + ".json") as data_file:
             if do_flush:
                 data_file.flush()
-                return LootController._get_file_contents(name)
+                return LootController._load_file_contents(name)
             return data_file.read()
 
     @staticmethod
     def _create_relics(do_flush=False):
-        file_contents = LootController._get_file_contents("relic", do_flush)
+        file_contents = LootController._load_file_contents("relic", do_flush)
         relic_dicts = json.loads(file_contents)
         found = dict()
         unfound = dict()
