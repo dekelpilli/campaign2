@@ -6,9 +6,8 @@ class Completer:
         self.options = set(options_list)
 
     def complete(self, text, state):
-        text = text.lower()
         for option in self.options:
-            if option.lower().startswith(text):
+            if option.lower().startswith(text.lower()):
                 if not state:
                     return option
                 else:

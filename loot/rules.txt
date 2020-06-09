@@ -16,9 +16,9 @@ Spell Focus:
     +1 spell save DC, +1 spell AB
 
 Moving mods:
-    Between any weapon and any weapon
+    Between weapons, so long as all mods are compatible with new weapon
     Between rings
-    Between any armour and any armour
+    Between armours
 
 Rings:
     Maximum of 2 mods (if using orb of creation, new formula for mods is simply `min(2, disadvantaged_1d4)`
@@ -43,13 +43,11 @@ Relics:
 Vendor valuations:
     Mundane: 30
     Ring: 50
-    Magical: 30 + 75*numOfEnchants
+    Magical: 200 (must have positive mod points)
     Amulets: 50 * CR capacity
-    Junk: 0, but can go up with good persuasion
     Currency items: 100g
     Prayer stones: 100
     Relics: 300 + half of money spent on levelling
-    Rations: 1g
     Health potions: half buy price
     Other potions: 10g
 
@@ -58,7 +56,6 @@ Sales and services:
     Orb of destruction: 200g
     Mundanes: 60
     HP potions: 5 per level per potion
-    Rations: 2, or 1 for perishable
     Single enchanted item: 210 with mundane, 150 with mundane provided
 
     Horses: 800
