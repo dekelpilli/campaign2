@@ -18,7 +18,7 @@
   },
   {
     "value": "Esher",
-    "progress": 3,
+    "progress": 0,
     "levels": [
       "The minimum amount you healing you receive from using a hit die becomes twice your Constitution modifier",
       "You become immune to all forms of madness",
@@ -31,7 +31,7 @@
       "Once per short rest, when you fail a save, you can choose to succeed instead",
       "You gain the Healer feat. When you use the healer feat to heal someone, you may also feed them a potion with the same action. If you already have this feat, gain another one instead."
     ],
-    "owner": "Bryce"
+    "owner": null
   },
   {
     "value": "Ateus",
@@ -51,7 +51,7 @@
   },
   {
     "value": "Vimis",
-    "progress": 7,
+    "progress": 0,
     "levels": [
       "You cannot have disadvantage when learning creature stats",
       "You have expertise in Investigation when doing research via reading",
@@ -64,7 +64,7 @@
       "When you are hit by a melee attack from a creature you've learned about, you may use a reaction to disengage and take a normal movement action",
       "Gain the Keen Mind feat. If you already have this feat, you gain another feat."
     ],
-    "owner": "Sarashi"
+    "owner": null
   },
   {
     "value": "Vuneta",

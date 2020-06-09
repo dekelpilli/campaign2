@@ -3,10 +3,10 @@ from enum import IntEnum
 
 
 class LootType(IntEnum):
-    junk = 1
+    junk = 1  # negatively enchanted item
     mundane = 2
     consumable = 3
-    ring = 4
+    ring = 4  # TODO: redo rings
     low_gold = 5
     single_enchant_item = 6
     double_enchant_item = 7
