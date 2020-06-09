@@ -11,37 +11,38 @@ import loot_types
 from input_completer import Completer
 
 DATA_DIR = path.dirname(path.realpath(sys.argv[0])) + sep + "data" + sep
-Options = List[Dict[str, Any]]
-Option = Dict[str, Any]
+LootOptions = List[Dict[str, Any]]
+LootOption = Dict[str, Any]
 
 
 class LootController:
     def __init__(self, do_flush=False):
         logging.info("Loading...")
-        self.prayer_paths: Options = LootController._create_prayer_paths(do_flush)
+        self.prayer_paths: LootOptions = LootController._create_prayer_paths(do_flush)
+        self.crafting_items: LootOptions = LootController._create_loot_option("crafting_item", do_flush)
+        self.mundanes: LootOptions = LootController._create_loot_option("mundane", do_flush)
+        self.rings: LootOptions = LootController._create_loot_option("ring", do_flush)
+        self.enchants: LootOptions = LootController._create_loot_option("enchant", do_flush)
+        self.consumables: LootOptions = LootController._create_loot_option("consumable", do_flush)
+        self.challenge_ratings: Dict[str, Any] = LootController._get_file_contents("monster", do_flush)
+        self.all_crs = list(self.challenge_ratings.keys())
 
-        self.crafting_item = LootController._create_loot_option("crafting_item", do_flush)
-        self.mundane = LootController._create_loot_option("mundane", do_flush)
-        self.ring = LootController._create_loot_option("ring", do_flush)
-        self.enchant = LootController._create_loot_option("enchant", do_flush)
-        self.consumable = LootController._create_loot_option("consumable", do_flush)
-        self.challenge_rating = LootController._create_challenge_ratings(do_flush)
-        self.all_crs = list(self.challenge_rating.keys())
         self.found_relics, self.unfound_relics = LootController._create_relics(do_flush)
 
     def level_up_prayer_path(self):
         prayer_paths_started = list(filter(
-            lambda prayer_stone: prayer_stone.owner is not None
-                                 and prayer_stone.enabled
-                                 and prayer_stone.progress != 10,
-            set(self.prayer_paths.loot_options)))
+            lambda prayer_path: prayer_path['owner'] is not None
+                                and prayer_path['enabled']
+                                and prayer_path['progress'] != 10,
+            self.prayer_paths))
 
-        if len(prayer_paths_started) == 0:
-            return "No paths to level"
+        if not prayer_paths_started:
+            logging.warning("No paths to level")
+            return None
 
         owners = set(map(lambda prayer_stone: prayer_stone.owner, prayer_paths_started))
         readline.set_completer(Completer(owners).complete)
-        print(owners)
+        logging.info("Found prayer paths belonging to these characters: %s" % owners)
         prayer_path_owner_choice = input("\nWhich owner's path do you want to level? ")
         readline.set_completer(lambda text, state: None)
         if prayer_path_owner_choice not in owners:
@@ -49,7 +50,8 @@ class LootController:
 
         selected_prayer_stone = list(filter(lambda prayer_stone: prayer_path_owner_choice == prayer_stone.owner,
                                             prayer_paths_started))[0]
-        return "(" + selected_prayer_stone.value + ")\n" + selected_prayer_stone.get_next()
+        # TODO: recreate "get next" logic
+        return "(%s)\n%s" % (selected_prayer_stone["value"], selected_prayer_stone.get_next())
 
     def level_up_relic_by_choice(self):
         found_relics = self._get_found_relics()
@@ -126,7 +128,7 @@ class LootController:
         return list(self.found_relics.keys())
 
     def get_min_random_cr(self, tries):
-        crs = list(self.challenge_rating.keys())
+        crs = list(self.challenge_ratings.keys())
         cr = max(crs)
         for i in range(int(tries)):
             cr = min(random.choice(crs), cr)
@@ -137,15 +139,16 @@ class LootController:
         while True:
             if cr == "":
                 cr_message = "unspecified"
-                cr = random.choice(list(self.challenge_rating.keys()))
-            if cr not in self.challenge_rating:
-                return "'" + cr + "' is not a valid CR option"
-            creature = self.challenge_rating[cr].get_random_creature()
+                cr = random.choice(list(self.challenge_ratings.keys()))
+            if cr not in self.challenge_ratings:
+                logging.warning("'%s' is not a valid CR option" % cr)
+                return None
+            creature = self.challenge_ratings[cr]["monsters"].get_random_creature()
             if creature is None:
                 cr = str(int(cr) - 1)  # Not protecting against 0.125/0.25/0.5 because those have creatures
             else:
                 if cr != max_cr:
-                    print("Creature is of CR " + cr + " instead of " + cr_message)
+                    logging.warning("Creature is of CR %s instead of %s" % (cr, cr_message))
                 return creature
 
     def get_amulet(self):
@@ -157,35 +160,38 @@ class LootController:
     def get_mundane(self):
         is_weapon = random.randint(1, 100) > 66
         mundane_type = "weapon" if is_weapon else "armour"
-        possible_mundanes = list(filter(lambda mundane: mundane_type in mundane.metadata, self.mundane.loot_options))
+        possible_mundanes = list(filter(lambda mundane: mundane_type in mundane.metadata, self.mundanes))
         return random.choice(possible_mundanes).value
 
     def get_ring(self):
-        return self.ring.get_random_item().value
+        return random.choice(self.rings)
 
     def get_prayer_stone(self):
-        return self.prayer_paths.get_random_item().value
+        stone_options = set(map(lambda prayer_path: prayer_path["value"], self.prayer_paths))  # TODO: move to init?
+        return random.choice(stone_options)
 
     def get_enchant(self):
-        return self.enchant.get_random_item().value
+        return random.choice(self.enchants)
 
     def get_consumable(self):
-        return LootController.get_multiple_items(self.consumable.get_random_item(), lambda: random.randint(1, 4))
+        return LootController.get_multiple_items(random.sample(self.consumables),
+                                                 lambda: random.randint(1, 4))
 
     def get_weapon_enchant(self):
-        enchantment = self.enchant.get_random_item()
+        enchantment = random.choice(self.enchants)
         if "armour" in enchantment.metadata:
             return self.get_weapon_enchant()
         return enchantment.value
 
     def get_armour_enchant(self):
-        enchantment = self.enchant.get_random_item()
+        enchantment = random.choice(self.enchants)
         if "weapon" in enchantment.metadata:
             return self.get_weapon_enchant()
         return enchantment.value
 
     def get_crafting_item(self):
-        return LootController.get_multiple_items(self.crafting_item.get_random_item(), lambda: random.randint(1, 3))
+        return LootController.get_multiple_items(random.choice(self.crafting_items),
+                                                 lambda: random.randint(1, 3))
 
     @staticmethod
     def get_multiple_items(item, randomisation_function):
@@ -211,7 +217,8 @@ class LootController:
     def get_n_enchanted_item(self, n: int):
         is_weapon = random.randint(1, 100) > 66
         mundane_type = "weapon" if is_weapon else "armour"
-        possible_mundanes = list(filter(lambda mundane: mundane_type in mundane.metadata, self.mundane.loot_options))
+        # TODO: refactor tag system to allow more complex tagging
+        possible_mundanes = list(filter(lambda mundane: mundane_type in mundane.metadata, self.mundanes))
         base_type = random.choice(possible_mundanes)
         enchant_generator_function = self.get_weapon_enchant if is_weapon else self.get_armour_enchant
 
@@ -221,7 +228,7 @@ class LootController:
         return item_string
 
     @staticmethod
-    def _create_challenge_ratings(do_flush=False):
+    def _create_challenge_ratings(do_flush=False) -> Dict[str, str]:
         file_contents = LootController._get_file_contents("monster", do_flush)
         cr_dicts = json.loads(file_contents)
         crs = dict()
@@ -230,23 +237,15 @@ class LootController:
         return crs
 
     @staticmethod
-    def _create_loot_option(name, do_flush=False):
-        file_contents = LootController._get_file_contents(name, do_flush)
-        item_dicts = json.loads(file_contents)
-        loot_option_items = []
-        for item_dict in item_dicts:
-            loot_option_items.append(loot_types.LootOptionItem(item_dict["value"],
-                                                               item_dict.get("weighting", 10),
-                                                               item_dict.get("enabled", True),
-                                                               item_dict.get("metadata", [])))
-        loot_option = loot_types.LootOption(name)
-        for loot_option_item in loot_option_items:
-            loot_option.add_item(loot_option_item)
-
-        return loot_option
+    def _create_loot_option(name, do_flush=False) -> LootOptions:
+        return LootController._load_with_defaults(name, do_flush,
+                                                  {
+                                                      "enabled": True,
+                                                      "metadata": []
+                                                  })
 
     @staticmethod
-    def _create_prayer_paths(do_flush=False) -> Options:
+    def _create_prayer_paths(do_flush=False) -> LootOptions:
         return LootController._load_with_defaults("prayer_path",
                                                   do_flush,
                                                   {
@@ -256,7 +255,7 @@ class LootController:
                                                   })
 
     @staticmethod
-    def _load_with_defaults(filename: str, do_flush: bool, defaults: Option) -> Options:
+    def _load_with_defaults(filename: str, do_flush: bool, defaults: LootOption) -> LootOptions:
         file_contents = LootController._get_file_contents(filename, do_flush)
         dicts = json.loads(file_contents)
         return list(map(lambda option: {**defaults, **option}, dicts))
@@ -340,15 +339,15 @@ def print_options():  # TODO: move to LootController, print map from self
 def define_action_map(mapped_loot_controller):  # TODO: move to LootController __init__
     prayer_stone_function = lambda: "Prayerstone: " + mapped_loot_controller.get_prayer_stone()
     return {
-        loot_types.LootType.mundane.value: mapped_loot_controller.get_mundane,
-        loot_types.LootType.consumable.value: mapped_loot_controller.get_consumable,
+        loot_types.LootType.mundanes.value: mapped_loot_controller.get_mundane,
+        loot_types.LootType.consumables.value: mapped_loot_controller.get_consumable,
         loot_types.LootType.low_gold.value: lambda: str(random.randint(30, 100)) + " gold",
         loot_types.LootType.ring.value: lambda: "Ring: " + mapped_loot_controller.get_ring(),
         loot_types.LootType.single_enchant_item.value: lambda: mapped_loot_controller.get_n_enchanted_item(1),
         loot_types.LootType.amulet.value: mapped_loot_controller.get_amulet,
         loot_types.LootType.double_enchant_item.value: lambda: mapped_loot_controller.get_n_enchanted_item(2),
         loot_types.LootType.triple_enchant_item.value: lambda: mapped_loot_controller.get_n_enchanted_item(3),
-        loot_types.LootType.crafting_item.value: mapped_loot_controller.get_crafting_item,
+        loot_types.LootType.crafting_items.value: mapped_loot_controller.get_crafting_item,
         loot_types.LootType.prayer_paths.value: prayer_stone_function,
         loot_types.LootType.relic.value: mapped_loot_controller.get_new_relic,
         21: mapped_loot_controller.get_weapon_enchant,
@@ -386,4 +385,6 @@ def generate_loot():
 
 
 if __name__ == "__main__":
+    # TODO: nicer format
+    logging.basicConfig(stream=sys.stdout, level=logging.INFO)
     generate_loot()
