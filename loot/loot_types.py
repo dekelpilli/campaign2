@@ -82,21 +82,3 @@ class LootOption:
 
     def get_random_item(self):
         return random.choice(self.loot_options)
-
-
-class PrayerStone(LootOptionItem):
-    def __init__(self, value, weighting, enabled, metadata, levels, owner=None, progress=0):
-        LootOptionItem.__init__(self, value, weighting, enabled, metadata)
-        self.levels = levels
-        self.progress = progress
-        self.owner = owner
-
-    def get_next(self):
-        first_mod = "\t" + self._get_offset_option(0)
-        if len(self.levels) > (1 + self.progress):
-            return first_mod + "\nOR:\n\t" + self._get_offset_option(1)
-        return first_mod
-
-    def _get_offset_option(self, n):
-        index = self.progress + n
-        return self.levels[index] if index < len(self.levels) else None

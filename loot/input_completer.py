@@ -1,9 +1,10 @@
 import readline
+from typing import List, Set
 
 
 class Completer:
-    def __init__(self, options_list):
-        self.options = set(options_list)
+    def __init__(self, options: List[str]):
+        self.options: Set[str] = set(options)
 
     def complete(self, text, state):
         for option in self.options:

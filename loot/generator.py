@@ -1,26 +1,30 @@
-import random
 import json
-from pprint import PrettyPrinter
-from input_completer import Completer
-import loot_types
+import logging
+import random
 import readline
-from os import sep, path
 import sys
+from os import sep, path
+from pprint import PrettyPrinter
+from typing import List, Dict, Any
 
+import loot_types
+from input_completer import Completer
 
 DATA_DIR = path.dirname(path.realpath(sys.argv[0])) + sep + "data" + sep
+Options = List[Dict[str, Any]]
+Option = Dict[str, Any]
 
 
 class LootController:
     def __init__(self, do_flush=False):
-        print("Loading...")
-        self.junk = LootController._create_loot_option("junk", do_flush)
+        logging.info("Loading...")
+        self.prayer_paths: Options = LootController._create_prayer_paths(do_flush)
+
         self.crafting_item = LootController._create_loot_option("crafting_item", do_flush)
         self.mundane = LootController._create_loot_option("mundane", do_flush)
         self.ring = LootController._create_loot_option("ring", do_flush)
         self.enchant = LootController._create_loot_option("enchant", do_flush)
         self.consumable = LootController._create_loot_option("consumable", do_flush)
-        self.prayer_stone = LootController._create_prayer_stone(do_flush)
         self.challenge_rating = LootController._create_challenge_ratings(do_flush)
         self.all_crs = list(self.challenge_rating.keys())
         self.found_relics, self.unfound_relics = LootController._create_relics(do_flush)
@@ -30,7 +34,7 @@ class LootController:
             lambda prayer_stone: prayer_stone.owner is not None
                                  and prayer_stone.enabled
                                  and prayer_stone.progress != 10,
-            set(self.prayer_stone.loot_options)))
+            set(self.prayer_paths.loot_options)))
 
         if len(prayer_paths_started) == 0:
             return "No paths to level"
@@ -160,7 +164,7 @@ class LootController:
         return self.ring.get_random_item().value
 
     def get_prayer_stone(self):
-        return self.prayer_stone.get_random_item().value
+        return self.prayer_paths.get_random_item().value
 
     def get_enchant(self):
         return self.enchant.get_random_item().value
@@ -216,9 +220,6 @@ class LootController:
             item_string += "\n\t" + enchant_generator_function()
         return item_string
 
-    def get_junk(self):
-        return self.junk.get_random_item().value
-
     @staticmethod
     def _create_challenge_ratings(do_flush=False):
         file_contents = LootController._get_file_contents("monster", do_flush)
@@ -245,23 +246,20 @@ class LootController:
         return loot_option
 
     @staticmethod
-    def _create_prayer_stone(do_flush=False):
-        file_contents = LootController._get_file_contents("prayer_stone", do_flush)
-        prayer_stone_dicts = json.loads(file_contents)
-        prayer_stones = []
-        for prayer_stone_dict in prayer_stone_dicts:
-            prayer_stones.append(loot_types.PrayerStone(prayer_stone_dict["value"],
-                                                        prayer_stone_dict.get("weighting", 10),
-                                                        prayer_stone_dict.get("enabled", True),
-                                                        prayer_stone_dict.get("metadata", []),
-                                                        prayer_stone_dict["levels"],
-                                                        prayer_stone_dict.get("owner", None),
-                                                        prayer_stone_dict.get("progress", 0)))
-        loot_option = loot_types.LootOption("prayer_stone")
-        for loot_option_item in prayer_stones:
-            loot_option.add_item(loot_option_item)
+    def _create_prayer_paths(do_flush=False) -> Options:
+        return LootController._load_with_defaults("prayer_path",
+                                                  do_flush,
+                                                  {
+                                                      "enabled": True,
+                                                      "owner": None,
+                                                      "progress": 0
+                                                  })
 
-        return loot_option
+    @staticmethod
+    def _load_with_defaults(filename: str, do_flush: bool, defaults: Option) -> Options:
+        file_contents = LootController._get_file_contents(filename, do_flush)
+        dicts = json.loads(file_contents)
+        return list(map(lambda option: {**defaults, **option}, dicts))
 
     @staticmethod
     def _get_file_contents(name, do_flush=False):
@@ -324,7 +322,7 @@ def do_continuously(f, prompt):
     return ""
 
 
-def print_options():
+def print_options():  # TODO: move to LootController, print map from self
     pp = PrettyPrinter(indent=4)
     print("\n")
     pp.pprint(loot_types.LOOT_TYPES)
@@ -339,10 +337,9 @@ def print_options():
     print("\t>19: Show this")
 
 
-def define_action_map(mapped_loot_controller):
+def define_action_map(mapped_loot_controller):  # TODO: move to LootController __init__
     prayer_stone_function = lambda: "Prayerstone: " + mapped_loot_controller.get_prayer_stone()
     return {
-        loot_types.LootType.junk.value: mapped_loot_controller.get_junk,
         loot_types.LootType.mundane.value: mapped_loot_controller.get_mundane,
         loot_types.LootType.consumable.value: mapped_loot_controller.get_consumable,
         loot_types.LootType.low_gold.value: lambda: str(random.randint(30, 100)) + " gold",
@@ -352,21 +349,19 @@ def define_action_map(mapped_loot_controller):
         loot_types.LootType.double_enchant_item.value: lambda: mapped_loot_controller.get_n_enchanted_item(2),
         loot_types.LootType.triple_enchant_item.value: lambda: mapped_loot_controller.get_n_enchanted_item(3),
         loot_types.LootType.crafting_item.value: mapped_loot_controller.get_crafting_item,
-        loot_types.LootType.prayer_stone.value: prayer_stone_function,
-        # loot_types.LootType.prayer_stone_2.value: prayer_stone_function,
+        loot_types.LootType.prayer_paths.value: prayer_stone_function,
         loot_types.LootType.relic.value: mapped_loot_controller.get_new_relic,
-        13: mapped_loot_controller.get_weapon_enchant,
-        14: mapped_loot_controller.get_armour_enchant,
-        15: mapped_loot_controller.get_enchant,
-        # 16: reload_loot,
-        17: lambda: do_continuously(mapped_loot_controller.get_random_creature_of_cr, "Monster CR:"),
-        18: mapped_loot_controller.level_up_relic_by_choice,
-        19: mapped_loot_controller.level_up_prayer_path,
-        20: lambda: do_continuously(mapped_loot_controller.get_min_random_cr, "How many tries?")
+        21: mapped_loot_controller.get_weapon_enchant,
+        22: mapped_loot_controller.get_armour_enchant,
+        23: mapped_loot_controller.get_enchant,
+        24: lambda: do_continuously(mapped_loot_controller.get_random_creature_of_cr, "Monster CR:"),
+        25: mapped_loot_controller.level_up_relic_by_choice,
+        26: mapped_loot_controller.level_up_prayer_path,
+        27: lambda: do_continuously(mapped_loot_controller.get_min_random_cr, "How many tries?")
     }
 
 
-if __name__ == "__main__":
+def generate_loot():
     loot_controller = LootController()
     loot_action_map = define_action_map(loot_controller)
     print_options()
@@ -385,6 +380,10 @@ if __name__ == "__main__":
         if roll == 16:
             loot_controller = LootController(True)
             loot_action_map = define_action_map(loot_controller)
-            print("Reloaded loot from files")
-        elif roll > 19:
+            logging.info("Reloaded loot from files")
+        elif roll > 30:  # TODO: better num
             print_options()
+
+
+if __name__ == "__main__":
+    generate_loot()
