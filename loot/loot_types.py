@@ -9,7 +9,7 @@ class LootType(IntEnum):
     4 = low gold (40-50)?
 
     x = medium gold (100-200)
-    x = rings (TODO: wtb ring ideas)
+    x = rings (wtb ring ideas)
     x = amulet
     x = crafting
     x = magic item (more than one slot for different total allowed mod points) - some with guaranteed not negative
@@ -20,7 +20,7 @@ class LootType(IntEnum):
     19 = prayer
     20 = relic
     """
-    negatively_enchanted = 1  # TODO: negatively enchanted item
+    negatively_enchanted = 1
     mundane = 2
     consumable = 3
 

@@ -461,7 +461,6 @@ def generate_loot():
 
 
 if __name__ == "__main__":
-    # TODO: nicer format
     logging.basicConfig(stream=sys.stdout, level=logging.INFO,
                         format='[%(levelname)s] %(asctime)-15s %(message)s',
                         datefmt='%H:%M:%S')
