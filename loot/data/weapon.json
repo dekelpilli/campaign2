@@ -4,7 +4,7 @@
     "damage": "1d6",
     "damage_types": ["B"],
     "category": "Club",
-    "traits": "Thrown",
+    "traits": ["Thrown"],
     "proficiency": "Simple",
     "type": "Melee",
     "range": "10/15"
@@ -332,9 +332,9 @@
   {
     "name": "Light Hammer",
     "damage": "1d6",
-    "damage_types": "B",
+    "damage_types": ["B"],
     "category": "Hammer",
-    "traits": "Light, Thrown",
+    "traits": ["Light", "Thrown"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": "20/30"
@@ -342,9 +342,9 @@
   {
     "name": "Light Pick",
     "damage": "1d4",
-    "damage_types": "P",
+    "damage_types": ["P"],
     "category": "Pick",
-    "traits": "Light, Fatal",
+    "traits": ["Light", "Fatal"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -352,9 +352,9 @@
   {
     "name": "Longsword",
     "damage": "1d8",
-    "damage_types": "S",
+    "damage_types": ["S", "P"],
     "category": "Sword",
-    "traits": "Flexible",
+    "traits": ["Flexible"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -362,9 +362,9 @@
   {
     "name": "Main-gauche",
     "damage": "1d4",
-    "damage_types": "P",
+    "damage_types": ["P", "S"],
     "category": "Knife",
-    "traits": "Light, Disarm, Finesse, Parry, Flexible",
+    "traits": ["Light", "Disarm", "Finesse", "Parry", "Flexible"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -372,9 +372,9 @@
   {
     "name": "Maul",
     "damage": "1d12",
-    "damage_types": "B",
+    "damage_types": ["B"],
     "category": "Hammer",
-    "traits": "Two-handed, Heavy, Shove",
+    "traits": ["Two-handed", "Heavy", "Shove"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -382,9 +382,9 @@
   {
     "name": "Nunchaku",
     "damage": "1d4",
-    "damage_types": "B",
+    "damage_types": ["B"],
     "category": "Club",
-    "traits": "Two-handed, Compound, Finesse",
+    "traits": ["Two-handed", "Compound", "Finesse"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -392,9 +392,9 @@
   {
     "name": "Pick",
     "damage": "1d6",
-    "damage_types": "P",
+    "damage_types": ["P"],
     "category": "Pick",
-    "traits": "Fatal",
+    "traits": ["Fatal"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -402,9 +402,9 @@
   {
     "name": "Ranseur",
     "damage": "1d10",
-    "damage_types": "P",
+    "damage_types": ["P"],
     "category": "Polearm",
-    "traits": "Two-handed, Disarm, Reach",
+    "traits": ["Two-handed", "Disarm", "Reach"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -412,19 +412,19 @@
   {
     "name": "Rapier",
     "damage": "1d6",
-    "damage_types": "P",
+    "damage_types": ["P"],
     "category": "Sword",
-    "traits": "Deadly, Disarm, Finesse",
+    "traits": ["Deadly", "Disarm", "Finesse"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
   },
   {
     "name": "Ring Blade",
-    "damage": "1d10",
-    "damage_types": "S",
+    "damage": ["1d10"],
+    "damage_types": ["S"],
     "category": "Sword",
-    "traits": "Two-handed, Disarm, Finesse, Sweep",
+    "traits": ["Two-handed", "Disarm", "Finesse", "Sweep"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -432,9 +432,9 @@
   {
     "name": "Sap",
     "damage": "1d6",
-    "damage_types": "B",
+    "damage_types": ["B"],
     "category": "Club",
-    "traits": "Light, Non-lethal",
+    "traits": ["Light", "Non-lethal"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -442,9 +442,9 @@
   {
     "name": "Scimitar",
     "damage": "1d6",
-    "damage_types": "S",
+    "damage_types": ["S"],
     "category": "Sword",
-    "traits": "Forceful, Sweep",
+    "traits": ["Forceful", "Sweep"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -452,9 +452,9 @@
   {
     "name": "Scythe",
     "damage": "1d10",
-    "damage_types": "S",
+    "damage_types": ["S"],
     "category": "Polearm",
-    "traits": "Two-handed, Deadly, Trip",
+    "traits": ["Two-handed", "Deadly", "Trip"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -462,9 +462,9 @@
   {
     "name": "Shortsword",
     "damage": "1d6",
-    "damage_types": "P",
+    "damage_types": ["P", "S"],
     "category": "Sword",
-    "traits": "Light, Finesse, Flexible",
+    "traits": ["Light", "Finesse", "Flexible"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -472,9 +472,9 @@
   {
     "name": "Small Shield",
     "damage": "1d4",
-    "damage_types": "B",
+    "damage_types": ["B"],
     "category": "Shield",
-    "traits": "Light, Targe",
+    "traits": ["Light", "Targe"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -482,9 +482,9 @@
   {
     "name": "Small Spiked Shield",
     "damage": "1d4",
-    "damage_types": "P",
+    "damage_types": ["P"],
     "category": "Shield",
-    "traits": "Light, Targe",
+    "traits": ["Light", "Targe"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -492,9 +492,9 @@
   {
     "name": "Starknife",
     "damage": "1d4",
-    "damage_types": "P",
+    "damage_types": ["P", "S"],
     "category": "Knife",
-    "traits": "Light, Fatal, Finesse, Thrown, Flexible",
+    "traits": ["Light", "Fatal", "Finesse", "Thrown", "Flexible"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": "20/30"
@@ -502,7 +502,7 @@
   {
     "name": "Trident",
     "damage": "1d8",
-    "damage_types": "P",
+    "damage_types": ["P"],
     "category": "Spear",
     "traits": ["Thrown"],
     "proficiency": "Martial",
@@ -512,9 +512,9 @@
   {
     "name": "War Flail",
     "damage": "1d10",
-    "damage_types": "B",
+    "damage_types": ["B"],
     "category": "Flail",
-    "traits": ["Two-handed", " Disarm", " Heavy", " Sweep", " Trip"],
+    "traits": ["Two-handed", "Disarm", "Heavy", "Sweep", "Trip"],
     "proficiency": "Martial",
     "type": "Melee",
     "range": null
@@ -522,7 +522,7 @@
   {
     "name": "Warhammer",
     "damage": "1d8",
-    "damage_types": "B",
+    "damage_types": ["B"],
     "category": "Hammer",
     "traits": ["Shove"],
     "proficiency": "Martial",
@@ -532,7 +532,7 @@
   {
     "name": "Whip",
     "damage": "1d4",
-    "damage_types": "S",
+    "damage_types": ["S"],
     "category": "Flail",
     "traits": ["Disarm", "Finesse", "Non-lethal", "Reach", "Trip"],
     "proficiency": "Martial",
@@ -542,7 +542,7 @@
   {
     "name": "Composite Longbow",
     "damage": "1d8",
-    "damage_types": "P",
+    "damage_types": ["P"],
     "category": "Bow",
     "traits": ["Fatal", "Propulsive", "Volley"],
     "proficiency": "Martial",
@@ -552,7 +552,7 @@
   {
     "name": "Composite Shortbow",
     "damage": "1d6",
-    "damage_types": "P",
+    "damage_types": ["P"],
     "category": "Bow",
     "traits": ["Fatal", "Propulsive"],
     "proficiency": "Martial",
@@ -562,7 +562,7 @@
   {
     "name": "Longbow",
     "damage": "1d8",
-    "damage_types": "P",
+    "damage_types": ["P"],
     "category": "Bow",
     "traits": ["Fatal", "Volley"],
     "proficiency": "Martial",
@@ -572,7 +572,7 @@
   {
     "name": "Shortbow",
     "damage": "1d6",
-    "damage_types": "P",
+    "damage_types": ["P"],
     "category": "Bow",
     "traits": ["Fatal"],
     "proficiency": "Martial",
@@ -582,7 +582,7 @@
   {
     "name": "Wand",
     "damage": "1",
-    "damage_types": "B",
+    "damage_types": ["B"],
     "category": "Magic",
     "traits": [],
     "proficiency": null,
