@@ -8,6 +8,7 @@ from os import sep, path
 from pprint import PrettyPrinter
 from typing import *
 from typing import Dict, Any, List
+from enum import Enum
 
 import loot_types
 from input_completer import Completer
@@ -32,8 +33,13 @@ class LootController:
         self.all_crs = list(self.challenge_ratings.keys())
 
         relics = LootController._create_relics(do_flush)
-        self.found_relics: Dict[str, Any] = relics[0]
-        self.unfound_relics: Dict[str, Any] = relics[1]
+        self.found_relics: Dict[str, Dict[str, Any]] = relics[0]
+        self.unfound_relics: Dict[str, Dict[str, Any]] = relics[1]
+
+    class ItemLevelUpOption(Enum):
+        UPGRADE_EXISTING = 1
+        NEW_RANDOM_MODS = 1
+        NEW_RELIC_MOD = 1
 
     def reload_data(self):
         self.__init__(True)
@@ -64,69 +70,49 @@ class LootController:
         return "(%s)\n%s" % (selected_path["value"], level_options)
 
     def level_up_relic_by_choice(self):
-        found_relics = self._get_found_relics()
-        if len(found_relics) == 0:
-            return "No relics to level"
+        relic_choice = LootController._take_input("Which relic do you want to level?",
+                                                  set(self.found_relics.keys()))
+        if not relic_choice:
+            return None
 
-        readline.set_completer(Completer(found_relics).complete)
-        print(found_relics)
-        relic_choice = input("\nWhich relic do you want to level? ")
-        readline.set_completer(lambda text, state: None)
-        if relic_choice not in found_relics:
-            return relic_choice + " is not a valid relic choice"
+        return self._level_up_relic(self.found_relics[relic_choice])
 
-        return self._level_up_relic_by_name(relic_choice)
+    def _level_up_relic(self, relic: Dict[str, Any]):
+        # if above max points, either offer negatives or do nothing
+        # TODO
 
-    def _level_up_relic_by_name(self, relic_name):
-        relic = self.found_relics[relic_name]
-        return self._level_up_relic(relic)
+        # if not above max points for next level
+        options: List[LootController.ItemLevelUpOption] = [
+            LootController.ItemLevelUpOption.NEW_RANDOM_MODS,
+            LootController.ItemLevelUpOption.NEW_RELIC_MOD
+        ]
+        # TODO: load relics such that mods always contain "level" (d: 1),
+        #  "upgradeable" (d: true), "weighting" (d: 10), level_up_weighting (d: weighting)
+        upgradeable_mods = list(filter(lambda existing_mod: existing_mod["upgradeable"], relic["existing"]))
+        third_choice_options = [
+            LootController.ItemLevelUpOption.NEW_RANDOM_MODS,
+            LootController.ItemLevelUpOption.NEW_RELIC_MOD
+        ]
+        if upgradeable_mods:
+            if random.randint(0, 1):
+                options[random.randint(1, 2)] = LootController.ItemLevelUpOption.UPGRADE_EXISTING
+            if len(upgradeable_mods) > 1:
+                third_choice_options.append(LootController.ItemLevelUpOption.UPGRADE_EXISTING)
+        options.append(random.choice(third_choice_options))
 
-    def _level_up_relic(self, relic, num_choices=3):
-        options = 2  # new random mod, new relic mod
-        upgradeable_mods = []
-        for existing_mod in relic.existing:
-            if existing_mod.upgradeable:
-                upgradeable_mods.append(existing_mod)
-        if len(upgradeable_mods) > 0:
-            options += 2  # double weighting
-
-        output = "Options:\n\t"
         chosen_mods = set()
-        while len(chosen_mods) < num_choices:
-            chosen_mod = self._get_relic_upgrade_option(relic, random.randint(1, options), upgradeable_mods)
-            if chosen_mod in chosen_mods:
-                continue
-            if len(chosen_mods) != 0:
-                output += "\nOR\n\t"
+        for option in options:
+            chosen_mod = None
+            while not chosen_mod or chosen_mod in chosen_mods:
+                chosen_mod = self._get_relic_upgrade_option(relic, option, upgradeable_mods)
             chosen_mods.add(chosen_mod)
-            output += chosen_mod
-        return output
 
-    def _get_relic_upgrade_option(self, relic, option_id, upgradeable_mods):
-        option_string = ""
-        if option_id == 1:
-            option_string += "New mod: "
-            if relic.type == "weapon":
-                return option_string + self.get_weapon_enchant()
-            elif relic.type == "armour":
-                return option_string + self.get_armour_enchant()
-            elif relic.type == "ring":
-                return option_string + self.get_ring()
-            elif relic.type == "amulet":
-                option_string = ""
-                option_id = random.randint(2, 2 + min(1, len(upgradeable_mods)))
+        return reduce(lambda mod1, mod2: "%s\n\tOR\n%s" % (mod1, mod2),
+                      map(lambda mod: mod["value"], chosen_mods))
 
-        if option_id == 2:
-            option_string += "New Relic mod: "
-            mod = random.choice(relic.available)
-            return option_string + mod.value
-
-        if option_id > 2:
-            chosen_mod = random.choice(upgradeable_mods)
-            option_string += "Upgrade existing mod: " + chosen_mod.value
-            if chosen_mod.comment is not None:
-                option_string += " (" + chosen_mod.comment + ")"
-            return option_string
+    def _get_relic_upgrade_option(self, relic: Dict[str, Any],
+                                  option: ItemLevelUpOption, upgradeable_mods: LootOptions) -> LootOption:
+        pass # TODO
 
     def get_new_relic(self):
         keys = list(self.unfound_relics.keys())
@@ -308,7 +294,7 @@ class LootController:
         return list(map(lambda option: {**defaults, **option}, enchants))
 
     @staticmethod
-    def _create_relics(do_flush=False) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+    def _create_relics(do_flush=False) -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Dict[str, Any]]]:
         enchants = LootController._create_loot_option("relic", do_flush)
         defaults = {
             "enabled": True,

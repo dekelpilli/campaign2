@@ -2,6 +2,7 @@
   {
     "name": "Template",
     "type": "weapon/armour",
+    "base": "Plate Body Armour",
     "existing": [
       {
         "value": "effect",
