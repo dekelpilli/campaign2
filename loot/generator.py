@@ -7,6 +7,7 @@ from functools import reduce
 from os import sep, path
 from pprint import PrettyPrinter
 from typing import *
+from typing import Dict, Any, List
 
 import loot_types
 from input_completer import Completer
@@ -17,6 +18,7 @@ LootOption = Dict[str, Any]
 
 
 class LootController:
+
     def __init__(self, do_flush=False):
         logging.info("Loading...")
         self.prayer_paths: LootOptions = LootController._create_prayer_paths(do_flush)
@@ -29,30 +31,37 @@ class LootController:
         self.challenge_ratings: Dict[str, Dict[str, Any]] = LootController._load_challenge_ratings(do_flush)
         self.all_crs = list(self.challenge_ratings.keys())
 
-        self.found_relics, self.unfound_relics = LootController._create_relics(do_flush)
+        relics = LootController._create_relics(do_flush)
+        self.found_relics: Dict[str, Any] = relics[0]
+        self.unfound_relics: Dict[str, Any] = relics[1]
+
+    def reload_data(self):
+        self.__init__(True)
 
     def level_up_prayer_path(self):
-        prayer_paths_started = list(filter(
+        started_paths = filter(
             lambda prayer_path: prayer_path['owner'] is not None
                                 and prayer_path['enabled']
-                                and prayer_path['progress'] != 10,
-            self.prayer_paths))
+                                and prayer_path['progress'] != 10, self.prayer_paths)
+        path_owners = dict((prayer_path['owner'], prayer_path) for prayer_path in started_paths)
 
-        if not prayer_paths_started:
+        if not path_owners:
             logging.warning("No paths to level")
             return None
 
-        owners = set(map(lambda prayer_stone: prayer_stone.owner, prayer_paths_started))
-        prayer_path_owner_choice = LootController._take_input("Which owner's path do you want to level?", owners)
-
-        if prayer_path_owner_choice not in owners:
-            logging.warning("%s is not a valid prayer path owner choice" % prayer_path_owner_choice)
+        owners = set(path_owners.keys())
+        chosen_owner = LootController._take_input("Which owner's path do you want to level?", owners)
+        if not chosen_owner:
             return None
 
-        selected_prayer_stone = list(filter(lambda prayer_stone: prayer_path_owner_choice == prayer_stone.owner,
-                                            prayer_paths_started))[0]
-        # TODO: recreate "get next" logic
-        return "(%s)\n%s" % (selected_prayer_stone["value"], selected_prayer_stone.get_next())
+        selected_path = path_owners[chosen_owner]
+        progress = selected_path["progress"]
+        levels: List[str] = selected_path["levels"]
+        next_two = levels[progress:min(len(levels), progress + 2)]
+        level_options = reduce(lambda next_level, level_after_next: "%s\n\tOR\n%s" % (next_level, level_after_next),
+                               next_two)
+        # TODO: persist chosen progression
+        return "(%s)\n%s" % (selected_path["value"], level_options)
 
     def level_up_relic_by_choice(self):
         found_relics = self._get_found_relics()
@@ -128,13 +137,6 @@ class LootController:
     def _get_found_relics(self):
         return list(self.found_relics.keys())
 
-    def get_min_random_cr(self, tries):
-        crs = list(self.challenge_ratings.keys())
-        cr = max(crs)
-        for i in range(int(tries)):
-            cr = min(random.choice(crs), cr)
-        return cr
-
     def get_random_creature_of_cr(self, max_cr) -> Optional[str]:
         cr, cr_message = max_cr, max_cr
         while True:
@@ -154,8 +156,8 @@ class LootController:
                 return creature
 
     def get_amulet(self) -> str:
-        allowed_crs = ['0', '0.125', '0.25', '0.5', '1',   '2',   '3',  '4']
-        weightings = [0.05,  0.05,    0.05,   0.1,   0.25, 0.25,  0.15, 0.1]
+        allowed_crs = ['0', '0.125', '0.25', '0.5', '1', '2', '3', '4']
+        weightings = [0.05, 0.05, 0.05, 0.1, 0.25, 0.25, 0.15, 0.1]
         amulet_max_cr = random.choices(population=allowed_crs, weights=weightings, k=1)[0]
         return "Amulet CR: %s\n\tCreature: %s" % (amulet_max_cr, self.get_random_creature_of_cr(amulet_max_cr))
 
@@ -219,7 +221,7 @@ class LootController:
         item_field_value = item[field]
         if isinstance(item_field_value, list):
             return not enchant.get(field) or not set(enchant[field]).isdisjoint(item_field_value) \
-               and not enchant.get(not_field) or set(enchant[not_field]).isdisjoint(item_field_value)
+                   and not enchant.get(not_field) or set(enchant[not_field]).isdisjoint(item_field_value)
         else:
             return not enchant.get(field) or enchant[field] == item_field_value \
                    and not enchant.get(not_field) or enchant[field] != item_field_value
@@ -258,7 +260,7 @@ class LootController:
         is_weapon = random.randint(1, 100) > 66
         options: LootOptions = self.weapons if is_weapon else self.armours
         base_type: LootOption = random.choice(options)
-        valid_enchants = self.get_valid_enchants_for_weapon(base_type) if is_weapon\
+        valid_enchants = self.get_valid_enchants_for_weapon(base_type) if is_weapon \
             else self.get_valid_enchants_for_armour(base_type)
         return base_type, valid_enchants
 
@@ -287,7 +289,7 @@ class LootController:
                                                   })
 
     @staticmethod
-    def _create_prayer_paths(do_flush=False) -> LootOptions:
+    def _create_prayer_paths(do_flush: bool = False) -> LootOptions:
         paths = LootController._create_loot_option("prayer_path", do_flush)
         defaults = {
             "enabled": True,
@@ -306,6 +308,24 @@ class LootController:
         return list(map(lambda option: {**defaults, **option}, enchants))
 
     @staticmethod
+    def _create_relics(do_flush=False) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+        enchants = LootController._create_loot_option("relic", do_flush)
+        defaults = {
+            "enabled": True,
+            "found": False,
+            "level": 1
+        }
+        all_relics = list(map(lambda option: {**defaults, **option}, enchants))
+        found = dict()
+        unfound = dict()
+        for relic in all_relics:
+            if not relic["enabled"]:
+                continue
+            target_dict = found if relic["found"] else unfound
+            target_dict[relic["name"]] = relic
+        return found, unfound
+
+    @staticmethod
     def _load_with_defaults(filename: str, do_flush: bool, defaults: LootOption) -> LootOptions:
         file_contents = LootController._load_file_contents(filename, do_flush)
         dicts = json.loads(file_contents)
@@ -320,47 +340,15 @@ class LootController:
             return data_file.read()
 
     @staticmethod
-    def _create_relics(do_flush):
-        file_contents = LootController._load_file_contents("relic", do_flush)
-        relic_dicts = json.loads(file_contents)
-        found = dict()
-        unfound = dict()
-        for relic_dict in relic_dicts:
-            relic = LootController._create_relic(relic_dict)
-            if not relic.enabled:
-                continue
-            target_dict = found if relic.found else unfound
-            target_dict[relic.name] = relic
-        return found, unfound
-
-    @staticmethod
-    def _create_relic(relic_dict):
-        existing = []
-        available = []
-        for mod in relic_dict["existing"]:
-            existing.append(LootController._create_relic_mod(mod))
-        for mod in relic_dict["available"]:
-            available.append(LootController._create_relic_mod(mod))
-        return loot_types.Relic(relic_dict["name"],
-                                relic_dict["type"],
-                                existing,
-                                available,
-                                relic_dict.get("found", False),
-                                relic_dict.get("enabled", True),
-                                relic_dict.get("level", 1))
-
-    @staticmethod
-    def _create_relic_mod(relic_mod_dict: dict) -> loot_types.RelicMod:
-        return loot_types.RelicMod(relic_mod_dict["value"],
-                                   relic_mod_dict.get("upgradeable", True),
-                                   relic_mod_dict.get("comment", None))
-
-    @staticmethod
-    def _take_input(prompt: str, options: Collection[str]) -> str:
-        print("Input Options: %s" % options)
+    def _take_input(prompt: str, options: Collection[str]) -> Optional[str]:
+        options: Set[str] = options if isinstance(options, set) else set(options)
+        logging.info("Input Options: %s" % options)
         readline.set_completer(Completer(options).complete)
-        choice = input("\n%s " % prompt)
+        choice: str = input("\n%s " % prompt)
         readline.set_completer(lambda text, state: None)
+        if choice not in options:
+            logging.warning("%s is not a valid option (%s)" % (choice, options))
+            return None
         return choice
 
 
@@ -416,7 +404,6 @@ def define_action_map(mapped_loot_controller) -> Dict[int, Callable[[], str]]:  
         24: lambda: do_continuously(mapped_loot_controller.get_random_creature_of_cr, "Monster CR:"),
         25: mapped_loot_controller.level_up_relic_by_choice,
         26: mapped_loot_controller.level_up_prayer_path,
-        27: lambda: do_continuously(mapped_loot_controller.get_min_random_cr, "How many tries?")
     }
 
 

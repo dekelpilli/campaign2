@@ -1,7 +1,7 @@
 [
   {
     "value": "Rheztol",
-    "progress": 0,
+    "progress": 1,
     "levels": [
       "You learn the Minor Illusion cantrip. This does not count towards your limit of known cantrips. The spellcasting modifier can be a mental attribute of your choice.",
       "You have expertise in Investigation when identifying illusions.",
@@ -14,7 +14,7 @@
       "You may cast Zone of Truth once per short rest. When cast in this way, the spell is centered on you and lasts for 1 hour.",
       "You have 30 feet of Truesight"
     ],
-    "owner": null
+    "owner": "test"
   },
   {
     "value": "Esher",

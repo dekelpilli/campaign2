@@ -4,7 +4,7 @@ from typing import Collection, Set
 
 class Completer:
     def __init__(self, options: Collection[str]):
-        self.options: Set[str] = set(options)
+        self.options: Set = options if isinstance(options, set) else set(options)
 
     def complete(self, text, state):
         for option in self.options:
