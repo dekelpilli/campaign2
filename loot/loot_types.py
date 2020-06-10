@@ -22,7 +22,7 @@ class LootType(IntEnum):
     """
     negatively_enchanted = 1
     mundane = 2
-    consumable = 3
+    consumable = 3  # too low?
 
     ring = 4  # TODO: redo rings
     low_gold = 5

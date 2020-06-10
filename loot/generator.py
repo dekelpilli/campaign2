@@ -39,7 +39,7 @@ class LootController:
     class ItemLevelUpOption(Enum):
         UPGRADE_EXISTING = 1
         NEW_RANDOM_MODS = 2
-        NEW_RELIC_MOD = 3
+        NEW_RELIC_MODS = 3
         NEGATIVE_MODS = 4
 
     def reload_data(self):
@@ -89,14 +89,14 @@ class LootController:
         else:
             options: List[LootController.ItemLevelUpOption] = [
                 LootController.ItemLevelUpOption.NEW_RANDOM_MODS,
-                LootController.ItemLevelUpOption.NEW_RELIC_MOD
+                LootController.ItemLevelUpOption.NEW_RELIC_MODS
             ]
             # TODO: load relics such that mods always contain "level" (d: 1),
             #  "upgradeable" (d: true), "points" (d: 10), level_up_points (d: points)
             upgradeable_mods = list(filter(lambda existing_mod: existing_mod["upgradeable"], relic["existing"]))
             third_choice_options = [
                 LootController.ItemLevelUpOption.NEW_RANDOM_MODS,
-                LootController.ItemLevelUpOption.NEW_RELIC_MOD
+                LootController.ItemLevelUpOption.NEW_RELIC_MODS
             ]
             if upgradeable_mods:
                 if random.randint(0, 1):
@@ -131,8 +131,16 @@ class LootController:
                 else self.get_valid_enchants_for_armour(base)
             return LootController._get_enchants_totalling(valid_enchants, points_remaining)
 
-        if option == LootController.ItemLevelUpOption.NEW_RELIC_MOD:
-            return [random.choice(relic["available"])]
+        if option == LootController.ItemLevelUpOption.NEW_RELIC_MODS:
+            mods = set(relic["available"])
+            added_total = 0
+            new_mods = []
+            while added_total <= points_remaining or not mods:
+                mod = random.choice(mods)
+                new_mods.append(mod)
+                mods.remove(mod)
+                added_total += mod["level_up_points"]
+            return new_mods
 
         if option == LootController.ItemLevelUpOption.UPGRADE_EXISTING:
             added_total = 0
@@ -446,7 +454,7 @@ def generate_loot():
         roll = get_int_from_str(input("\nLoot roll: "), 99)
         if roll == 0:
             roll = random.randint(1, 20)
-            print("Random roll: " + str(roll) + ", (" + str(loot_action_map[roll]) + ")")
+            logging.info("Random roll %s (%s)" % (roll, loot_action_map[roll]))
         elif roll < 0:
             exit(0)
         print(loot_action_map.get(roll,
@@ -456,7 +464,7 @@ def generate_loot():
             loot_controller = LootController(True)
             loot_action_map = define_action_map(loot_controller)
             logging.info("Reloaded loot from files")
-        elif roll > 30:  # TODO: better num
+        elif roll > max(loot_action_map.keys()):
             print_options()
 
 

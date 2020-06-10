@@ -11,25 +11,22 @@
     "metadata": ["disadvantage"]
   },
   {
-    "value": "Poison vial(s) (+1d6 poison damage to weapon for 1 minute), 10d6 poison damage if ingested in full."
+    "value": "Potion(s) of power (+1d4 damage for 1 minute)"
   },
   {
-    "value": "Greater poison vial(s) (+1d8 poison damage to weapon for 1 minute), enemies poisoned for 2 rounds on critical strike, 10d8 poison damage if ingested in full, ingester poisoned until next long rest.",
+    "value": "Greater potion(s) of power (+1d6 damage for 1 minute)",
     "metadata": ["disadvantage"]
   },
   {
     "value": "Invulnerability potion(s) - next damage you take is nullified."
   },
   {
-    "value": "Short rest potions - drink to reduce 10 minutes from your current short rest.",
-    "metadata": ["advantage"]
+    "value": "Greater invulnerability potion(s) - you are immune to damage until the start of your next turn",
+    "metadata": ["disadvantage"]
   },
   {
-    "value": "Long rest potion(s) - drink to reduce 1 hour from your next long rest.",
-    "metadata": ["advantage"]
-  },
-  {
-    "value": "Experience potion(s) - Gain 10 XP when drinking this potion"
+    "value": "Experience potion(s) - Gain 2d10 total party XP when drinking this potion, rounded up",
+    "metadata": ["disadvantage"]
   },
   {
     "value": "Potion(s) of Fortune - Gain advantage on your next loot roll.",
