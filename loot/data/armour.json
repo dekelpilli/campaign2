@@ -78,85 +78,85 @@
     "type": "Shield"
   },
   {
-    "value": "Unarmoured boots",
+    "name": "Unarmoured boots",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Unarmoured"
   },
   {
-    "value": "Unarmoured gloves",
+    "name": "Unarmoured gloves",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Unarmoured"
   },
   {
-    "value": "Unarmoured helmet",
+    "name": "Unarmoured helmet",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Unarmoured"
   },
   {
-    "value": "Unarmoured body armour (shirt)",
+    "name": "Unarmoured body armour (shirt)",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Unarmoured"
   },
   {
-    "value": "Light boots",
+    "name": "Light boots",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Light"
   },
   {
-    "value": "Light gloves",
+    "name": "Light gloves",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Light"
   },
   {
-    "value": "Light helmet",
+    "name": "Light helmet",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Light"
   },
   {
-    "value": "Medium boots",
+    "name": "Medium boots",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Medium"
   },
   {
-    "value": "Medium gloves",
+    "name": "Medium gloves",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Medium"
   },
   {
-    "value": "Medium helmet",
+    "name": "Medium helmet",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Medium"
   },
   {
-    "value": "Heavy boots",
+    "name": "Heavy boots",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Heavy"
   },
   {
-    "value": "Heavy gloves",
+    "name": "Heavy gloves",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Heavy"
   },
   {
-    "value": "Heavy helmet",
+    "name": "Heavy helmet",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Heavy"
   },
   {
-    "value": "Spell Focus",
+    "name": "Spell Focus",
     "ac": 0,
     "disadvantaged_stealth": false,
     "type": "Unarmoured"

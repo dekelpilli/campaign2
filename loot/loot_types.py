@@ -20,14 +20,14 @@ class LootType(IntEnum):
     19 = prayer
     20 = relic
     """
-    junk = 1  # TODO: negatively enchanted item
+    negatively_enchanted = 1  # TODO: negatively enchanted item
     mundane = 2
     consumable = 3
     ring = 4  # TODO: redo rings
     low_gold = 5
     single_enchant_item = 6
     double_enchant_item = 7
-    amulet = 8  # TODO: simplify amulet randomisation weightings
+    amulet = 8
     triple_enchant_item = 9
     crafting_item = 10
     prayer_stone = 11

@@ -6,7 +6,7 @@ import sys
 from functools import reduce
 from os import sep, path
 from pprint import PrettyPrinter
-from typing import List, Dict, Any, Collection
+from typing import *
 
 import loot_types
 from input_completer import Completer
@@ -135,7 +135,7 @@ class LootController:
             cr = min(random.choice(crs), cr)
         return cr
 
-    def get_random_creature_of_cr(self, max_cr):
+    def get_random_creature_of_cr(self, max_cr) -> Optional[str]:
         cr, cr_message = max_cr, max_cr
         while True:
             if cr == "":
@@ -144,7 +144,8 @@ class LootController:
             if cr not in self.challenge_ratings:
                 logging.warning("'%s' is not a valid CR option" % cr)
                 return None
-            creature = self.challenge_ratings[cr]["monsters"].get_random_creature()
+            monsters = self.challenge_ratings[cr]["monsters"]
+            creature = random.choice(monsters) if monsters else None
             if creature is None:
                 cr = str(int(cr) - 1)  # Not protecting against 0.125/0.25/0.5 because those have creatures
             else:
@@ -152,16 +153,16 @@ class LootController:
                     logging.warning("Creature is of CR %s instead of %s" % (cr, cr_message))
                 return creature
 
-    def get_amulet(self):
-        max_allowed_cr_index = self.all_crs.index(str(random.randint(2, 4)))
-        amulet_cr_capacity_idx = random.randint(2, max_allowed_cr_index)
-        amulet_max_cr = self.all_crs[amulet_cr_capacity_idx]
-        return "Amulet CR: " + amulet_max_cr + "\n\tCreature: " + self.get_random_creature_of_cr(amulet_max_cr)
+    def get_amulet(self) -> str:
+        allowed_crs = ['0', '0.125', '0.25', '0.5', '1',   '2',   '3',  '4']
+        weightings = [0.05,  0.05,    0.05,   0.1,   0.25, 0.25,  0.15, 0.1]
+        amulet_max_cr = random.choices(population=allowed_crs, weights=weightings, k=1)[0]
+        return "Amulet CR: %s\n\tCreature: %s" % (amulet_max_cr, self.get_random_creature_of_cr(amulet_max_cr))
 
     def get_mundane(self):
         is_weapon = random.randint(1, 100) > 66
         options: LootOptions = self.weapons if is_weapon else self.armours
-        return random.choice(options)
+        return random.choice(options)["name"]
 
     def get_ring(self):
         return random.choice(self.rings)
@@ -178,6 +179,7 @@ class LootController:
                                                  lambda: random.randint(1, 4))
 
     def get_weapon_enchant(self):
+        # TODO: reimplement
         enchantment = random.choice(self.enchants)
         if "armour" in enchantment.metadata:
             return self.get_weapon_enchant()
@@ -185,7 +187,7 @@ class LootController:
 
     def get_valid_enchants_for_weapon(self, weapon: LootOption) -> LootOptions:
         return list(filter(lambda enchant:
-                           (not enchant.get("metadata") or weapon in enchant["metadata"])
+                           (not enchant.get("metadata") or "weapon" in enchant["metadata"])
                            and LootController._is_compatible(weapon, enchant, "traits")
                            and LootController._is_compatible(weapon, enchant, "damage_types")
                            and LootController._is_compatible(weapon, enchant, "proficiency")
@@ -244,18 +246,27 @@ class LootController:
         return str(amount) + " " + item.value
 
     def get_enchanted_item_totalling(self, n: int):
+        base_type, valid_enchants = self.get_item_and_enchant_list()
+        return LootController._get_enchants_totalling(valid_enchants, n)
+
+    def get_negatively_enchanted_item(self, n: int):
+        base_type, valid_enchants = self.get_item_and_enchant_list()
+        valid_negative_enchants = list(filter(lambda enchant: enchant["points"] < 0, valid_enchants))
+        return LootController._get_enchants_totalling(valid_negative_enchants, n)
+
+    def get_item_and_enchant_list(self) -> Tuple[LootOption, LootOptions]:
         is_weapon = random.randint(1, 100) > 66
         options: LootOptions = self.weapons if is_weapon else self.armours
         base_type: LootOption = random.choice(options)
         valid_enchants = self.get_valid_enchants_for_weapon(base_type) if is_weapon\
             else self.get_valid_enchants_for_armour(base_type)
-        return LootController._get_enchants_totalling(valid_enchants, n)
+        return base_type, valid_enchants
 
     @staticmethod
     def _get_enchants_totalling(valid_enchants: LootOptions, total: int):
         current_total = 0
         enchants = []
-        while current_total >= total:
+        while total >= current_total:
             enchant = random.choice(valid_enchants)
             current_total += enchant["points"]
             enchants.append(enchant)
@@ -384,19 +395,20 @@ def print_options():  # TODO: move to LootController, print map from self
     print("\t>19: Show this")
 
 
-def define_action_map(mapped_loot_controller):  # TODO: move to LootController __init__
-    prayer_stone_function = lambda: "Prayerstone: " + mapped_loot_controller.get_prayer_stone()
+def define_action_map(mapped_loot_controller) -> Dict[int, Callable[[], str]]:  # TODO: move to LootController __init__
     return {
-        loot_types.LootType.mundanes.value: mapped_loot_controller.get_mundane,
-        loot_types.LootType.consumables.value: mapped_loot_controller.get_consumable,
-        loot_types.LootType.low_gold.value: lambda: str(random.randint(30, 100)) + " gold",
+        loot_types.LootType.negatively_enchanted.value:
+            lambda: mapped_loot_controller.get_negatively_enchanted_item(25),
+        loot_types.LootType.mundane.value: mapped_loot_controller.get_mundane,
+        loot_types.LootType.consumable.value: mapped_loot_controller.get_consumable,
+        loot_types.LootType.low_gold.value: lambda: str(random.randint(40, 50)) + " gold",
         loot_types.LootType.ring.value: lambda: "Ring: " + mapped_loot_controller.get_ring(),
         loot_types.LootType.single_enchant_item.value: lambda: mapped_loot_controller.get_enchanted_item_totalling(1),
         loot_types.LootType.amulet.value: mapped_loot_controller.get_amulet,
         loot_types.LootType.double_enchant_item.value: lambda: mapped_loot_controller.get_enchanted_item_totalling(2),
         loot_types.LootType.triple_enchant_item.value: lambda: mapped_loot_controller.get_enchanted_item_totalling(3),
-        loot_types.LootType.crafting_items.value: mapped_loot_controller.get_crafting_item,
-        loot_types.LootType.prayer_paths.value: prayer_stone_function,
+        loot_types.LootType.crafting_item.value: mapped_loot_controller.get_crafting_item,
+        loot_types.LootType.prayer_stone.value: lambda: "Prayerstone: " + mapped_loot_controller.get_prayer_stone(),
         loot_types.LootType.relic.value: mapped_loot_controller.get_new_relic,
         21: mapped_loot_controller.get_weapon_enchant,
         22: mapped_loot_controller.get_armour_enchant,
@@ -417,14 +429,14 @@ def generate_loot():
         readline.parse_and_bind("tab: complete")
         roll = get_int_from_str(input("\nLoot roll: "), 99)
         if roll == 0:
-            roll = random.randint(1, 12)
+            roll = random.randint(1, 20)
             print("Random roll: " + str(roll) + ", (" + str(loot_action_map[roll]) + ")")
         elif roll < 0:
             exit(0)
         print(loot_action_map.get(roll,
                                   lambda: str(roll) + " is not a normal loot option, checking extra options")())
 
-        if roll == 16:
+        if roll == 28:
             loot_controller = LootController(True)
             loot_action_map = define_action_map(loot_controller)
             logging.info("Reloaded loot from files")
