@@ -46,7 +46,7 @@ Vendor valuations:
     Ring: 50
     Magical: 200 (must have positive mod points)
     Amulets: 50 * CR capacity
-    Currency items: 100g
+    Currency items: 100g (annulment 50g)
     Prayer stones: 100
     Relics: 300 + half of money spent on levelling
     Health potions: half buy price
@@ -55,6 +55,7 @@ Vendor valuations:
 Sales and services:
     Orbs of flux: 200g
     Orb of balance: 200g
+    Orb of annulment: 100g
     Mundanes: 60
     HP potions: 5 per level per potion (TODO: healing surges?)
     Enchanted item: depends on power, TODO: decide

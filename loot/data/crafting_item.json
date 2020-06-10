@@ -6,7 +6,11 @@
     "value": "Orb(s) of Balance - adds mods to an item until its total mod points are equal to at least 0."
   },
   {
-    "value": "Orb(s) of Destruction - Remove a random mod from a magic item or relic"
+    "value": "Orb(s) of Destruction - Remove a random mod from a magic item, relic, or artefact"
+  },
+  {
+    "value": "Orb(s) of Annulment - Remove a positive mod from a magic item, relic, or artefact",
+    "enabled": false
   },
   {
     "value": "Orb(s) of Creation - Convert a mundane item into a magical item (10 to 20)"
