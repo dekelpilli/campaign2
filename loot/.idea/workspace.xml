@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a0c8775-c7de-449d-b314-7e135ec5c119" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/data/weapon.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/consumable.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/consumable.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/crafting_item.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/crafting_item.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_completer.py" beforeDir="false" afterPath="$PROJECT_DIR$/input_completer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loot_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/loot_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mundane.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/armour.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

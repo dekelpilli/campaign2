@@ -1,0 +1,592 @@
+[
+  {
+    "name": "Club",
+    "damage": "1d6",
+    "damage_type": "B",
+    "category": "Club",
+    "traits": "Thrown",
+    "proficiency": "Simple",
+    "type": "Melee",
+    "range": "10/15"
+  },
+  {
+    "name": "Dagger",
+    "damage": "1d4",
+    "damage_type": "P",
+    "category": "Knife",
+    "traits": "Light, Finesse, Thrown, Flexible (S)",
+    "proficiency": "Simple",
+    "type": "Melee",
+    "range": "10/15"
+  },
+  {
+    "name": "Gauntlet",
+    "damage": "1d4",
+    "damage_type": "B",
+    "category": "Brawling",
+    "traits": "Light, Unarmed",
+    "proficiency": "Simple",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Light Mace",
+    "damage": "1d4",
+    "damage_type": "B",
+    "category": "Club",
+    "traits": "Light, Finesse, Shove",
+    "proficiency": "Simple",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Longspear",
+    "damage": "1d8",
+    "damage_type": "P",
+    "category": "Spear",
+    "traits": "Two-handed, Reach",
+    "proficiency": "Simple",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Mace",
+    "damage": "1d6",
+    "damage_type": "B",
+    "category": "Club",
+    "traits": "Shove",
+    "proficiency": "Simple",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Morningstar",
+    "damage": "1d6",
+    "damage_type": "B",
+    "category": "Club",
+    "traits": "Flexible (P)",
+    "proficiency": "Simple",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Sickle",
+    "damage": "1d4",
+    "damage_type": "S",
+    "category": "Knife",
+    "traits": "Light, Finesse, Trip",
+    "proficiency": "Simple",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Spear",
+    "damage": "1d6",
+    "damage_type": "P",
+    "category": "Spear",
+    "traits": "Thrown",
+    "proficiency": "Simple",
+    "type": "Melee",
+    "range": "20/30"
+  },
+  {
+    "name": "Spiked Gauntlet",
+    "damage": "1d4",
+    "damage_type": "P",
+    "category": "Brawling",
+    "traits": "Light, Unarmed",
+    "proficiency": "Simple",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Blowgun",
+    "damage": 1,
+    "damage_type": "P",
+    "category": "Dart",
+    "traits": "Light, Non-lethal",
+    "proficiency": "Simple",
+    "type": "Ranged",
+    "range": "20/40"
+  },
+  {
+    "name": "Crossbow",
+    "damage": "1d8",
+    "damage_type": "P",
+    "category": "Bow",
+    "traits": "Two-handed",
+    "proficiency": "Simple",
+    "type": "Ranged",
+    "range": "120/240"
+  },
+  {
+    "name": "Dart",
+    "damage": "1d4",
+    "damage_type": "P",
+    "category": "Dart",
+    "traits": "Light, Thrown",
+    "proficiency": "Simple",
+    "type": "Ranged",
+    "range": "20/30"
+  },
+  {
+    "name": "Hand Crossbow",
+    "damage": "1d6",
+    "damage_type": "P",
+    "category": "Bow",
+    "traits": null,
+    "proficiency": "Simple",
+    "type": "Ranged",
+    "range": "60/120"
+  },
+  {
+    "name": "Heavy Crossbow",
+    "damage": "1d10",
+    "damage_type": "P",
+    "category": "Bow",
+    "traits": "Two-handed, Reload",
+    "proficiency": "Simple",
+    "type": "Ranged",
+    "range": "120/240"
+  },
+  {
+    "name": "Javelin",
+    "damage": "1d6",
+    "damage_type": "P",
+    "category": "Dart",
+    "traits": "Thrown",
+    "proficiency": "Simple",
+    "type": "Ranged",
+    "range": "30/45"
+  },
+  {
+    "name": "Sling",
+    "damage": "1d6",
+    "damage_type": "B",
+    "category": "Propulsive",
+    "traits": null,
+    "proficiency": "Simple",
+    "type": "Ranged",
+    "range": "50/100"
+  },
+  {
+    "name": "Bastard Sword",
+    "damage": "1d8",
+    "damage_type": "P",
+    "category": "Sword",
+    "traits": "Versatile",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Battle Axe",
+    "damage": "1d8",
+    "damage_type": "S",
+    "category": "Axe",
+    "traits": "Sweep",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Bo Staff",
+    "damage": "1d8",
+    "damage_type": "B",
+    "category": "Club",
+    "traits": "Two-handed, Parry, Reach, Trip",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Falchion",
+    "damage": "1d10",
+    "damage_type": "S",
+    "category": "Sword",
+    "traits": "Two-handed, Forceful, Sweep",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Flail",
+    "damage": "1d6",
+    "damage_type": "B",
+    "category": "Flail",
+    "traits": "Disarm, Sweep, Trip",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Glaive",
+    "damage": "1d8",
+    "damage_type": "S",
+    "category": "Polearm",
+    "traits": "Two-handed, Deadly, Forceful, Reach",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Greataxe",
+    "damage": "1d12",
+    "damage_type": "S",
+    "category": "Axe",
+    "traits": "Two-handed, Heavy, Sweep",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Greatclub",
+    "damage": "1d10",
+    "damage_type": "B",
+    "category": "Club",
+    "traits": "Two-handed, Backswing, Heavy, Shove",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Greatpick",
+    "damage": "1d10",
+    "damage_type": "P",
+    "category": "Pick",
+    "traits": "Two-handed, Fatal, Heavy",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Greatsword",
+    "damage": "1d12",
+    "damage_type": "S",
+    "category": "Sword",
+    "traits": "Two-handed, Flexible (P), Heavy",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Great Shield",
+    "damage": "1d6",
+    "damage_type": "B",
+    "category": "Shield",
+    "traits": "Targe (2)",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Great Spiked Shield",
+    "damage": "1d6",
+    "damage_type": "P",
+    "category": "Shield",
+    "traits": "Targe (2)",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Guisarme",
+    "damage": "1d10",
+    "damage_type": "S",
+    "category": "Polearm",
+    "traits": "Two-handed, Reach, Trip",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Halberd",
+    "damage": "1d10",
+    "damage_type": "P",
+    "category": "Polearm",
+    "traits": "Two-handed, Reach, Flexible (S)",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Hatchet",
+    "damage": "1d6",
+    "damage_type": "S",
+    "category": "Axe",
+    "traits": "Light, Sweep, Thrown",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": "10/15"
+  },
+  {
+    "name": "Lance",
+    "damage": "1d8",
+    "damage_type": "P",
+    "category": "Spear",
+    "traits": "Two-handed, Charge, Deadly, Reach",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Light Hammer",
+    "damage": "1d6",
+    "damage_type": "B",
+    "category": "Hammer",
+    "traits": "Light, Thrown",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": "20/30"
+  },
+  {
+    "name": "Light Pick",
+    "damage": "1d4",
+    "damage_type": "P",
+    "category": "Pick",
+    "traits": "Light, Fatal",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Longsword",
+    "damage": "1d8",
+    "damage_type": "S",
+    "category": "Sword",
+    "traits": "Flexible (P)",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Main-gauche",
+    "damage": "1d4",
+    "damage_type": "P",
+    "category": "Knife",
+    "traits": "Light, Disarm, Finesse, Parry, Flexible (S)",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Maul",
+    "damage": "1d12",
+    "damage_type": "B",
+    "category": "Hammer",
+    "traits": "Two-handed, Heavy, Shove",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Nunchaku",
+    "damage": "1d4",
+    "damage_type": "B",
+    "category": "Club",
+    "traits": "Two-handed, Compound, Finesse",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Pick",
+    "damage": "1d6",
+    "damage_type": "P",
+    "category": "Pick",
+    "traits": "Fatal",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Ranseur",
+    "damage": "1d10",
+    "damage_type": "P",
+    "category": "Polearm",
+    "traits": "Two-handed, Disarm, Reach",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Rapier",
+    "damage": "1d6",
+    "damage_type": "P",
+    "category": "Sword",
+    "traits": "Deadly, Disarm, Finesse",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Ring Blade",
+    "damage": "1d10",
+    "damage_type": "S",
+    "category": "Sword",
+    "traits": "Two-handed, Disarm, Finesse, Sweep",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Sap",
+    "damage": "1d6",
+    "damage_type": "B",
+    "category": "Club",
+    "traits": "Light, Non-lethal",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Scimitar",
+    "damage": "1d6",
+    "damage_type": "S",
+    "category": "Sword",
+    "traits": "Forceful, Sweep",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Scythe",
+    "damage": "1d10",
+    "damage_type": "S",
+    "category": "Polearm",
+    "traits": "Two-handed, Deadly, Trip",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Shortsword",
+    "damage": "1d6",
+    "damage_type": "P",
+    "category": "Sword",
+    "traits": "Light, Finesse, Flexible (S)",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Small Shield",
+    "damage": "1d4",
+    "damage_type": "B",
+    "category": "Shield",
+    "traits": "Light, Targe (1)",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Small Spiked Shield",
+    "damage": "1d4",
+    "damage_type": "P",
+    "category": "Shield",
+    "traits": "Light, Targe (1)",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Starknife",
+    "damage": "1d4",
+    "damage_type": "P",
+    "category": "Knife",
+    "traits": "Light, Fatal (d6), Finesse, Thrown, Flexible (S)",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": "20/30"
+  },
+  {
+    "name": "Trident",
+    "damage": "1d8",
+    "damage_type": "P",
+    "category": "Spear",
+    "traits": "Thrown",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": "20/30"
+  },
+  {
+    "name": "War Flail",
+    "damage": "1d10",
+    "damage_type": "B",
+    "category": "Flail",
+    "traits": "Two-handed, Disarm, Heavy, Sweep, Trip",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Warhammer",
+    "damage": "1d8",
+    "damage_type": "B",
+    "category": "Hammer",
+    "traits": "Shove",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Whip",
+    "damage": "1d4",
+    "damage_type": "S",
+    "category": "Flail",
+    "traits": "Disarm, Finesse, Non-lethal, Reach, Trip",
+    "proficiency": "Martial",
+    "type": "Melee",
+    "range": null
+  },
+  {
+    "name": "Composite Longbow",
+    "damage": "1d8",
+    "damage_type": "P",
+    "category": "Bow",
+    "traits": "Fatal, Propulsive, Volley (50)",
+    "proficiency": "Martial",
+    "type": "Ranged",
+    "range": "100/200"
+  },
+  {
+    "name": "Composite Shortbow",
+    "damage": "1d6",
+    "damage_type": "P",
+    "category": "Bow",
+    "traits": "Fatal, Propulsive",
+    "proficiency": "Martial",
+    "type": "Ranged",
+    "range": "60/120"
+  },
+  {
+    "name": "Longbow",
+    "damage": "1d8",
+    "damage_type": "P",
+    "category": "Bow",
+    "traits": "Fatal, Volley (50)",
+    "proficiency": "Martial",
+    "type": "Ranged",
+    "range": "100/200"
+  },
+  {
+    "name": "Shortbow",
+    "damage": "1d6",
+    "damage_type": "P",
+    "category": "Bow",
+    "traits": "Fatal",
+    "proficiency": "Martial",
+    "type": "Ranged",
+    "range": "60/120"
+  },
+  {
+    "name": "Wand",
+    "damage": "1",
+    "damage_type": "B",
+    "category": "Magic",
+    "traits": [],
+    "proficiency": null,
+    "type": "Melee",
+    "range": null
+  }
+]
