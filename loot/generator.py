@@ -98,8 +98,6 @@ class LootController:
                 LootController.ItemLevelUpOption.NEW_RANDOM_MODS,
                 LootController.ItemLevelUpOption.NEW_RELIC_MODS
             ]
-            # TODO: load relics such that mods always contain "level" (d: 1),
-            #  "upgradeable" (d: true), "points" (d: 10), level_up_points (d: points)
             upgradeable_mods = list(filter(lambda existing_mod: existing_mod["upgradeable"], relic["existing"]))
             third_choice_options = [
                 LootController.ItemLevelUpOption.NEW_RANDOM_MODS,
@@ -112,15 +110,12 @@ class LootController:
                     third_choice_options.append(LootController.ItemLevelUpOption.UPGRADE_EXISTING)
             options.append(random.choice(third_choice_options))
 
-        chosen_mods = set()
+        option_mods = list()
         for option in options:
-            chosen_mod = None
-            while not chosen_mod or chosen_mod in chosen_mods:
-                chosen_mod = self._get_relic_upgrade_option(relic, option, upgradeable_mods, points_remaining)
-            chosen_mods.add(chosen_mod)
+            option_mod = self._get_relic_upgrade_option(relic, option, upgradeable_mods, points_remaining)
+            option_mods.append(option_mod)
 
-        return reduce(lambda mod1, mod2: "%s\n\tOR\n%s" % (mod1, mod2),
-                      map(lambda mod: mod["value"], chosen_mods))
+        pass  # TODO: prompt for choice, update relics
 
     def _get_relic_upgrade_option(self, relic: Dict[str, Any],
                                   option: ItemLevelUpOption,
@@ -134,18 +129,18 @@ class LootController:
 
         if option == LootController.ItemLevelUpOption.NEW_RANDOM_MODS:
             base = self.find_base_item(relic["base"])
-            valid_enchants = self.get_valid_enchants_for_weapon(base) if relic["base"] == "weapon" \
+            valid_enchants = self.get_valid_enchants_for_weapon(base) if relic["type"] == "weapon" \
                 else self.get_valid_enchants_for_armour(base)
             return LootController._get_enchants_totalling(valid_enchants, points_remaining)
 
         if option == LootController.ItemLevelUpOption.NEW_RELIC_MODS:
-            mods = set(relic["available"])
+            mods = {available_mod["value"]: available_mod for available_mod in relic["available"]}
             added_total = 0
             new_mods = []
-            while added_total <= points_remaining or not mods:
-                mod = random.choice(mods)
+            while added_total < points_remaining and mods.keys():
+                mod = mods.get(random.choice(list(mods.keys())))
                 new_mods.append(mod)
-                mods.remove(mod)
+                mods.pop(mod["value"])
                 added_total += mod["level_up_points"]
             return new_mods
 
@@ -303,7 +298,7 @@ class LootController:
     def _get_enchants_totalling(valid_enchants: LootOptions, total: int):
         current_total = 0
         enchants = []
-        while total >= current_total:
+        while total > current_total:
             enchant = random.choice(valid_enchants)
             current_total += enchant["points"]
             enchants.append(enchant)
@@ -354,13 +349,12 @@ class LootController:
 
     @staticmethod
     def _create_relics(do_flush=False) -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Dict[str, Any]]]:
-        enchants = LootController._create_loot_option("relic", do_flush)
-        defaults = {
+        relics = LootController._load_with_defaults("relic", do_flush, {
             "enabled": True,
             "found": False,
             "level": 1
-        }
-        all_relics = list(map(lambda option: {**defaults, **option}, enchants))
+        })
+        all_relics = list(map(LootController._get_relic_with_defaults, relics))
         found = dict()
         unfound = dict()
         for relic in all_relics:
@@ -369,6 +363,23 @@ class LootController:
             target_dict = found if relic["found"] else unfound
             target_dict[relic["name"]] = relic
         return found, unfound
+
+    @staticmethod
+    def _get_relic_with_defaults(relic: LootOption) -> LootOption:
+        relic["available"] = list(map(LootController._get_default_relic_mod, relic["available"]))
+        relic["existing"] = list(map(LootController._get_default_relic_mod, relic["existing"]))
+        return relic
+
+    @staticmethod
+    def _get_default_relic_mod(relic_mod: LootOption) -> LootOption:
+        mod_defaults = {
+            "level": 1,
+            "upgradeable": True,
+            "points": 10,
+        }
+        relic_mod = {**mod_defaults, **relic_mod}
+        relic_mod["level_up_points"] = relic_mod.get("level_up_points", relic_mod["points"])
+        return relic_mod
 
     @staticmethod
     def _load_with_defaults(filename: str, do_flush: bool, defaults: LootOption) -> LootOptions:
