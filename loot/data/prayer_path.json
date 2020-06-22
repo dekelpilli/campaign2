@@ -1,7 +1,10 @@
 [
   {
+    "enabled": true,
+    "owner": "test",
+    "progress": 0,
+    "metadata": [],
     "value": "Rheztol",
-    "progress": 1,
     "levels": [
       "You learn the Minor Illusion cantrip. This does not count towards your limit of known cantrips. The spellcasting modifier can be a mental attribute of your choice.",
       "You have expertise in Investigation when identifying illusions.",
@@ -13,12 +16,14 @@
       "+2 to the DCs of Illusion spells",
       "You may cast Zone of Truth once per short rest. When cast in this way, the spell is centered on you and lasts for 1 hour.",
       "You have 30 feet of Truesight"
-    ],
-    "owner": "test"
+    ]
   },
   {
-    "value": "Esher",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Esher",
     "levels": [
       "The minimum amount you healing you receive from using a hit die becomes twice your Constitution modifier",
       "You become immune to all forms of madness",
@@ -30,12 +35,14 @@
       "You take no additional damage from critical strikes",
       "Once per short rest, when you fail a save, you can choose to succeed instead",
       "You gain the Healer feat. When you use the healer feat to heal someone, you may also feed them a potion with the same action. If you already have this feat, gain another one instead."
-    ],
-    "owner": null
+    ]
   },
   {
-    "value": "Ateus",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Ateus",
     "levels": [
       "-1 critical requirement on all skill checks",
       "You have expertise in Persuasion and Deception when negotiating trades",
@@ -50,8 +57,11 @@
     ]
   },
   {
-    "value": "Vimis",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Vimis",
     "levels": [
       "You cannot have disadvantage when learning creature stats",
       "You have expertise in Investigation when doing research via reading",
@@ -63,12 +73,14 @@
       "You have +2AC if you're learned about a creature in the last 2 rounds",
       "When you are hit by a melee attack from a creature you've learned about, you may use a reaction to disengage and take a normal movement action",
       "Gain the Keen Mind feat. If you already have this feat, you gain another feat."
-    ],
-    "owner": null
+    ]
   },
   {
-    "value": "Vuneta",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Vuneta",
     "levels": [
       "You have advantage on Persuasion checks with creatures you are friendly with",
       "You have expertise in Persuasion and Insight when attempting to avoid violence",
@@ -83,8 +95,11 @@
     ]
   },
   {
-    "value": "Thynos",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Thynos",
     "levels": [
       "Enemies that have damaged you more than once become vulnerable to fire damage if they were not previously resistant or immune",
       "You have expertise in Intimidation against hostile creatures",
@@ -99,8 +114,11 @@
     ]
   },
   {
-    "value": "Omnos",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Omnos",
     "levels": [
       "Enemies that damage you become marked for a minute. Marked enemies have -1 damage against you. DO NOT SKIP.",
       "Marked enemies cannot heal",
@@ -115,8 +133,11 @@
     ]
   },
   {
-    "value": "Odi",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Odi",
     "levels": [
       "You have Expertise with Sleight of Hand when stealing documents (can be plans, contracts, maps, etc)",
       "You have +1 damage against creatures with less Intelligence than you.",
@@ -131,8 +152,11 @@
     ]
   },
   {
-    "value": "Thetia",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Thetia",
     "levels": [
       "+1 damage while you're within 30 feet of more than one hostile creature",
       "You have advantage on Deception checks when the lie is about deaths you've been involved in, and advantage in Persuasion checks that would allow you to engage in more battles",
@@ -147,8 +171,11 @@
     ]
   },
   {
-    "value": "Cerasil",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Cerasil",
     "levels": [
       "You have advantage on Charisma checks directed at non-hostile or non-intelligent plant and beast creatures. Additionally, you can communicate telepathically with them within 30 feet.",
       "You are immune to natural diseases",
@@ -163,8 +190,11 @@
     ]
   },
   {
-    "value": "Qhanas",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Qhanas",
     "levels": [
       "You cannot be silenced",
       "When you score a critical strike with a spell attack or spell, you recover the spell slot used to cast it. This does not include guaranteed crits (paralysis, unconscious) (for one target).",
@@ -179,8 +209,11 @@
     ]
   },
   {
-    "value": "Thatar",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Thatar",
     "levels": [
       "Undead creatures have disadvantage when attacking you.",
       "Divine Sense (Paladin), but you can only sense undead, and you can use any mental attribute for uses.",
@@ -195,8 +228,11 @@
     ]
   },
   {
-    "value": "Ketis",
+    "enabled": true,
+    "owner": null,
     "progress": 0,
+    "metadata": [],
+    "value": "Ketis",
     "levels": [
       "You have +1 resistance to cold, fire, and lightning damage",
       "When you take fire, cold, or lightning damage, you become resistant to the other two until the start of your next turn.",

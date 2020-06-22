@@ -1,9 +1,9 @@
 import readline
-from typing import Collection, Set
+from typing import Set
 
 
 class Completer:
-    def __init__(self, options: Collection[str]):
+    def __init__(self, options):
         self.options: Set = options if isinstance(options, set) else set(options)
 
     def complete(self, text, state):

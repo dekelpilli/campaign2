@@ -67,8 +67,15 @@ class LootController:
         next_two = levels[progress:min(len(levels), progress + 2)]
         level_options = reduce(lambda next_level, level_after_next: "%s\n\tOR\n%s" % (next_level, level_after_next),
                                next_two)
-        # TODO: persist chosen progression
+        level_selection = LootController._take_input_from_index("Which mod was chosen?", next_two)
+        if level_selection:
+            index, _ = level_selection
+            selected_path["progress"] = progress + index + 1
+            self.persist_prayer_paths()
         return "(%s)\n%s" % (selected_path["value"], level_options)
+
+    def persist_prayer_paths(self):
+        LootController._write_file("prayer_path", self.prayer_paths)
 
     def level_up_relic_by_choice(self):
         relic_choice = LootController._take_input("Which relic do you want to level?",
@@ -83,7 +90,7 @@ class LootController:
         current_points = LootController._calculate_total_mod_values(relic["existing"])
         points_remaining = points_allowed_for_next_level - current_points
         if points_remaining < 0:
-            options: List[LootController.ItemLevelUpOption] =\
+            options: List[LootController.ItemLevelUpOption] = \
                 [LootController.ItemLevelUpOption.NEGATIVE_MODS for _ in range(3)]
             upgradeable_mods = list()
         else:
@@ -121,13 +128,13 @@ class LootController:
                                   points_remaining: int) -> LootOptions:
         if option == LootController.ItemLevelUpOption.NEGATIVE_MODS:
             base = self.find_base_item(relic["base"])
-            valid_enchants = self.get_valid_enchants_for_weapon(base) if relic["base"] == "weapon"\
+            valid_enchants = self.get_valid_enchants_for_weapon(base) if relic["base"] == "weapon" \
                 else self.get_valid_enchants_for_armour(base)
             return LootController._get_negative_enchants_totalling(valid_enchants, points_remaining)
 
         if option == LootController.ItemLevelUpOption.NEW_RANDOM_MODS:
             base = self.find_base_item(relic["base"])
-            valid_enchants = self.get_valid_enchants_for_weapon(base) if relic["base"] == "weapon"\
+            valid_enchants = self.get_valid_enchants_for_weapon(base) if relic["base"] == "weapon" \
                 else self.get_valid_enchants_for_armour(base)
             return LootController._get_enchants_totalling(valid_enchants, points_remaining)
 
@@ -370,6 +377,12 @@ class LootController:
         return list(map(lambda option: {**defaults, **option}, dicts))
 
     @staticmethod
+    def _write_file(filename: str, values):
+        with open(DATA_DIR + filename + ".json", 'w') as f:
+            json.dump(values, f, ensure_ascii=False, indent=2)
+        logging.info("Updated %s" % filename)
+
+    @staticmethod
     def _load_file_contents(name, do_flush):
         with open(DATA_DIR + name + ".json") as data_file:
             if do_flush:
@@ -388,6 +401,20 @@ class LootController:
             logging.warning("%s is not a valid option (%s)" % (choice, options))
             return None
         return choice
+
+    @staticmethod
+    def _take_input_from_index(prompt: str, options: Collection[Any]) -> Optional[Tuple[int, Any]]:
+        options: Dict[str, Any] = {str(i): option for i, option in enumerate(options)}
+        logging.info("Input Options: %s" %
+                     reduce(lambda option, next_option: "\n%s\n%s" % (option, next_option),  # TODO: prettyprint?
+                            options.items()))
+        readline.set_completer(Completer(options.keys()).complete)
+        choice: str = input("\n%s " % prompt)
+        readline.set_completer(lambda text, state: None)
+        if choice not in options:
+            logging.warning("%s is not a valid option (%s)" % (choice, options))
+            return None
+        return int(choice), options.get(choice)
 
 
 def get_int_from_str(string, default_integer=None):
