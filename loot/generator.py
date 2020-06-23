@@ -31,10 +31,7 @@ class LootController:
         self.consumables: LootOptions = LootController._create_loot_option("consumable", do_flush)
         self.challenge_ratings: Dict[str, Dict[str, Any]] = LootController._load_challenge_ratings(do_flush)
         self.all_crs = list(self.challenge_ratings.keys())
-
-        relics = LootController._create_relics(do_flush)
-        self.found_relics: Dict[str, Dict[str, Any]] = relics[0]
-        self.unfound_relics: Dict[str, Dict[str, Any]] = relics[1]
+        self.relics: LootOptions = LootController._create_relics(do_flush)
 
     class ItemLevelUpOption(Enum):
         UPGRADE_EXISTING = 1
@@ -71,22 +68,28 @@ class LootController:
         if level_selection:
             index, _ = level_selection
             selected_path["progress"] = progress + index + 1
-            self.persist_prayer_paths()
+            self._persist_prayer_paths()
         return "(%s)\n%s" % (selected_path["value"], level_options)
 
-    def persist_prayer_paths(self):
+    def _persist_prayer_paths(self):
         LootController._write_file("prayer_path", self.prayer_paths)
 
+    def _persist_relics(self):
+        LootController._write_file("relic", self.relics)
+
     def level_up_relic_by_choice(self):
-        relic_choice = LootController._take_input("Which relic do you want to level?",
-                                                  set(self.found_relics.keys()))
+        relic_choice = LootController._take_input_from_index("Which relic do you want to level?",
+                                                             list(map(lambda relic: relic["found"] and relic["enabled"],
+                                                                      self.relics)))
         if not relic_choice:
             return None
 
-        return self._level_up_relic(self.found_relics[relic_choice])
+        _, chosen_relic = relic_choice
+        return self._level_up_relic(self.relics[chosen_relic])
 
     def _level_up_relic(self, relic: Dict[str, Any]):
-        points_allowed_for_next_level: int = (relic["level"] + 1) * 10
+        next_relic_level = relic["level"] + 1
+        points_allowed_for_next_level: int = next_relic_level * 10
         current_points = LootController._calculate_total_mod_values(relic["existing"])
         points_remaining = points_allowed_for_next_level - current_points
         if points_remaining < 0:
@@ -115,7 +118,15 @@ class LootController:
             option_mod = self._get_relic_upgrade_option(relic, option, upgradeable_mods, points_remaining)
             option_mods.append(option_mod)
 
-        pass  # TODO: prompt for choice, update relics
+        choice = LootController._take_input_from_index("Which mods were chosen?", option_mods)
+        if choice:
+            index, chosen_mods = choice
+            relic["existing"].append(chosen_mods)
+            if options[index] == LootController.ItemLevelUpOption.NEW_RELIC_MODS:
+                for chosen_mod in chosen_mods:
+                    relic["available"].remove(chosen_mod)
+            relic["level"] = next_relic_level
+            self._persist_relics()
 
     def _get_relic_upgrade_option(self, relic: Dict[str, Any],
                                   option: ItemLevelUpOption,
@@ -162,9 +173,10 @@ class LootController:
         return matching_items[0]
 
     def get_new_relic(self):
-        keys = list(self.unfound_relics.keys())
-        randomly_chosen_key = keys[random.randint(0, len(keys) - 1)]
-        relic = self.unfound_relics[randomly_chosen_key]
+        unfound_relics = list(filter(lambda potential_relic_option: not potential_relic_option["found"]
+                                                                    and potential_relic_option["enabled"], self.relics))
+        relic = random.choice(unfound_relics)
+        # TODO: mark as found
         return str(relic)
 
     def get_random_creature_of_cr(self, max_cr) -> Optional[str]:
@@ -317,7 +329,7 @@ class LootController:
 
     @staticmethod
     def _load_challenge_ratings(do_flush) -> Dict[str, Dict[str, Any]]:
-        file_contents = LootController._load_file_contents("monster", do_flush)
+        file_contents = LootController._load_raw_file_contents("monster", do_flush)
         return json.loads(file_contents)
 
     @staticmethod
@@ -348,19 +360,13 @@ class LootController:
         return list(map(lambda option: {**defaults, **option}, enchants))
 
     @staticmethod
-    def _create_relics(do_flush=False) -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Dict[str, Any]]]:
-        relics = LootController._load_with_defaults("relic", do_flush, {
-            "enabled": True,
-            "found": False,
-            "level": 1
-        })
-        all_relics = list(map(LootController._get_relic_with_defaults, relics))
+    def _create_relics(do_flush) -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Dict[str, Any]]]:
+        relics = LootController._load_file_contents("relic", do_flush)
+        relics_with_defaults = list(map(LootController._get_relic_with_defaults, relics))
         found = dict()
         unfound = dict()
-        for relic in all_relics:
-            if not relic["enabled"]:
-                continue
-            target_dict = found if relic["found"] else unfound
+        for relic in relics_with_defaults:
+            target_dict = found if relic["found"] and relic["enabled"] else unfound
             target_dict[relic["name"]] = relic
         return found, unfound
 
@@ -383,9 +389,13 @@ class LootController:
 
     @staticmethod
     def _load_with_defaults(filename: str, do_flush: bool, defaults: LootOption) -> LootOptions:
-        file_contents = LootController._load_file_contents(filename, do_flush)
-        dicts = json.loads(file_contents)
+        dicts = LootController._load_file_contents(filename, do_flush)
         return list(map(lambda option: {**defaults, **option}, dicts))
+
+    @staticmethod
+    def _load_file_contents(filename: str, do_flush: bool):
+        file_contents = LootController._load_raw_file_contents(filename, do_flush)
+        return json.loads(file_contents)
 
     @staticmethod
     def _write_file(filename: str, values):
@@ -394,11 +404,11 @@ class LootController:
         logging.info("Updated %s" % filename)
 
     @staticmethod
-    def _load_file_contents(name, do_flush):
+    def _load_raw_file_contents(name, do_flush):
         with open(DATA_DIR + name + ".json") as data_file:
             if do_flush:
                 data_file.flush()
-                return LootController._load_file_contents(name, False)
+                return LootController._load_raw_file_contents(name, False)
             return data_file.read()
 
     @staticmethod
@@ -495,14 +505,9 @@ def generate_loot():
             logging.info("Random roll %s (%s)" % (roll, loot_action_map[roll]))
         elif roll < 0:
             exit(0)
-        print(loot_action_map.get(roll,
-                                  lambda: str(roll) + " is not a normal loot option, checking extra options")())
+        loot_action_map[roll]()
 
-        if roll == 28:
-            loot_controller = LootController(True)
-            loot_action_map = define_action_map(loot_controller)
-            logging.info("Reloaded loot from files")
-        elif roll > max(loot_action_map.keys()):
+        if roll > max(loot_action_map.keys()):
             print_options()
 
 
