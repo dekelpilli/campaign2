@@ -763,5 +763,15 @@
   },
   {
     "value": "While transformed into a Plant, you regenerate health equal to your Constitution modifier every round, to a minimum of 1 (the plant's value + any of your bonuses)."
+  },
+  {
+    "value": "TODO: remove this",
+    "metadata": ["weapon", "armour"],
+    "points": -10
+  },
+  {
+    "value": "TODO: remove this too",
+    "metadata": ["weapon", "armour"],
+    "points": -4
   }
 ]

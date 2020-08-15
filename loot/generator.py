@@ -9,6 +9,7 @@ from pprint import PrettyPrinter
 from typing import *
 from typing import Dict, Any, List
 from enum import Enum
+import distutils.util
 
 import loot_types
 from input_completer import Completer
@@ -78,14 +79,16 @@ class LootController:
         LootController._write_file("relic", self.relics)
 
     def level_up_relic_by_choice(self):
+        found_relics = list(filter(lambda relic: relic["found"] and relic["enabled"], self.relics))
+        found_relic_names = {found_relic["name"]: found_relic for found_relic in found_relics}
         relic_choice = LootController._take_input_from_index("Which relic do you want to level?",
-                                                             list(map(lambda relic: relic["found"] and relic["enabled"],
-                                                                      self.relics)))
+                                                             set(found_relic_names.keys()))
+
         if not relic_choice:
             return None
 
         _, chosen_relic = relic_choice
-        return self._level_up_relic(self.relics[chosen_relic])
+        return self._level_up_relic(found_relic_names[chosen_relic])
 
     def _level_up_relic(self, relic: Dict[str, Any]):
         next_relic_level = relic["level"] + 1
@@ -121,7 +124,7 @@ class LootController:
         choice = LootController._take_input_from_index("Which mods were chosen?", option_mods)
         if choice:
             index, chosen_mods = choice
-            relic["existing"].append(chosen_mods)
+            relic["existing"] += chosen_mods
             if options[index] == LootController.ItemLevelUpOption.NEW_RELIC_MODS:
                 for chosen_mod in chosen_mods:
                     relic["available"].remove(chosen_mod)
@@ -134,15 +137,17 @@ class LootController:
                                   points_remaining: int) -> LootOptions:
         if option == LootController.ItemLevelUpOption.NEGATIVE_MODS:
             base = self.find_base_item(relic["base"])
-            valid_enchants = self.get_valid_enchants_for_weapon(base) if relic["base"] == "weapon" \
+            valid_enchants = self.get_valid_enchants_for_weapon(base) if relic["type"] == "weapon" \
                 else self.get_valid_enchants_for_armour(base)
-            return LootController._get_negative_enchants_totalling(valid_enchants, points_remaining)
+            return list(map(LootController._get_default_relic_mod,
+                            LootController._get_negative_enchants_totalling(valid_enchants, points_remaining)))
 
         if option == LootController.ItemLevelUpOption.NEW_RANDOM_MODS:
             base = self.find_base_item(relic["base"])
             valid_enchants = self.get_valid_enchants_for_weapon(base) if relic["type"] == "weapon" \
                 else self.get_valid_enchants_for_armour(base)
-            return LootController._get_enchants_totalling(valid_enchants, points_remaining)
+            return list(map(LootController._get_default_relic_mod,
+                            LootController._get_enchants_totalling(valid_enchants, points_remaining)))
 
         if option == LootController.ItemLevelUpOption.NEW_RELIC_MODS:
             mods = {available_mod["value"]: available_mod for available_mod in relic["available"]}
@@ -175,9 +180,14 @@ class LootController:
     def get_new_relic(self):
         unfound_relics = list(filter(lambda potential_relic_option: not potential_relic_option["found"]
                                                                     and potential_relic_option["enabled"], self.relics))
+        if not unfound_relics:
+            logging.warning("No unfound relics exist")
+            return
         relic = random.choice(unfound_relics)
-        # TODO: mark as found
-        return str(relic)
+        log_formatted_args(("Found relic %s", relic))
+        if distutils.util.strtobool(LootController._take_input("Mark relic as found?", ["true", "false"])):
+            relic["found"] = True
+            self._persist_relics()
 
     def get_random_creature_of_cr(self, max_cr) -> Optional[str]:
         cr, cr_message = max_cr, max_cr
@@ -206,29 +216,24 @@ class LootController:
     def get_mundane(self):
         is_weapon = random.randint(1, 100) > 66
         options: LootOptions = self.weapons if is_weapon else self.armours
-        return random.choice(options)["name"]
+        return "%s", random.choice(options)
 
     def get_ring(self):
-        return random.choice(self.rings)
+        return "%s", random.choice(self.rings)
 
     def get_prayer_stone(self):
         stone_options = set(map(lambda prayer_path: prayer_path["value"], self.prayer_paths))
-        return random.choice(stone_options)
+        return "%s", random.choice(tuple(stone_options))
 
     def get_consumable(self):
-        return LootController._get_multiple_items(random.sample(self.consumables),
-                                                  lambda: random.randint(1, 4))
-
-    def get_weapon_enchant(self):
-        # TODO: reimplement
-        enchantment = random.choice(self.enchants)
-        if "armour" in enchantment.metadata:
-            return self.get_weapon_enchant()
-        return enchantment.value
+        return "%s", LootController._get_multiple_items(random.choice(self.consumables),
+                                                        lambda: random.randint(1, 4))
 
     def get_valid_enchants_for_weapon(self, weapon: LootOption) -> LootOptions:
         return list(filter(lambda enchant:
-                           (not enchant.get("metadata") or "weapon" in enchant["metadata"])
+                           (not enchant.get("metadata")
+                            or "weapon" in enchant["metadata"]
+                            or ("Shield" == weapon["category"] and "amour" in enchant["metadata"]))
                            and LootController._is_compatible(weapon, enchant, "traits")
                            and LootController._is_compatible(weapon, enchant, "damage_types")
                            and LootController._is_compatible(weapon, enchant, "proficiency")
@@ -244,15 +249,9 @@ class LootController:
 
                            self.enchants))
 
-    def get_armour_enchant(self):
-        enchantment = random.choice(self.enchants)
-        if "weapon" in enchantment.metadata:
-            return self.get_weapon_enchant()
-        return enchantment.value
-
     def get_crafting_item(self):
-        return LootController._get_multiple_items(random.choice(self.crafting_items),
-                                                  lambda: random.randint(1, 3))
+        return "%s", LootController._get_multiple_items(random.choice(self.crafting_items),
+                                                        lambda: random.randint(1, 3))
 
     @staticmethod
     def _calculate_total_mod_values(existing_mods: LootOptions) -> int:
@@ -271,11 +270,12 @@ class LootController:
 
     def get_enchanted_item_totalling(self, n: int):
         base_type, valid_enchants = self.get_item_and_enchant_list()
-        return LootController._get_enchants_totalling(valid_enchants, n)
+        return "Enchants: %s", LootController._get_enchants_totalling(valid_enchants, n)
 
     def get_negatively_enchanted_item(self, n: int):
         base_type, valid_enchants = self.get_item_and_enchant_list()
-        return "Base: %s\nEnchants:%s" % (base_type, LootController._get_negative_enchants_totalling(valid_enchants, n))
+        return "Base: %s\nEnchants:%s", base_type,\
+               LootController._get_negative_enchants_totalling(valid_enchants, n)
 
     def get_item_and_enchant_list(self) -> Tuple[LootOption, LootOptions]:
         is_weapon = random.randint(1, 100) > 66
@@ -288,7 +288,7 @@ class LootController:
     @staticmethod
     def _get_multiple_items(item, randomisation_function):
         amount = None
-        for metadata_tag in item.metadata:
+        for metadata_tag in item["metadata"]:
             old_function = randomisation_function
             if metadata_tag == "disadvantage":
                 randomisation_function = lambda: min(old_function(), old_function())
@@ -304,7 +304,7 @@ class LootController:
 
         if amount is None:
             amount = randomisation_function()
-        return str(amount) + " " + item.value
+        return {"amount": amount, "item": item}
 
     @staticmethod
     def _get_enchants_totalling(valid_enchants: LootOptions, total: int):
@@ -360,15 +360,13 @@ class LootController:
         return list(map(lambda option: {**defaults, **option}, enchants))
 
     @staticmethod
-    def _create_relics(do_flush) -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Dict[str, Any]]]:
-        relics = LootController._load_file_contents("relic", do_flush)
-        relics_with_defaults = list(map(LootController._get_relic_with_defaults, relics))
-        found = dict()
-        unfound = dict()
-        for relic in relics_with_defaults:
-            target_dict = found if relic["found"] and relic["enabled"] else unfound
-            target_dict[relic["name"]] = relic
-        return found, unfound
+    def _create_relics(do_flush) -> LootOptions:
+        relics = LootController._load_with_defaults("relic", do_flush, {
+            "enabled": True,
+            "found": False,
+            "level": 1
+        })
+        return list(map(LootController._get_relic_with_defaults, relics))
 
     @staticmethod
     def _get_relic_with_defaults(relic: LootOption) -> LootOption:
@@ -385,6 +383,8 @@ class LootController:
         }
         relic_mod = {**mod_defaults, **relic_mod}
         relic_mod["level_up_points"] = relic_mod.get("level_up_points", relic_mod["points"])
+        if "enabled" in relic_mod:
+            relic_mod.pop("enabled")
         return relic_mod
 
     @staticmethod
@@ -400,7 +400,7 @@ class LootController:
     @staticmethod
     def _write_file(filename: str, values):
         with open(DATA_DIR + filename + ".json", 'w') as f:
-            json.dump(values, f, ensure_ascii=False, indent=2)
+            json.dump(values, f, ensure_ascii=False, indent=2, sort_keys=True)
         logging.info("Updated %s" % filename)
 
     @staticmethod
@@ -424,24 +424,25 @@ class LootController:
         return choice
 
     @staticmethod
-    def _take_input_from_index(prompt: str, options: Collection[Any]) -> Optional[Tuple[int, Any]]:
-        options: Dict[str, Any] = {str(i): option for i, option in enumerate(options)}
+    def _take_input_from_index(prompt: str, option_mappings: Collection[Any]) -> Optional[Tuple[int, Any]]:
+        option_mappings: Dict[str, Any] = {str(i): option for i, option in enumerate(option_mappings)}
         logging.info("Input Options: %s" %
-                     reduce(lambda option, next_option: "\n%s\n%s" % (option, next_option),  # TODO: prettyprint?
-                            options.items()))
-        readline.set_completer(Completer(options.keys()).complete)
+                     str(reduce(lambda option, next_option: "\n%s\n\n%s" % (option, next_option),  # TODO: prettyprint?
+                                list(option_mappings.items()))))
+        readline.set_completer(Completer(option_mappings.keys()).complete)
         choice: str = input("\n%s " % prompt)
         readline.set_completer(lambda text, state: None)
-        if choice not in options:
-            logging.warning("%s is not a valid option (%s)" % (choice, options))
+        if choice not in option_mappings:
+            logging.warning("%s is not a valid option (%s)" % (choice, option_mappings))
             return None
-        return int(choice), options.get(choice)
+        return int(choice), option_mappings.get(choice)
 
 
 def get_int_from_str(string, default_integer=None):
     try:
         return int(string)
     except ValueError:
+        logging.warning("Could not build an int out of '%s', using %d instead", string, default_integer)
         return default_integer
 
 
@@ -469,10 +470,11 @@ def print_options():  # TODO: move to LootController, print map from self
     print("\t>19: Show this")
 
 
-def define_action_map(mapped_loot_controller) -> Dict[int, Callable[[], str]]:  # TODO: move to LootController __init__
+# TODO: move to LootController __init__
+def define_action_map(mapped_loot_controller) -> Dict[int, Callable[[], Optional[Any]]]:
     return {
         loot_types.LootType.negatively_enchanted.value:
-            lambda: mapped_loot_controller.get_negatively_enchanted_item(25),
+            lambda: mapped_loot_controller.get_negatively_enchanted_item(-25),
         loot_types.LootType.mundane.value: mapped_loot_controller.get_mundane,
         loot_types.LootType.consumable.value: mapped_loot_controller.get_consumable,
         loot_types.LootType.low_gold.value: lambda: str(random.randint(40, 50)) + " gold",
@@ -482,14 +484,24 @@ def define_action_map(mapped_loot_controller) -> Dict[int, Callable[[], str]]:  
         loot_types.LootType.double_enchant_item.value: lambda: mapped_loot_controller.get_enchanted_item_totalling(2),
         loot_types.LootType.triple_enchant_item.value: lambda: mapped_loot_controller.get_enchanted_item_totalling(3),
         loot_types.LootType.crafting_item.value: mapped_loot_controller.get_crafting_item,
-        loot_types.LootType.prayer_stone.value: lambda: "Prayerstone: " + mapped_loot_controller.get_prayer_stone(),
+        loot_types.LootType.prayer_stone.value: mapped_loot_controller.get_prayer_stone,
         loot_types.LootType.relic.value: mapped_loot_controller.get_new_relic,
-        21: mapped_loot_controller.get_weapon_enchant,
-        22: mapped_loot_controller.get_armour_enchant,
         24: lambda: do_continuously(mapped_loot_controller.get_random_creature_of_cr, "Monster CR:"),
         25: mapped_loot_controller.level_up_relic_by_choice,
         26: mapped_loot_controller.level_up_prayer_path,
     }
+
+
+def _format_json(o) -> str:
+    return json.dumps(o, sort_keys=True, indent=4)
+
+
+def log_formatted_args(t):
+    if type(t) == str:
+        logging.info(t)
+        return
+    args = list(t)[1:]
+    logging.info(t[0], *map(_format_json, args))
 
 
 def generate_loot():
@@ -499,13 +511,15 @@ def generate_loot():
     while True:
         readline.set_completer_delims(' \t\n;')
         readline.parse_and_bind("tab: complete")
-        roll = get_int_from_str(input("\nLoot roll: "), 99)
+        roll = get_int_from_str(input("\nLoot roll: "), 0)
         if roll == 0:
             roll = random.randint(1, 20)
-            logging.info("Random roll %s (%s)" % (roll, loot_action_map[roll]))
+            logging.info("Random roll %s (%s)", roll, loot_action_map[roll])
         elif roll < 0:
             exit(0)
-        loot_action_map[roll]()
+        output = loot_action_map[roll]()
+        if output:
+            log_formatted_args(output)
 
         if roll > max(loot_action_map.keys()):
             print_options()

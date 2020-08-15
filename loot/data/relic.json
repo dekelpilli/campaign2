@@ -1,43 +1,210 @@
 [
   {
+    "enabled": false,
+    "found": false,
+    "level": 1,
     "name": "Template",
     "type": "weapon/armour",
     "base": "Plate Body Armour",
     "existing": [
       {
+        "level": 1,
+        "upgradeable": false,
+        "points": 10,
         "value": "effect",
-        "upgradeable": false
+        "level_up_points": 10
       }
     ],
     "available": [
       {
-        "value": "upgradeableEffect"
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "value": "upgradeableEffect",
+        "level_up_points": 10
       }
-    ],
-    "found": false,
-    "level": 1,
-    "enabled": false
+    ]
   },
   {
+    "enabled": true,
+    "found": true,
+    "level": 1,
     "name": "Testing",
     "type": "weapon",
     "base": "Flail",
     "existing": [
       {
+        "level": 1,
+        "upgradeable": false,
+        "points": 10,
         "value": "effect",
-        "upgradeable": false
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [
+          "weapon"
+        ],
+        "value": "+1d4 cold damage with attacks with this weapon",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "+2 slashing damage",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "Once per long rest, when you need make an attack roll, ability check, or saving throw, you can use your reaction to replace it with a 50% chance to critically succeed and 50% chance to to critically fail",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "+2 cold damage",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "+10ft swimming speed, and you can breath under water",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "+2 radiant damage",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "When you exit your transformed state, you gain temporary hit points equal to twice the CR of the creature you were transformed into.",
+        "level_up_points": 10
       }
     ],
     "available": [
       {
-        "value": "upgradeableEffect"
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "value": "upgradeableEffect",
+        "level_up_points": 10
       },
       {
-        "value": "otherUpgradeableEffect"
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "value": "otherUpgradeableEffect",
+        "level_up_points": 10
+      }
+    ]
+  },
+  {
+    "enabled": true,
+    "found": false,
+    "level": 1,
+    "name": "UnfoundTest",
+    "type": "weapon",
+    "base": "Small Shield",
+    "existing": [
+      {
+        "level": 1,
+        "upgradeable": false,
+        "points": 10,
+        "value": "effect",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [
+          "weapon"
+        ],
+        "value": "+1d4 cold damage with attacks with this weapon",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "+2 slashing damage",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "Once per long rest, when you need make an attack roll, ability check, or saving throw, you can use your reaction to replace it with a 50% chance to critically succeed and 50% chance to to critically fail",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "+2 cold damage",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "+10ft swimming speed, and you can breath under water",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "+2 radiant damage",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "metadata": [],
+        "value": "When you exit your transformed state, you gain temporary hit points equal to twice the CR of the creature you were transformed into.",
+        "level_up_points": 10
       }
     ],
-    "found": true,
-    "level": 1,
-    "enabled": true
+    "available": [
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "value": "upgradeableEffect",
+        "level_up_points": 10
+      },
+      {
+        "level": 1,
+        "upgradeable": true,
+        "points": 10,
+        "value": "otherUpgradeableEffect",
+        "level_up_points": 10
+      }
+    ]
   }
 ]
