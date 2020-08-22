@@ -30,8 +30,8 @@ class LootController:
         self.rings: LootOptions = LootController._create_loot_option("ring", do_flush)
         self.enchants: LootOptions = LootController._create_enchants(do_flush)
         self.consumables: LootOptions = LootController._create_loot_option("consumable", do_flush)
-        self.challenge_ratings: Dict[str, Dict[str, Any]] = LootController._load_challenge_ratings(do_flush)
-        self.all_crs = list(self.challenge_ratings.keys())
+        self.monsters: Dict[str, List[str]] = LootController._load_challenge_ratings(do_flush)
+        self.all_crs = list(self.monsters.keys())
         self.relics: LootOptions = LootController._create_relics(do_flush)
 
     class ItemLevelUpOption(Enum):
@@ -70,7 +70,7 @@ class LootController:
             index, _ = level_selection
             selected_path["progress"] = progress + index + 1
             self._persist_prayer_paths()
-        return "(%s)\n%s" % (selected_path["value"], level_options)
+        return "(%s)\n%s", selected_path["value"], level_options
 
     def _persist_prayer_paths(self):
         LootController._write_file("prayer_path", self.prayer_paths)
@@ -194,11 +194,11 @@ class LootController:
         while True:
             if cr == "":
                 cr_message = "unspecified"
-                cr = random.choice(list(self.challenge_ratings.keys()))
-            if cr not in self.challenge_ratings:
+                cr = random.choice(self.all_crs)
+            if cr not in self.all_crs:
                 logging.warning("'%s' is not a valid CR option" % cr)
                 return None
-            monsters = self.challenge_ratings[cr]["monsters"]
+            monsters = self.monsters[cr]
             creature = random.choice(monsters) if monsters else None
             if creature is None:
                 cr = str(int(cr) - 1)  # Not protecting against 0.125/0.25/0.5 because those have creatures
@@ -207,11 +207,11 @@ class LootController:
                     logging.warning("Creature is of CR %s instead of %s" % (cr, cr_message))
                 return creature
 
-    def get_amulet(self) -> str:
+    def get_amulet(self):
         allowed_crs = ['0', '0.125', '0.25', '0.5', '1', '2', '3', '4']
         weightings = [0.05, 0.05, 0.05, 0.1, 0.25, 0.25, 0.15, 0.1]
         amulet_max_cr = random.choices(population=allowed_crs, weights=weightings, k=1)[0]
-        return "Amulet CR: %s\n\tCreature: %s" % (amulet_max_cr, self.get_random_creature_of_cr(amulet_max_cr))
+        return "Amulet CR: %s\n\tCreature: %s", amulet_max_cr, self.get_random_creature_of_cr(amulet_max_cr)
 
     def get_mundane(self):
         is_weapon = random.randint(1, 100) > 66
@@ -328,7 +328,7 @@ class LootController:
         return enchants
 
     @staticmethod
-    def _load_challenge_ratings(do_flush) -> Dict[str, Dict[str, Any]]:
+    def _load_challenge_ratings(do_flush) -> Dict[str, List[str]]:
         file_contents = LootController._load_raw_file_contents("monster", do_flush)
         return json.loads(file_contents)
 
