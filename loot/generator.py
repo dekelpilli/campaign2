@@ -1,15 +1,15 @@
+import distutils.util
 import json
 import logging
 import random
 import readline
 import sys
+from enum import Enum
 from functools import reduce
 from os import sep, path
 from pprint import PrettyPrinter
 from typing import *
 from typing import Dict, Any, List
-from enum import Enum
-import distutils.util
 
 import loot_types
 from input_completer import Completer
@@ -54,8 +54,7 @@ class LootController:
             logging.warning("No paths to level")
             return None
 
-        owners = set(path_owners.keys())
-        chosen_owner = LootController._take_input("Which owner's path do you want to level?", owners)
+        chosen_owner = LootController._take_input("Which owner's path do you want to level?", set(path_owners))
         if not chosen_owner:
             return None
 
@@ -79,10 +78,10 @@ class LootController:
         LootController._write_file("relic", self.relics)
 
     def level_up_relic_by_choice(self):
-        found_relics = list(filter(lambda relic: relic["found"] and relic["enabled"], self.relics))
+        found_relics = filter(lambda relic: relic["found"] and relic["enabled"], self.relics)
         found_relic_names = {found_relic["name"]: found_relic for found_relic in found_relics}
         relic_choice = LootController._take_input_from_index("Which relic do you want to level?",
-                                                             set(found_relic_names.keys()))
+                                                             set(found_relic_names))
 
         if not relic_choice:
             return None
@@ -185,7 +184,7 @@ class LootController:
             return
         relic = random.choice(unfound_relics)
         log_formatted_args(("Found relic %s", relic))
-        if distutils.util.strtobool(LootController._take_input("Mark relic as found?", ["true", "false"])):
+        if distutils.util.strtobool(LootController._take_input("Mark relic as found?", ["Yes", "No"], False)):
             relic["found"] = True
             self._persist_relics()
 
@@ -412,13 +411,13 @@ class LootController:
             return data_file.read()
 
     @staticmethod
-    def _take_input(prompt: str, options: Collection[str]) -> Optional[str]:
+    def _take_input(prompt: str, options: Collection[str], strict=True) -> Optional[str]:
         options: Set[str] = options if isinstance(options, set) else set(options)
         logging.info("Input Options: %s" % options)
         readline.set_completer(Completer(options).complete)
         choice: str = input("\n%s " % prompt)
         readline.set_completer(lambda text, state: None)
-        if choice not in options:
+        if strict and choice not in options:
             logging.warning("%s is not a valid option (%s)" % (choice, options))
             return None
         return choice
@@ -448,7 +447,7 @@ def get_int_from_str(string, default_integer=None):
 
 def do_continuously(f, prompt):
     while True:
-        entered = input("\n" + prompt + " ")
+        entered = input("\n%s " % prompt)
         if "-1" in entered:
             break
         print(f(entered))

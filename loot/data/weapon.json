@@ -2,7 +2,7 @@
   {
     "name": "Club",
     "damage": "1d6",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Club",
     "traits": ["Thrown"],
     "proficiency": "Simple",
@@ -12,7 +12,7 @@
   {
     "name": "Dagger",
     "damage": "1d4",
-    "damage_types": ["P", "S"],
+    "damage_types": ["Piercing", "Slashing"],
     "category": "Knife",
     "traits": ["Light", "Finesse", "Thrown", "Flexible"],
     "proficiency": "Simple",
@@ -22,7 +22,7 @@
   {
     "name": "Gauntlet",
     "damage": "1d4",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Brawling",
     "traits": ["Light", "Unarmed"],
     "proficiency": "Simple",
@@ -32,7 +32,7 @@
   {
     "name": "Light Mace",
     "damage": "1d4",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Club",
     "traits": ["Light", "Finesse", "Shove"],
     "proficiency": "Simple",
@@ -42,7 +42,7 @@
   {
     "name": "Longspear",
     "damage": "1d8",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Spear",
     "traits": ["Two-handed", "Reach"],
     "proficiency": "Simple",
@@ -52,7 +52,7 @@
   {
     "name": "Mace",
     "damage": "1d6",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Club",
     "traits": ["Shove"],
     "proficiency": "Simple",
@@ -62,7 +62,7 @@
   {
     "name": "Morningstar",
     "damage": "1d6",
-    "damage_types": ["B", "P"],
+    "damage_types": ["Bludgeoning", "Piercing"],
     "category": "Club",
     "traits": ["Flexible"],
     "proficiency": "Simple",
@@ -72,7 +72,7 @@
   {
     "name": "Sickle",
     "damage": "1d4",
-    "damage_types": ["S"],
+    "damage_types": ["Slashing"],
     "category": "Knife",
     "traits": ["Light", "Finesse", "Trip"],
     "proficiency": "Simple",
@@ -82,7 +82,7 @@
   {
     "name": "Spear",
     "damage": "1d6",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Spear",
     "traits": ["Thrown"],
     "proficiency": "Simple",
@@ -92,7 +92,7 @@
   {
     "name": "Spiked Gauntlet",
     "damage": "1d4",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Brawling",
     "traits": ["Light", "Unarmed"],
     "proficiency": "Simple",
@@ -102,7 +102,7 @@
   {
     "name": "Blowgun",
     "damage": 1,
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Dart",
     "traits": ["Light", "Non-lethal"],
     "proficiency": "Simple",
@@ -112,7 +112,7 @@
   {
     "name": "Crossbow",
     "damage": "1d8",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Bow",
     "traits": ["Two-handed"],
     "proficiency": "Simple",
@@ -122,7 +122,7 @@
   {
     "name": "Dart",
     "damage": "1d4",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Dart",
     "traits": ["Light", "Thrown"],
     "proficiency": "Simple",
@@ -132,7 +132,7 @@
   {
     "name": "Hand Crossbow",
     "damage": "1d6",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Bow",
     "traits": [],
     "proficiency": "Simple",
@@ -142,7 +142,7 @@
   {
     "name": "Heavy Crossbow",
     "damage": "1d10",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Bow",
     "traits": ["Two-handed", "Reload"],
     "proficiency": "Simple",
@@ -152,7 +152,7 @@
   {
     "name": "Javelin",
     "damage": "1d6",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Dart",
     "traits": ["Thrown"],
     "proficiency": "Simple",
@@ -162,9 +162,9 @@
   {
     "name": "Sling",
     "damage": "1d6",
-    "damage_types": ["B"],
-    "category": "Propulsive",
-    "traits": [],
+    "damage_types": ["Bludgeoning"],
+    "category": "Sling",
+    "traits": ["Propulsive"],
     "proficiency": "Simple",
     "type": "Ranged",
     "range": "50/100"
@@ -172,7 +172,7 @@
   {
     "name": "Bastard Sword",
     "damage": "1d8",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Sword",
     "traits": ["Versatile"],
     "proficiency": "Martial",
@@ -182,7 +182,7 @@
   {
     "name": "Battle Axe",
     "damage": "1d8",
-    "damage_types": ["S"],
+    "damage_types": ["Slashing"],
     "category": "Axe",
     "traits": ["Sweep"],
     "proficiency": "Martial",
@@ -192,7 +192,7 @@
   {
     "name": "Bo Staff",
     "damage": "1d8",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Club",
     "traits": ["Two-handed", "Parry", "Reach", "Trip"],
     "proficiency": "Martial",
@@ -202,7 +202,7 @@
   {
     "name": "Falchion",
     "damage": "1d10",
-    "damage_types": ["S"],
+    "damage_types": ["Slashing"],
     "category": "Sword",
     "traits": ["Two-handed", "Forceful", "Sweep"],
     "proficiency": "Martial",
@@ -212,7 +212,7 @@
   {
     "name": "Flail",
     "damage": "1d6",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Flail",
     "traits": ["Disarm", "Sweep", "Trip"],
     "proficiency": "Martial",
@@ -222,7 +222,7 @@
   {
     "name": "Glaive",
     "damage": "1d8",
-    "damage_types": ["S"],
+    "damage_types": ["Slashing"],
     "category": "Polearm",
     "traits": ["Two-handed", "Deadly", "Forceful", "Reach"],
     "proficiency": "Martial",
@@ -232,7 +232,7 @@
   {
     "name": "Greataxe",
     "damage": "1d12",
-    "damage_types": ["S"],
+    "damage_types": ["Slashing"],
     "category": "Axe",
     "traits": ["Two-handed", "Heavy", "Sweep"],
     "proficiency": "Martial",
@@ -242,7 +242,7 @@
   {
     "name": "Greatclub",
     "damage": "1d10",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Club",
     "traits": ["Two-handed", "Backswing", "Heavy", "Shove"],
     "proficiency": "Martial",
@@ -252,7 +252,7 @@
   {
     "name": "Greatpick",
     "damage": "1d10",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Pick",
     "traits": ["Two-handed", "Fatal", "Heavy"],
     "proficiency": "Martial",
@@ -262,7 +262,7 @@
   {
     "name": "Greatsword",
     "damage": "1d12",
-    "damage_types": ["S", "P"],
+    "damage_types": ["Slashing", "Piercing"],
     "category": "Sword",
     "traits": ["Two-handed", "Flexible", "Heavy"],
     "proficiency": "Martial",
@@ -272,7 +272,7 @@
   {
     "name": "Great Shield",
     "damage": "1d6",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Shield",
     "traits": ["Targe"],
     "proficiency": "Martial",
@@ -282,7 +282,7 @@
   {
     "name": "Great Spiked Shield",
     "damage": "1d6",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Shield",
     "traits": ["Targe"],
     "proficiency": "Martial",
@@ -292,7 +292,7 @@
   {
     "name": "Guisarme",
     "damage": "1d10",
-    "damage_types": ["S"],
+    "damage_types": ["Slashing"],
     "category": "Polearm",
     "traits": ["Two-handed", "Reach", "Trip"],
     "proficiency": "Martial",
@@ -302,7 +302,7 @@
   {
     "name": "Halberd",
     "damage": "1d10",
-    "damage_types": ["P", "S"],
+    "damage_types": ["Piercing", "Slashing"],
     "category": "Polearm",
     "traits": ["Two-handed", "Reach", "Flexible"],
     "proficiency": "Martial",
@@ -312,7 +312,7 @@
   {
     "name": "Hatchet",
     "damage": "1d6",
-    "damage_types": ["S"],
+    "damage_types": ["Slashing"],
     "category": "Axe",
     "traits": ["Light", "Sweep", "Thrown"],
     "proficiency": "Martial",
@@ -322,7 +322,7 @@
   {
     "name": "Lance",
     "damage": "1d8",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Spear",
     "traits": ["Two-handed", "Charge", "Deadly", "Reach"],
     "proficiency": "Martial",
@@ -332,7 +332,7 @@
   {
     "name": "Light Hammer",
     "damage": "1d6",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Hammer",
     "traits": ["Light", "Thrown"],
     "proficiency": "Martial",
@@ -342,7 +342,7 @@
   {
     "name": "Light Pick",
     "damage": "1d4",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Pick",
     "traits": ["Light", "Fatal"],
     "proficiency": "Martial",
@@ -352,7 +352,7 @@
   {
     "name": "Longsword",
     "damage": "1d8",
-    "damage_types": ["S", "P"],
+    "damage_types": ["Slashing", "Piercing"],
     "category": "Sword",
     "traits": ["Flexible"],
     "proficiency": "Martial",
@@ -362,7 +362,7 @@
   {
     "name": "Main-gauche",
     "damage": "1d4",
-    "damage_types": ["P", "S"],
+    "damage_types": ["Piercing", "Slashing"],
     "category": "Knife",
     "traits": ["Light", "Disarm", "Finesse", "Parry", "Flexible"],
     "proficiency": "Martial",
@@ -372,7 +372,7 @@
   {
     "name": "Maul",
     "damage": "1d12",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Hammer",
     "traits": ["Two-handed", "Heavy", "Shove"],
     "proficiency": "Martial",
@@ -382,7 +382,7 @@
   {
     "name": "Nunchaku",
     "damage": "1d4",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Club",
     "traits": ["Two-handed", "Compound", "Finesse"],
     "proficiency": "Martial",
@@ -392,7 +392,7 @@
   {
     "name": "Pick",
     "damage": "1d6",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Pick",
     "traits": ["Fatal"],
     "proficiency": "Martial",
@@ -402,7 +402,7 @@
   {
     "name": "Ranseur",
     "damage": "1d10",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Polearm",
     "traits": ["Two-handed", "Disarm", "Reach"],
     "proficiency": "Martial",
@@ -412,7 +412,7 @@
   {
     "name": "Rapier",
     "damage": "1d6",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Sword",
     "traits": ["Deadly", "Disarm", "Finesse"],
     "proficiency": "Martial",
@@ -422,7 +422,7 @@
   {
     "name": "Ring Blade",
     "damage": ["1d10"],
-    "damage_types": ["S"],
+    "damage_types": ["Slashing"],
     "category": "Sword",
     "traits": ["Two-handed", "Disarm", "Finesse", "Sweep"],
     "proficiency": "Martial",
@@ -432,7 +432,7 @@
   {
     "name": "Sap",
     "damage": "1d6",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Club",
     "traits": ["Light", "Non-lethal"],
     "proficiency": "Martial",
@@ -442,7 +442,7 @@
   {
     "name": "Scimitar",
     "damage": "1d6",
-    "damage_types": ["S"],
+    "damage_types": ["Slashing"],
     "category": "Sword",
     "traits": ["Forceful", "Sweep"],
     "proficiency": "Martial",
@@ -452,7 +452,7 @@
   {
     "name": "Scythe",
     "damage": "1d10",
-    "damage_types": ["S"],
+    "damage_types": ["Slashing"],
     "category": "Polearm",
     "traits": ["Two-handed", "Deadly", "Trip"],
     "proficiency": "Martial",
@@ -462,7 +462,7 @@
   {
     "name": "Shortsword",
     "damage": "1d6",
-    "damage_types": ["P", "S"],
+    "damage_types": ["Piercing", "Slashing"],
     "category": "Sword",
     "traits": ["Light", "Finesse", "Flexible"],
     "proficiency": "Martial",
@@ -472,7 +472,7 @@
   {
     "name": "Small Shield",
     "damage": "1d4",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Shield",
     "traits": ["Light", "Targe"],
     "proficiency": "Martial",
@@ -482,7 +482,7 @@
   {
     "name": "Small Spiked Shield",
     "damage": "1d4",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Shield",
     "traits": ["Light", "Targe"],
     "proficiency": "Martial",
@@ -492,7 +492,7 @@
   {
     "name": "Starknife",
     "damage": "1d4",
-    "damage_types": ["P", "S"],
+    "damage_types": ["Piercing", "Slashing"],
     "category": "Knife",
     "traits": ["Light", "Fatal", "Finesse", "Thrown", "Flexible"],
     "proficiency": "Martial",
@@ -502,7 +502,7 @@
   {
     "name": "Trident",
     "damage": "1d8",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Spear",
     "traits": ["Thrown"],
     "proficiency": "Martial",
@@ -512,7 +512,7 @@
   {
     "name": "War Flail",
     "damage": "1d10",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Flail",
     "traits": ["Two-handed", "Disarm", "Heavy", "Sweep", "Trip"],
     "proficiency": "Martial",
@@ -522,7 +522,7 @@
   {
     "name": "Warhammer",
     "damage": "1d8",
-    "damage_types": ["B"],
+    "damage_types": ["Bludgeoning"],
     "category": "Hammer",
     "traits": ["Shove"],
     "proficiency": "Martial",
@@ -532,7 +532,7 @@
   {
     "name": "Whip",
     "damage": "1d4",
-    "damage_types": ["S"],
+    "damage_types": ["Slashing"],
     "category": "Flail",
     "traits": ["Disarm", "Finesse", "Non-lethal", "Reach", "Trip"],
     "proficiency": "Martial",
@@ -542,7 +542,7 @@
   {
     "name": "Composite Longbow",
     "damage": "1d8",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Bow",
     "traits": ["Fatal", "Propulsive", "Volley"],
     "proficiency": "Martial",
@@ -552,7 +552,7 @@
   {
     "name": "Composite Shortbow",
     "damage": "1d6",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Bow",
     "traits": ["Fatal", "Propulsive"],
     "proficiency": "Martial",
@@ -562,7 +562,7 @@
   {
     "name": "Longbow",
     "damage": "1d8",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Bow",
     "traits": ["Fatal", "Volley"],
     "proficiency": "Martial",
@@ -572,7 +572,7 @@
   {
     "name": "Shortbow",
     "damage": "1d6",
-    "damage_types": ["P"],
+    "damage_types": ["Piercing"],
     "category": "Bow",
     "traits": ["Fatal"],
     "proficiency": "Martial",
@@ -581,11 +581,21 @@
   },
   {
     "name": "Wand",
-    "damage": "1",
-    "damage_types": ["B"],
+    "damage": "1d4",
+    "damage_types": ["Force"],
     "category": "Magic",
-    "traits": [],
-    "proficiency": null,
+    "traits": ["Conduit", "Light", "Mental"],
+    "proficiency": "Simple",
+    "type": "Ranged",
+    "range": "30/60"
+  },
+  {
+    "name": "Staff",
+    "damage": "1d8",
+    "damage_types": ["Bludgeoning"],
+    "category": "Caster",
+    "traits": ["Conduit", "Two-Handed"],
+    "proficiency": "Simple",
     "type": "Melee",
     "range": null
   }
