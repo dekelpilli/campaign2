@@ -28,10 +28,10 @@ class LootController:
         self.weapons: LootOptions = LootController._create_loot_option("weapon", do_flush)
         self.armours: LootOptions = LootController._create_loot_option("armour", do_flush)
         self.rings: LootOptions = LootController._create_loot_option("ring", do_flush)
+        self.magic_items = LootController._create_loot_option("magic_item", do_flush)
         self.enchants: LootOptions = LootController._create_enchants(do_flush)
         self.consumables: LootOptions = LootController._create_loot_option("consumable", do_flush)
         self.monsters: Dict[str, List[str]] = LootController._load_challenge_ratings(do_flush)
-        self.all_crs = list(self.monsters.keys())
         self.relics: LootOptions = LootController._create_relics(do_flush)
 
     class ItemLevelUpOption(Enum):
@@ -193,8 +193,8 @@ class LootController:
         while True:
             if cr == "":
                 cr_message = "unspecified"
-                cr = random.choice(self.all_crs)
-            if cr not in self.all_crs:
+                cr = random.choice(list(self.monsters))
+            if cr not in self.monsters:
                 logging.warning("'%s' is not a valid CR option" % cr)
                 return None
             monsters = self.monsters[cr]
@@ -478,10 +478,10 @@ def define_action_map(mapped_loot_controller) -> Dict[int, Callable[[], Optional
         loot_types.LootType.consumable.value: mapped_loot_controller.get_consumable,
         loot_types.LootType.low_gold.value: lambda: str(random.randint(40, 50)) + " gold",
         loot_types.LootType.ring.value: lambda: "Ring: " + mapped_loot_controller.get_ring(),
-        loot_types.LootType.single_enchant_item.value: lambda: mapped_loot_controller.get_enchanted_item_totalling(1),
+        loot_types.LootType.low_enchant_item.value: lambda: mapped_loot_controller.get_enchanted_item_totalling(10),
         loot_types.LootType.amulet.value: mapped_loot_controller.get_amulet,
-        loot_types.LootType.double_enchant_item.value: lambda: mapped_loot_controller.get_enchanted_item_totalling(2),
-        loot_types.LootType.triple_enchant_item.value: lambda: mapped_loot_controller.get_enchanted_item_totalling(3),
+        loot_types.LootType.medium_enchant_item.value: lambda: mapped_loot_controller.get_enchanted_item_totalling(20),
+        loot_types.LootType.high_enchant_item.value: lambda: mapped_loot_controller.get_enchanted_item_totalling(30),
         loot_types.LootType.crafting_item.value: mapped_loot_controller.get_crafting_item,
         loot_types.LootType.prayer_stone.value: mapped_loot_controller.get_prayer_stone,
         loot_types.LootType.relic.value: mapped_loot_controller.get_new_relic,
