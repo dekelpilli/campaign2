@@ -1,16 +1,12 @@
 (ns campaign2.state
-  (:require [jsonista.core :as json]
-            [clojure.java.io :as jio]
-            [clojure.walk :as walk])
-  (:import (java.util HashMap Map ArrayList List)
-           (java.io File)))
+  (:require [jsonista.core :as json])
+  (:import (java.io File)))
 
 (def ^String path "loot/data/")
 
 (defn load-data [type]
   (-> (str path type ".edn")
-      (load-file)
-      (delay)))
+      (load-file)))
 
 (defn write-data [d n]
   (clojure.pprint/pprint d (clojure.java.io/writer n)))
