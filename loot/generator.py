@@ -33,6 +33,7 @@ class LootController:
         self.consumables: LootOptions = LootController._create_loot_option("consumable", do_flush)
         self.monsters: Dict[str, List[str]] = LootController._load_challenge_ratings(do_flush)
         self.relics: LootOptions = LootController._create_relics(do_flush)
+        self._persist_relics()
 
     class ItemLevelUpOption(Enum):
         UPGRADE_EXISTING = 1
@@ -103,7 +104,9 @@ class LootController:
                 LootController.ItemLevelUpOption.NEW_RANDOM_MODS,
                 LootController.ItemLevelUpOption.NEW_RELIC_MODS
             ]
-            upgradeable_mods = list(filter(lambda existing_mod: existing_mod["upgradeable"], relic["existing"]))
+            upgradeable_mods = list(filter(
+                lambda existing_mod: existing_mod["upgradeable"] and existing_mod["level_up_points"] < points_remaining,
+                relic["existing"]))
             third_choice_options = [
                 LootController.ItemLevelUpOption.NEW_RANDOM_MODS,
                 LootController.ItemLevelUpOption.NEW_RELIC_MODS
@@ -273,7 +276,7 @@ class LootController:
 
     def get_negatively_enchanted_item(self, n: int):
         base_type, valid_enchants = self.get_item_and_enchant_list()
-        return "Base: %s\nEnchants:%s", base_type,\
+        return "Base: %s\nEnchants:%s", base_type, \
                LootController._get_negative_enchants_totalling(valid_enchants, n)
 
     def get_item_and_enchant_list(self) -> Tuple[LootOption, LootOptions]:

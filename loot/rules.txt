@@ -17,7 +17,7 @@ Spell Focus:
     +1 spell save DC, +1 spell AB
 
 Moving mods:
-    Between weapons, so long as all mods are compatible with new weapon
+    Between weapons, so long as all mods are compatible with new weapon. Incompatible mods can be removed as part of the transfer.
     Between rings
     Between armours
 
@@ -57,7 +57,6 @@ Sales and services:
     Orb of balance: 200g
     Orb of annulment: 100g
     Mundanes: 60
-    HP potions: 5 per level per potion (TODO: healing surges?)
     Enchanted item: depends on power, TODO: decide
 
     Horses: 800
