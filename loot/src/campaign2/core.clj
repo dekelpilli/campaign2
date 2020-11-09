@@ -1,12 +1,15 @@
 (ns campaign2.core
   (:require [campaign2
              [relic :as relic]
-             [state :as state]])
-  (:import (java.util HashMap)))
+             [mundane :as mundane]
+             [enchant :as enchant]
+             [state :as state]]))
 
 
 (defn start []
-  (HashMap.))
+  {1 enchant/random-negative-enchanted
+   2 mundane/new
+   })
 
 (defn -main [& _]
   (start))

@@ -1,6 +1,6 @@
 (ns campaign2.relic
   (:require [campaign2
-             [state :refer [*relics*]]
+             [state :refer [*relics* override-relics!]]
              [util :as util]
              [enchant :as enchant]]
             [clojure.tools.logging :as log]))
@@ -24,8 +24,7 @@
           (upgradeable-relics)))))
 
 (defn- override-relic! [{:keys [name] :as relic}]
-  ;TODO persist choice and reload relics
-  )
+  (override-relics! (map #(if (= (:name %) name) relic %))))
 
 (defn &new! []
   (let [relic (filter (fn [{:keys [enabled? found?]}] (and enabled? (not found?))) *relics*)
@@ -34,7 +33,7 @@
     (log/infof "Mark as found? %s" options)
     (-> (util/&num)
         (options)
-        (when (override-relic! relic)))))
+        (when (override-relic! (assoc relic :found? true))))))
 
 (defn level-relic!
   ([] (let [relic (&upgradeable)]
@@ -50,7 +49,7 @@
                                 :new-random-mod
                                 (if (empty? upgradeable-mods) (rand-nth [:new-relic-mod :new-random-mod]) (:upgrade-existing-mod))))
                            (repeatedly :negative-mod 3))
-         valid-enchants (enchant/find-valid-enchants base type)
+         valid-enchants (enchant/find-valid-enchants (campaign2.mundane/find-base base type) type)
          mod-options (map #(case %
                              :negative-mod (->> valid-enchants
                                                 (filter (fn [enchant] (neg? (:points enchant))))
