@@ -5,3 +5,8 @@
   (let [input (-> (read-line)
                   (edn/read-string))]
     (if (number? input) input nil)))
+
+(defn &bool []
+  (let [input (-> (read-line)
+                  (edn/read-string))]
+    (if (number? input) input nil)))
