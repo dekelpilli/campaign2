@@ -13,12 +13,9 @@
                                 (filter upgradeable?)
                                 (map (fn [relic] [(:name relic) relic]))
                                 (into {}))
-        relic-options (->> upgradeable-relics
-                           (keys)
-                           (map-indexed (fn [i name] [i name]))
-                           (into {}))]
+        relic-options (util/make-options upgradeable-relics)]
     (when (not-empty relic-options)
-      (log/infof "Relic options: %s" (clojure.pprint/write relic-options))
+      (clojure.pprint/write relic-options)
       (-> (util/&num)
           (relic-options)
           (upgradeable-relics)))))
@@ -39,15 +36,14 @@
   ([] (let [relic (&upgradeable)]
         (when relic (&level! relic))))
   ([{:keys [level existing base type available] :as relic}]
-   (let [current-points-total (-> (map :points existing)
-                                  (reduce +))
+   (let [current-points-total (->> (map :points existing)
+                                   (reduce +))
          points-remaining (- (* points-per-level (+ level 1))
                              current-points-total)
+         upgradeable-mods (filter :upgradeable? existing)
          upgrade-options (if-not (neg? points-remaining)
-                           (let [upgradeable-mods (filter :upgradeable? existing)]
-                             '(:new-relic-mod
-                                :new-random-mod
-                                (if (empty? upgradeable-mods) (rand-nth [:new-relic-mod :new-random-mod]) (:upgrade-existing-mod))))
+                           (conj '(:new-relic-mod :new-random-mod)
+                                 (if (empty? upgradeable-mods) (rand-nth [:new-relic-mod :new-random-mod]) :upgrade-existing-mod))
                            (repeatedly :negative-mod 3))
          valid-enchants (enchant/find-valid-enchants (campaign2.mundane/find-base base type) type)
          mod-options (map #(case %
@@ -55,7 +51,7 @@
                                                 (filter (fn [enchant] (neg? (:points enchant))))
                                                 (rand-nth))
                              :new-relic-mod (rand-nth available)
-                             :upgrade-existing-mod (rand-nth existing)
+                             :upgrade-existing-mod (rand-nth upgradeable-mods)
                              :new-random-mod (->> valid-enchants
                                                   (filter (fn [enchant] (pos? (:points enchant))))
                                                   (rand-nth)))

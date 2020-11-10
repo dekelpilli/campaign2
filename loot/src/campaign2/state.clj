@@ -3,35 +3,47 @@
 
 (def ^String path "loot/data/")
 
-(defn- load-data [type]
-  (->> (str path type ".edn")
-       (load-file)
-       (filter #(:enabled? % true))))
+(defn- load-data
+  ([type] (load-data type nil))
+  ([type default]
+   (->> (str path type ".edn")
+        (slurp)
+        (load-string)
+        (filter #(:enabled? % true))
+        (map #(merge default %)))))
 
 (defn- write-data! [d type]
   (clojure.pprint/pprint d (clojure.java.io/writer (str path type ".edn"))))
 
-(def relics (atom (load-data "relic")))
-(def prayer-paths (atom (load-data "prayer-path")))
-(def crafting-items (atom (load-data "crafting-item")))
-(def weapons (atom (load-data "weapon")))
-(def armours (atom (load-data "armour")))
-(def enchants (atom (load-data "enchant")))
-(def consumables (atom (load-data "consumable")))
-(def monsters (atom (load-data "monster")))
+(def relics (atom nil))
+(def prayer-paths (atom nil))
+(def prayer-progressions (atom nil))
+(def crafting-items (atom nil))
+(def weapons (atom nil))
+(def armours (atom nil))
+(def enchants (atom nil))
+(def consumables (atom nil))
+(def monsters (atom nil))
 
 (defn reload! []
   (log/infof "Loading...")
-  (swap! relics (constantly (load-data "relic")))
-  (swap! prayer-paths (constantly (load-data "prayer-path")))
-  (swap! crafting-items (constantly (load-data "crafting-item")))
-  (swap! weapons (constantly (load-data "weapon")))
-  (swap! armours (constantly (load-data "armour")))
-  (swap! enchants (constantly (load-data "enchant")))
-  (swap! consumables (constantly (load-data "consumable")))
-  (swap! monsters (constantly (load-data "monster")))
+  (reset! relics (load-data "relic"))
+  (reset! prayer-paths (load-data "prayer-path"))
+  (reset! prayer-progressions (load-data "prayer-progress"))
+  (reset! crafting-items (load-data "crafting-item"))
+  (reset! weapons (load-data "weapon"))
+  (reset! armours (load-data "armour"))
+  (reset! enchants (load-data "enchant" {:points 10}))
+  (reset! consumables (load-data "consumable"))
+  (reset! monsters (load-data "monster"))
   "Done")
 
+(reload!)
+
 (defn override-relics! [new-relics]
-  (swap! relics (constantly new-relics))
+  (reset! relics new-relics)
   (write-data! relics "relic"))
+
+(defn override-prayer-progress! [new-progress]
+  (reset! relics new-progress)
+  (write-data! prayer-progressions "prayer-progress"))

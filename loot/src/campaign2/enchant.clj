@@ -43,16 +43,25 @@
     "weapon" (filter #(compatible-weapon? base %) @enchants)
     "armour" (filter #(compatible-armour? base %) @enchants)))
 
-(defn random-negative-enchanted []
-  (let [floor -25
-        type (rand-nth ["weapon" "armour"])
+(defn- random-x-enchanted [points-target points-comparator points-validator]
+  (let [type (rand-nth ["weapon" "armour"])
         base (case type
                "armour" (mundane/new-armour)
                "weapon" (mundane/new-weapon))
         valid-enchants (->> (find-valid-enchants base type)
-                            (filter #(neg? (:points %)))
+                            (filter #(points-validator (:points %)))
                             (shuffle))
-        sum* (atom 0)]
+        sum (atom 0)]
     (log/infof "Base: %s\newlineEncahnts: %s"
                base
-               (filter #(and (> @sum* floor) (swap! sum* (partial + (:points %)))) valid-enchants))))
+               (filter #(and (points-comparator @sum points-target)
+                             (swap! sum (partial + (:points %)))) valid-enchants))))
+
+(defn random-enchanted [points-target]
+  (random-x-enchanted points-target < number?))
+
+(defn random-positive-enchanted [points-target]
+  (random-x-enchanted points-target < pos?))
+
+(defn random-negative-enchanted []
+  (random-x-enchanted -25 > neg?))

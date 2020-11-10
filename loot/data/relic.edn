@@ -5,13 +5,35 @@
                :upgrade-points 10,
                :points         10,}],
   :base      "Plate Body Armour",
-  :enabled?  true,
+  :enabled?  false,
   :existing
              [{:value          "effect",
                :upgradeable?   false,
                :level          1,
                :upgrade-points 10,
                :points         10,}],
+  :found?    false,
+  :level     1,
+  :type      "weapon/armour"}
+ {:name      "Example Weapon Relic",
+  :available [{:value          "upgradeableEffect",
+               :upgradeable?   true,
+               :level          1,
+               :upgrade-points 10,
+               :points         10,}],
+  :base      "Flail",
+  :enabled?  true,
+  :existing
+             [{:value          "effect",
+               :upgradeable?   false,
+               :level          1,
+               :upgrade-points 10,
+               :points         1,}
+              {:value          "+1 Weapon Damage",
+               :upgradeable?   true,
+               :level          1,
+               :upgrade-points 5,
+               :points         10,}],
   :found?    true,
   :level     1,
-  :type      "weapon/armour"}]
+  :type      "weapon"}]
