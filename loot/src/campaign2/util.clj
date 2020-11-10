@@ -13,14 +13,11 @@
        (map-indexed (fn [i option] [i option]))
        (into {})))
 
-(defn display-prompt [msg]
-  (println msg))
-
 (defn display-result [result]
   (t/table (if (coll? result) (doall result) [result])))
 
 (defn display-options
-  ([p m] (display-prompt p) (display-options m))
+  ([p m] (println p) (display-options m))
   ([m] (t/table
          (->> m
               (into [])

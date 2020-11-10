@@ -24,13 +24,16 @@
   (override-relics! (mapv #(if (= (:name %) name) relic %) @relics)))
 
 (defn &new! []
-  (let [relic (filter (fn [{:keys [enabled? found?]}] (and enabled? (not found?))) @relics)
+  (let [relic (first (filter (fn [{:keys [enabled? found?]}] (and enabled? (not found?))) @relics))
         options {1 true 2 false}]
-    (clojure.pprint/write relic)
-    (util/display-options "Mark as found?" options)
-    (-> (util/&num)
-        (options)
-        (when (override-relic! (assoc relic :found? true))))))
+    (if relic
+      (do
+        (util/display-result relic)
+        (util/display-options "Mark as found?" options)
+        (-> (util/&num)
+            (options)
+            (when (override-relic! (assoc relic :found? true)))))
+      "You're out of relics!")))
 
 (defn &level!
   ([] (let [relic (&upgradeable)]
@@ -55,6 +58,18 @@
                              :new-random-mod (->> valid-enchants
                                                   (filter (fn [enchant] (pos? (:points enchant))))
                                                   (rand-nth)))
-                          upgrade-options)]
+                          upgrade-options)
+         mod-options (->> upgrade-options
+                          (map (fn [o] [o (case o
+                                      :negative-mod (->> valid-enchants
+                                                         (filter (fn [enchant] (neg? (:points enchant))))
+                                                         (rand-nth))
+                                      :new-relic-mod (rand-nth available)
+                                      :upgrade-existing-mod (rand-nth upgradeable-mods)
+                                      :new-random-mod (->> valid-enchants
+                                                           (filter (fn [enchant] (pos? (:points enchant))))
+                                                           (rand-nth)))]))
+                          (into {})) ;TODO: map existing options to indexes for prompt
+         _ (util/display-options mod-options)]
      ;TODO present options from mod-options, persist choice and reload relics
      )))

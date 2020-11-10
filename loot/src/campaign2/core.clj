@@ -26,6 +26,8 @@
        :action #(enchant/random-positive-enchanted 30)}
    13 {:name   "Crafting item"
        :action crafting/new}
+   20 {:name   "New relic"
+       :action relic/&new!}
    21 {:name   "Reload data from files"
        :action state/reload!}
    22 {:name   "Level a relic"

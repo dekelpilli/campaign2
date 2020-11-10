@@ -2,14 +2,10 @@
 
 (def ^String path "loot/data/")
 
-(defn- load-data
-  ([type] (load-data type nil))
-  ([type default]
-   (->> (str path type ".edn")
-        (slurp)
-        (load-string)
-        (filter #(:enabled? % true))
-        (map #(merge default %)))))
+(defn- load-data [type]
+  (->> (str path type ".edn")
+       (slurp)
+       (load-string)))
 
 (defn- write-data! [a type]
   (clojure.pprint/pprint @a (clojure.java.io/writer (str path type ".edn"))))
@@ -32,7 +28,7 @@
   (reset! crafting-items (load-data "crafting-item"))
   (reset! weapons (load-data "weapon"))
   (reset! armours (load-data "armour"))
-  (reset! enchants (load-data "enchant" {:points 10}))
+  (reset! enchants (load-data "enchant"))
   (reset! consumables (load-data "consumable"))
   (reset! monsters (load-data "monster"))
   "Done")

@@ -9,16 +9,17 @@
        (map :name)
        (rand-nth)))
 
-(defn override-progress! [{:keys [player path] :as new-progression}]
+(defn override-progress! [{:keys [character path] :as new-progression}]
   (override-prayer-progress! (mapv
-                               #(if (and (= (:player %) player) (= (:path %) path)) new-progression %)
+                               #(if (and (= (:character %) character) (= (:path %) path)) new-progression %)
                                @prayer-progressions)))
 
 (defn &progress! []
-  (let [finished? #(contains? (:taken %) 10)
-        unfinished-paths (filter #(not (finished? %)) @prayer-progressions)
-        player-paths (group-by :player unfinished-paths)
+  (let [done? #(contains? (:taken %) 10)
+        unfinished-paths (filter #(and (not (done? %)) (:enabled? % true)) @prayer-progressions)
+        player-paths (group-by :character unfinished-paths)
         path-options (util/make-options player-paths)
+        ;TODO - improve invalid input handling
         _ (util/display-options path-options)
         current-progress (->> (util/&num)
                               (path-options)
@@ -31,11 +32,11 @@
         progress-index-options (->> (range progress 10)
                                     (take 2)
                                     (map (fn [i] [i (nth (prayer-path :levels) i)]))
-                                    (map (fn [kv] [(inc (first kv)) (second kv)])) ;doesn't work? TODO - ensure first shows up as 1 and last as 10 and all matches
+                                    (map (fn [kv] [(inc (first kv)) (second kv)]))
                                     (into {}))
         _ (util/display-options progress-index-options)
-        new-latest-idx (dec (util/&num))
-        valid (contains? progress-index-options new-latest-idx)]
+        new-latest (util/&num)
+        valid (contains? progress-index-options (dec new-latest))]
     (when valid
       (override-progress!
-        (update current-progress :taken #(conj % (+ new-latest-idx 1)))))))
+        (update current-progress :taken #(conj % new-latest))))))

@@ -7,6 +7,8 @@
      [mundane :as mundane]]
     [clojure.tools.logging :as log]))
 
+(def default-points 10)
+
 (defn- compatible? [base enchant field]
   (let [not-field-val (->> field
                            (name)
@@ -49,12 +51,12 @@
                "armour" (mundane/new-armour)
                "weapon" (mundane/new-weapon))
         valid-enchants (->> (find-valid-enchants base type)
-                            (filter #(points-validator (:points %)))
+                            (filter #(points-validator (:points % default-points)))
                             (shuffle))
         sum (atom 0)]
     [base
       (filter #(and (points-comparator @sum points-target)
-                    (swap! sum (partial + (:points %)))) valid-enchants)]))
+                    (swap! sum (partial + (:points % default-points)))) valid-enchants)]))
 
 (defn random-enchanted [points-target]
   (random-x-enchanted points-target < number?))
