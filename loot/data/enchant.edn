@@ -171,8 +171,8 @@
  {:value
   "Your short rests can be 10 minutes shorter, to a minimum of 20 minutes",
   :metadata ["armour"]}
- {:value
-  "Your long rests can be 1 hour shorter, to a minimum of 3 hours"}
+ {:value "Your long rests can be 1 hour shorter, to a minimum of 3 hours"
+  :points 3}
  {:value "You need four failed death save points to die, instead of 3"}
  {:value "+1 perception"}
  {:value "+2 arcana"}

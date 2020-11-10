@@ -15,19 +15,19 @@
                                 (into {}))
         relic-options (util/make-options upgradeable-relics)]
     (when (not-empty relic-options)
-      (clojure.pprint/write relic-options)
+      (util/display-options relic-options)
       (-> (util/&num)
           (relic-options)
           (upgradeable-relics)))))
 
 (defn- override-relic! [{:keys [name] :as relic}]
-  (override-relics! (map #(if (= (:name %) name) relic %))))
+  (override-relics! (mapv #(if (= (:name %) name) relic %) @relics)))
 
 (defn &new! []
   (let [relic (filter (fn [{:keys [enabled? found?]}] (and enabled? (not found?))) @relics)
         options {1 true 2 false}]
-    (log/infof "Found relic: %s" (clojure.pprint/write relic))
-    (log/infof "Mark as found? %s" options)
+    (clojure.pprint/write relic)
+    (util/display-options "Mark as found?" options)
     (-> (util/&num)
         (options)
         (when (override-relic! (assoc relic :found? true))))))

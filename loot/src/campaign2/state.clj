@@ -1,5 +1,4 @@
-(ns campaign2.state
-  (:require [clojure.tools.logging :as log]))
+(ns campaign2.state)
 
 (def ^String path "loot/data/")
 
@@ -12,8 +11,8 @@
         (filter #(:enabled? % true))
         (map #(merge default %)))))
 
-(defn- write-data! [d type]
-  (clojure.pprint/pprint d (clojure.java.io/writer (str path type ".edn"))))
+(defn- write-data! [a type]
+  (clojure.pprint/pprint @a (clojure.java.io/writer (str path type ".edn"))))
 
 (def relics (atom nil))
 (def prayer-paths (atom nil))
@@ -26,7 +25,7 @@
 (def monsters (atom nil))
 
 (defn reload! []
-  (log/infof "Loading...")
+  (println "Loading...")
   (reset! relics (load-data "relic"))
   (reset! prayer-paths (load-data "prayer-path"))
   (reset! prayer-progressions (load-data "prayer-progress"))
@@ -45,5 +44,5 @@
   (write-data! relics "relic"))
 
 (defn override-prayer-progress! [new-progress]
-  (reset! relics new-progress)
+  (reset! prayer-progressions new-progress)
   (write-data! prayer-progressions "prayer-progress"))

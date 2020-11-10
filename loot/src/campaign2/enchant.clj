@@ -52,10 +52,9 @@
                             (filter #(points-validator (:points %)))
                             (shuffle))
         sum (atom 0)]
-    (log/infof "Base: %s\newlineEncahnts: %s"
-               base
-               (filter #(and (points-comparator @sum points-target)
-                             (swap! sum (partial + (:points %)))) valid-enchants))))
+    [base
+      (filter #(and (points-comparator @sum points-target)
+                    (swap! sum (partial + (:points %)))) valid-enchants)]))
 
 (defn random-enchanted [points-target]
   (random-x-enchanted points-target < number?))

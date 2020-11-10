@@ -9,10 +9,12 @@
        (map :name)
        (rand-nth)))
 
-(defn override-progress! [{:keys [player path] :as new-path}]
-  (override-progress! (filter #(and (= (:player %) player) (= (:path %) path)))))
+(defn override-progress! [{:keys [player path] :as new-progression}]
+  (override-prayer-progress! (mapv
+                               #(if (and (= (:player %) player) (= (:path %) path)) new-progression %)
+                               @prayer-progressions)))
 
-(defn &progress-path! []
+(defn &progress! []
   (let [finished? #(contains? (:taken %) 10)
         unfinished-paths (filter #(not (finished? %)) @prayer-progressions)
         player-paths (group-by :player unfinished-paths)
@@ -29,10 +31,11 @@
         progress-index-options (->> (range progress 10)
                                     (take 2)
                                     (map (fn [i] [i (nth (prayer-path :levels) i)]))
+                                    (map (fn [kv] [(inc (first kv)) (second kv)])) ;doesn't work? TODO - ensure first shows up as 1 and last as 10 and all matches
                                     (into {}))
         _ (util/display-options progress-index-options)
-        new-latest-idx (util/&num)
+        new-latest-idx (dec (util/&num))
         valid (contains? progress-index-options new-latest-idx)]
     (when valid
-     (override-progress!
-       (update current-progress :taken #(conj % (+ new-latest-idx 1)))))))
+      (override-progress!
+        (update current-progress :taken #(conj % (+ new-latest-idx 1)))))))

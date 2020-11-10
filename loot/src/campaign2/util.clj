@@ -1,5 +1,6 @@
 (ns campaign2.util
-  (:require [clojure.edn :as edn]))
+  (:require [clojure.edn :as edn]
+            [table.core :as t]))
 
 (defn &num []
   (let [input (-> (read-line)
@@ -15,9 +16,16 @@
 (defn display-prompt [msg]
   (println msg))
 
-(defn display-options [m]
-  ;TODO
-  )
+(defn display-result [result]
+  (t/table (if (coll? result) (doall result) [result])))
+
+(defn display-options
+  ([p m] (display-prompt p) (display-options m))
+  ([m] (t/table
+         (->> m
+              (into [])
+              (sort)
+              (concat [["Key" "Value"]])))))
 
 (defn &bool [default]
   (let [opts {1 true 2 false}

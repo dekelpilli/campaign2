@@ -1,12 +1,4 @@
-[{:player "TestPlayer"
-  :path   "Rheztol"
-  :taken  #{1 3}}
- {:player "TestPlayer"
-  :path   "Vuneta"
-  :taken  #{1 3 5 7 9 10}}
- {:player "TestPlayer2"
-  :path   "Thynos"
-  :taken  #{1}}
- {:player "TestPlayer3"
-  :path   "Thynos"
-  :taken  #{2 4 5 7 8}}]
+[{:player "TestPlayer", :path "Rheztol", :taken #{7 1 3 5}}
+ {:player "TestPlayer", :path "Vuneta", :taken #{7 1 3 9 5 10}}
+ {:player "TestPlayer2", :path "Thynos", :taken #{1}}
+ {:player "TestPlayer3", :path "Thynos", :taken #{7 4 2 5 8}}]
