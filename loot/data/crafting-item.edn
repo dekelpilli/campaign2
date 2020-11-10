@@ -6,7 +6,7 @@
   "Orb(s) of Destruction - Remove a random mod from a magic item, relic, or artefact"}
  {:value
   "Orb(s) of Annulment - Remove a positive mod from a magic item, relic, or artefact",
-  :enabled false}
+  :enabled? false}
  {:value
   "Orb(s) of Creation - Convert a mundane item into a magical item (10 to 20)"}
  {:value

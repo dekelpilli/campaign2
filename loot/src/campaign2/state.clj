@@ -4,8 +4,9 @@
 (def ^String path "loot/data/")
 
 (defn- load-data [type]
-  (-> (str path type ".edn")
-      (load-file)))
+  (->> (str path type ".edn")
+       (load-file)
+       (filter #(:enabled? % true))))
 
 (defn- write-data! [d type]
   (clojure.pprint/pprint d (clojure.java.io/writer (str path type ".edn"))))
