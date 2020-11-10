@@ -1,6 +1,6 @@
 (ns campaign2.relic
   (:require [campaign2
-             [state :refer [*relics* override-relics!]]
+             [state :refer [relics override-relics!]]
              [util :as util]
              [enchant :as enchant]]
             [clojure.tools.logging :as log]))
@@ -9,7 +9,7 @@
 
 (defn- &upgradeable []
   (let [upgradeable? (fn [{:keys [found? enabled? level]}] (and found? enabled? (<= level 10)))
-        upgradeable-relics (->> *relics*
+        upgradeable-relics (->> @relics
                                 (filter upgradeable?)
                                 (map (fn [relic] [(:name relic) relic]))
                                 (into {}))
@@ -27,7 +27,7 @@
   (override-relics! (map #(if (= (:name %) name) relic %))))
 
 (defn &new! []
-  (let [relic (filter (fn [{:keys [enabled? found?]}] (and enabled? (not found?))) *relics*)
+  (let [relic (filter (fn [{:keys [enabled? found?]}] (and enabled? (not found?))) @relics)
         options {1 true 2 false}]
     (log/infof "Found relic: %s" (clojure.pprint/write relic))
     (log/infof "Mark as found? %s" options)
@@ -35,9 +35,9 @@
         (options)
         (when (override-relic! (assoc relic :found? true))))))
 
-(defn level-relic!
+(defn &level!
   ([] (let [relic (&upgradeable)]
-        (when relic (level-relic! relic))))
+        (when relic (&level! relic))))
   ([{:keys [level existing base type available] :as relic}]
    (let [current-points-total (-> (map :points existing)
                                   (reduce +))

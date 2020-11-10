@@ -1,17 +1,19 @@
 (ns campaign2.mundane
   (:require [campaign2
-             [state :refer [*armours* *weapons*]]
+             [state :refer [armours weapons]]
              [util :as util]]))
 
 (defn find-base [base-name type]
   (first (filter #(= base-name (:name %))
-                 ({:weapon *weapons* :armour *armours*} type))))
+                 ({:weapon @weapons :armour @armours} type))))
 
 (defn new-weapon []
-  (rand-nth *weapons*))
+  (rand-nth @weapons))
 
 (defn new-armour []
-  (rand-nth *armours*))
+  (rand-nth @armours))
 
 (defn new []
-  (rand-nth (rand-nth [*weapons* *armours*])))
+  (rand-nth (if (> 66 (rand-int 100))
+              @weapons
+              @armours)))

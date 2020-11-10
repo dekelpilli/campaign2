@@ -2,7 +2,7 @@
   (:require
     [clojure.set :as s]
     [campaign2
-     [state :refer [*enchants*]]
+     [state :refer [enchants]]
      [util :as util]
      [mundane :as mundane]]
     [clojure.tools.logging :as log]))
@@ -40,8 +40,8 @@
 
 (defn find-valid-enchants [base type]
   (case type
-    "weapon" (filter #(compatible-weapon? base %) *enchants*)
-    "armour" (filter #(compatible-armour? base %) *enchants*)))
+    "weapon" (filter #(compatible-weapon? base %) @enchants)
+    "armour" (filter #(compatible-armour? base %) @enchants)))
 
 (defn random-negative-enchanted []
   (let [floor -25
@@ -49,10 +49,10 @@
         base (case type
                "armour" (mundane/new-armour)
                "weapon" (mundane/new-weapon))
-        enchants (->> (find-valid-enchants base type)
-                      (filter #(neg? (:points %)))
-                      (shuffle))
+        valid-enchants (->> (find-valid-enchants base type)
+                            (filter #(neg? (:points %)))
+                            (shuffle))
         sum* (atom 0)]
     (log/infof "Base: %s\newlineEncahnts: %s"
                base
-               (filter #(and (> @sum* floor) (swap! sum* (partial - (:points %)))) enchants))))
+               (filter #(and (> @sum* floor) (swap! sum* (partial + (:points %)))) valid-enchants))))
