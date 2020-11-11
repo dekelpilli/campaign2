@@ -44,7 +44,7 @@
                                    (reduce +))
          points-remaining (- (* points-per-level (+ level 1))
                              current-points-total)
-         upgradeable-mods (filter :upgradeable? existing)
+         upgradeable-mods (filter #(:upgradeable? % true) existing)
          upgrade-options (if-not (neg? points-remaining)
                            (conj '(:new-relic-mod :new-random-mod)
                                  (if (empty? upgradeable-mods) (rand-nth [:new-relic-mod :new-random-mod]) :upgrade-existing-mod))

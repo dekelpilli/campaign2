@@ -8,20 +8,28 @@
              [consumable :as consumable]
              [prayer :as prayer]
              [monster :as monster]
+             [magic :as magic]
+             [dice :as dice]
              [state :as state]]
             [clojure.tools.logging :as log]))
 
 (def loot-actions
-  {-1 {:name   "Exit"
-       :action #(println "Goodbye.")}
+  {-1 {:name   "Exit"}
    1  {:name   "Negatively enchanted item"
        :action enchant/random-negative-enchanted}
    2  {:name   "Mundane item"
        :action mundane/new}
-   3  {:name   "Consumable"
+   4  {:name   "Uncommon magic item"
+       :action #(magic/get-by-rarity "uncommon")}
+   5  {:name   "Common magic item (craftable)"
+       :action #(magic/get-by-rarity "common")}
+   6  {:name   "Consumable"
        :action consumable/new}
+
    8  {:name   "Enchanted item (10 points)"
        :action #(enchant/random-enchanted 10)}
+   9  {:name   "100-150 gold"
+       :action #(str (+ 100 (rand-int 51)) " gold")}
    11 {:name   "Enchanted item (20 points, positive only)"
        :action #(enchant/random-positive-enchanted 20)}
    12 {:name   "Enchanted item (30 points, positive only)"
@@ -30,6 +38,8 @@
        :action crafting/new}
    14 {:name   "Amulet"
        :action monster/generate-amulet}
+   19 {:name   "Prayer stone"
+       :action prayer/new-stone}
    20 {:name   "New relic"
        :action relic/&new!}
    21 {:name   "Reload data from files"
@@ -46,20 +56,27 @@
   (let [loot-action-names (->> loot-actions
                                (map (fn [e] [(key e) (:name (val e))]))
                                (into {}))]
-    (loop [input (atom nil)]
+    (util/display-pairs loot-action-names)
+    (loop [action (atom nil)]
       (try
-        (when-not (contains? loot-actions @input) (util/display-pairs loot-action-names))
-        (reset! input (util/&num))
-        (let [{:keys [action]} (loot-actions @input)
-              result (when action (action))]
+        (let [input (read-line)
+              num-input (util/->num input)
+              pos-num? (and num-input (pos? num-input))
+              dice-input (when-not pos-num? (dice/parse input))
+              _ (reset! action (or (:action (loot-actions num-input))
+                                   (when dice-input #(dice/roll dice-input))
+                                   (when pos-num? (constantly loot-action-names))))
+              result (when @action (@action))]
           (cond
             (string? result) (println result)
+            (map? result) (util/display-pairs loot-action-names)
             (seqable? result) (doseq [r result] (util/display-multi-value r))
             :else (when result (util/display-multi-value result))))
         (catch Exception e
-          (log/errorf e "Unexpected error")))
-      (when (or (nil? @input) (pos? @input))
-        (recur input)))))
+          (log/errorf e "Unexpected error")
+          (reset! @action nil)))
+      (when @action
+        (recur action)))))
 
 (defn -main [& _]
   (start))

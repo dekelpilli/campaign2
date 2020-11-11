@@ -5,7 +5,7 @@
      [util :as util]]))
 
 (defn new-stone []
-  (->> prayer-paths
+  (->> @prayer-paths
        (map :name)
        (rand-nth)))
 

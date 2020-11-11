@@ -2,10 +2,14 @@
   (:require [clojure.edn :as edn]
             [table.core :as t]))
 
+(defn ->num [s]
+  (try
+    (let [n (edn/read-string s)]
+      (when (number? n) n))
+    (catch Exception _)))
+
 (defn &num []
-  (let [input (-> (read-line)
-                  (edn/read-string))]
-    (if (number? input) input nil)))
+  (->num read-line))
 
 (defn make-options [maps]
   (->> maps
@@ -13,18 +17,20 @@
        (map-indexed (fn [i option] [i option]))
        (into {})))
 
+(defn- table [out]
+  (binding [table.width/*width* (delay 9999)]
+    (t/table out :style :unicode-3d)))
+
 (defn display-multi-value [result]
-  (t/table (if (coll? result) (doall result) [result])
-           :style :unicode-3d))
+  (table (if (coll? result) (doall result) [result])))
 
 (defn display-pairs
   ([p m] (println p) (display-pairs m))
-  ([m] (t/table
+  ([m] (table
          (->> m
               (into [])
               (sort)
-              (concat [["Key" "Value"]]))
-         :style :unicode-3d)))
+              (concat [["Key" "Value"]])))))
 
 (defn &bool [default]
   (let [opts {1 true 2 false}

@@ -1,13 +1,14 @@
-(ns campaign2.state)
+(ns campaign2.state
+  (:import (java.io PushbackReader)))
 
 (def ^String path "loot/data/")
 
-(defn- load-data [type]
-  (->> (str path type ".edn")
-       (slurp)
-       (load-string)))
+(defn load-data [type]
+  (with-open [r (PushbackReader. (clojure.java.io/reader (str path type ".edn")))]
+    (binding [*read-eval* false]
+      (read r))))
 
-(defn- write-data! [a type]
+(defn write-data! [a type]
   (clojure.pprint/pprint @a (clojure.java.io/writer (str path type ".edn"))))
 
 (def relics (atom nil))
