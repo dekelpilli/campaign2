@@ -19,17 +19,19 @@
        :action enchant/random-negative-enchanted}
    2  {:name   "Mundane item"
        :action mundane/new}
+   ;3
    4  {:name   "Uncommon magic item"
        :action #(magic/get-by-rarity "uncommon")}
    5  {:name   "Common magic item (craftable)"
        :action #(magic/get-by-rarity "common")}
    6  {:name   "Consumable"
        :action consumable/new}
-
+   ;7
    8  {:name   "Enchanted item (10 points)"
        :action #(enchant/random-enchanted 10)}
    9  {:name   "100-150 gold"
        :action #(str (+ 100 (rand-int 51)) " gold")}
+   ;10
    11 {:name   "Enchanted item (20 points, positive only)"
        :action #(enchant/random-positive-enchanted 20)}
    12 {:name   "Enchanted item (30 points, positive only)"

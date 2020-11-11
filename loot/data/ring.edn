@@ -1,1 +1,48 @@
-[]
+[
+ {:name   "The Introvert"
+  :effect "+1 global damage for each unused ring slot"
+  :points 5}
+ {:name   "The Lone Wolf"
+  :effect "-1 critical strike requirement while this is your only ring"
+  :points 8}
+ {:name   "The Conduit"
+  :effect "+1 to maximum number of rings"
+  :points 1}
+ {:name   "The Joker"
+  :effect "This ring has no effect, but may count as any ring type you choose. It can only count as one ring type at one time."
+  :points 0}
+ {:name   "The Investment"
+  :effect "-1 to maximum number of rings worn"
+  :points -4}
+ {:name   "The Speedster"
+  :effect "+5 feet to all of your speed types for each Speed ring worn"
+  :points 4}
+ {:name   "Vengeful"
+  :effect "Enemies take 1 true damage upon damaging you"
+  :points 2}
+ {:name   "Jack of All Trades"
+  :effect "None of your attributes can be below 8"
+  :points 3}
+ {:name   "Balance"
+  :effect "None of your attributes can be below 10"
+  :points 5}
+ {:name   "Scout"
+  :effect "+1 to perception while outside of combat"
+  :points 1}
+ {:name   "Versatility"
+  :effect "+1 AB with attacks where you are not proficient. This cannot stack to be above your proficiency bonus."
+  :points 1}
+ {:name   "Hale"
+  :effect "+2 maximum hit points"
+  :points 2}
+ {:name   "Hardy"
+  :effect "+1 AC while under the effect of a negative condition"
+  :points 1}
+ {:name   "Ready"
+  :effect "You have advantage on attacks and skill checks with readied actions"
+  :points 2}
+ {:name     "Template"
+  :enabled? false
+  :effect   ""
+  :points   0}
+ ]

@@ -43,7 +43,7 @@
 (defn- fill-enchant [{:keys [randoms] :as enchant}]
   (if (not-empty randoms)
     (-> enchant
-        (update :value #(apply format % (map rand-nth randoms)))
+        (update :effect #(apply format % (map rand-nth randoms)))
         (dissoc :randoms))
     enchant))
 

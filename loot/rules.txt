@@ -9,10 +9,6 @@ Amulets:
 Prayer Stones:
     You can use any prayer stone to pray to any Deity, but when using the appropriate prayer stone, you get the option of skipping a step
 
-Wands:
-    Local wand bonuses apply to spells
-    While using a wand, you may choose to make cantrip spells with a spell save DC as spell attacks
-
 Spell Focus:
     +1 spell save DC, +1 spell AB
 
@@ -22,7 +18,8 @@ Moving mods:
     Between armours
 
 Rings:
-    ?
+    Max number of rings worn = prof bonus
+    Max number of ring points used = char level + highest attribute modifier
 
 Relics:
     Relics related to a specific personality are unlocked at a certain quest state.

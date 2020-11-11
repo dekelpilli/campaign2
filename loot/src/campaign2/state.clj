@@ -19,6 +19,7 @@
 (def weapons (atom nil))
 (def armours (atom nil))
 (def enchants (atom nil))
+(def rings (atom nil))
 (def consumables (atom nil))
 (def monsters (atom nil))
 
@@ -32,6 +33,7 @@
   (reset! weapons (load-data "weapon"))
   (reset! armours (load-data "armour"))
   (reset! enchants (load-data "enchant"))
+  (reset! rings (load-data "ring"))
   (reset! consumables (load-data "consumable"))
   (reset! monsters (load-data "monster"))
   "Done")

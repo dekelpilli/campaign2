@@ -36,6 +36,7 @@
             ))
       "You're out of relics!")))
 
+;TODO: think about allowing relics to go into negatives. If not, probably best to always give an option for doing nothing and an option for negative mods
 (defn &level!
   ([] (let [relic (&upgradeable)]
         (when relic (&level! relic))))

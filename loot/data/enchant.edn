@@ -1,124 +1,124 @@
-[{:value  "+1 AC"
+[{:effect "+1 AC"
   :points 30}
- {:value "You have an additional spell slot of your second highest spell slot where you have at least one spell slot available"}
- {:value "+5ft attack reach with melee attacks on your turn"}
- {:value "Stone's Endurance (if you already have it, you get another use per long/short rest) (Volo's p109)"}
- {:value "+1 resistance to all damage", :metadata ["armour"]}
- {:value    "This weapon is considered magical for the purposes of overcoming resistances and immunities",
+ {:effect "You have an additional spell slot of your second highest spell slot where you have at least one spell slot available"}
+ {:effect "+5ft attack reach with melee attacks on your turn"}
+ {:effect "Stone's Endurance (if you already have it, you get another use per long/short rest) (Volo's p109)"}
+ {:effect "+1 resistance to all damage", :metadata ["armour"]}
+ {:effect   "This weapon is considered magical for the purposes of overcoming resistances and immunities",
   :metadata ["weapon"]}
- {:value  "+1 to global AB"
+ {:effect "+1 to global AB"
   :points 35}
- {:value    "+1 to this weapon's base damage die size",
+ {:effect   "+1 to this weapon's base damage die size",
   :metadata ["weapon"]}
- {:value "Recover a 1st-level spell slot when you roll for initiative"}
- {:value "Recover 10% of your maximum class points (minimum 1) when you roll for initiative"}
- {:value    "+1d4 %s damage with attacks with this weapon",
+ {:effect "Recover a 1st-level spell slot when you roll for initiative"}
+ {:effect "Recover 10% of your maximum class points (minimum 1) when you roll for initiative"}
+ {:effect   "+1d4 %s damage with attacks with this weapon",
   :metadata ["weapon"]
   :randoms  [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]}
- {:value  "+1 spell save DC"
+ {:effect "+1 spell save DC"
   :points 31}
- {:value "+1 AC while unarmoured (does not work while using a shield)"}
- {:value "+1 AC while using a shield"}
- {:value "Gain resistance to physical damage equal to half the CR total of your highest CR active minion"}
- {:value   "+2 %s damage"
+ {:effect "+1 AC while unarmoured (does not work while using a shield)"}
+ {:effect "+1 AC while using a shield"}
+ {:effect "Gain resistance to physical damage equal to half the CR total of your highest CR active minion"}
+ {:effect  "+2 %s damage"
   :randoms [["piercing" "slashing" "bludgeoning"]]
   :points  19}
- {:value   "+2 % damage"
+ {:effect  "+2 % damage"
   :randoms [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]
   :points  11}
- {:value   "+1 %s"
+ {:effect  "+1 %s"
   :randoms [["Dexterity" "Constitution" "Wisdom" "Charisma" "Strength" "Intelligence"]]
   :points  20}
- {:value "+2 to loot rolls result, -1 loot roll die size"}
- {:value "You have an additional second level spell slot (only if you already had at least 1)"}
- {:value "+1 proficiency bonus if this mod is empowered or appears twice on the same item"}
- {:value "-1 critical strike requirement with attacks (including spell attacks)"}
- {:value "Targets have +1 critical strike avoidance minimum when saving against your spells"}
- {:value "+1 weapon attack AB with attacks that deal non-physical damage"}
- {:value "You have advantage on initiative rolls"}
- {:value "This item's maximum number of mods is increased by 2"}
- {:value "When you score a critical strike, recover a 1st-level spell slot"}
- {:value "When you score a critical strike, recover a 10% of your maximum class points (minimum 1)"}
- {:value "+1 AB with unarmed attacks", :metadata ["armour"]}
- {:value    "+1d4 bludgeoning damage with attacks with this weapon",
+ {:effect "+2 to loot rolls result, -1 loot roll die size"}
+ {:effect "You have an additional second level spell slot (only if you already had at least 1)"}
+ {:effect "+1 proficiency bonus if this mod is empowered or appears twice on the same item"}
+ {:effect "-1 critical strike requirement with attacks (including spell attacks)"}
+ {:effect "Targets have +1 critical strike avoidance minimum when saving against your spells"}
+ {:effect "+1 weapon attack AB with attacks that deal non-physical damage"}
+ {:effect "You have advantage on initiative rolls"}
+ {:effect "This item's maximum number of mods is increased by 2"}
+ {:effect "When you score a critical strike, recover a 1st-level spell slot"}
+ {:effect "When you score a critical strike, recover a 10% of your maximum class points (minimum 1)"}
+ {:effect "+1 AB with unarmed attacks", :metadata ["armour"]}
+ {:effect   "+1d4 bludgeoning damage with attacks with this weapon",
   :metadata ["weapon"]}
- {:value    "+1d4 piercing damage with attacks with this weapon",
+ {:effect   "+1d4 piercing damage with attacks with this weapon",
   :metadata ["weapon"]}
- {:value    "+1d4 slashing damage with attacks with this weapon",
+ {:effect   "+1d4 slashing damage with attacks with this weapon",
   :metadata ["weapon"]}
- {:value "+1 to Dexterity saving throws", :metadata ["armour"]}
- {:value "+1 to Constitution saving throws", :metadata ["armour"]}
- {:value "+1 to Intelligence saving throws", :metadata ["armour"]}
- {:value "+1 to Wisdom saving throws", :metadata ["armour"]}
- {:value    "This weapon deals no base damage. Roll again and empower twice",
+ {:effect "+1 to Dexterity saving throws", :metadata ["armour"]}
+ {:effect "+1 to Constitution saving throws", :metadata ["armour"]}
+ {:effect "+1 to Intelligence saving throws", :metadata ["armour"]}
+ {:effect "+1 to Wisdom saving throws", :metadata ["armour"]}
+ {:effect   "This weapon deals no base damage. Roll again and empower twice",
   :metadata ["weapon"]}
- {:value "You gain telepathy with a range of 10 feet"}
- {:value "+1 question when learning creature stats (must have earned at least one question)"}
- {:value "Your critical strikes add 1 additional damage die from the source's base damage"}
- {:value "You can use your reaction to change any damage you deal into a damage type of your choice. This is visually noticeable."}
- {:value "+1 resistance to bludgeoning damage", :metadata ["armour"]}
- {:value "+1 resistance to piercing damage", :metadata ["armour"]}
- {:value "+1 resistance to slashing damage", :metadata ["armour"]}
- {:value    "Once per round, when you take damage from a melee or touch attack, the attacker takes true damage equal to half your level, rounded down",
+ {:effect "You gain telepathy with a range of 10 feet"}
+ {:effect "+1 question when learning creature stats (must have earned at least one question)"}
+ {:effect "Your critical strikes add 1 additional damage die from the source's base damage"}
+ {:effect "You can use your reaction to change any damage you deal into a damage type of your choice. This is visually noticeable."}
+ {:effect "+1 resistance to bludgeoning damage", :metadata ["armour"]}
+ {:effect "+1 resistance to piercing damage", :metadata ["armour"]}
+ {:effect "+1 resistance to slashing damage", :metadata ["armour"]}
+ {:effect   "Once per round, when you take damage from a melee or touch attack, the attacker takes true damage equal to half your level, rounded down",
   :metadata ["armour"]}
- {:value    "When a melee or touch fails to hit you, the attacker takes true damage equal to half your level (rounded up)",
+ {:effect   "When a melee or touch fails to hit you, the attacker takes true damage equal to half your level (rounded up)",
   :metadata ["armour"]}
- {:value "Roll again, making that result a negative enchant. Then roll again, empowering that result."}
- {:value "-1 to a creature's saving throws attempting to end an ongoing condition you caused"}
- {:value "Once per long rest, you can make a Persuasion check contested by a non-hostile creature's Wisdom save. The creature must be within 60 feet of you. On a success, you can give them a command as per the Command spell"}
- {:value "+1 to Strength saving throws", :metadata ["armour"]}
- {:value "If you take damage exceeding 25% of your maximum hit points in one turn and do not reach 0 hit points by its end, heal hit points equal to your level."}
- {:value "If you take damage exceeding 25% of your maximum hit points in one round and do not reach 0 hit points by its end, you may move up one place in the initiative tracker, if possible."}
- {:value "Once per long rest, when you need make an attack roll, ability check, or saving throw, you can use your reaction to replace it with a 50% chance to critically succeed and 50% chance to to critically fail"}
- {:value "+1 to Charisma saves"}
- {:value "+1 global damage"
+ {:effect "Roll again, making that result a negative enchant. Then roll again, empowering that result."}
+ {:effect "-1 to a creature's saving throws attempting to end an ongoing condition you caused"}
+ {:effect "Once per long rest, you can make a Persuasion check contested by a non-hostile creature's Wisdom save. The creature must be within 60 feet of you. On a success, you can give them a command as per the Command spell"}
+ {:effect "+1 to Strength saving throws", :metadata ["armour"]}
+ {:effect "If you take damage exceeding 25% of your maximum hit points in one turn and do not reach 0 hit points by its end, heal hit points equal to your level."}
+ {:effect "If you take damage exceeding 25% of your maximum hit points in one round and do not reach 0 hit points by its end, you may move up one place in the initiative tracker, if possible."}
+ {:effect "Once per long rest, when you need make an attack roll, ability check, or saving throw, you can use your reaction to replace it with a 50% chance to critically succeed and 50% chance to to critically fail"}
+ {:effect "+1 to Charisma saves"}
+ {:effect "+1 global damage"
   :points 15}
- {:value "+1 to death saves"}
- {:value   "After receiving damage for the first time in a combat, you may choose to become resistant to that damage type for the rest of the combat. If you choose to do so, you then become vulnerable %s and %s"
+ {:effect "+1 to death saves"}
+ {:effect  "After receiving damage for the first time in a combat, you may choose to become resistant to that damage type for the rest of the combat. If you choose to do so, you then become vulnerable %s and %s"
   :randoms [["Acid" "Bludgeoning" "Cold" "Fire" "Force" "Lightning" "Necrotic" "Piercing" "Poison" "Psychic" "Radiant" "Slashing" "Thunder"]
             ["Acid" "Bludgeoning" "Cold" "Fire" "Force" "Lightning" "Necrotic" "Piercing" "Poison" "Psychic" "Radiant" "Slashing" "Thunder"]]}
- {:value "Gain temporary hit points equal to your lowest ability score (not bonus) at the beginning of each combat."}
- {:value    "+1 resistance to %s damage"
+ {:effect "Gain temporary hit points equal to your lowest ability score (not bonus) at the beginning of each combat."}
+ {:effect   "+1 resistance to %s damage"
   :metadata ["armour"]
   :randoms  [["acid" "cold" "lightning" "fire" "poison" "force" "necrotic" "psychic" "radiant" "thunder"]]}
- {:value "You have an additional first level spell slot"}
- {:value "+10ft darkvision"}
- {:value "+5ft blindsight"}
- {:value "+5ft tremorsense"}
- {:value "You cannot be deafened"}
- {:value "When you score a critical strike with an attack of opportunity, the target is paralyzed until the end of their turn"}
- {:value    "When you hit a creature with an attack, they are silenced until the end of their next turn",
+ {:effect "You have an additional first level spell slot"}
+ {:effect "+10ft darkvision"}
+ {:effect "+5ft blindsight"}
+ {:effect "+5ft tremorsense"}
+ {:effect "You cannot be deafened"}
+ {:effect "When you score a critical strike with an attack of opportunity, the target is paralyzed until the end of their turn"}
+ {:effect   "When you hit a creature with an attack, they are silenced until the end of their next turn",
   :metadata ["weapon"]}
- {:value
+ {:effect
   "You're acclimated to high altitude, including elevations above 20,000 feet"}
- {:value
+ {:effect
   "First wearer chooses a language in which this item grants perfect knowledge"}
- {:value "+2 passive perception"}
- {:value "+10 feet speed in all of your available speed types"}
- {:value "+1 to hit die size for regaining health during short rests"}
- {:value "+1 to initiative rolls"}
- {:value "+1 damage with spells"}
- {:value "+5ft fly speed"}
- {:value "+10ft climb speed"}
- {:value "+10ft swimming speed, and you can breath under water"}
- {:value "You can jump without a run-up as if you had taken a run-up"}
- {:value "+5 points of Lay on Hands per long rest"}
- {:value   "+4 damage against %s creatures"
+ {:effect "+2 passive perception"}
+ {:effect "+10 feet speed in all of your available speed types"}
+ {:effect "+1 to hit die size for regaining health during short rests"}
+ {:effect "+1 to initiative rolls"}
+ {:effect "+1 damage with spells"}
+ {:effect "+5ft fly speed"}
+ {:effect "+10ft climb speed"}
+ {:effect "+10ft swimming speed, and you can breath under water"}
+ {:effect "You can jump without a run-up as if you had taken a run-up"}
+ {:effect "+5 points of Lay on Hands per long rest"}
+ {:effect  "+4 damage against %s creatures"
   :randoms [["Abberation" "Beast" "Celestial" "Construct" "Dragon" "Elemental" "Fey"
              "Fiend" "Giant" "Humanoid" "Monstrosity" "Ooze" "Plant" "Undead"]]}
- {:value    "Your short rests can be 10 minutes shorter, to a minimum of 20 minutes",
+ {:effect   "Your short rests can be 10 minutes shorter, to a minimum of 20 minutes",
   :metadata ["armour"]}
- {:value  "Your long rests can be 1 hour shorter, to a minimum of 3 hours"
+ {:effect "Your long rests can be 1 hour shorter, to a minimum of 3 hours"
   :points 3}
- {:value "You need four failed death save points to die, instead of 3"}
- {:value   "+2 %s"
+ {:effect "You need four failed death save points to die, instead of 3"}
+ {:effect  "+2 %s"
   :randoms [["arcana" "athletics" "acrobatics" "sleight of hand" "stealth" "history"
              "nature" "religion" "animal handling" "survival" "intimidation" "performance"]]}
- {:value   "+1 %s"
+ {:effect  "+1 %s"
   :randoms [["perception" "medicine" "deception" "persuasion" "investigation" "insight"]]}
- {:value    "+20 feet to both range options on ranged weapons. This does nothing on weapons without range",
+ {:effect   "+20 feet to both range options on ranged weapons. This does nothing on weapons without range",
   :metadata ["weapon"]}
- {:value   "While wearing this item, you may cast %s once per long rest (mental attribute of your choice)."
+ {:effect  "While wearing this item, you may cast %s once per long rest (mental attribute of your choice)."
   :randoms [["Acid Splash", "Blade Ward", "Booming Blade", "Chill Touch", "Control Flames",
              "Create Bonfire", "Dancing Lights", "Druidcraft", "Eldritch Blast",
              "Encode Thoughts", "Fire Bolt", "Friends", "Frostbite", "Green-Flame Blade",
@@ -129,93 +129,93 @@
              "Shape Water", "Shillelagh", "Shocking Grasp", "Spare the Dying", "Sword Burst",
              "Thaumaturgy", "Thorn Whip", "Thunderclap", "Toll the Dead", "True Strike",
              "Vicious Mockery", "Word of Radiance"]]}
- {:value "+2 to deception in languages other than Common"}
- {:value "While wearing this item, you gain sustenance every 24 hours"}
- {:value "This item sells for an extra 1d100 gold. You only roll after the item is sold"}
- {:value "+4 Strength while restrained"}
- {:value
+ {:effect "+2 to deception in languages other than Common"}
+ {:effect "While wearing this item, you gain sustenance every 24 hours"}
+ {:effect "This item sells for an extra 1d100 gold. You only roll after the item is sold"}
+ {:effect "+4 Strength while restrained"}
+ {:effect
   "Modifiers to your damage apply to your minions at 50% effectiveness (stacks, max 100%)"}
- {:value "+1 incoming healing (not including from potions/healing surges)"}
- {:value "+2 outgoing healing"}
- {:value
+ {:effect "+1 incoming healing (not including from potions/healing surges)"}
+ {:effect "+2 outgoing healing"}
+ {:effect
   "Once per long rest, when rolling a natural 1 on a d20, you may reroll."}
- {:value    "Heal 1 HP on hitting a creature with this weapon in combat",
+ {:effect   "Heal 1 HP on hitting a creature with this weapon in combat",
   :metadata ["weapon"]}
- {:value    "+1 to saving throws made to end an ongoing condition if your HP is above 0",
+ {:effect   "+1 to saving throws made to end an ongoing condition if your HP is above 0",
   :metadata ["armour"]}
- {:value "You have resistance to all damage while taking the Dodge action"}
- {:value "You take no additional damage from damage you are vulnerable to"
+ {:effect "You have resistance to all damage while taking the Dodge action"}
+ {:effect "You take no additional damage from damage you are vulnerable to"
   :points 5}
- {:value "Your vulnerabilities cause you to receive 2x damage instead of 1.5"
+ {:effect "Your vulnerabilities cause you to receive 2x damage instead of 1.5"
   :points -2}
- {:value "This item emits bright light in a 5 foot radius, and dim light for a further 5 feet"}
- {:value "+1 damage to melee and touch attacks"}
- {:value "Recover a 1st-level spell slot on Killing Blow"}
- {:value "Recover 10% of your maximum class points (minimum 1) on Killing Blow"}
- {:value    "At the start of your turn in combat, if you haven't taken damage since the start of your last turn, gain 1 temporary hit point. This stacks with any existing temporary hit points.",
+ {:effect "This item emits bright light in a 5 foot radius, and dim light for a further 5 feet"}
+ {:effect "+1 damage to melee and touch attacks"}
+ {:effect "Recover a 1st-level spell slot on Killing Blow"}
+ {:effect "Recover 10% of your maximum class points (minimum 1) on Killing Blow"}
+ {:effect   "At the start of your turn in combat, if you haven't taken damage since the start of your last turn, gain 1 temporary hit point. This stacks with any existing temporary hit points.",
   :metadata ["armour"]}
- {:value "+1 damage with weapon attacks", :metadata ["weapon"]}
- {:value    "Once per long rest, you can choose a target you can see as an action and then cast a random 1st-level spell on that target, ignoring range restrictions",
+ {:effect "+1 damage with weapon attacks", :metadata ["weapon"]}
+ {:effect   "Once per long rest, you can choose a target you can see as an action and then cast a random 1st-level spell on that target, ignoring range restrictions",
   :metadata ["weapon"]}
- {:value "When you score a critical strike, the target gains a condition that deals 1d4 damage of the strike's primary damage type every round to the target for 1d4 rounds. If the condition is reapplied, the longer of the two durations becomes the new duration and the damage stacks."}
- {:value "When you deliver a Killing Blow, gain +2 global damage for the remainder of the combat"}
- {:value "+2 to physical resistance while taking Damage Over Time"}
- {:value "+1 to damage with light weapons"}
- {:value "Reroll, the resulting enchant is applied to minions instead of the wielder (assuming their basic attacks use weapons)"}
- {:value "Your minions have +1 resistance to all damage"}
- {:value "When an attack fails to hit you in combat, you can use your reaction to reduce your AC for the attack until it does hit you. Your next instance of damage in the next minute is then increased by 3 for each point of AC you dropped."}
- {:value "+1 to Damage Over Time"}
- {:value "When you hit a creature with this weapon, they get -1 resistance to all damage dealt by creatures other than yourself for the remainder of combat. This does not stack, though multiple instances of this enchant do."}
- {:value    "+2 resistance to damage from projectiles",
+ {:effect "When you score a critical strike, the target gains a condition that deals 1d4 damage of the strike's primary damage type every round to the target for 1d4 rounds. If the condition is reapplied, the longer of the two durations becomes the new duration and the damage stacks."}
+ {:effect "When you deliver a Killing Blow, gain +2 global damage for the remainder of the combat"}
+ {:effect "+2 to physical resistance while taking Damage Over Time"}
+ {:effect "+1 to damage with light weapons"}
+ {:effect "Reroll, the resulting enchant is applied to minions instead of the wielder (assuming their basic attacks use weapons)"}
+ {:effect "Your minions have +1 resistance to all damage"}
+ {:effect "When an attack fails to hit you in combat, you can use your reaction to reduce your AC for the attack until it does hit you. Your next instance of damage in the next minute is then increased by 3 for each point of AC you dropped."}
+ {:effect "+1 to Damage Over Time"}
+ {:effect "When you hit a creature with this weapon, they get -1 resistance to all damage dealt by creatures other than yourself for the remainder of combat. This does not stack, though multiple instances of this enchant do."}
+ {:effect   "+2 resistance to damage from projectiles",
   :metadata ["armour"]}
- {:value "When you deliver a Killing Blow, gain 10 temporary hit points"}
- {:value "Whenever you grant a buff with a duration to a creature, gain outgoing healing +2 until the end of your next turn"}
- {:value  "Every third spell you cast deals +5 damage, across any amount of time"
+ {:effect "When you deliver a Killing Blow, gain 10 temporary hit points"}
+ {:effect "Whenever you grant a buff with a duration to a creature, gain outgoing healing +2 until the end of your next turn"}
+ {:effect "Every third spell you cast deals +5 damage, across any amount of time"
   :points 15}
- {:value   "+2 global AB against %s creatures"
+ {:effect  "+2 global AB against %s creatures"
   :randoms [["Abberation" "Beast" "Celestial" "Construct" "Dragon" "Elemental" "Fey"
              "Fiend" "Giant" "Humanoid" "Monstrosity" "Ooze" "Plant" "Undead"]]}
- {:value "+2 global damage while flanking"}
- {:value "+2 global damage against creatures behind you in the initiative tracker"}
- {:value "This weapon gains the light property", :metadata ["weapon"]}
- {:value "Heal 5 hit points when you roll for initiative"}
- {:value "You can travel through 1 inch of solid surface with a full movement action. If you end your turn inside the surface, you are shunted back to your original location."}
- {:value   "All of your damage type-seeks to maximise damage against %s creatures"
+ {:effect "+2 global damage while flanking"}
+ {:effect "+2 global damage against creatures behind you in the initiative tracker"}
+ {:effect "This weapon gains the light property", :metadata ["weapon"]}
+ {:effect "Heal 5 hit points when you roll for initiative"}
+ {:effect "You can travel through 1 inch of solid surface with a full movement action. If you end your turn inside the surface, you are shunted back to your original location."}
+ {:effect  "All of your damage type-seeks to maximise damage against %s creatures"
   :randoms [["Abberation" "Beast" "Celestial" "Construct" "Dragon" "Elemental" "Fey"
              "Fiend" "Giant" "Humanoid" "Monstrosity" "Ooze" "Plant" "Undead"]]}
- {:value   "+2 resistance to damage from %s creatures"
+ {:effect  "+2 resistance to damage from %s creatures"
   :randoms [["Abberation" "Beast" "Celestial" "Construct" "Dragon" "Elemental" "Fey"
              "Fiend" "Giant" "Humanoid" "Monstrosity" "Ooze" "Plant" "Undead"]]}
- {:value    "+25% chance to ignore bonus damage from incoming critical strikes",
+ {:effect   "+25% chance to ignore bonus damage from incoming critical strikes",
   :metadata ["armour"]}
- {:value "While you have 3 different enchantments equipped that grant bonuses against the same type of creature, you have +1 to your proficiency bonus"}
- {:value "+2 global damage while your hit points are below 50% of your hit point maximum"}
- {:value "When you deliver a Killing Blow, heal 5 hit points"}
- {:value "+2 health regeneration per round of combat"}
- {:value "+3 to maximum HP"}
- {:value "+3 to minion damage"}
- {:value "+5 to minion HP per minion CR"}
- {:value "+10HP while transformed"}
- {:value "When you exit your transformed state, you gain temporary hit points equal to twice the CR of the creature you were transformed into."}
- {:value "+2 global damage and +10ft speed while transformed into a Beast"}
- {:value "+1d6 radiant damage while transformed into a Celestial"}
- {:value "+2 to DCs of effects that cause conditions while transformed"}
- {:value "All of your ring mods are empowered while you are transformed"}
- {:value "You retain your normal speed while transformed into an Ooze"}
- {:value "You may keep your current appearance, minus size, while transformed into a Humanoid."}
- {:value "+1d6 psychic damage while transformed into an Aberration."}
- {:value "You may ignore conditions while transformed into a Construct"}
- {:value "Attacks that would deal fire, cold, or lightning damage have +2AB while you are transformed into an Elemental"}
- {:value "While transformed into a Dragon, you are immune to any non-physical damage types you can deal"}
- {:value "You have advantage on all skill checks while transformed into a Fey."}
- {:value "+1d8 bludgeoning damage while transformed into a Giant."}
- {:value "+1d4 fire damage while transformed into a Fiend. +1d4 poison damage if it is also a Demon."}
- {:value "While transformed into an undead creature, if you go down to 0 hit points, you do not transform back to your normal form for two more rounds."}
- {:value "Once per short rest, while transformed into a Monstrosity, you may take two actions instead of one on your turn."}
- {:value "While transformed into a Plant, you regenerate health equal to your Constitution modifier every round, to a minimum of 1 (the plant's value + any of your bonuses)."}
- {:value    "TODO: remove this",
+ {:effect "While you have 3 different enchantments equipped that grant bonuses against the same type of creature, you have +1 to your proficiency bonus"}
+ {:effect "+2 global damage while your hit points are below 50% of your hit point maximum"}
+ {:effect "When you deliver a Killing Blow, heal 5 hit points"}
+ {:effect "+2 health regeneration per round of combat"}
+ {:effect "+3 to maximum HP"}
+ {:effect "+3 to minion damage"}
+ {:effect "+5 to minion HP per minion CR"}
+ {:effect "+10HP while transformed"}
+ {:effect "When you exit your transformed state, you gain temporary hit points equal to twice the CR of the creature you were transformed into."}
+ {:effect "+2 global damage and +10ft speed while transformed into a Beast"}
+ {:effect "+1d6 radiant damage while transformed into a Celestial"}
+ {:effect "+2 to DCs of effects that cause conditions while transformed"}
+ {:effect "All of your ring mods are empowered while you are transformed"}
+ {:effect "You retain your normal speed while transformed into an Ooze"}
+ {:effect "You may keep your current appearance, minus size, while transformed into a Humanoid."}
+ {:effect "+1d6 psychic damage while transformed into an Aberration."}
+ {:effect "You may ignore conditions while transformed into a Construct"}
+ {:effect "Attacks that would deal fire, cold, or lightning damage have +2AB while you are transformed into an Elemental"}
+ {:effect "While transformed into a Dragon, you are immune to any non-physical damage types you can deal"}
+ {:effect "You have advantage on all skill checks while transformed into a Fey."}
+ {:effect "+1d8 bludgeoning damage while transformed into a Giant."}
+ {:effect "+1d4 fire damage while transformed into a Fiend. +1d4 poison damage if it is also a Demon."}
+ {:effect "While transformed into an undead creature, if you go down to 0 hit points, you do not transform back to your normal form for two more rounds."}
+ {:effect "Once per short rest, while transformed into a Monstrosity, you may take two actions instead of one on your turn."}
+ {:effect "While transformed into a Plant, you regenerate health equal to your Constitution modifier every round, to a minimum of 1 (the plant's value + any of your bonuses)."}
+ {:effect   "TODO: remove this",
   :points   -10,
   :metadata ["weapon" "armour"]}
- {:value    "TODO: remove this too",
+ {:effect   "TODO: remove this too",
   :points   -4,
   :metadata ["weapon" "armour"]}]
