@@ -13,20 +13,22 @@
        (map-indexed (fn [i option] [i option]))
        (into {})))
 
-(defn display-result [result]
-  (t/table (if (coll? result) (doall result) [result])))
+(defn display-multi-value [result]
+  (t/table (if (coll? result) (doall result) [result])
+           :style :unicode-3d))
 
-(defn display-options
-  ([p m] (println p) (display-options m))
+(defn display-pairs
+  ([p m] (println p) (display-pairs m))
   ([m] (t/table
          (->> m
               (into [])
               (sort)
-              (concat [["Key" "Value"]])))))
+              (concat [["Key" "Value"]]))
+         :style :unicode-3d)))
 
 (defn &bool [default]
   (let [opts {1 true 2 false}
-        _ (display-options opts)
+        _ (display-pairs opts)
         n (&num)]
     (opts n default)))
 
@@ -44,7 +46,7 @@
                  (= "advantage" v2) #(max (v1) (v1))
                  (.startsWith v2 "x") #(* (v1) (Long/parseLong (subs v2 1)))
                  :else (constantly (Long/parseLong v2))))))]
-    (let [{:keys [metadata] :as item} (rand-nth coll)
+    (let [{:keys [metadata] :as item} (rand-nth (filter #(:enabled? % true) coll))
           randomiser (reduce multi-item-reducer f metadata)]
       {:amount ((or randomiser f))
        :item   item})))

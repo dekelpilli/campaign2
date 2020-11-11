@@ -2,7 +2,7 @@
   (:require [campaign2
              [state :refer [relics override-relics!]]
              [util :as util]
-             [enchant :as enchant]]
+             [enchant :as e]]
             [clojure.tools.logging :as log]))
 
 (def ^:private points-per-level 10)
@@ -15,7 +15,7 @@
                                 (into {}))
         relic-options (util/make-options upgradeable-relics)]
     (when (not-empty relic-options)
-      (util/display-options relic-options)
+      (util/display-pairs relic-options)
       (-> (util/&num)
           (relic-options)
           (upgradeable-relics)))))
@@ -28,11 +28,12 @@
         options {1 true 2 false}]
     (if relic
       (do
-        (util/display-result relic)
-        (util/display-options "Mark as found?" options)
+        (util/display-multi-value relic)
+        (util/display-pairs "Mark as found?" options)
         (-> (util/&num)
             (options)
-            (when (override-relic! (assoc relic :found? true)))))
+            (when (override-relic! (assoc relic :found? true))) ;TODO: attunement process (choose base, level)
+            ))
       "You're out of relics!")))
 
 (defn &level!
@@ -48,28 +49,23 @@
                            (conj '(:new-relic-mod :new-random-mod)
                                  (if (empty? upgradeable-mods) (rand-nth [:new-relic-mod :new-random-mod]) :upgrade-existing-mod))
                            (repeatedly :negative-mod 3))
-         valid-enchants (enchant/find-valid-enchants (campaign2.mundane/find-base base type) type)
-         mod-options (map #(case %
-                             :negative-mod (->> valid-enchants
-                                                (filter (fn [enchant] (neg? (:points enchant))))
-                                                (rand-nth))
-                             :new-relic-mod (rand-nth available)
-                             :upgrade-existing-mod (rand-nth upgradeable-mods)
-                             :new-random-mod (->> valid-enchants
-                                                  (filter (fn [enchant] (pos? (:points enchant))))
-                                                  (rand-nth)))
-                          upgrade-options)
-         mod-options (->> upgrade-options
+         valid-enchants (e/find-valid-enchants (campaign2.mundane/find-base base type) type)
+         type-mods (->> upgrade-options
                           (map (fn [o] [o (case o
-                                      :negative-mod (->> valid-enchants
-                                                         (filter (fn [enchant] (neg? (:points enchant))))
-                                                         (rand-nth))
-                                      :new-relic-mod (rand-nth available)
-                                      :upgrade-existing-mod (rand-nth upgradeable-mods)
-                                      :new-random-mod (->> valid-enchants
-                                                           (filter (fn [enchant] (pos? (:points enchant))))
-                                                           (rand-nth)))]))
-                          (into {})) ;TODO: map existing options to indexes for prompt
-         _ (util/display-options mod-options)]
-     ;TODO present options from mod-options, persist choice and reload relics
+                                            :negative-mod (->> valid-enchants
+                                                               (filter (fn [enchant] (neg? (:points enchant e/default-points))))
+                                                               (rand-nth))
+                                            :new-relic-mod (rand-nth available)
+                                            :upgrade-existing-mod (rand-nth upgradeable-mods)
+                                            :new-random-mod (->> valid-enchants
+                                                                 (filter (fn [enchant] (pos? (:points enchant e/default-points))))
+                                                                 (rand-nth)))]))
+                          (into {}))
+         mod-options (->> type-mods
+                          (map-indexed #(concat [%1] %2))
+                          (concat [["Key" "Type" "Value"]]))
+         _ (util/display-multi-value mod-options)
+         choice (util/&num)
+         [_ type value] (when choice (nth type choice))]
+     ;TODO update relics and persist
      )))

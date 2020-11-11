@@ -7,11 +7,13 @@
              [crafting :as crafting]
              [consumable :as consumable]
              [prayer :as prayer]
+             [monster :as monster]
              [state :as state]]
             [clojure.tools.logging :as log]))
 
 (def loot-actions
-  {-1 {:name "Exit"}
+  {-1 {:name   "Exit"
+       :action #(println "Goodbye.")}
    1  {:name   "Negatively enchanted item"
        :action enchant/random-negative-enchanted}
    2  {:name   "Mundane item"
@@ -26,6 +28,8 @@
        :action #(enchant/random-positive-enchanted 30)}
    13 {:name   "Crafting item"
        :action crafting/new}
+   14 {:name   "Amulet"
+       :action monster/generate-amulet}
    20 {:name   "New relic"
        :action relic/&new!}
    21 {:name   "Reload data from files"
@@ -33,7 +37,10 @@
    22 {:name   "Level a relic"
        :action relic/&level!}
    23 {:name   "Progress a prayer path"
-       :action prayer/&progress!}})
+       :action prayer/&progress!}
+   24 {:name   "Choose monsters from given CRs"
+       :action monster/&new}
+   })
 
 (defn start []
   (let [loot-action-names (->> loot-actions
@@ -41,14 +48,14 @@
                                (into {}))]
     (loop [input (atom nil)]
       (try
-        (when-not (contains? loot-actions @input) (util/display-options loot-action-names))
+        (when-not (contains? loot-actions @input) (util/display-pairs loot-action-names))
         (reset! input (util/&num))
         (let [{:keys [action]} (loot-actions @input)
               result (when action (action))]
           (cond
             (string? result) (println result)
-            (seqable? result) (doseq [r result] (util/display-result r))
-            :else (when result (util/display-result result))))
+            (seqable? result) (doseq [r result] (util/display-multi-value r))
+            :else (when result (util/display-multi-value result))))
         (catch Exception e
           (log/errorf e "Unexpected error")))
       (when (or (nil? @input) (pos? @input))

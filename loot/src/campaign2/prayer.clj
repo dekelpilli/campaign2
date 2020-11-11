@@ -20,7 +20,7 @@
         player-paths (group-by :character unfinished-paths)
         path-options (util/make-options player-paths)
         ;TODO - improve invalid input handling
-        _ (util/display-options path-options)
+        _ (util/display-pairs path-options)
         current-progress (->> (util/&num)
                               (path-options)
                               (player-paths)
@@ -34,7 +34,7 @@
                                     (map (fn [i] [i (nth (prayer-path :levels) i)]))
                                     (map (fn [kv] [(inc (first kv)) (second kv)]))
                                     (into {}))
-        _ (util/display-options progress-index-options)
+        _ (util/display-pairs progress-index-options)
         new-latest (util/&num)
         valid (contains? progress-index-options (dec new-latest))]
     (when valid
