@@ -71,7 +71,8 @@
  {:value "If you take damage exceeding 25% of your maximum hit points in one round and do not reach 0 hit points by its end, you may move up one place in the initiative tracker, if possible."}
  {:value "Once per long rest, when you need make an attack roll, ability check, or saving throw, you can use your reaction to replace it with a 50% chance to critically succeed and 50% chance to to critically fail"}
  {:value "+1 to Charisma saves"}
- {:value "+1 global damage"}
+ {:value "+1 global damage"
+  :points 15}
  {:value "+1 to death saves"}
  {:value   "After receiving damage for the first time in a combat, you may choose to become resistant to that damage type for the rest of the combat. If you choose to do so, you then become vulnerable %s and %s"
   :randoms [["Acid" "Bludgeoning" "Cold" "Fire" "Force" "Lightning" "Necrotic" "Piercing" "Poison" "Psychic" "Radiant" "Slashing" "Thunder"]
@@ -130,8 +131,7 @@
              "Vicious Mockery", "Word of Radiance"]]}
  {:value "+2 to deception in languages other than Common"}
  {:value "While wearing this item, you gain sustenance every 24 hours"}
- {:value
-  "This item sells for an extra 1d100 gold. You only roll after the item is sold"}
+ {:value "This item sells for an extra 1d100 gold. You only roll after the item is sold"}
  {:value "+4 Strength while restrained"}
  {:value
   "Modifiers to your damage apply to your minions at 50% effectiveness (stacks, max 100%)"}
@@ -144,7 +144,10 @@
  {:value    "+1 to saving throws made to end an ongoing condition if your HP is above 0",
   :metadata ["armour"]}
  {:value "You have resistance to all damage while taking the Dodge action"}
- {:value "Reduce the damage bonus of incoming damage you are vulnerable to by 25%"}
+ {:value "You take no additional damage from damage you are vulnerable to"
+  :points 5}
+ {:value "Your vulnerabilities cause you to receive 2x damage instead of 1.5"
+  :points -2}
  {:value "This item emits bright light in a 5 foot radius, and dim light for a further 5 feet"}
  {:value "+1 damage to melee and touch attacks"}
  {:value "Recover a 1st-level spell slot on Killing Blow"}
