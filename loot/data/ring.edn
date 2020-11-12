@@ -15,7 +15,7 @@
   :effect "-1 to maximum number of rings worn"
   :points -4}
  {:name   "The Elite"
-  :effect "+1 proficiency bonus while wearing at least 7 rings whose name stars with 'The'"
+  :effect "+1 proficiency bonus while wearing at least 7 rings whose name starts with 'The'"
   :points 6}
  {:name   "The Speedster"
   :effect "+5 feet to all of your speed types for each 'The Speedster' ring worn"
