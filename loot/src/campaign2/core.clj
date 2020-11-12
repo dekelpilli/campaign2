@@ -10,11 +10,12 @@
              [monster :as monster]
              [magic :as magic]
              [dice :as dice]
+             [ring :as ring]
              [state :as state]]
             [clojure.tools.logging :as log]))
 
 (def loot-actions
-  {-1 {:name   "Exit"}
+  {-1 {:name "Exit"}
    1  {:name   "Negatively enchanted item"
        :action enchant/random-negative-enchanted}
    2  {:name   "Mundane item"
@@ -31,7 +32,8 @@
        :action #(enchant/random-enchanted 10)}
    9  {:name   "100-150 gold"
        :action #(str (+ 100 (rand-int 51)) " gold")}
-   ;10
+   10 {:name   "Ring"
+       :action ring/new}
    11 {:name   "Enchanted item (20 points, positive only)"
        :action #(enchant/random-positive-enchanted 20)}
    12 {:name   "Enchanted item (30 points, positive only)"
@@ -51,8 +53,7 @@
    23 {:name   "Progress a prayer path"
        :action prayer/&progress!}
    24 {:name   "Choose monsters from given CRs"
-       :action monster/&new}
-   })
+       :action monster/&new}})
 
 (defn start []
   (let [loot-action-names (->> loot-actions
@@ -71,7 +72,7 @@
               result (when @action (@action))]
           (cond
             (string? result) (println result)
-            (map? result) (util/display-pairs loot-action-names)
+            (map? result) (util/display-pairs result)
             (seqable? result) (doseq [r result] (util/display-multi-value r))
             :else (when result (util/display-multi-value result))))
         (catch Exception e

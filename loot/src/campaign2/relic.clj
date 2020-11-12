@@ -24,14 +24,13 @@
   (override-relics! (mapv #(if (= (:name %) name) relic %) @relics)))
 
 (defn &new! []
-  (let [relic (first (filter (fn [{:keys [enabled? found?]}] (and enabled? (not found?))) @relics))
-        options {1 true 2 false}]
+  (let [relic (->> @relics
+                   (filter (fn [{:keys [found?]}] (not found?)))
+                   (util/rand-enabled))]
     (if relic
       (do
         (util/display-multi-value relic)
-        (util/display-pairs "Mark as found?" options)
-        (-> (util/&num)
-            (options)
+        (-> (util/&bool false "Mark as found?")
             (when (override-relic! (assoc relic :found? true))) ;TODO: attunement process (choose base, level)
             ))
       "You're out of relics!")))
@@ -55,12 +54,12 @@
                           (map (fn [o] [o (case o
                                             :negative-mod (->> valid-enchants
                                                                (filter (fn [enchant] (neg? (:points enchant e/default-points))))
-                                                               (rand-nth))
-                                            :new-relic-mod (rand-nth available)
-                                            :upgrade-existing-mod (rand-nth upgradeable-mods)
+                                                               (util/rand-enabled))
+                                            :new-relic-mod (util/rand-enabled available)
+                                            :upgrade-existing-mod (util/rand-enabled upgradeable-mods)
                                             :new-random-mod (->> valid-enchants
                                                                  (filter (fn [enchant] (pos? (:points enchant e/default-points))))
-                                                                 (rand-nth)))]))
+                                                                 (util/rand-enabled)))]))
                           (into {}))
          mod-options (->> type-mods
                           (map-indexed #(concat [%1] %2))

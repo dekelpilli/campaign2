@@ -8,12 +8,12 @@
                  ({"weapon" @weapons "armour" @armours} type))))
 
 (defn new-weapon []
-  (rand-nth @weapons))
+  (util/rand-enabled @weapons))
 
 (defn new-armour []
-  (rand-nth @armours))
+  (util/rand-enabled @armours))
 
 (defn new []
-  (rand-nth (if (> 66 (rand-int 100))
-              @weapons
-              @armours)))
+  (util/rand-enabled (if (> 66 (rand-int 100))
+                       @weapons
+                       @armours)))

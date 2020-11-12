@@ -4,7 +4,7 @@
   :points 5}
  {:name   "The Lone Wolf"
   :effect "-1 critical strike requirement while this is your only ring"
-  :points 8}
+  :points 6}
  {:name   "The Conduit"
   :effect "+1 to maximum number of rings"
   :points 1}
@@ -14,17 +14,32 @@
  {:name   "The Investment"
   :effect "-1 to maximum number of rings worn"
   :points -4}
+ {:name   "The Elite"
+  :effect "+1 proficiency bonus while wearing at least 7 rings whose name stars with 'The'"
+  :points 6}
  {:name   "The Speedster"
-  :effect "+5 feet to all of your speed types for each Speed ring worn"
+  :effect "+5 feet to all of your speed types for each 'The Speedster' ring worn"
   :points 4}
+ {:name   "The Prosperous"
+  :effect "+5 gold found for each 'The Prosperous' ring worn"
+  :points 1}
+ {:name    "The Trained"
+  :effect  "If all of your worn rings are `The Trained`, with a minimum of 4, you may choose to gain a feat from one of your rings. This rings grants the option of `%s`."
+  :randoms [["Alert" "Athlete" "Actor" "Brawler" "Charger" "Crossbow Expert" "Defensive Duelist" "Dual Wielder"
+             "Dungeon Delver" "Durable" "Elemental Adept" "Grappler" "Great Weapon Master" "Healer"
+             "Heavy Armor Master" "Inspiring Leader" "Keen Mind" "Light Armor Master" "Mage Slayer"
+             "Magic Initiate" "Martial Adept" "Medium Armor Master" "Mobile" "Mounted Combatant"
+             "Polearm Master" "Resilient" "Ritual Caster" "Savage Attacker" "Sentinel" "Sharpshooter"
+             "Shield Master" "Skilled" "Skulker" "Spell Sniper" "War Caster" "Weapon Master"]]
+  :points  4}
  {:name   "Vengeful"
   :effect "Enemies take 1 true damage upon damaging you"
   :points 2}
  {:name   "Jack of All Trades"
-  :effect "None of your attributes can be below 8"
+  :effect "None of your attributes can be below 8. Any ability scores below 8 are considered to be 8 instead."
   :points 3}
  {:name   "Balance"
-  :effect "None of your attributes can be below 10"
+  :effect "None of your attributes can be below 10. Any ability scores below 10 are considered to be 10 instead."
   :points 5}
  {:name   "Scout"
   :effect "+1 to perception while outside of combat"
@@ -34,13 +49,19 @@
   :points 1}
  {:name   "Hale"
   :effect "+2 maximum hit points"
-  :points 2}
+  :points 3}
  {:name   "Hardy"
   :effect "+1 AC while under the effect of a negative condition"
   :points 1}
  {:name   "Ready"
   :effect "You have advantage on attacks and skill checks with readied actions"
   :points 2}
+ {:name   "Safe"
+  :effect "You cannot critically fail death saves. You only need two failed death saves to die, and two successful ones to stabilise."
+  :points 3}
+ {:name   "Vampiric"
+  :effect "Gain 1 life whenever you damage and enemy"
+  :points 3}
  {:name     "Template"
   :enabled? false
   :effect   ""

@@ -20,6 +20,8 @@ Moving mods:
 Rings:
     Max number of rings worn = prof bonus
     Max number of ring points used = char level + highest attribute modifier
+    Smash n rings together (n > 1) to get a choice of 1 from n new rings that can't be of the same type as any of the inputs
+    ;TODO: do ring mods needs more identity? To differentiate from normal enchants no non-special rings
 
 Relics:
     Relics related to a specific personality are unlocked at a certain quest state.
@@ -40,7 +42,7 @@ Relics:
 
 Vendor valuations:
     Mundane: 30
-    Ring: 50
+    Ring: 15
     Magical: 200 (must have positive mod points)
     Amulets: 50 * CR capacity
     Currency items: 100g (annulment 50g)

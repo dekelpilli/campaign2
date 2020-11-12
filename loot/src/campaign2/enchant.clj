@@ -40,17 +40,11 @@
        (compatible? base enchant "disadvantaged-stealth")
        (compatible? base enchant "type")))
 
-(defn- fill-enchant [{:keys [randoms] :as enchant}]
-  (if (not-empty randoms)
-    (-> enchant
-        (update :effect #(apply format % (map rand-nth randoms)))
-        (dissoc :randoms))
-    enchant))
-
 (defn find-valid-enchants [base type]
-  (case type
-    "weapon" (filter #(compatible-weapon? base %) @enchants)
-    "armour" (filter #(compatible-armour? base %) @enchants)))
+  (let [enabled-enchants (filter #(:enabled? % true) @enchants)]
+    (case type
+      "weapon" (filter #(compatible-weapon? base %) enabled-enchants)
+      "armour" (filter #(compatible-armour? base %) enabled-enchants))))
 
 (defn- random-x-enchanted [points-target points-comparator points-validator]
   (let [type (rand-nth ["weapon" "armour"])
@@ -64,7 +58,7 @@
         enchants (->> valid-enchants
                       (filter #(and (points-comparator @sum points-target)
                                     (swap! sum (partial + (:points % default-points)))))
-                      (map fill-enchant))]
+                      (map util/fill-randoms))]
     [base enchants]))
 
 (defn random-enchanted [points-target]

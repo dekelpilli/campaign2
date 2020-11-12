@@ -14,4 +14,4 @@
 (defn get-by-rarity [rarity]
   (->> @magic-items
        (filter #(= rarity (:rarity %)))
-       (rand-nth)))
+       (util/rand-enabled)))
