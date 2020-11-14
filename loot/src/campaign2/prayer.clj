@@ -19,16 +19,15 @@
         unfinished-paths (filter #(and (not (done? %)) (:enabled? % true)) @prayer-progressions)
         player-paths (group-by :character unfinished-paths)
         path-options (util/make-options player-paths)
-        ;TODO - improve invalid input handling
         _ (util/display-pairs path-options)
-        current-progress (->> (util/&num)
+        current-progression (->> (util/&num)
                               (path-options)
                               (player-paths)
                               (first))
         prayer-path (->> @prayer-paths
-                         (filter #(= (:path current-progress) (:name %)))
+                         (filter #(= (:path current-progression) (:name %)))
                          (first))
-        progress (reduce max (current-progress :taken))
+        progress (reduce max (current-progression :taken))
         progress-index-options (->> (range progress 10)
                                     (take 2)
                                     (map (fn [i] [i (nth (prayer-path :levels) i)]))
@@ -36,7 +35,7 @@
                                     (into {}))
         _ (util/display-pairs progress-index-options)
         new-latest (util/&num)
-        valid (contains? progress-index-options (dec new-latest))]
+        valid (and new-latest (contains? progress-index-options (dec new-latest)))]
     (when valid
       (override-progress!
-        (update current-progress :taken #(conj % new-latest))))))
+        (update current-progression :taken #(conj % new-latest))))))

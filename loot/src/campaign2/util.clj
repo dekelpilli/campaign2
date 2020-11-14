@@ -9,7 +9,7 @@
     (catch Exception _)))
 
 (defn &num []
-  (->num read-line))
+  (->num (read-line)))
 
 (defn- table [out]
   (binding [table.width/*width* (delay 9999)]

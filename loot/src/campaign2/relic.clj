@@ -42,7 +42,7 @@
   ([{:keys [level existing base type available] :as relic}]
    (let [current-points-total (->> (map :points existing)
                                    (reduce +))
-         points-remaining (- (* points-per-level (+ level 1))
+         points-remaining (- (* points-per-level (inc level))
                              current-points-total)
          upgradeable-mods (filter #(:upgradeable? % true) existing)
          upgrade-options (if-not (neg? points-remaining)
@@ -51,21 +51,33 @@
                            (repeatedly :negative-mod 3))
          valid-enchants (e/find-valid-enchants (campaign2.mundane/find-base base type) type)
          type-mods (->> upgrade-options
-                          (map (fn [o] [o (case o
-                                            :negative-mod (->> valid-enchants
-                                                               (filter (fn [enchant] (neg? (:points enchant e/default-points))))
-                                                               (util/rand-enabled))
-                                            :new-relic-mod (util/rand-enabled available)
-                                            :upgrade-existing-mod (util/rand-enabled upgradeable-mods)
-                                            :new-random-mod (->> valid-enchants
-                                                                 (filter (fn [enchant] (pos? (:points enchant e/default-points))))
-                                                                 (util/rand-enabled)))]))
-                          (into {}))
+                        (map (fn [o] [o (case o
+                                          :negative-mod (->> valid-enchants
+                                                             (filter (fn [enchant] (neg? (:points enchant e/default-points))))
+                                                             (util/rand-enabled))
+                                          :new-relic-mod (util/rand-enabled available)
+                                          :upgrade-existing-mod (util/rand-enabled upgradeable-mods)
+                                          :new-random-mod (->> valid-enchants
+                                                               (filter (fn [enchant] (pos? (:points enchant e/default-points))))
+                                                               (util/rand-enabled)))]))
+                        (into {}))
          mod-options (->> type-mods
                           (map-indexed #(concat [%1] %2))
                           (concat [["Key" "Type" "Value"]]))
          _ (util/display-multi-value mod-options)
          choice (util/&num)
-         [_ type value] (when choice (nth type choice))]
-     ;TODO update relics and persist
-     )))
+         [_ option-type modifier] (when choice (nth mod-options (inc choice)))]
+     (when option-type
+       (-> (case option-type
+             :new-relic-mod (-> relic
+                                (update :available #(filterv (fn [m] (not= modifier m)) %))
+                                (update :existing #(conj % modifier)))
+             :upgrade-existing-mod (let [upgraded-mod (-> modifier
+                                                          (update :level #(if % (inc %) 2))
+                                                          ((fn [{:keys [upgrade-points] :as m}]
+                                                             (println "Requires manual editing for effect of" m "in" (:name relic))
+                                                             (update m :points #(+ upgrade-points %)))))]
+                                     (update relic :existing #(map (fn [m] (if (= modifier m) upgraded-mod m)) %)))
+             (update relic :existing #(conj % modifier))) ;TODO: add defaulting of upgrade-points
+           (update :level inc)
+           (override-relic!))))))
