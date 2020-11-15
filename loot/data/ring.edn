@@ -1,7 +1,7 @@
 [
- {:name   "The Introvert"
-  :effect "+1 global damage for each unused ring slot"
-  :points 5}
+ {:name   "The Protected"
+  :effect "+1 physical damage reduction for each non-synergy ring worn"
+  :points 7}
  {:name   "The Lone Wolf"
   :effect "-1 critical strike requirement while this is your only ring"
   :points 6}
@@ -15,55 +15,62 @@
   :effect "-1 to maximum number of rings worn"
   :points -4}
  {:name   "The Elite"
-  :effect "+1 proficiency bonus while wearing at least 7 rings whose name starts with 'The'"
+  :effect "+1 proficiency bonus while wearing at least 7 synergy rings"
   :points 6}
  {:name   "The Speedster"
   :effect "+5 feet to all of your speed types for each 'The Speedster' ring worn"
-  :points 4}
+  :points 5}
  {:name   "The Prosperous"
   :effect "+5 gold found for each 'The Prosperous' ring worn"
   :points 1}
+ {:name   "The Simple"
+  :effect "Your non-synergy rings' cost decreases by 1 point. Your synergy rings' cost increases by 3."
+  :points -2}
+ {:name   "The Catalyst"
+  :effect "You have double the options when using this ring in a ring combination sacrifice."
+  :points 99}
  {:name    "The Trained"
-  :effect  "If all of your worn rings are `The Trained`, with a minimum of 4, you may choose to gain a feat from one of your rings. This rings grants the option of `%s`."
+  :effect  "If all of your worn rings are `The Trained`, with a minimum of 4, you may choose to gain a feat from one of your rings. This rings grants the option of `%s`. You may change the chosen feat during a long rest."
   :randoms [["Alert" "Athlete" "Actor" "Brawler" "Charger" "Crossbow Expert" "Defensive Duelist" "Dual Wielder"
              "Dungeon Delver" "Durable" "Elemental Adept" "Grappler" "Great Weapon Master" "Healer"
              "Heavy Armor Master" "Inspiring Leader" "Keen Mind" "Light Armor Master" "Mage Slayer"
              "Magic Initiate" "Martial Adept" "Medium Armor Master" "Mobile" "Mounted Combatant"
              "Polearm Master" "Resilient" "Ritual Caster" "Savage Attacker" "Sentinel" "Sharpshooter"
              "Shield Master" "Skilled" "Skulker" "Spell Sniper" "War Caster" "Weapon Master"]]
-  :points  4}
+  :points  0}
  {:name   "Vengeful"
-  :effect "Enemies take 1 true damage upon damaging you"
-  :points 2}
+  :effect "As a reaction, you may mark enemies that damage you for 1 round. You have advantage on attacks against marked creatures. Marked creatures become unmarked upon being damaged by you."
+  :points 4}
  {:name   "Jack of All Trades"
   :effect "None of your attributes can be below 8. Any ability scores below 8 are considered to be 8 instead."
   :points 3}
- {:name   "Balance"
+ {:name   "Balanced"
   :effect "None of your attributes can be below 10. Any ability scores below 10 are considered to be 10 instead."
   :points 5}
- {:name   "Scout"
-  :effect "+1 to perception while outside of combat"
-  :points 1}
- {:name   "Versatility"
-  :effect "+1 AB with attacks where you are not proficient. This cannot stack to be above your proficiency bonus."
-  :points 1}
- {:name   "Hale"
-  :effect "+2 maximum hit points"
-  :points 3}
- {:name   "Hardy"
-  :effect "+1 AC while under the effect of a negative condition"
-  :points 1}
  {:name   "Ready"
   :effect "You have advantage on attacks and skill checks with readied actions"
-  :points 2}
- {:name   "Safe"
+  :points 5}
+ {:name   "Stable"
   :effect "You cannot critically fail death saves. You only need two failed death saves to die, and two successful ones to stabilise."
+  :points 2}
+ {:name   "Watchful"
+  :effect "You may trance instead of sleep during long rests, but must still rest for 8 hours (by default) to achieve a long rest."
   :points 3}
- {:name   "Vampiric"
-  :effect "Gain 1 life whenever you damage and enemy"
-  :points 3}
- {:name     "Template"
-  :enabled? false
-  :effect   ""
-  :points   0}
+ {:name   "Restless"
+  :effect "You have advantage on perception checks while asleep."
+  :points 2}
+ {:name   "Divergent"
+  :effect "You take %s damage as %s damage instead. Rerolls in case of duplicates: %s %s %s"
+  :randoms  [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
+             ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
+             ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
+             ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
+             ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]
+ :points 1}
+ {:name   "Bloodlust"
+  :effect "You may use healing surges as a free action if you have landed a killing blow in this turn."
+  :points 2}
+ {:name   "Acrobat"
+  :effect "You make take high and long jumps without a runup, as if you had take a runup."
+  :points 1}
  ]
