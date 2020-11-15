@@ -41,7 +41,7 @@
 (defn rand-enabled [coll]
   (->> coll
        (filter #(:enabled? % true))
-       (rand-nth)
+       (#(if (empty? %) nil (rand-nth %)))
        (#(dissoc % :enabled?))))
 
 (defn fill-randoms [{:keys [randoms] :as item-modifier}]

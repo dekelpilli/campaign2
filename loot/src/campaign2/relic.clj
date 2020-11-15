@@ -3,7 +3,7 @@
              [state :refer [relics override-relics!]]
              [util :as util]
              [enchant :as e]]
-            [clojure.tools.logging :as log]))
+            [campaign2.mundane :as mundane]))
 
 (def ^:private points-per-level 10)
 
@@ -22,18 +22,6 @@
 
 (defn- override-relic! [{:keys [name] :as relic}]
   (override-relics! (mapv #(if (= (:name %) name) relic %) @relics)))
-
-(defn &new! []
-  (let [relic (->> @relics
-                   (filter (fn [{:keys [found?]}] (not found?)))
-                   (util/rand-enabled))]
-    (if relic
-      (do
-        (util/display-multi-value relic)
-        (-> (util/&bool false "Mark as found?")
-            (when (override-relic! (assoc relic :found? true))) ;TODO: attunement process (choose base, level)
-            ))
-      "You're out of relics!")))
 
 ;TODO: think about allowing relics to go into negatives. If not, probably best to always give an option for doing nothing and an option for negative mods
 (defn &level!
@@ -78,6 +66,21 @@
                                                              (println "Requires manual editing for effect of" m "in" (:name relic))
                                                              (update m :points #(+ upgrade-points %)))))]
                                      (update relic :existing #(map (fn [m] (if (= modifier m) upgraded-mod m)) %)))
-             (update relic :existing #(conj % modifier))) ;TODO: add defaulting of upgrade-points
+             (update relic :existing #(conj % modifier)))   ;TODO: add defaulting of upgrade-points
            (update :level inc)
            (override-relic!))))))
+
+(defn &new! []
+  (let [relic (->> @relics
+                   (filter (fn [{:keys [found?]}] (not found?)))
+                   (util/rand-enabled))]
+    (if relic
+      (util/display-multi-value relic)
+      (throw (Exception. "Out of relics :(")))
+    (let [base (mundane/&base (:type relic))
+          updated-relic (-> relic
+                            (assoc :found? true)
+                            (assoc :base base))]
+      (when updated-relic
+        (override-relic! updated-relic)
+        (&level! updated-relic)))))

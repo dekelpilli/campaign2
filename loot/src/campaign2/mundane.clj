@@ -3,9 +3,16 @@
              [state :refer [armours weapons]]
              [util :as util]]))
 
+(def base-types {"weapon" @weapons "armour" @armours})
+
 (defn find-base [base-name type]
   (first (filter #(= base-name (:name %))
-                 ({"weapon" @weapons "armour" @armours} type))))
+                 (base-types type))))
+
+(defn &base [type]
+  (let [bases (util/make-options (group-by :name (base-types type)))]
+    (util/display-pairs bases)
+    (bases (util/&num))))
 
 (defn new-weapon []
   (util/rand-enabled @weapons))
