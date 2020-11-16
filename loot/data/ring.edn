@@ -27,7 +27,7 @@
   :effect "Your non-synergy rings' cost decreases by 1 point. Your synergy rings' cost increases by 3."
   :points -2}
  {:name   "The Catalyst"
-  :effect "You have double the options when using this ring in a ring combination sacrifice."
+  :effect "You have double the options when using this ring in a ring sacrifice."
   :points 99}
  {:name    "The Trained"
   :effect  "If all of your worn rings are `The Trained`, with a minimum of 4, you may choose to gain a feat from one of your rings. This rings grants the option of `%s`. You may change the chosen feat during a long rest."
@@ -42,9 +42,6 @@
   :effect "As a reaction, you may mark enemies that damage you for 1 round. You have advantage on attacks against marked creatures. Marked creatures become unmarked upon being damaged by you."
   :points 4}
  {:name   "Jack of All Trades"
-  :effect "None of your attributes can be below 8. Any ability scores below 8 are considered to be 8 instead."
-  :points 3}
- {:name   "Balanced"
   :effect "None of your attributes can be below 10. Any ability scores below 10 are considered to be 10 instead."
   :points 5}
  {:name   "Ready"
@@ -59,18 +56,36 @@
  {:name   "Restless"
   :effect "You have advantage on perception checks while asleep."
   :points 2}
- {:name   "Divergent"
-  :effect "You take %s damage as %s damage instead. Rerolls in case of duplicates: %s %s %s"
-  :randoms  [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
-             ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
-             ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
-             ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
-             ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]
- :points 1}
- {:name   "Bloodlust"
+ {:name    "Divergent"
+  :effect  "You take %s damage as %s damage instead. Rerolls in case of duplicates: %s %s %s"
+  :randoms [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
+            ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
+            ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
+            ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
+            ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]
+  :points  1}
+ {:name   "Bloodthirsty"
   :effect "You may use healing surges as a free action if you have landed a killing blow in this turn."
   :points 2}
- {:name   "Acrobat"
-  :effect "You make take high and long jumps without a runup, as if you had take a runup."
-  :points 1}
+ {:name    "Multilingual"
+  :effect  "You can speak, read, and write %s if worn for at least 24 hours."
+  :randoms [["Common" "Dwarvish" "Elvish" "Giant" "Gnomish" "Goblin" "Halfling" "Orc"
+             "Abyssal" "Celestial" "Draconic" "Deep Speech" "Infernal" "Primordial" "Sylvan" "Undercommon"]]
+  :points  2}
+ {:name    "Protected"
+  :effect  "You lose proficiency in a saving throw of your choice. You gain proficiency in %s saving throws."
+  :randoms [["Intelligence" "Charisma" "Strength"]]
+  :points  2}
+ {:name    "Variant"
+  :effect  "Your size becomes %s"
+  :points  1
+  :randoms [["Large" "Small"]]}
+ {:name    "Powerful"
+  :effect  "Your strength is considered sufficient for wearing any regular medium or heavy armour."
+  :points  6}
+ {:name     "Acrobat"
+  :effect   "You make take high and long jumps without a runup, as if you had take a runup."
+  :points   1
+  :enabled? false}                                          ;TODO: double check long jump rules
+
  ]
