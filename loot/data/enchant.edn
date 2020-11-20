@@ -56,9 +56,9 @@
  {:effect "+1 question when learning creature stats (must have earned at least one question)"}
  {:effect "Your critical strikes add 1 additional damage die from the source's base damage"}
  {:effect "You can use your reaction to change any damage you deal into a damage type of your choice. This is visually noticeable."}
- {:effect "+1 resistance to bludgeoning damage", :metadata ["armour"]}
- {:effect "+1 resistance to piercing damage", :metadata ["armour"]}
- {:effect "+1 resistance to slashing damage", :metadata ["armour"]}
+ {:effect "+1 resistance to %s damage"
+  :metadata ["armour"]
+  :randoms [["bludgeoning" "piercing" "slashing"]]}
  {:effect   "Once per round, when you take damage from a melee or touch attack, the attacker takes true damage equal to half your level, rounded down",
   :metadata ["armour"]}
  {:effect   "When a melee or touch fails to hit you, the attacker takes true damage equal to half your level (rounded up)",
@@ -171,11 +171,11 @@
  {:effect "When you deliver a Killing Blow, gain 10 temporary hit points"}
  {:effect "Whenever you grant a buff with a duration to a creature, gain outgoing healing +2 until the end of your next turn"}
  {:effect "Every third spell you cast deals +5 damage, across any amount of time"
-  :points 15}
+  :points 11}
  {:effect  "+2 global AB against %s creatures"
   :randoms [["Abberation" "Beast" "Celestial" "Construct" "Dragon" "Elemental" "Fey"
              "Fiend" "Giant" "Humanoid" "Monstrosity" "Ooze" "Plant" "Undead"]]}
- {:effect "+2 global damage while flanking"}
+ {:effect "+2 damage against enemies you are flanking"}
  {:effect "+2 global damage against creatures behind you in the initiative tracker"}
  {:effect "This weapon gains the light property", :metadata ["weapon"]}
  {:effect "Heal 5 hit points when you roll for initiative"}
@@ -193,7 +193,8 @@
  {:effect "When you deliver a Killing Blow, heal 5 hit points"}
  {:effect "+2 health regeneration per round of combat"}
  {:effect "+3 to maximum HP"}
- {:effect "+3 to minion damage"}
+ {:effect "+3 to minion damage"
+  :points 15}
  {:effect "+5 to minion HP per minion CR"}
  {:effect "+10HP while transformed"}
  {:effect "When you exit your transformed state, you gain temporary hit points equal to twice the CR of the creature you were transformed into."}
@@ -213,9 +214,22 @@
  {:effect "While transformed into an undead creature, if you go down to 0 hit points, you do not transform back to your normal form for two more rounds."}
  {:effect "Once per short rest, while transformed into a Monstrosity, you may take two actions instead of one on your turn."}
  {:effect "While transformed into a Plant, you regenerate health equal to your Constitution modifier every round, to a minimum of 1 (the plant's value + any of your bonuses)."}
- {:effect   "TODO: remove this",
-  :points   -10,
-  :metadata ["weapon" "armour"]}
- {:effect   "TODO: remove this too",
-  :points   -4,
-  :metadata ["weapon" "armour"]}]
+ {:effect "+5 feet range for applying stabilising Medicine checks"}
+ {:effect "-1 to death saves"
+  :points -10
+  :metadata ["armour"]}
+ {:effect "+1 to death saves in sunlight"
+  :points 5
+  :metadata ["armour"]}
+ {:effect "You cannot cast spells"
+  :points -10
+  :metadata ["weapon"]
+  :not_traits ["conduit"]}
+ {:effect "You cannot cast spells"
+  :points -20
+  :metadata ["weapon"]
+  :traits ["conduit"]}
+ {:effect "-1 to skill checks you are not proficient in"
+  :points -10}
+
+ ]

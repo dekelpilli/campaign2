@@ -1,5 +1,8 @@
 [
- {:name   "The Protected"
+ {:name   "The Doctor"
+  :effect "+2 to Medicine checks for stabilising allies for each ring the ally is wearing"
+  :points 3}
+ {:name   "The Hardened"
   :effect "+1 physical damage reduction for each non-synergy ring worn"
   :points 7}
  {:name   "The Lone Wolf"
@@ -23,14 +26,14 @@
  {:name   "The Prosperous"
   :effect "+5 gold found for each 'The Prosperous' ring worn"
   :points 1}
- {:name   "The Simple"
+ {:name   "The Simpleton"
   :effect "Your non-synergy rings' cost decreases by 1 point. Your synergy rings' cost increases by 3."
-  :points -2}
+  :points -2}                                               ;1 if you include the ring's effect once
  {:name   "The Catalyst"
   :effect "You have double the options when using this ring in a ring sacrifice."
   :points 99}
  {:name    "The Trained"
-  :effect  "If all of your worn rings are `The Trained`, with a minimum of 4, you may choose to gain a feat from one of your rings. This rings grants the option of `%s`. You may change the chosen feat during a long rest."
+  :effect  "If all of your worn rings are `The Trained`, with a minimum of 4, you may choose to gain a feat from one of your rings. This rings grants the option of `%s`. You may change the chosen ring during a long rest."
   :randoms [["Alert" "Athlete" "Actor" "Brawler" "Charger" "Crossbow Expert" "Defensive Duelist" "Dual Wielder"
              "Dungeon Delver" "Durable" "Elemental Adept" "Grappler" "Great Weapon Master" "Healer"
              "Heavy Armor Master" "Inspiring Leader" "Keen Mind" "Light Armor Master" "Mage Slayer"
@@ -51,13 +54,13 @@
   :effect "You cannot critically fail death saves. You only need two failed death saves to die, and two successful ones to stabilise."
   :points 2}
  {:name   "Watchful"
-  :effect "You may trance instead of sleep during long rests, but must still rest for 8 hours (by default) to achieve a long rest."
-  :points 3}
- {:name   "Restless"
-  :effect "You have advantage on perception checks while asleep."
+  :effect "You may trance instead of sleeping during long rests, but must still rest for 8 hours (by default) to achieve a long rest."
   :points 2}
+ {:name   "Restless"
+  :effect "Instead of disadvantage, you have advantage on perception checks while asleep."
+  :points 3}
  {:name    "Divergent"
-  :effect  "You take %s damage as %s damage instead. Rerolls in case of duplicates: %s %s %s"
+  :effect  "You take %s damage as %s damage instead. Reroll second in case of duplicates: %s %s %s"
   :randoms [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
             ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
             ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]
@@ -65,7 +68,7 @@
             ["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]
   :points  1}
  {:name   "Bloodthirsty"
-  :effect "You may use healing surges as a free action if you have landed a killing blow in this turn."
+  :effect "You may use healing surges as a free action if you have landed a killing blow in your current turn."
   :points 2}
  {:name    "Multilingual"
   :effect  "You can speak, read, and write %s if worn for at least 24 hours."
@@ -76,16 +79,14 @@
   :effect  "You lose proficiency in a saving throw of your choice. You gain proficiency in %s saving throws."
   :randoms [["Intelligence" "Charisma" "Strength"]]
   :points  2}
- {:name    "Variant"
-  :effect  "Your size becomes %s"
-  :points  1
-  :randoms [["Large" "Small"]]}
- {:name    "Powerful"
-  :effect  "Your strength is considered sufficient for wearing any regular medium or heavy armour."
-  :points  6}
- {:name     "Acrobat"
-  :effect   "You make take high and long jumps without a runup, as if you had take a runup."
-  :points   1
-  :enabled? false}                                          ;TODO: double check long jump rules
+ {:name   "Enlarged/Reduced"
+  :effect "Your size becomes Small. If your size was already Small, your size becomes Medium instead."
+  :points 1}
+ {:name   "Powerful"
+  :effect "Your strength is considered to be 15 for the purpose of wearing armour."
+  :points 6}
+ {:name   "Acrobat"
+  :effect "You make take high and long jumps without a runup, as if you had take a runup."
+  :points 1}
 
  ]

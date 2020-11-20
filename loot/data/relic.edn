@@ -1,12 +1,12 @@
 [{:name "Template",
-  :type "weapon/armour"
+  :type "weapon/armour",
   :base "Plate Body Armour",
   :existing
-        [{:effect "effect",
-          :upgradeable? false,
-          :level 1,
-          :upgrade-points 10,
-          :points 10}],
+  [{:effect "effect",
+    :upgradeable? false,
+    :level 1,
+    :upgrade-points 10,
+    :points 10}],
   :available
   [{:effect "upgradeableEffect",
     :upgradeable? true,
@@ -15,13 +15,12 @@
     :points 10}],
   :enabled? false,
   :found? false,
-  :level 1,
-  }
+  :level 1}
  {:name "Example Weapon Relic",
-  :type "weapon"
+  :type "weapon",
   :base "Flail",
   :existing
-  ({:effect "effect",
+  [{:effect "effect",
     :upgradeable? false,
     :level 1,
     :upgrade-points 10,
@@ -30,14 +29,13 @@
     :upgradeable? true,
     :level 2,
     :upgrade-points 5,
-    :points 15}),
+    :points 15}],
   :available
-        [{:effect "upgradeableEffect",
-          :upgradeable? true,
-          :level 1,
-          :upgrade-points 10,
-          :points 10}],
+  [{:effect "upgradeableEffect",
+    :upgradeable? true,
+    :level 1,
+    :upgrade-points 10,
+    :points 10}],
   :enabled? true,
   :found? true,
-  :level 2,
-  }]
+  :level 3}]

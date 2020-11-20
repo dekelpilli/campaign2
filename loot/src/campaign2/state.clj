@@ -1,4 +1,5 @@
 (ns campaign2.state
+  (:require [clojure.pprint :as pprint])
   (:import (java.io PushbackReader)))
 
 (def ^String path "loot/data/")
@@ -9,7 +10,7 @@
       (read r))))
 
 (defn write-data! [a type]
-  (clojure.pprint/pprint @a (clojure.java.io/writer (str path type ".edn"))))
+  (pprint/pprint @a (clojure.java.io/writer (str path type ".edn"))))
 
 (def relics (atom nil))
 (def prayer-paths (atom nil))

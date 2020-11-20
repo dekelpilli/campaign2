@@ -12,7 +12,8 @@
              [dice :as dice]
              [ring :as ring]
              [state :as state]]
-            [clojure.tools.logging :as log]))
+            [clojure.tools.logging :as log]
+            [clojure.pprint :as pprint]))
 
 (def loot-actions
   {-1 {:name "Exit"}
@@ -76,8 +77,7 @@
             (seqable? result) (doseq [r result] (util/display-multi-value r))
             :else (when result (util/display-multi-value result))))
         (catch Exception e
-          (log/errorf e "Unexpected error")
-          (reset! @action nil)))
+          (log/errorf e "Unexpected error")))
       (when @action
         (recur action)))))
 

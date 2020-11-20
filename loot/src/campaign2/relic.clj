@@ -47,14 +47,22 @@
                                           :upgrade-existing-mod (util/rand-enabled upgradeable-mods)
                                           :new-random-mod (->> valid-enchants
                                                                (filter (fn [enchant] (pos? (:points enchant e/default-points))))
-                                                               (util/rand-enabled)))]))
+                                                               (util/rand-enabled)
+                                                               (util/fill-randoms)))]))
                         (into {}))
          mod-options (->> type-mods
                           (map-indexed #(concat [%1] %2))
                           (concat [["Key" "Type" "Value"]]))
          _ (util/display-multi-value mod-options)
          choice (util/&num)
-         [_ option-type modifier] (when choice (nth mod-options (inc choice)))]
+         [_ option-type modifier] (when choice (nth mod-options (inc choice)))
+         prep-relic-mod (fn [{:keys [points upgrade-points] :as m}]
+                          (assoc m
+                            :points (or points 10)
+                            :upgrade-points (or points upgrade-points 10)
+                            :level 1
+                            :upgradeable? true))]
+     ;TODO: ensure level doesn't increase when -1 is given for mod selection
      (when option-type
        (-> (case option-type
              :new-relic-mod (-> relic
@@ -66,7 +74,7 @@
                                                              (println "Requires manual editing for effect of" m "in" (:name relic))
                                                              (update m :points #(+ upgrade-points %)))))]
                                      (update relic :existing #(map (fn [m] (if (= modifier m) upgraded-mod m)) %)))
-             (update relic :existing #(conj % modifier)))   ;TODO: add defaulting of upgrade-points
+             (update relic :existing #(conj % (prep-relic-mod modifier))))
            (update :level inc)
            (override-relic!))))))
 

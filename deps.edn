@@ -1,9 +1,10 @@
-{:paths ["loot/src"]
- :deps  {org.clojure/clojure       {:mvn/version "1.10.1"}
-         org.clojure/data.codec    {:mvn/version "0.1.1"}
-         org.clojure/tools.logging {:mvn/version "1.1.0"}
+{:paths   ["loot/src"]
+ :deps    {org.clojure/clojure       {:mvn/version "1.10.1"}
+           org.clojure/data.codec    {:mvn/version "0.1.1"}
+           org.clojure/tools.logging {:mvn/version "1.1.0"}
 
-         table/table               {:mvn/version "0.5.0"}
+           table/table               {:mvn/version "0.5.0"}
 
-         org.fversnel/dnddice      {:mvn/version "3.0.3"}}
- }
+           org.fversnel/dnddice      {:mvn/version "3.0.3"}}
+ :aliases {:run
+           {:main-opts ["-m campaign2.core"]}}}
