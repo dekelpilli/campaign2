@@ -5,4 +5,4 @@
      [state :refer [crafting-items]]]))
 
 (defn new []
-  (util/get-multiple-items @crafting-items #(+ (rand-int 3) 1)))
+  (util/get-multiple-items @crafting-items #(inc (rand-int 3))))

@@ -1,16 +1,18 @@
 (ns campaign2.state
-  (:require [clojure.pprint :as pprint])
+  (:require [clojure.pprint :as pprint]
+            [clojure.java.io :as io])
   (:import (java.io PushbackReader)))
 
 (def ^String path "loot/data/")
 
 (defn load-data [type]
-  (with-open [r (PushbackReader. (clojure.java.io/reader (str path type ".edn")))]
+  (with-open [r (PushbackReader. (io/reader (str path type ".edn")))]
     (binding [*read-eval* false]
       (read r))))
 
 (defn write-data! [a type]
-  (pprint/pprint @a (clojure.java.io/writer (str path type ".edn"))))
+  (with-open [writer (io/writer (str path type ".edn"))]
+    (pprint/pprint @a writer)))
 
 (def relics (atom nil))
 (def prayer-paths (atom nil))

@@ -33,7 +33,7 @@
        (into {})))
 
 (defn &bool [default p]
-  (let [opts {1 true 2 false}
+  (let [opts {0 true 1 false}
         _ (if p (display-pairs p opts) (display-pairs opts))
         n (&num)]
     (opts n default)))
@@ -51,7 +51,10 @@
         (dissoc :randoms))
     item-modifier))
 
-;TODO: test with multiple metadata options
+(defn- disadv [f] #(min (f) (f)))
+(defn- adv [f] #(max (f) (f)))
+(defn- multi [f multiplier-str] #(* (f) (Long/parseLong (subs multiplier-str 1))))
+(defn- static [const] (constantly (Long/parseLong const)))
 (defn get-multiple-items [coll f]
   (letfn [(multi-item-reducer
             ([default] default)
@@ -61,11 +64,11 @@
                (multi-item-reducer (multi-item-reducer default v1) v2)
                (cond
                  (nil? v2) (multi-item-reducer nil default v1)
-                 (= "disadvantage" v2) #(min (v1) (v1))
-                 (= "advantage" v2) #(max (v1) (v1))
-                 (.startsWith v2 "x") #(* (v1) (Long/parseLong (subs v2 1)))
-                 :else (constantly (Long/parseLong v2))))))]
+                 (= "disadvantage" v2) (disadv v1)
+                 (= "advantage" v2) (adv v1)
+                 (.startsWith v2 "x") (multi v1 v2)
+                 :else (static v2)))))]
     (let [{:keys [metadata] :as item} (rand-enabled coll)
           randomiser (reduce multi-item-reducer f metadata)]
-      {:amount ((or randomiser f))
+      {:amount (randomiser)
        :item   item})))

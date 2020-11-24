@@ -6,8 +6,8 @@
 
 (defn new-stone []
   (->> @prayer-paths
-       (util/rand-enabled)
-       (:name)))
+       util/rand-enabled
+       :name))
 
 (defn override-progress! [{:keys [character path] :as new-progression}]
   (override-prayer-progress! (mapv

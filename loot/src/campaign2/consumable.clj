@@ -5,4 +5,4 @@
      [state :refer [consumables]]]))
 
 (defn new []
-  (util/get-multiple-items @consumables #(+ (rand-int 4) 1)))
+  (util/get-multiple-items @consumables #(inc (rand-int 4))))

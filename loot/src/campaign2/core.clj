@@ -12,28 +12,28 @@
              [dice :as dice]
              [ring :as ring]
              [state :as state]]
-            [clojure.tools.logging :as log]
-            [clojure.pprint :as pprint]))
+            [clojure.tools.logging :as log]))
 
 (def loot-actions
   {-1 {:name "Exit"}
    1  {:name   "Negatively enchanted item"
        :action enchant/random-negative-enchanted}
-   2  {:name   "Mundane item"
+   2  {:name   "1-20 gold"
+       :action #(str (inc (rand-int 20)) " gold")}
+   3  {:name   "Mundane item"
        :action mundane/new}
-   ;3
-   4  {:name   "Uncommon magic item"
-       :action #(magic/get-by-rarity "uncommon")}
-   5  {:name   "Common magic item (craftable)"
+   4  {:name   "Common magic item"
        :action #(magic/get-by-rarity "common")}
+   5  {:name   "Uncommon magic item"
+       :action #(magic/get-by-rarity "uncommon")}
    6  {:name   "Consumable"
        :action consumable/new}
-   ;7
+
    8  {:name   "Enchanted item (10 points)"
        :action #(enchant/random-enchanted 10)}
    9  {:name   "100-150 gold"
        :action #(str (+ 100 (rand-int 51)) " gold")}
-   10 {:name   "Ring"
+   10 {:name   "Ring" ;todo higher?
        :action ring/new}
    11 {:name   "Enchanted item (20 points, positive only)"
        :action #(enchant/random-positive-enchanted 20)}
@@ -43,6 +43,7 @@
        :action crafting/new}
    14 {:name   "Amulet"
        :action monster/generate-amulet}
+
    19 {:name   "Prayer stone"
        :action prayer/new-stone}
    20 {:name   "New relic"
