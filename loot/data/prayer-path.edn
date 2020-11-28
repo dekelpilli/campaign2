@@ -1,8 +1,8 @@
 [{:name     "Rheztol",
   :levels   ["You learn the Minor Illusion cantrip. This does not count towards your limit of known cantrips. The spellcasting modifier can be a mental attribute of your choice."
              "You have expertise in Investigation when identifying illusions."
-             "You become proficient in Deception. If you area already proficient, gain +2 deception instead."
-             "You become proficient in Persuasion. If you area already proficient, gain +2 persuasion instead. You may choose to use persuasion instead of deception when communicating something true in a misleading way."
+             "You become proficient in Deception. If you are already proficient, gain +2 deception instead."
+             "You become proficient in Persuasion. If you are already proficient, gain +2 persuasion instead. You may choose to use persuasion instead of deception when communicating something true in a misleading way."
              "When making Insight checks to analyse a person's statement(s), you may also make a Deception to detect they are lying/concealing information, but not to attempt to understand motivations"
              "Creatures that currently believe one of your illusions are real have disadvantage when attacking you"
              "When casting non-cantrip Illusion spells, you may choose to use the spell slot level below that spell's natural casting requirement, to a minimum of 1"
@@ -12,17 +12,17 @@
   :progress 0,
   :metadata [],
   :owner    "test"}
- {:name   "Esher",                                          ;TODO - was used in campaign1
-  :levels ["The minimum amount you healing you receive from using a hit die becomes twice your Constitution modifier"
-           "You become immune to all forms of madness"
-           "Spells that cause healing or remove status conditions can be cast one level higher without consuming a different spell slot"
-           "Creatures that have healed from you in the last minute have +2 incoming healing from you"
-           "Gain temporary hit points equal to your proficiency bonus on turns where you haven't dealt damage"
-           "+10 to maximum hit points"
-           "+1 AC and +1 to spell saves if you have taken damage in the last round"
-           "You take no additional damage from critical strikes"
-           "Once per short rest, when you fail a save, you can choose to succeed instead"
-           "You gain the Healer feat. When you use the healer feat to heal someone, you may also feed them a potion with the same action. If you already have this feat, gain another one instead."]}
+ {:name   "Esher",
+  :levels ["When you roll a 1 on a die for gaining healing from healing surges, you may reroll the die and must use the new result."
+           "You and your minions have +3 to maximum hit points, and you have +3 to maximum hit points while transformed."
+           "You have advantage on saves against poisons and diseases."
+           "You and regain one expended healing surge on initiative roll. If you already had all of your healing surges, gain temporary hit points equal to your Constitution modifier instead."
+           "You learn the Spare the Dying cantrip and may cast it as a bonus action with a range of 30 feet."
+           "Once per long rest, as an action, you may pray to Esher to regain all expended healing surges."
+           "You take no additional damage from critical strikes."
+           "You have advantage on Wisdom saving throws against effects that would cause a condition."
+           "Once per short rest, when you fail a save, you may choose to succeed instead."
+           "You gain the Healer feat. Additionally, healing surges you grant downed creatures via a Medicine check are rolled with advantage."]}
  {:name   "Ateus",                                          ;TODO - was used in campaign1
   :levels ["-1 critical requirement on all skill checks"
            "You have expertise in Persuasion and Deception when negotiating trades"
@@ -56,28 +56,17 @@
            "Once per short rest, as a reaction to getting hit by an enemy, you may cast the Invulnerability spell on both yourself and the enemy that damaged you"
            "You may cast the Prismatic Wall spell once per long rest, but you may only choose the Violet variation"
            "You may cast the Imprisonment spell as an action once per long rest. When cast in this way, the spell cannot last for longer than 1 hour."]}
- {:name   "Thynos",
-  :levels ["Enemies that have damaged you more than once become vulnerable to fire damage if they were not previously resistant or immune"
-           "You have expertise in Intimidation against hostile creatures"
-           "You may cast Hellish Rebuke as a first level spell. You can do this an amount of times equal to a mental attribute of your choice (min 1) every long rest."
-           "As a reaction to seeing a creature within 60ft of you damage another creature, you can cast Cause Fear against the attacking creature. You cannot end concentration on this prematurely, and you cannot cast it again while a creature is already affected by your Cause Fear spell."
-           "Once per short rest, you may cast Banishment on a creature within 5 feet of you. If that creature has dealt damage in the last minute, it has disadvantage on the save. When cast in this way, the creature is always sent to the Plane of Fire for a minute."
-           "Whenever casting Hellish Rebuke as a first level spell, you may instead cast it as second level spell."
-           "Your attacks and spells deal +1d6 fire damage against that have dealt damage in the last minute"
-           "After using Hellish Rebuke, if the target was no killed, you may make an Intimidation content against the target's Wisdom Save. On a success, you regain the use Hellish Rebuke (spell slot or limit impose by this path)."
-           "Creatures you have Intimidated in the last minute have -2 on spell saves against your spells, and you have +2 global AB against them."
-           "You may cast the Weird spell once per long rest (mental attribute of your choice). When cast in this way, the spell on impact hostile creatures, and does not require concentration again against creatures you have Intimidated in the last minute."]}
- {:name   "Omnos",
-  :levels ["Enemies that damage you become marked for a minute. Marked enemies have -1 damage against you. DO NOT SKIP."
-           "Marked enemies cannot heal"
+ {:name   "Zetnos",
+  :levels ["Enemies that damage you become marked for a minute. Marked enemies have -1 damage against you."
+           "You may cast Hellish Rebuke as a first level spell. You can do this an amount of times equal to a mental attribute of your choice (min 1) every long rest. If skipped 1, enemies that damage you become marked for a minute."
            "Instead of having -1 damage against you, marked enemies now have -1 global damage."
-           "Your attacks and spells deal +1d4 radiant damage against marked enemies"
-           "Enemies are now considered marked if they damage you or an ally, instead of just you"
-           "You have -1 critical strike requirement against marked enemies"
-           "Marked enemies have -1AB and -1AC"
-           "Gain 20 temporary hit points when you kill or knock unconscious a marked enemy"
-           "+5 radiant thorns"
-           "You have advantage on attacks against marked enemies"]}
+           "Your attacks and spells deal +1d4 radiant damage against marked enemies."
+           "Enemies are now considered marked if they damage you or an ally, instead of just you."
+           "You have -1 critical strike requirement against marked enemies."
+           "Marked enemies have -1AB and -1AC."
+           "Gain 15 temporary hit points when you land a killing blow against marked enemy. "
+           "+5 radiant thorns."
+           "You have advantage on attacks against marked enemies."]}
  {:name   "Odi",
   :levels ["You have Expertise with Sleight of Hand when stealing documents (can be plans, contracts, maps, etc)"
            "You have +1 damage against creatures with less Intelligence than you."
@@ -143,4 +132,6 @@
            "You may cast Elemental Weapon once per long rest. When cast in this way, the spell does not require concentration."
            "+1 AB with attacks that would deal fire, cold, or lightning damage, and +1 spell save DC to spells that would deal fire, cold, or lightning damage"
            "Once per long rest, when an enemy successfully saves against an effect that would deal fire, cold, or lightning damage, you may instead choose to make them critically fail. This can still be nullified by legendary resistance, but can also nullify a use of legendary resistance."
-           "You may cast meteor shower once per long rest. When cast in this way, you can replace the bludgeoning damage with fire damage. Mental attribute of your choice."]}]
+           "You may cast meteor shower once per long rest. When cast in this way, you can replace the bludgeoning damage with fire damage. Mental attribute of your choice."]}
+ {:name   "Eion", ;TODO - new (conj/teleportation/creation)
+  :levels []}]
