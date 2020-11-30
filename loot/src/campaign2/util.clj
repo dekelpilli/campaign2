@@ -32,12 +32,6 @@
        (map-indexed (fn [i option] [i option]))
        (into {})))
 
-(defn &bool [default p]
-  (let [opts {0 true 1 false}
-        _ (if p (display-pairs p opts) (display-pairs opts))
-        n (&num)]
-    (opts n default)))
-
 (defn rand-enabled [coll]
   (->> coll
        (filter #(:enabled? % true))
@@ -70,5 +64,4 @@
                  :else (static v2)))))]
     (let [{:keys [metadata] :as item} (rand-enabled coll)
           randomiser (reduce multi-item-reducer f metadata)]
-      {:amount (randomiser)
-       :item   item})))
+      (assoc item :amount (randomiser)))))

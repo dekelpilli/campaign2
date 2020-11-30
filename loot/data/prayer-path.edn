@@ -24,16 +24,25 @@
            "Once per short rest, when you fail a save, you may choose to succeed instead."
            "You gain the Healer feat. Additionally, healing surges you grant downed creatures via a Medicine check are rolled with advantage."]}
  {:name   "Ateus",                                          ;TODO - was used in campaign1
-  :levels ["-1 critical requirement on all skill checks"
-           "You have expertise in Persuasion and Deception when negotiating trades"
-           "When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll"
-           "20% increased gold gained from loot rolls"
-           "You have advantage on the amount of loot you get from crafting items, consumables, and gold"
+  :levels ["Your skill checks have a minimum result equal to the number of relics you are wearing."
+           "You are considered to be wearing an additional \"The Prosperous\" ring which does not reserve ring points or count towards your worn rings maximum. You may turn this effect off during a long rest."
+           "You gain advantage on investigation checks for finding loot."
+           "You obtain an additional item from crafting and consumable loot rolls."
            "You may destroy an item to immediately gain its base sale value (i.e. no negotiation)."
-           "When you get this level, all worn relics are levelled. Also, from now on, relic attuned to you become level 3, instead of just 2."
-           "When you roll for a loot roll and get above a 2, you may choose to roll 1d8 to replace your result. You must then accept this result."
-           "Relics attuned to you can be levelled for 50% of their usual levelling cost. When you use this on a relic, from then on, it sells for half of its usual cost, and loses 2 levels when targeted by an Orb of Mulligan."
-           "Whenever you make a skill check or save, you may also roll a d12 and use the higher of the scores"]}
+
+
+           ;"When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+
+           ;"-1 critical requirement on all skill checks"
+           ;"You have expertise in Persuasion and Deception when negotiating trades"
+           ;"20% increased gold gained from loot rolls"
+           ;"You have advantage on the amount of loot you get from crafting items, consumables, and gold"
+           ;"You may destroy an item to immediately gain its base sale value (i.e. no negotiation)."
+           ;"When you get this level, all worn relics are levelled. Also, from now on, relic attuned to you become level 3, instead of just 2."
+           ;"When you roll for a loot roll and get above a 2, you may choose to roll 1d8 to replace your result. You must then accept this result."
+           ;"Relics attuned to you can be levelled for 50% of their usual levelling cost. When you use this on a relic, from then on, it sells for half of its usual cost, and loses 2 levels when targeted by an Orb of Mulligan."
+           ;"Whenever you make a skill check or save, you may also roll a d12 and use the higher of the scores"
+           ]}
  {:name   "Vimis",                                          ;TODO - was used in campaign1
   :levels ["You cannot have disadvantage when learning creature stats"
            "You have expertise in Investigation when doing research via reading"
@@ -112,16 +121,23 @@
            "Once per long rest, when an enemy successfully saves against a spell you cast, you may instead choose to make them fail. This can still be nullified by legendary resistance, but can also nullify a use of legendary resistance."
            "Magical items you find have an additional enchantment mod, including rings and relics (+1 level)."]}
  {:name   "Thatar",                                         ;TODO - was used in campaign1
-  :levels ["Undead creatures have disadvantage when attacking you."
-           "Divine Sense (Paladin), but you can only sense undead, and you can use any mental attribute for uses."
-           "You may convert all physical damage you deal with weapon attacks to Necrotic damage"
-           "You are immune to Necrotic damage"
-           "You may convert all damage you or your undead minions deal to Necrotic damage"
-           "+1 die size of Necromancy spells"
-           "You may choose to count as undead instead of humanoid for the purpose of spells and affects."
-           "You may cast Abi-Dalzim's Horrid Wilting (mental attribute of choice) once. You regain uses on long rests, or short rest if you land a killing blow with it."
-           "You ignore resistances and immunities to Necrotic damage"
-           "You may cast Create Undead as a 9th level spell once per Long rest. If you already have undead minions, its casting time becomes 1 action instead of 1 minute."]}
+  :levels ["You can communicate telepathically (bidirectional) with undead creatures within 120 feet. The creature must be able to understand a language."
+           "Hostile undead creatures prioritise attacking your allies instead of you."
+           "Once per short rest, when you land a killing blow with Necrotic damage on your turn, you can take on additional action."
+           "You may sacrifice undead minions you control as a bonus action. When you do so, you regain one expended healing surge for each sacrificed minion."
+
+
+           ;"Undead creatures have disadvantage when attacking you."
+           ;"Divine Sense (Paladin), but you can only sense undead, and you can use any mental attribute for uses."
+           ;"You may convert all physical damage you deal with weapon attacks to Necrotic damage"
+           ;"You are immune to Necrotic damage"
+           ;"You may convert all damage you or your undead minions deal to Necrotic damage"
+           ;"+1 die size of Necromancy spells"
+           ;"You may choose to count as undead instead of humanoid for the purpose of spells and affects."
+           ;"You may cast Abi-Dalzim's Horrid Wilting (mental attribute of choice) once. You regain uses on long rests, or short rest if you land a killing blow with it."
+           ;"You ignore resistances and immunities to Necrotic damage"
+           ;"You may cast Create Undead as a 9th level spell once per Long rest. If you already have undead minions, its casting time becomes 1 action instead of 1 minute."
+           ]}
  {:name   "Ketis",
   :levels ["You have +1 resistance to cold, fire, and lightning damage"
            "When you take fire, cold, or lightning damage, you become resistant to the other two until the start of your next turn."

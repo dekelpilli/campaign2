@@ -1,26 +1,30 @@
-[{:value "Level 1 health potion(s)", :metadata ["advantage"]}
- {:value "Level 2 health potion(s)"}
- {:value "Level 3 health potion(s)", :metadata ["disadvantage"]}
- {:value "Potion(s) of power (+1d4 damage for 1 minute)"}
- {:value "Greater potion(s) of power (+1d6 damage for 1 minute)",
+[{:name     "Level 1 health potion(s)"
+  :effect   "Equivalent to receiving healing from 1 healing surge"
+  :metadata ["advantage"]}
+ {:name   "Level 2 health potion(s)"
+  :effect "Equivalent to receiving healing from 2 healing surges"}
+ {:name     "Level 3 health potion(s)"
+  :effect   "Equivalent to receiving healing from 3 healing surges"
   :metadata ["disadvantage"]}
- {:value
-  "Invulnerability potion(s) - next damage you take is nullified."}
- {:value
-  "Greater invulnerability potion(s) - you are immune to damage until the start of your next turn",
+ {:name   "Potion(s) of power"
+  :effect "+1d4 damage for 1 minute"}
+ {:value    "Greater potion(s) of power"
+  :effect   "+1d6 damage for 1 minute"
   :metadata ["disadvantage"]}
- {:value
-  "Experience potion(s) - Gain 2d10 total party XP when drinking this potion, rounded up",
+ {:name   "Invulnerability potion(s)"
+  :effect "The next instance of damage you take is nullified."}
+ {:name     "Greater invulnerability potion(s)"
+  :effect   "you are immune to damage until the start of your next turn"
   :metadata ["disadvantage"]}
- {:value
-  "Potion(s) of Fortune - Gain advantage on your next loot roll.",
+ {:name     "Potion(s) of Fortune"
+  :effect   "Gain advantage on your next loot roll.",
   :metadata ["disadvantage"]}
- {:value
-  "Stoneskin potion(s) - When you drink this potion, if you go down within the next day, you become petrified for a minute. While petrified in this way, you do not need to make death saves, and you are immune to damage."}
- {:value
-  "Rejuvenation potion(s) - Gain 20 temporary hit points when drunk, but lose all temporary hit points 1 minute later."}
- {:value
-  "Potion(s) of invisibility - You and everything you're wearing become invisible for up to a minute. This effect ends if you attack or cast a spell."}
- {:value
-  "Potion(s) of greater invisibility - You and everything you're wearing become invisible for up to a minute. You may end the invisibility at will.",
+ {:name   "Stoneskin potion(s)"
+  :effect "When you drink this potion, if you go down within the next day, you become petrified for a minute. While petrified in this way, you do not need to make death saves, and you are immune to damage."}
+ {:name   "Rejuvenation potion(s)"
+  :effect "Gain 20 temporary hit points when drunk, but lose all temporary hit points 1 minute later."}
+ {:name   "Potion(s) of invisibility"
+  :effect "You and everything you're wearing become invisible for up to a minute. This effect ends if you attack or cast a spell."}
+ {:name "Potion(s) of greater invisibility"
+  :effect "You and everything you're wearing become invisible for up to a minute. You may end the invisibility at will.",
   :metadata ["disadvantage"]}]
