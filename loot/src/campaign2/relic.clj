@@ -90,5 +90,4 @@
                             (assoc :found? true)
                             (assoc :base base))]
       (when updated-relic
-        (override-relic! updated-relic)
-        (&level! updated-relic)))))
+        (override-relic! updated-relic)))))

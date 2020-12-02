@@ -31,7 +31,7 @@ Relics:
     Last relic level (10) is a choice of level (new random mod from list of mods available on artifact, upgrade existing mod of choice, new random mod)
     Costs:
         1:  0,
-        2:  0,
+        2:  75,
         3:  200,
         4:  300,
         5:  600,
@@ -44,7 +44,7 @@ Relics:
 Vendor valuations:
     Mundane: 30
     Ring: 15
-    Magical: 200 (must have positive mod points)
+    Magical: 200 (must have positive mod points) ;TODO: rethink sale prices, relic level prices
     Amulets: 50 * CR capacity
     Currency items: 100g (annulment 50g)
     Prayer stones: 100
@@ -57,7 +57,8 @@ Sales and services:
     Orb of balance: 200g
     Orb of annulment: 100g
     Mundanes: 60
-    Enchanted item: depends on power, TODO: decide
+    Enchanted item: depends on power, TODO: decide. Remove in favour of loot roll option?
+    Loot: 2d8 unsellable loot roll?
 
     Horses: 800
     Warhorses: 1200

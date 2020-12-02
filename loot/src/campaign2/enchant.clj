@@ -68,4 +68,4 @@
   (random-x-enchanted points-target < pos?))
 
 (defn random-negative-enchanted []
-  (random-x-enchanted -25 > neg?))
+  (random-x-enchanted (- 20 (rand-int -21)) > neg?))

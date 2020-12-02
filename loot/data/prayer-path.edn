@@ -123,9 +123,14 @@
  {:name   "Thatar",                                         ;TODO - was used in campaign1
   :levels ["You can communicate telepathically (bidirectional) with undead creatures within 120 feet. The creature must be able to understand a language."
            "Hostile undead creatures prioritise attacking your allies instead of you."
-           "Once per short rest, when you land a killing blow with Necrotic damage on your turn, you can take on additional action."
+           "You may reroll non-undead monsters in your amulet for free. When rerolled in this way, the resulting monster is undead and 1CR higher than the amulet's usual capacity."
+           "Once per short rest, when you land a killing blow with Necrotic damage on your turn, you may take on additional turn immediately after your current turn."
            "You may sacrifice undead minions you control as a bonus action. When you do so, you regain one expended healing surge for each sacrificed minion."
-
+           "Undead fortitude (DC 5 + damage taken unless critical or partially/fully radiant)."
+           "You may cast Necromancy spells as if using a spell slot one level higher than the one used."
+           "You become undead. You may choose the extent to which this is visibly obvious (as little as Vampire, as much as Skeleton). You become resistant to poison and necrotic damage and immune to diseases and Turn Undead."
+           "x"
+           "x"
 
            ;"Undead creatures have disadvantage when attacking you."
            ;"Divine Sense (Paladin), but you can only sense undead, and you can use any mental attribute for uses."
@@ -149,5 +154,5 @@
            "+1 AB with attacks that would deal fire, cold, or lightning damage, and +1 spell save DC to spells that would deal fire, cold, or lightning damage"
            "Once per long rest, when an enemy successfully saves against an effect that would deal fire, cold, or lightning damage, you may instead choose to make them critically fail. This can still be nullified by legendary resistance, but can also nullify a use of legendary resistance."
            "You may cast meteor shower once per long rest. When cast in this way, you can replace the bludgeoning damage with fire damage. Mental attribute of your choice."]}
- {:name   "Eion", ;TODO - new (conj/teleportation/creation)
+ {:name   "Eion",                                           ;TODO - new (conj/teleportation/creation)
   :levels []}]
