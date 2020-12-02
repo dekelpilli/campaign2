@@ -17,7 +17,7 @@
     (let [cr (util/&num)
           mon (of-cr cr)]
       (when (and cr (not (neg? cr)))
-        (println mon)
+        (util/display-pairs mon)
         (recur)))))
 
 (defn generate-amulet []
@@ -30,5 +30,4 @@
                       3   15
                       4   10}
         cr (weighted-rand-choice weighted-crs)]
-    {:cr      cr
-     :monster (of-cr cr)}))
+    (assoc (of-cr cr) :cr cr)))
