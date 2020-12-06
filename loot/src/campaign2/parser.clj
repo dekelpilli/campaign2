@@ -2,11 +2,9 @@
   (:require [campaign2.state :as state]
             [campaign2.util :as u]
             [jsonista.core :as json])
-  (:import (java.io File)
-           (java.util ArrayList)))
+  (:import (java.io File)))
 
 (def ^String dir "loot/data/5et/")
-(def mons* (ArrayList.))
 
 (defn flatten-maps [k maps]
   (let [explode (fn [m key] (map #(assoc m key %) (m key)))]
@@ -30,9 +28,7 @@
                   (group-by find-cr)
                   (filter (fn [[k _]] k))
                   (map (fn [[k v]] [k
-                                    (mapv #(select-keys % [:name :source :page]) v)]))
-                  (into {})
-                  (sort)
-                  (into {}))]
+                                    (mapv #(select-keys % [:name :source :page :type]) v)]))
+                  (into (sorted-map)))]
     (state/write-data! (delay mons) "monster")))
 

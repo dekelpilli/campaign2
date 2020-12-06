@@ -8,7 +8,7 @@
         r (rand-int (last w))]
     (nth (keys m) (count (take-while #(<= % r) w)))))
 
-(defn- of-cr [cr]
+(defn of-cr [cr]
   (when-let [cr-monsters (@monsters cr)]
     (when-not (empty? cr-monsters) (rand-nth cr-monsters))))
 
