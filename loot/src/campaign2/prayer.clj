@@ -18,8 +18,9 @@
   (let [done? #(contains? (:taken %) 10)
         unfinished-paths (filter #(and (not (done? %)) (:enabled? % true)) @prayer-progressions)
         player-paths (group-by :character unfinished-paths)
-        path-options (util/make-options player-paths)
-        _ (util/display-pairs path-options)
+        path-options (->> player-paths
+                          (util/make-options)
+                          (util/display-pairs))
         current-progression (->> (util/&num)
                               (path-options)
                               (player-paths)
@@ -32,8 +33,8 @@
                                     (take 2)
                                     (map (fn [i] [i (nth (prayer-path :levels) i)]))
                                     (map (fn [kv] [(inc (first kv)) (second kv)]))
-                                    (into {}))
-        _ (util/display-pairs progress-index-options)
+                                    (into {})
+                                    (util/display-pairs))
         new-latest (util/&num)
         valid (and new-latest (contains? progress-index-options (dec new-latest)))]
     (when valid

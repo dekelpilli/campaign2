@@ -22,7 +22,6 @@ Rings:
     Max number of ring points used = char level + highest attribute modifier
     Sacrifice: Smash n rings together (n > 1) to get a choice of 1 from n new rings that can't be of the same type as any of the inputs. The resulting n rings don't have to be unique.
     Synergy rings = rings whose name starts with "The" = rings whose purpose is to interact with other rings.
-    ;TODO: do ring mods needs more identity? To differentiate from normal enchants no non-special rings
 
 Relics:
     Relics related to a specific personality are unlocked at a certain quest state.

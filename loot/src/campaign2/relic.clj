@@ -52,8 +52,8 @@
                         (into {}))
          mod-options (->> type-mods
                           (map-indexed #(concat [%1] %2))
-                          (concat [["Key" "Type" "Value"]]))
-         _ (util/display-multi-value mod-options)
+                          (concat [["Key" "Type" "Value"]])
+                          (util/display-multi-value))
          choice (util/&num)
          [_ option-type modifier] (when choice (nth mod-options (inc choice)))
          prep-relic-mod (fn [{:keys [points upgrade-points] :as m}]
@@ -85,7 +85,7 @@
     (if relic
       (util/display-multi-value relic)
       (throw (Exception. "Out of relics :(")))
-    (let [base (mundane/&base (:type relic))
+    (let [base (mundane/base (:type relic))
           updated-relic (-> relic
                             (assoc :found? true)
                             (assoc :base base))]

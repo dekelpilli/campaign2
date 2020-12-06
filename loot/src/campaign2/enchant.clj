@@ -4,11 +4,11 @@
     [campaign2
      [state :refer [enchants]]
      [util :as util]
-     [mundane :as mundane]]
-    [clojure.tools.logging :as log]))
+     [mundane :as mundane]]))
 
 (def default-points 10)
 
+;TODO: simplify
 (defn- compatible? [base enchant field]
   (let [not-field-val (->> field
                            (name)

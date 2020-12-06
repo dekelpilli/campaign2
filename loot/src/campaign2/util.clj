@@ -16,7 +16,8 @@
     (t/table out :style :unicode-3d)))
 
 (defn display-multi-value [result]
-  (table (if (sequential? result) result [result])))
+  (table (if (sequential? result) result [result]))
+  result)
 
 (defn display-pairs
   ([p m] (println p) (display-pairs m))
@@ -24,11 +25,13 @@
          (->> m
               (into [])
               (sort)
-              (concat [["Key" "Value"]])))))
+              (concat [["Key" "Value"]])))
+   m))
 
 (defn make-options [maps]
   (->> maps
        (keys)
+       (sort)
        (map-indexed (fn [i option] [i option]))
        (into {})))
 
