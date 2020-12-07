@@ -36,10 +36,10 @@
        (into {})))
 
 (defn rand-enabled [coll]
-  (->> coll
-       (filter #(:enabled? % true))
-       (#(if (empty? %) nil (rand-nth %)))
-       (#(dissoc % :enabled?))))
+  (as-> coll $
+       (filter #(:enabled? % true) $)
+       (if (empty? $) nil (rand-nth $))
+       (dissoc $ :enabled?)))
 
 (defn fill-randoms [{:keys [randoms] :as item-modifier}]
   (if (not-empty randoms)

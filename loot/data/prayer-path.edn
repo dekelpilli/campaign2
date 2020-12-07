@@ -16,34 +16,25 @@
   :levels ["When you roll a 1 on a die for gaining healing from healing surges, you may reroll the die and must use the new result."
            "You and your minions have +3 to maximum hit points, and you have +3 to maximum hit points while transformed."
            "You have advantage on saves against poisons and diseases."
-           "You and regain one expended healing surge on initiative roll. If you already had all of your healing surges, gain temporary hit points equal to your Constitution modifier instead."
-           "You learn the Spare the Dying cantrip and may cast it as a bonus action with a range of 30 feet."
-           "Once per long rest, as an action, you may pray to Esher to regain all expended healing surges."
+           "You regain one expended healing surge on initiative roll. If you already had all of your healing surges, gain temporary hit points equal to your Constitution modifier instead."
            "You take no additional damage from critical strikes."
-           "You have advantage on Wisdom saving throws against effects that would cause a condition."
-           "Once per short rest, when you fail a save, you may choose to succeed instead."
-           "You gain the Healer feat. If you already have the healer feat, you may gain another feat instead. Additionally, healing surges you grant downed creatures via a Medicine check are rolled with advantage."]}
- {:name   "Ateus",                                          ;TODO - was used in campaign1
-  :levels ["Your skill checks have a minimum result equal to the number of relics you are wearing."
+           "You may make Wisdom (Medicine) checks to heal downed allies as a bonus action."
+           "Once per long rest, as an action, you may pray to Esher to regain all expended healing surges."
+           "As a reaction when failing a Wisdom saving throw against an effect that would cause a condition, you may attempt the save again."
+           "You gain the Healer feat. If you already have the healer feat, you may gain another feat instead."
+           "You learn the Mass Heal spell and may cast it once per long rest. When cast in this way, you may choose to concentrate on the spell to stagger the healing over up to 2 rounds."]}
+ {:name   "Ateus",
+  :levels ["Your skill checks have a minimum result (after bonuses) equal to the total number of relics and rings you are wearing, to a maximum of 14."
            "You are considered to be wearing an additional \"The Prosperous\" ring which does not reserve ring points or count towards your worn rings maximum. You may turn this effect off during a long rest."
-           "You gain advantage on investigation checks for finding loot."
+           "Prayer stones you find are advantaged (favouring your current path over other stones)."
+           "You may roll an additional die to attempt a critical hit after hitting a creature with an attack. Similarly, creatures that fail a save against a spell of yours must roll again and use the lowest result."
            "You obtain an additional item from crafting and consumable loot rolls."
-           "You may destroy an item to immediately gain its base sale value (i.e. no negotiation)."
-           "The cost of levelling relics attuned to you is reduced by 100g, to a minimum of 0."
-
-
-           ;"When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
-
-           ;"-1 critical requirement on all skill checks"
-           ;"You have expertise in Persuasion and Deception when negotiating trades"
-           ;"20% increased gold gained from loot rolls"
-           ;"You have advantage on the amount of loot you get from crafting items, consumables, and gold"
-           ;"You may destroy an item to immediately gain its base sale value (i.e. no negotiation)."
-           ;"When you get this level, all worn relics are levelled. Also, from now on, relic attuned to you become level 3, instead of just 2."
-           ;"When you roll for a loot roll and get above a 2, you may choose to roll 1d8 to replace your result. You must then accept this result."
-           ;"Relics attuned to you can be levelled for 50% of their usual levelling cost. When you use this on a relic, from then on, it sells for half of its usual cost, and loses 2 levels when targeted by an Orb of Mulligan."
-           ;"Whenever you make a skill check or save, you may also roll a d12 and use the higher of the scores"
-           ]}
+           ;TODO: potentially adjust based on final die used for loot. This assumes a d20.
+           "When you roll 8 or lower on a loot roll, you advantage on the result of the roll (you get two options, choose one)."
+           "The cost of levelling relics attuned to you is reduced by 100 gold, to a minimum of 10."
+           "When rolling a 5 or lower on a loot roll, you gain advantage on your next loot roll."
+           "You gain inspiration rolling a natural 20 on an attack, ability check, or saving throw. You also gain inspiration when an enemy critically fails an attack against you."
+           "Your inspiration point maximum goes up to 2. Additionally, you may choose to expend inspiration after completing a roll rather than to simply gain advantage."]}
  {:name   "Vimis",                                          ;TODO - was used in campaign1
   :levels [
            ;"You cannot have disadvantage when learning creature stats"

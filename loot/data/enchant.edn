@@ -17,8 +17,8 @@
   :randoms  [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]}
  {:effect "+1 spell save DC"
   :points 31}
- {:effect "+1 AC while unarmoured (does not work while using a shield)"}
- {:effect "+1 AC while using a shield"}
+ {:effect "+1 AC while unarmoured and not using a Shield or Targe weapons"}
+ {:effect "+1 AC while using a Shield or a Targe weapon"}
  {:effect "Gain resistance to physical damage equal to half the CR total of your highest CR active minion"}
  {:effect  "+2 %s damage"
   :randoms [["piercing" "slashing" "bludgeoning"]]
@@ -36,7 +36,6 @@
  {:effect "Targets have +1 critical strike avoidance minimum when saving against your spells"}
  {:effect "+1 weapon attack AB with attacks that deal non-physical damage"}
  {:effect "You have advantage on initiative rolls"}
- {:effect "This item's maximum number of mods is increased by 2"}
  {:effect "When you score a critical strike, recover a 1st-level spell slot"}
  {:effect "When you score a critical strike, recover a 10% of your maximum class points (minimum 1)"}
  {:effect "+1 AB with unarmed attacks", :metadata ["armour"]}

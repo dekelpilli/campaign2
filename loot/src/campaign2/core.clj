@@ -56,10 +56,10 @@
        :action prayer/&progress!}
    24 {:name   "Choose monsters from given CRs"
        :action monster/&new}
-   25 {:name "Add a modifier to an existing item"
+   25 {:name   "Add a modifier to an existing item"
        :action enchant/&add}
-   25 {:name "Add modifier to an existing item"
-       :action enchant/&add}})
+   26 {:name   "Add modifiers to an existing items with the given total"
+       :action enchant/&add-totalling}})
 
 (defn start []
   (let [loot-action-names (->> loot-actions
