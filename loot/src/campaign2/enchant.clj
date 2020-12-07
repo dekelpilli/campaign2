@@ -8,7 +8,7 @@
 
 (def default-points 10)
 
-;TODO: simplify
+;TODO: simplify, fix
 (defn- compatible? [base enchant field]
   (let [not-field-val (->> field
                            (name)
@@ -46,12 +46,8 @@
       "weapon" (filter #(compatible-weapon? base %) enabled-enchants)
       "armour" (filter #(compatible-armour? base %) enabled-enchants))))
 
-(defn- random-x-enchanted [points-target points-comparator points-validator]
-  (let [type (rand-nth ["weapon" "armour"])
-        base (case type
-               "armour" (mundane/new-armour)
-               "weapon" (mundane/new-weapon))
-        valid-enchants (->> (find-valid-enchants base type)
+(defn- add-enchants [base type points-target points-comparator points-validator]
+  (let [valid-enchants (->> (find-valid-enchants base type)
                             (filter #(points-validator (:points % default-points)))
                             (shuffle))
         sum (atom 0)
@@ -61,11 +57,38 @@
                       (map util/fill-randoms))]
     [base enchants]))
 
+(defn- random-x-enchanted [points-target points-comparator points-validator]
+  (let [type (rand-nth ["weapon" "armour"])
+        base (case type
+               "armour" (mundane/new-armour)
+               "weapon" (mundane/new-weapon))]
+    (add-enchants base type points-target points-comparator points-validator)))
+
 (defn random-enchanted [points-target]
-  (random-x-enchanted points-target < number?))
+  (random-x-enchanted points-target < (constantly true)))
 
 (defn random-positive-enchanted [points-target]
   (random-x-enchanted points-target < pos?))
 
 (defn random-negative-enchanted []
   (random-x-enchanted (- 20 (rand-int -21)) > neg?))
+
+(defn &add []
+  (let [{:keys [base type]} (mundane/&base)]
+    (when (and base type)
+      (util/rand-enabled (find-valid-enchants base type)))))
+
+(defn &add-totalling []
+  (let [randomise-enchants (fn [points {:keys [base type] :as input}]
+                             (if input
+                               (second (add-enchants base type points
+                                                     (if (pos? points) < >)
+                                                     (if (pos? points) (constantly true) neg?)))
+                               []))]
+    (println "Enter desired points total: ")
+    (if-let [points (util/&num)]
+      (if-not (zero? points)
+        (randomise-enchants points (mundane/&base)))
+      []))
+  (let [{:keys [base type]} (mundane/&base)]
+    (util/rand-enabled (find-valid-enchants base type))))

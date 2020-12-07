@@ -33,7 +33,7 @@
        :action #(enchant/random-enchanted 10)}
    9  {:name   "100-150 gold"
        :action #(str (+ 100 (rand-int 51)) " gold")}
-   10 {:name   "Ring" ;todo higher?
+   10 {:name   "Ring"                                       ;todo higher?
        :action ring/new}
    11 {:name   "Enchanted item (20 points, positive only)"
        :action #(enchant/random-positive-enchanted 20)}
@@ -55,7 +55,11 @@
    23 {:name   "Progress a prayer path"
        :action prayer/&progress!}
    24 {:name   "Choose monsters from given CRs"
-       :action monster/&new}})
+       :action monster/&new}
+   25 {:name "Add a modifier to an existing item"
+       :action enchant/&add}
+   25 {:name "Add modifier to an existing item"
+       :action enchant/&add}})
 
 (defn start []
   (let [loot-action-names (->> loot-actions

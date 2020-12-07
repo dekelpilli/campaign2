@@ -9,17 +9,26 @@
   (first (filter #(= base-name (:name %))
                  (base-types type))))
 
-(defn base [type] (let [bases (util/make-options (group-by :name (base-types type)))]
-            (util/display-pairs bases)
-            (bases (util/&num))))
+(defn &base ([type]
+             (let [bases (util/make-options (group-by :name (base-types type)))]
+               (util/display-pairs bases)
+               (bases (util/&num)))))
 
-(defn &base []
-  (let [opts (util/display-pairs (util/make-options base-types))
-        input (util/&num)
-        choice (opts input)]
-    (when choice
-      {:base (base choice)
-      :typse choice})))
+(defn &base
+  ([]
+   (let [opts (util/display-pairs (util/make-options base-types))
+         input (util/&num)
+         choice (opts input)]
+     (when choice
+       {:base (&base choice)
+        :type choice})))
+  ([type]
+   (let [bases (group-by :name (base-types type))
+         base-options (util/display-pairs (util/make-options bases))]
+     (->> (util/&num)
+          (base-options)
+          (bases)
+          (first)))))
 
 (defn new-weapon []
   (util/rand-enabled @weapons))

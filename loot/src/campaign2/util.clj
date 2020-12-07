@@ -15,9 +15,9 @@
   (binding [table.width/*width* (delay 9999)]
     (t/table out :style :unicode-3d)))
 
-(defn display-multi-value [result]
-  (table (if (sequential? result) result [result]))
-  result)
+(defn display-multi-value [coll]
+  (table (if (sequential? coll) coll [coll]))
+  coll)
 
 (defn display-pairs
   ([p m] (println p) (display-pairs m))
