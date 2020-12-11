@@ -20,7 +20,7 @@ Moving mods:
 Rings:
     Max number of rings worn = prof bonus
     Max number of ring points used = char level + highest attribute modifier
-    Sacrifice: Smash n rings together (n > 1) to get a choice of 1 from n new rings that can't be of the same type as any of the inputs. The resulting n rings don't have to be unique.
+    Sacrifice: Smash n rings together (n > 1) to get a choice of 1 from n unique new rings that can't be of the same type as any of the inputs.
     Synergy rings = rings whose name starts with "The" = rings whose purpose is to interact with other rings.
 
 Relics:
@@ -54,13 +54,10 @@ Vendor valuations:
 Sales and services:
     Orbs of flux: 200g
     Orb of balance: 200g
-    Orb of annulment: 100g
+    Disavoment orbs: 50g
     Mundanes: 60
     Enchanted item: depends on power, TODO: decide. Remove in favour of loot roll option?
     Loot: 2d8 unsellable loot roll?
-
-    Horses: 800
-    Warhorses: 1200
 
 XP      Challenge
 0       10

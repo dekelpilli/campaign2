@@ -59,7 +59,9 @@
    25 {:name   "Add a modifier to an existing item"
        :action enchant/&add}
    26 {:name   "Add modifiers to an existing items with the given total"
-       :action enchant/&add-totalling}})
+       :action enchant/&add-totalling}
+   27 {:name   "Perform a ring sacrifice"
+       :action ring/&sacrifice}})
 
 (defn start []
   (let [loot-action-names (->> loot-actions

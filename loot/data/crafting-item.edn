@@ -1,24 +1,24 @@
 [{:name   "Chaos Orb(s)"
-  :effect "remove all mods on a magical item and replace them with new ones (-20 to 40)"}
+  :effect "remove all mods on a magical item and replace them with new ones (-20 to 50)"}
  {:name   "Orb(s) of Balance"
   :effect "adds mods to an item until its total mod points are equal to at least 0."}
  {:value  "Orb(s) of Destruction"
   :effect "Remove a random mod from a magic item, relic, or artefact"}
- {:name     "Orb(s) of Annulment"
-  :effect   "Remove a positive mod from a magic item, relic, or artefact",
-  :enabled? false}
  {:name   "Orb(s) of Creation"
-  :effect "Convert a mundane item into a magical item (10 to 20)"}
+  :effect "Convert a mundane item into a magical item (2d20 total enchant points)"}
  {:name   "Orb(s) of Flux"
   :effect "Swap magical properties between compatible items, including simply moving enchantments to mundane items"}
  {:name     "Orb(s) of Annexation"
-  :effect   "add a mod to a magical item",
+  :effect   "Add a mod to a magical item"
   :metadata ["disadvantage"]}
- {:name     "Exalted Orb"
-  :effect   "add a positive mod to a magical item",
+ {:name     "Exalted Orb(s)"
+  :effect   "add a positive mod to a magical item"
   :metadata ["1"]}
  {:name     "Orb of Mulligan"
   :effect   "completely level down a relic or artefact, then level it back up to its current level. Before levelling it back up, you can let go of your attunement to it.",
   :metadata ["1"]}
- {:value
-  "Orb(s) of Purification - Apply to an amulet and roll 1d6. If you roll above its current CR capacity, you may increase its capacity by 1. Contained creature does not change."}]
+ {:name   "Orb(s) of Purification"
+  :effect "Apply to an amulet and roll 1d6. If you roll above its current CR capacity, you may increase its capacity by 1. Contained creature does not change."}
+ {:name     "Disavowment Orb(s)"
+  :effect   "You lose all progress from your current prayer path and all effects it granted."
+  :enabled? false}]

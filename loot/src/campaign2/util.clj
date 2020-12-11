@@ -28,9 +28,8 @@
               (concat [["Key" "Value"]])))
    m))
 
-(defn make-options [maps]
-  (->> maps
-       (keys)
+(defn make-options [coll]
+  (->> (if (map? coll) (keys coll) coll)
        (sort)
        (map-indexed (fn [i option] [i option]))
        (into {})))

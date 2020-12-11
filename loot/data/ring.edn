@@ -27,13 +27,16 @@
   :effect "+5 gold found for each 'The Prosperous' ring worn"
   :points 1}
  {:name   "The Simpleton"
-  :effect "Your non-synergy rings' cost decreases by 1 point. Your synergy rings' cost increases by 3."
-  :points -2}                                               ;1 if you include the ring's effect once
+  :effect "Your non-synergy rings' cost decreases by 1 point. Your synergy rings' cost increases by 2."
+  :points -2}                                               ;0 if you include the ring's effect once
  {:name   "The Catalyst"
   :effect "You have double the options when using this ring in a ring sacrifice."
   :points 99}
+ {:name   "The Beacon"
+  :effect "You emit dim light in a radius of 5 feet from you for each ring worn. You emit bright light in a radius of 5 feet for each synergy ring worn."
+  :points 3}
  {:name    "The Trained"
-  :effect  "If all of your worn rings are `The Trained`, with a minimum of 4, you may choose to gain a feat from one of your rings. This rings grants the option of `%s`. You may change the chosen ring during a long rest."
+  :effect  "If all of your worn rings are 'The Trained', with a minimum of 4, you may choose to gain a feat from one of your rings. This rings grants the option of `%s`. You may change the chosen ring during a long rest."
   :randoms [["Alert" "Athlete" "Actor" "Brawler" "Charger" "Crossbow Expert" "Defensive Duelist" "Dual Wielder"
              "Dungeon Delver" "Durable" "Elemental Adept" "Grappler" "Great Weapon Master" "Healer"
              "Heavy Armor Master" "Inspiring Leader" "Keen Mind" "Light Armor Master" "Mage Slayer"
@@ -41,8 +44,12 @@
              "Polearm Master" "Resilient" "Ritual Caster" "Savage Attacker" "Sentinel" "Sharpshooter"
              "Shield Master" "Skilled" "Skulker" "Spell Sniper" "War Caster" "Weapon Master"]]
   :points  0}
+ {:name "The Able"
+  :effect "+1 %s while not wearing any synergy rings that are not 'The Able'"
+  :randoms [["Strength" "Dexterity" "Constitution" "Wisdom" "Intelligence" "Charisma"]]
+  :points 8}
  {:name   "Vengeful"
-  :effect "As a reaction, you may mark enemies that damage you for 1 round. You have advantage on attacks against marked creatures. Marked creatures become unmarked upon being damaged by you."
+  :effect "Once per short rest, as a reaction to being damaged, you may cast Hex on the creature that damaged you. Normal range/visibility/concentration restrictions apply."
   :points 4}
  {:name   "Jack of All Trades"
   :effect "None of your attributes can be below 10. Any ability scores below 10 are considered to be 10 instead."
@@ -57,7 +64,10 @@
   :effect "You may trance instead of sleeping during long rests, but must still rest for 8 hours (by default) to achieve a long rest."
   :points 2}
  {:name   "Restless"
-  :effect "Instead of disadvantage, you have advantage on perception checks while asleep."
+  :effect "You do not suffer disadvantage on perception checks while asleep."
+  :points 3}
+ {:name   "Paranoid"
+  :effect "When attempting to discern truthfulness, you have advantage on Insight checks when the person is lying and disadvantage when they're being fully truthful."
   :points 3}
  {:name    "Divergent"
   :effect  "You take %s damage as %s damage instead. Reroll second in case of duplicates: %s %s %s"
@@ -79,14 +89,12 @@
   :effect  "You lose proficiency in a saving throw of your choice. You gain proficiency in %s saving throws."
   :randoms [["Intelligence" "Charisma" "Strength"]]
   :points  2}
- {:name   "Enlarged/Reduced"
-  :effect "Your size becomes Small. If your size was already Small, your size becomes Medium instead."
+ {:name   "Reduced"
+  :effect "Your size becomes Small."
   :points 1}
  {:name   "Powerful"
   :effect "Your strength is considered to be 15 for the purpose of wearing armour."
   :points 6}
  {:name   "Acrobat"
-  :effect "You make take high and long jumps without a runup, as if you had take a runup."
-  :points 1}
-
- ]
+  :effect "You make take high and long jumps without a run-up."
+  :points 1}]

@@ -1,4 +1,4 @@
 [{:character "TestPlayer", :path "Rheztol", :taken #{7 1 3 9 5}}
  {:character "TestPlayer", :path "Vuneta", :taken #{7 1 3 9 5 10}}
- {:character "TestPlayer2", :path "Thynos", :taken #{1}}
- {:character "TestPlayer3", :path "Thynos", :taken #{7 4 2 5 8}}]
+ {:character "TestPlayer2", :path "Odi", :taken #{1 2}}
+ {:character "TestPlayer3", :path "Cerasil", :taken #{7 4 2 5 10 8}}]

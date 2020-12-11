@@ -9,9 +9,7 @@
              "+2 to the DCs of Illusion spells"
              "You may cast Zone of Truth once per short rest. When cast in this way, the spell is centered on you and lasts for 1 hour."
              "You have 30 feet of Truesight"],
-  :progress 0,
-  :metadata [],
-  :owner    "test"}
+  :progress 0}
  {:name   "Esher",
   :levels ["When you roll a 1 on a die for gaining healing from healing surges, you may reroll the die and must use the new result."
            "You and your minions have +3 to maximum hit points, and you have +3 to maximum hit points while transformed."
@@ -93,7 +91,12 @@
            "In addition to your regular amulet, you are always considered to be wearing an amulet that contains a Treant. Using this is independent of your other amulet's uses."
            "You are permanently under the effect of Freedom of Movement spell"]}
  {:name   "Qhanas",                                         ;TODO - was used in campaign1
-  :levels [
+  :levels ["You have an additional first level spell slot, assuming you already have at least one."
+           "You may use your own Spell Save DC and Spell AB when using Spells and Cantrips while transformed."
+           "All weapons you use are considered to have the Conduit trait."
+           "Allies under the effect of one or more of your spells gain +1 AC, and +1 damage with spells and Conduit weapons."
+           "Once per short rest, when you fail a Concentration Save, you may choose to succeed instead."
+
            ;"You cannot be silenced"
            ;"When you score a critical strike with a spell attack or spell, you recover the spell slot used to cast it. This does not include guaranteed crits (paralysis, unconscious) (for one target)."
            ;"You may cast the Identify spell at will"
