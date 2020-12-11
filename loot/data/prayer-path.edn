@@ -21,8 +21,8 @@
            "You may make Wisdom (Medicine) checks to heal downed allies as a bonus action."
            "Once per long rest, as an action, you may pray to Esher to regain all expended healing surges."
            "As a reaction when failing a Wisdom saving throw against an effect that would cause a condition, you may attempt the save again."
-           "You gain the Healer feat. If you already have the healer feat, you may gain another feat instead."
-           "You learn the Mass Heal spell and may cast it once per long rest. When cast in this way, you may choose to concentrate on the spell to stagger the healing over up to 2 rounds."]}
+           "You gain the Healer feat. If you already have the Healer feat, you may gain a different feat instead."
+           "You learn the Mass Heal spell and may cast it once per long rest. When cast in this way, you may choose to concentrate on the spell to stagger the healing over up to 3 rounds, but must still use an action to deliver that healing."]}
  {:name   "Ateus",
   :levels ["Your skill checks have a minimum result (after bonuses) equal to the total number of relics and rings you are wearing, to a maximum of 14."
            "You are considered to be wearing an additional \"The Prosperous\" ring which does not reserve ring points or count towards your worn rings maximum. You may turn this effect off during a long rest."
@@ -30,24 +30,11 @@
            "You may roll an additional die to attempt a critical hit after hitting a creature with an attack. Similarly, creatures that fail a save against a spell of yours must roll again and use the lowest result."
            "You obtain an additional item from crafting and consumable loot rolls."
            ;TODO: potentially adjust based on final die used for loot. This assumes a d20.
-           "When you roll 8 or lower on a loot roll, you advantage on the result of the roll (you get two options, choose one)."
+           "When you roll 8 or lower on a loot roll, you have advantage on the result of the roll (you get two options, choose one)."
            "The cost of levelling relics attuned to you is reduced by 100 gold, to a minimum of 10."
-           "When rolling a 5 or lower on a loot roll, you gain advantage on your next loot roll."
+           "You may cast Fortune's Favour as a bonus action. You can use no more than 10 spell slot levels on this per long rest."
            "You gain inspiration rolling a natural 20 on an attack, ability check, or saving throw. You also gain inspiration when an enemy critically fails an attack against you."
            "Your inspiration point maximum goes up to 2. Additionally, you may choose to expend inspiration after completing a roll rather than to simply gain advantage."]}
- {:name   "Vimis",                                          ;TODO - was used in campaign1
-  :levels [
-           ;"You cannot have disadvantage when learning creature stats"
-           ;"You have expertise in Investigation when doing research via reading"
-           ;"You may spend an action instead of a bonus action when learning creature stats to guarantee two additional questions"
-           ;"You may use your movement action to learn about creatures, instead of just your bonus action"
-           ;"You gain proficiency in History. If you are already proficient, you gain Expertise instead."
-           ;"When you get hit by a natural critical strike from a creature you've learned about, it instead misses you"
-           ;"You have +1AB and deal an additional 1d4 true damage against creature you have learned about"
-           ;"You have +2AC if you're learned about a creature in the last 2 rounds"
-           ;"When you are hit by a melee attack from a creature you've learned about, you may use a reaction to disengage and take a normal movement action"
-           ;"Gain the Keen Mind feat. If you already have this feat, you gain another feat."
-           ]}
  {:name   "Vuneta",
   :levels ["You have advantage on Persuasion checks with creatures you are friendly with"
            "You have expertise in Persuasion and Insight when attempting to avoid violence"
@@ -71,19 +58,16 @@
            "+5 radiant thorns."
            "You have advantage on attacks against marked enemies."]}
  {:name   "Odi",
-  :levels ["You have Expertise with Sleight of Hand when stealing documents (can be plans, contracts, maps, etc)"
-           "You have +1 damage against creatures with less Intelligence than you."
-           "You have advantage on all Wisdom and Intelligence skill checks if you have taken at least 10 damage in the last minute."
+  :levels ["You have Expertise with Sleight of Hand when stealing documents (can be plans, contracts, maps, etc)",
+           "You have advantage on all Wisdom and Intelligence skill checks if you have taken at least 10 damage in the last minute. You may self-inflict this damage to trigger this."
+           "When learning creature stats, changing the target creature does not consume questions."
            "As a bonus action when you successfully learn about a creature within 5 feet of you, you may force that creature to make against 8 + your prof mod + a mental attribute mod of your choice. On a failed save, it has disadvantage when attacking you for a minute."
-           "x" ;TODO: replace the below
-           ;"When you are forced to make a save with a mental attribute, you may use your Investigation bonus instead of your save bonus. You may do this an amount of times equal to your Int Mod per short rest."
-           "You may cast Soul Cage once per long rest, but you may only use the Query Soul option"
-           "x"
-           "You get 10 levels worth of spell sots every long rest. You can use these to cast any Divination spell, using a mental attribute of your choice."
-           "As a reaction to being hit resulting in being under 50% HP, or as a reaction to taking a critical hit, you may cast Foresight. You can do this once per long rest."
-           "x"
-           ;TODO:
-           ]}
+           "As a reaction to being targeted by an opportunity attack, you immediately gain 4 questions about that creature."
+           "When you are forced to make a save with a mental attribute, you may use your Investigation bonus instead of your save bonus. You may do this an amount of times equal to your Int Mod per short rest."
+           "You get 8 spell slot levels every long rest. You can use these to cast any non-cantrip Divination spell of 5th level of lower, using a mental attribute of your choice."
+           "While below 50% HP, as a reaction to being hit, or as a reaction to taking a critical hit, you may cast Foresight. You can do this once per long rest."
+           "You gain the Keen Mind feat. If you already have the Keen Mind feat, you may gain a different feat instead."
+           "You have Truesight to a range of 60 feet."]}
  {:name   "Thetia",                                         ;TODO - was used in campaign1
   :levels [
            ;"+1 damage while you're within 30 feet of more than one hostile creature"
