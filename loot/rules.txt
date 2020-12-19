@@ -52,9 +52,9 @@ Vendor valuations:
     Other potions: 10g
 
 Sales and services:
-    Orbs of flux: 200g
-    Orb of balance: 200g
-    Disavoment orbs: 50g
+    Orbs of Flux: 200g
+    Orb of Balance: 200g
+    Orbs of Disavowment: 50g
     Mundanes: 60
     Enchanted item: depends on power, TODO: decide. Remove in favour of loot roll option?
     Loot: 2d8 unsellable loot roll?

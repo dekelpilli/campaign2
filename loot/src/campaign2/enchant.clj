@@ -8,20 +8,17 @@
 
 (def default-points 10)
 
-;TODO: simplify, fix
 (defn- compatible? [base enchant field]
-  (let [not-field-val (->> field
-                           (name)
-                           (str "not-")
-                           (keyword))
-        item-field-val (base field)
-        enchant-field (enchant field)]
-    (if (coll? item-field-val)
-      (and (s/intersection (set enchant-field) #{item-field-val})
-           (empty? (s/intersection (set enchant-field) #{item-field-val})))
-      (and
-        (or (nil? enchant-field) (= enchant-field item-field-val))
-        (or (nil? (enchant not-field-val)) (not (= enchant-field item-field-val)))))))
+  (let [not-field (->> field
+                       (name)
+                       (str "not-")
+                       (keyword))
+        item-field-val (set (base field))
+        requisites (set (enchant field))
+        incompatibles (set (enchant not-field))]
+    (and (empty? (s/intersection item-field-val incompatibles))
+         (or (empty? requisites)
+             (not-empty (s/intersection item-field-val requisites))))))
 
 (defn- compatible-weapon? [{:keys [metadata category] :as base}
                            enchant]

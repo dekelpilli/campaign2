@@ -34,15 +34,16 @@
   :points 99}
  {:name   "The Beacon"
   :effect "You emit dim light in a radius of 5 feet from you for each ring worn. You emit bright light in a radius of 5 feet for each synergy ring worn."
-  :points 3}
+  :points 2}
  {:name    "The Trained"
   :effect  "If all of your worn rings are 'The Trained', with a minimum of 4, you may choose to gain a feat from one of your rings. This rings grants the option of `%s`. You may change the chosen ring during a long rest."
-  :randoms [["Alert" "Athlete" "Actor" "Brawler" "Charger" "Crossbow Expert" "Defensive Duelist" "Dual Wielder"
-             "Dungeon Delver" "Durable" "Elemental Adept" "Grappler" "Great Weapon Master" "Healer"
-             "Heavy Armor Master" "Inspiring Leader" "Keen Mind" "Light Armor Master" "Mage Slayer"
-             "Magic Initiate" "Martial Adept" "Medium Armor Master" "Mobile" "Mounted Combatant"
-             "Polearm Master" "Resilient" "Ritual Caster" "Savage Attacker" "Sentinel" "Sharpshooter"
-             "Shield Master" "Skilled" "Skulker" "Spell Sniper" "War Caster" "Weapon Master"]]
+  :randoms [["Alert" "Athlete" "Actor" "Brawler" "Charger" "Chef" "Crossbow Expert" "Defensive Duelist"
+             "Dual Wielder" "Dungeon Delver" "Durable" "Eldritch Adept" "Elemental Adept" "Fighting Initiate"
+             "Grappler" "Great Weapon Master" "Healer" "Heavy Armor Master" "Inspiring Leader" "Keen Mind"
+             "Light Armor Master" "Mage Slayer" "Magic Initiate" "Martial Adept" "Medium Armor Master"
+             "Metamagic Adept" "Mobile" "Mounted Combatant""Polearm Master" "Resilient" "Ritual Caster"
+             "Savage Attacker" "Sentinel" "Sharpshooter" "Shield Master" "Skilled" "Skulker" "Spell Sniper"
+             "Spell Touched" "Telekinetic" "Telepathic" "War Caster" "Weapon Master"]]
   :points  0}
  {:name "The Able"
   :effect "+1 %s while not wearing any synergy rings that are not 'The Able'"
