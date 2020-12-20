@@ -22,19 +22,17 @@
        :action #(str (inc (rand-int 20)) " gold")}
    3  {:name   "Mundane item"
        :action mundane/new}
-   4  {:name   "Common magic item"
-       :action #(magic/get-by-rarity "common")}
-   5  {:name   "Uncommon magic item"
-       :action #(magic/get-by-rarity "uncommon")}
-   6  {:name   "Consumable"
+   4  {:name   "Consumable"
        :action consumable/new}
 
-   8  {:name   "Enchanted item (10 points)"
+   7  {:name   "Enchanted item (10 points)"
        :action #(enchant/random-enchanted 10)}
-   9  {:name   "100-150 gold"
+   8  {:name   "100-150 gold"
        :action #(str (+ 100 (rand-int 51)) " gold")}
-   10 {:name   "Ring"                                       ;todo higher?
+   9  {:name   "Ring"
        :action ring/new}
+   10 {:name   "Synergy ring"
+       :action ring/new-synergy}
    11 {:name   "Enchanted item (20 points, positive only)"
        :action #(enchant/random-positive-enchanted 20)}
    12 {:name   "Enchanted item (30 points, positive only)"
@@ -43,24 +41,23 @@
        :action crafting/new}
    14 {:name   "Amulet"
        :action monster/generate-amulet}
-
-   19 {:name   "Prayer stone"
+   15 {:name   "Prayer stone"
        :action prayer/new-stone}
-   20 {:name   "New relic"
+   16 {:name   "New relic"
        :action relic/&new!}
-   21 {:name   "Reload data from files"
+   17 {:name   "Reload data from files"
        :action state/reload!}
-   22 {:name   "Level a relic"
+   18 {:name   "Level a relic"
        :action relic/&level!}
-   23 {:name   "Progress a prayer path"
+   19 {:name   "Progress a prayer path"
        :action prayer/&progress!}
-   24 {:name   "Choose monsters from given CRs"
+   20 {:name   "Choose monsters from given CRs"
        :action monster/&new}
-   25 {:name   "Add a modifier to an existing item"
+   21 {:name   "Add a modifier to an existing item"
        :action enchant/&add}
-   26 {:name   "Add modifiers to an existing items with the given total"
+   22 {:name   "Add modifiers to an existing items with the given total"
        :action enchant/&add-totalling}
-   27 {:name   "Perform a ring sacrifice"
+   23 {:name   "Perform a ring sacrifice"
        :action ring/&sacrifice}})
 
 (defn start []

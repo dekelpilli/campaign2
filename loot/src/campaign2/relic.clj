@@ -42,9 +42,12 @@
                         (map (fn [o] [o (case o
                                           :negative-mod (->> valid-enchants
                                                              (filter (fn [enchant] (neg? (:points enchant e/default-points))))
-                                                             (util/rand-enabled))
+                                                             (util/rand-enabled)
+                                                             (util/fill-randoms))
                                           :new-relic-mod (util/rand-enabled available)
-                                          :upgrade-existing-mod (util/rand-enabled upgradeable-mods)
+                                          :upgrade-existing-mod (->> upgradeable-mods
+                                                                     (util/rand-enabled)
+                                                                     (util/fill-randoms))
                                           :new-random-mod (->> valid-enchants
                                                                (filter (fn [enchant] (pos? (:points enchant e/default-points))))
                                                                (util/rand-enabled)

@@ -38,17 +38,19 @@
  {:effect "You have advantage on initiative rolls"}
  {:effect "When you score a critical strike, recover a 1st-level spell slot"}
  {:effect "When you score a critical strike, recover a 10% of your maximum class points (minimum 1)"}
- {:effect "+1 AB with unarmed attacks", :metadata #{"armour"}}
- {:effect   "+1d4 bludgeoning damage with attacks with this weapon",
+ {:effect   "+1 AB with unarmed attacks"
+  :metadata #{"armour"}}
+ {:effect   "+1d4 %s damage with attacks with this weapon"
+  :points   20
+  :randoms  [["Bludgeoning" "Piercing" "Slashing"]]
   :metadata #{"weapon"}}
- {:effect   "+1d4 piercing damage with attacks with this weapon",
-  :metadata #{"weapon"}}
- {:effect   "+1d4 slashing damage with attacks with this weapon",
-  :metadata #{"weapon"}}
- {:effect "+1 to Dexterity saving throws", :metadata ["armour"]}
- {:effect "+1 to Constitution saving throws", :metadata ["armour"]}
- {:effect "+1 to Intelligence saving throws", :metadata ["armour"]}
- {:effect "+1 to Wisdom saving throws", :metadata ["armour"]}
+ {:effect   "+1 to %s saving throws"
+  :randoms  [["Intelligence" "Charisma" "Strength"]]
+  :metadata ["armour"]}
+ {:effect   "+1 to %s saving throws"
+  :randoms  [["Constitution" "Dexterity" "Wisdom"]]
+  :points   18
+  :metadata ["armour"]}
  {:effect   "This weapon deals no base damage. Roll again and empower twice",
   :metadata #{"weapon"}}
  {:effect "You gain telepathy with a range of 10 feet"}
@@ -65,11 +67,11 @@
  {:effect "Roll again, making that result a negative enchant. Then roll again, empowering that result."}
  {:effect "-1 to a creature's saving throws attempting to end an ongoing condition you caused"}
  {:effect "Once per long rest, you can make a Persuasion check contested by a non-hostile creature's Wisdom save. The creature must be within 60 feet of you. On a success, you can give them a command as per the Command spell"}
- {:effect "+1 to Strength saving throws", :metadata ["armour"]}
+ {:effect "+1 to Strength saving throws"
+  :metadata ["armour"]}
  {:effect "If you take damage exceeding 25% of your maximum hit points in one turn and do not reach 0 hit points by its end, heal hit points equal to your level."}
  {:effect "If you take damage exceeding 25% of your maximum hit points in one round and do not reach 0 hit points by its end, you may move up one place in the initiative tracker, if possible."}
  {:effect "Once per long rest, when you need make an attack roll, ability check, or saving throw, you can use your reaction to replace it with a 50% chance to critically succeed and 50% chance to to critically fail"}
- {:effect "+1 to Charisma saves"}
  {:effect "+1 global damage"
   :points 15}
  {:effect "+1 to death saves"}
@@ -81,17 +83,18 @@
   :metadata #{"armour"}
   :randoms  [["acid" "cold" "lightning" "fire" "poison" "force" "necrotic" "psychic" "radiant" "thunder"]]}
  {:effect "You have an additional first level spell slot"}
- {:effect "+10ft darkvision"}
+ {:effect "+10ft darkvision"
+  :points 15}
  {:effect "+5ft blindsight"}
  {:effect "+5ft tremorsense"}
- {:effect "You cannot be deafened"}
+ {:effect "You cannot be deafened"
+  :points 4}
  {:effect "When you score a critical strike with an attack of opportunity, the target is paralyzed until the end of their turn"}
  {:effect   "When you hit a creature with an attack, they are silenced until the end of their next turn",
   :metadata #{"weapon"}}
- {:effect
-  "You're acclimated to high altitude, including elevations above 20,000 feet"}
- {:effect
-  "First wearer chooses a language in which this item grants perfect knowledge"}
+ {:effect "You're acclimated to high altitude, including elevations above 20,000 feet"
+  :points 3}
+ {:effect "First wearer chooses a language in which this item grants proficiency"}
  {:effect "+2 passive perception"}
  {:effect "+10 feet speed in all of your available speed types"}
  {:effect "+1 to hit die size for regaining health during short rests"}
@@ -101,7 +104,8 @@
  {:effect "+10ft climb speed"}
  {:effect "+10ft swimming speed, and you can breath under water"}
  {:effect "You can jump without a run-up as if you had taken a run-up"}
- {:effect "+5 points of Lay on Hands per long rest"}
+ {:effect "+5 points of Lay on Hands per long rest"
+  :points 5}
  {:effect  "+4 damage against %s creatures"
   :randoms [["Abberation" "Beast" "Celestial" "Construct" "Dragon" "Elemental" "Fey"
              "Fiend" "Giant" "Humanoid" "Monstrosity" "Ooze" "Plant" "Undead"]]}
@@ -153,7 +157,8 @@
  {:effect "Recover 10% of your maximum class points (minimum 1) on Killing Blow"}
  {:effect   "At the start of your turn in combat, if you haven't taken damage since the start of your last turn, gain 1 temporary hit point. This stacks with any existing temporary hit points.",
   :metadata ["armour"]}
- {:effect "+1 damage with weapon attacks", :metadata #{"weapon"}}
+ {:effect   "+1 damage with weapon attacks"
+  :metadata #{"weapon"}}
  {:effect   "Once per long rest, you can choose a target you can see as an action and then cast a random 1st-level spell on that target, ignoring range restrictions",
   :metadata ["weapon"]}
  {:effect "When you score a critical strike, the target gains a condition that deals 1d4 damage of the strike's primary damage type every round to the target for 1d4 rounds. If the condition is reapplied, the longer of the two durations becomes the new duration and the damage stacks."}
@@ -214,6 +219,11 @@
  {:effect "Once per short rest, while transformed into a Monstrosity, you may take two actions instead of one on your turn."}
  {:effect "While transformed into a Plant, you regenerate health equal to your Constitution modifier every round, to a minimum of 1 (the plant's value + any of your bonuses)."}
  {:effect "+5 feet range for applying stabilising Medicine checks"}
+ {:effect  "+2 to your %s maximum."
+  :points  15
+  :randoms [["Dexterity" "Constitution" "Wisdom" "Charisma" "Strength" "Intelligence"]]}
+ {:effect "You are considered to be proficient in Acrobatics checks that are made with disadvantage."
+  :points 4}
  {:effect   "-1 to death saves"
   :points   -10
   :metadata #{"armour"}}

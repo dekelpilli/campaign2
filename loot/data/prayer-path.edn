@@ -27,11 +27,10 @@
            "Prayer stones you find are advantaged (favouring your current path over other stones)."
            "You may roll an additional die to attempt a critical hit after hitting a creature with an attack. Similarly, creatures that fail a save against a spell of yours must roll again and use the lowest result."
            "You obtain an additional item from crafting and consumable loot rolls."
-           ;TODO: potentially adjust based on final die used for loot. This assumes a d20.
-           "When you roll 8 or lower on a loot roll, you have advantage on the result of the roll (you get two options, choose one)."
+           "When you roll 7 or lower on a loot roll, you have advantage on the result of the roll (you get two options, choose one)."
            "The cost of levelling relics attuned to you is reduced by 100 gold, to a minimum of 10."
-           "You may cast Fortune's Favour as a bonus action. You can use no more than 10 spell slot levels on this per long rest."
-           "You gain inspiration rolling a natural 20 on an attack, ability check, or saving throw. You also gain inspiration when an enemy critically fails an attack against you."
+           "You may cast Fortune's Favour at any spell level as a bonus action. You can use no more than 10 spell slot levels on this per long rest."
+           "You gain inspiration rolling a natural 20 on an attack, ability check, or saving throw. You also gain inspiration when an enemy critically fails an attack against you, or a save against an effect of yours."
            "Your inspiration point maximum goes up to 2. Additionally, you may choose to expend inspiration after completing a roll rather than to simply gain advantage."]}
  {:name   "Vuneta",
   :levels ["You have advantage on Persuasion checks with creatures you are friendly with"
