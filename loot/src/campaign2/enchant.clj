@@ -13,22 +13,26 @@
                        (name)
                        (str "not-")
                        (keyword))
-        item-field-val (set (base field))
-        requisites (set (enchant field))
-        incompatibles (set (enchant not-field))]
+        item-field-val (as-> (base field) $
+                             (if (coll? $) (set $) #{$}))
+        requisites (enchant field)
+        incompatibles (enchant not-field)]
     (and (empty? (s/intersection item-field-val incompatibles))
          (or (empty? requisites)
              (not-empty (s/intersection item-field-val requisites))))))
 
-(defn- compatible-weapon? [{:keys [metadata category] :as base}
-                           enchant]
+(defn- compatible-weapon? [{:keys [metadata range] :as base}
+                           {:keys [ranged?] :as enchant}]
   (and (or (empty? metadata)
-           (contains? metadata "weapon")
-           (and (= category "shield") (contains? metadata "armour")))
-       (compatible? base enchant "traits")
-       (compatible? base enchant "damage-types")
-       (compatible? base enchant "proficiency")
-       (compatible? base enchant "type")))
+           (contains? metadata "weapon"))
+       (if-not (nil? ranged?)
+         (= ranged? (boolean range))
+         true)
+       (compatible? base enchant :traits)
+       (compatible? base enchant :category)
+       (compatible? base enchant :damage-types)
+       (compatible? base enchant :proficiency)
+       (compatible? base enchant :type)))
 
 (defn- compatible-armour? [{:keys [metadata] :as base}
                            enchant]
@@ -43,8 +47,9 @@
       "weapon" (filter #(compatible-weapon? base %) enabled-enchants)
       "armour" (filter #(compatible-armour? base %) enabled-enchants))))
 
-(defn- add-enchants [base type points-target points-comparator points-validator]
-  (let [valid-enchants (->> (find-valid-enchants base type)
+(defn- add-enchants [base type points-target points-validator]
+  (let [points-comparator (if (neg? points-target) > <)
+        valid-enchants (->> (find-valid-enchants base type)
                             (filter #(points-validator (:points % default-points)))
                             (shuffle))
         sum (atom 0)
@@ -54,21 +59,21 @@
                       (map util/fill-randoms))]
     [base enchants]))
 
-(defn- random-x-enchanted [points-target points-comparator points-validator]
+(defn- random-x-enchanted [points-target points-validator]
   (let [type (rand-nth ["weapon" "armour"])
         base (case type
                "armour" (mundane/new-armour)
                "weapon" (mundane/new-weapon))]
-    (add-enchants base type points-target points-comparator points-validator)))
+    (add-enchants base type points-target points-validator)))
 
 (defn random-enchanted [points-target]
-  (random-x-enchanted points-target < (constantly true)))
+  (random-x-enchanted points-target (constantly true)))
 
 (defn random-positive-enchanted [points-target]
-  (random-x-enchanted points-target < pos?))
+  (random-x-enchanted points-target pos?))
 
 (defn random-negative-enchanted []
-  (random-x-enchanted (- 20 (rand-int -21)) > neg?))
+  (random-x-enchanted (- 20 (rand-int -21)) neg?))
 
 (defn &add []
   (let [{:keys [base type]} (mundane/&base)]

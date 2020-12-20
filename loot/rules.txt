@@ -45,7 +45,7 @@ Vendor valuations:
     Ring: 15
     Magical: 200 (must have positive mod points) ;TODO: rethink sale prices, relic level prices
     Amulets: 50 * CR capacity
-    Currency items: 100g (annulment 50g)
+    Crafting items: 40g
     Prayer stones: 100
     Relics: 300 + half of money spent on levelling
     Health potions: half buy price

@@ -3,13 +3,17 @@
  {:effect "You have an additional spell slot of your second highest spell slot where you have at least one spell slot available"}
  {:effect "+5ft attack reach with melee attacks on your turn"}
  {:effect "Stone's Endurance (if you already have it, you get another use per long/short rest) (Volo's p109)"}
- {:effect "+1 resistance to all damage", :metadata #{"armour"}}
+ {:effect   "+1 resistance to all damage"
+  :metadata #{"armour"}
+  :points   22}
  {:effect   "This weapon is considered magical for the purposes of overcoming resistances and immunities",
-  :metadata #{"weapon"}}
+  :metadata #{"weapon"}
+  :points   25}
  {:effect "+1 to global AB"
   :points 35}
  {:effect   "+1 to this weapon's base damage die size",
-  :metadata #{"weapon"}}
+  :metadata #{"weapon"}
+  :points   11}
  {:effect "Recover a 1st-level spell slot when you roll for initiative"}
  {:effect "Recover 10% of your maximum class points (minimum 1) when you roll for initiative"}
  {:effect   "+1d4 %s damage with attacks with this weapon",
@@ -17,15 +21,19 @@
   :randoms  [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]}
  {:effect "+1 spell save DC"
   :points 31}
- {:effect "+1 AC while unarmoured and not using a Shield or Targe weapons"}
- {:effect "+1 AC while using a Shield or a Targe weapon"}
+ {:effect     "+1 AC while unarmoured and not using a Shield or Targe weapons"
+  :not-traits #{"Targe"}
+  :not-type   #{"Shield"}
+  :points 20}
+ {:effect "+1 AC while using a Shield or a Targe weapon"
+  :points 25}
  {:effect "Gain resistance to physical damage equal to half the CR total of your highest CR active minion"}
  {:effect  "+2 %s damage"
   :randoms [["piercing" "slashing" "bludgeoning"]]
-  :points  19}
+  :points  20}
  {:effect  "+2 % damage"
   :randoms [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]
-  :points  11}
+  :points  12}
  {:effect  "+1 %s"
   :randoms [["Dexterity" "Constitution" "Wisdom" "Charisma" "Strength" "Intelligence"]]
   :points  20}
@@ -67,8 +75,6 @@
  {:effect "Roll again, making that result a negative enchant. Then roll again, empowering that result."}
  {:effect "-1 to a creature's saving throws attempting to end an ongoing condition you caused"}
  {:effect "Once per long rest, you can make a Persuasion check contested by a non-hostile creature's Wisdom save. The creature must be within 60 feet of you. On a success, you can give them a command as per the Command spell"}
- {:effect "+1 to Strength saving throws"
-  :metadata ["armour"]}
  {:effect "If you take damage exceeding 25% of your maximum hit points in one turn and do not reach 0 hit points by its end, heal hit points equal to your level."}
  {:effect "If you take damage exceeding 25% of your maximum hit points in one round and do not reach 0 hit points by its end, you may move up one place in the initiative tracker, if possible."}
  {:effect "Once per long rest, when you need make an attack roll, ability check, or saving throw, you can use your reaction to replace it with a 50% chance to critically succeed and 50% chance to to critically fail"}
@@ -136,12 +142,10 @@
  {:effect "While wearing this item, you gain sustenance every 24 hours"}
  {:effect "This item sells for an extra 1d100 gold. You only roll after the item is sold"}
  {:effect "+4 Strength while restrained"}
- {:effect
-  "Modifiers to your damage apply to your minions at 50% effectiveness (stacks, max 100%)"}
+ {:effect "Modifiers to your damage apply to your minions at 50% effectiveness (stacks, max 100%)"}
  {:effect "+1 incoming healing (not including from potions/healing surges)"}
  {:effect "+2 outgoing healing"}
- {:effect
-  "Once per long rest, when rolling a natural 1 on a d20, you may reroll."}
+ {:effect "Once per long rest, when rolling a natural 1 on a d20, you may reroll."}
  {:effect   "Heal 1 HP on hitting a creature with this weapon in combat",
   :metadata #{"weapon"}}
  {:effect   "+1 to saving throws made to end an ongoing condition if your HP is above 0",
@@ -161,11 +165,10 @@
   :metadata #{"weapon"}}
  {:effect   "Once per long rest, you can choose a target you can see as an action and then cast a random 1st-level spell on that target, ignoring range restrictions",
   :metadata ["weapon"]}
- {:effect "When you score a critical strike, the target gains a condition that deals 1d4 damage of the strike's primary damage type every round to the target for 1d4 rounds. If the condition is reapplied, the longer of the two durations becomes the new duration and the damage stacks."}
  {:effect "When you deliver a Killing Blow, gain +2 global damage for the remainder of the combat"}
  {:effect "+2 to physical resistance while taking Damage Over Time"}
  {:effect "+1 to damage with light weapons"}
- {:effect "Reroll, the resulting enchant is applied to minions instead of the wielder (assuming their basic attacks use weapons)"}
+ {:effect "Reroll, the resulting enchant is applied to minions instead of the wielder (10 points)."}
  {:effect "Your minions have +1 resistance to all damage"}
  {:effect "When an attack fails to hit you in combat, you can use your reaction to reduce your AC for the attack until it does hit you. Your next instance of damage in the next minute is then increased by 3 for each point of AC you dropped."}
  {:effect "+1 to Damage Over Time"}
@@ -233,12 +236,24 @@
  {:effect     "You cannot cast spells"
   :points     -10
   :metadata   #{"weapon"}
-  :not_traits #{"conduit"}}
+  :not_traits #{"Conduit"}}
  {:effect   "You cannot cast spells"
   :points   -20
   :metadata #{"weapon"}
-  :traits   #{"conduit"}}
+  :traits   #{"Conduit"}}
  {:effect "-1 to skill checks you are not proficient in"
   :points -10}
+ {:effect "If you successfully disarm an enemy with this weapon, you may use a bonus action in the same turn to make an attack against the creature you disarmed."
+  :points 15
+  :traits #{"Disarm"}}
+ {:effect "Enemies are considered to enter and leave your reach at both 5 and 10 feet"
+  :points 25
+  :traits #{"Reach"}}
+ {:effect "Ranged attacks with this weapon do not suffer disadvantage from enemies being within 5 feet of you if the target of the attack is within 5 feet of you."
+  :ranged? true
+  :points 13}
+ {:effect "You cannot make ranged attacks with this weapon against targets in the disadvantage range."
+  :ranged? true
+  :points -5}
 
  ]

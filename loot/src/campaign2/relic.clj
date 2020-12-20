@@ -23,7 +23,7 @@
 (defn- override-relic! [{:keys [name] :as relic}]
   (override-relics! (mapv #(if (= (:name %) name) relic %) @relics)))
 
-;TODO: think about allowing relics to go into negatives. If not, probably best to always give an option for doing nothing and an option for negative mods
+;TODO: think about allowing relics to go into negatives. If not, probably best to always give an option for doing nothing and an option for negative mods(?)
 (defn &level!
   ([] (let [relic (&upgradeable)]
         (when relic (&level! relic))))
@@ -58,14 +58,13 @@
                           (concat [["Key" "Type" "Value"]])
                           (util/display-multi-value))
          choice (util/&num)
-         [_ option-type modifier] (when choice (nth mod-options (inc choice)))
+         [_ option-type modifier] (when (and choice (>= choice 0)) (nth mod-options (inc choice)))
          prep-relic-mod (fn [{:keys [points upgrade-points] :as m}]
                           (assoc m
                             :points (or points 10)
                             :upgrade-points (or points upgrade-points 10)
                             :level 1
                             :upgradeable? true))]
-     ;TODO: ensure level doesn't increase when -1 is given for mod selection
      (when option-type
        (-> (case option-type
              :new-relic-mod (-> relic

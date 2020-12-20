@@ -1,9 +1,10 @@
 [{:name   "Chaos Orb(s)"
   :effect "remove all mods on a magical item and replace them with new ones (-20 to 50)"}
- {:name   "Orb(s) of Balance"
-  :effect "adds mods to an item until its total mod points are equal to at least 0."}
+ {:name     "Orb(s) of Balance"
+  :effect   "adds mods to an item until its total mod points are equal to at least 0."
+  :enabled? false}
  {:value  "Orb(s) of Destruction"
-  :effect "Remove a random mod from a magic item, relic, or artefact"}
+  :effect "Remove a random mod from a magic item or relic"}
  {:name   "Orb(s) of Creation"
   :effect "Convert a mundane item into a magical item (2d20 total enchant points)"}
  {:name   "Orb(s) of Flux"
@@ -13,7 +14,7 @@
   :metadata ["disadvantage"]}
  {:name     "Exalted Orb(s)"
   :effect   "add a positive mod to a magical item"
-  :metadata ["1"]}
+  :metadata ["disadvantage"]}
  {:name     "Orb of Mulligan"
   :effect   "completely level down a relic or artefact, then level it back up to its current level. Before levelling it back up, you can let go of your attunement to it.",
   :metadata ["1"]}

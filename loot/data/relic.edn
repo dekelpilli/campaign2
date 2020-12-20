@@ -20,16 +20,16 @@
   :type "weapon",
   :base "Flail",
   :existing
-  [{:effect "effect",
+  ({:effect "effect",
     :upgradeable? false,
     :level 1,
     :upgrade-points 10,
     :points 1}
    {:effect "+1 Weapon Damage",
     :upgradeable? true,
-    :level 2,
+    :level 3,
     :upgrade-points 5,
-    :points 15}],
+    :points 20}),
   :available
   [{:effect "upgradeableEffect",
     :upgradeable? true,
@@ -38,4 +38,4 @@
     :points 10}],
   :enabled? true,
   :found? true,
-  :level 3}]
+  :level 4}]
