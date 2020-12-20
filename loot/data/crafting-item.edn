@@ -6,7 +6,7 @@
  {:value  "Orb(s) of Destruction"
   :effect "Remove a random mod from a magic item or relic"}
  {:name   "Orb(s) of Creation"
-  :effect "Convert a mundane item into a magical item (2d20 total enchant points)"}
+  :effect "Convert a mundane item into a magical item (2d20 total enchant points, min 5)"}
  {:name   "Orb(s) of Flux"
   :effect "Swap magical properties between compatible items, including simply moving enchantments to mundane items"}
  {:name     "Orb(s) of Annexation"

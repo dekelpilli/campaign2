@@ -7,18 +7,31 @@
 
 (def ^:private points-per-level 10)
 
-(defn- &upgradeable []
-  (let [upgradeable? (fn [{:keys [found? enabled? level]}] (and found? enabled? (<= level 10)))
-        upgradeable-relics (->> @relics
-                                (filter upgradeable?)
-                                (map (fn [relic] [(:name relic) relic]))
-                                (into {}))
-        relic-options (util/make-options upgradeable-relics)]
+;TODO: add func for selling (mark as enabled?=false, give price)
+(def prices [0 75 200 300 600 800 1100 1300 1500 2000])
+
+(defn- &choose-relic [relics]
+  (let [name-relics (->> relics
+                         (map (fn [relic] [(:name relic) relic]))
+                         (into {}))
+        relic-options (util/make-options name-relics)]
     (when (not-empty relic-options)
       (util/display-pairs relic-options)
       (-> (util/&num)
           (relic-options)
-          (upgradeable-relics)))))
+          (name-relics)))))
+
+(defn &owned []
+  (let [owned? (fn [{:keys [found? enabled?]}] (and found? enabled?))]
+    (->> @relics
+         (filter owned?)
+         (&choose-relic))))
+
+(defn- &upgradeable []
+  (let [upgradeable? (fn [{:keys [found? enabled? level]}] (and found? enabled? (<= level 10)))]
+    (->> @relics
+         (filter upgradeable?)
+         (&choose-relic))))
 
 (defn- override-relic! [{:keys [name] :as relic}]
   (override-relics! (mapv #(if (= (:name %) name) relic %) @relics)))
