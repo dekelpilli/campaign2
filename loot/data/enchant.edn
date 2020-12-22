@@ -20,7 +20,7 @@
  {:effect "Recover a 1st-level spell slot when you roll for initiative"}
  {:effect "Recover 10% of your maximum class points (minimum 1) when you roll for initiative"}
  {:effect   "+1d4 %s damage with attacks with this weapon"
-  :points 17
+  :points   17
   :metadata #{"weapon"}
   :randoms  [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]}
  {:effect "+1 spell save DC"
@@ -46,10 +46,11 @@
   :points 20}
  {:effect "-1 critical strike requirement with attacks (including spell attacks)"}
  {:effect "Targets have +1 critical strike avoidance minimum when saving against your spells"}
- {:effect "+1 weapon attack AB with attacks that deal non-physical damage"}
+ {:effect "+1 weapon attack AB with attacks that deal non-physical damage"
+  :points 30}
  {:effect "You have advantage on initiative rolls"}
- {:effect "When you score a critical strike, recover a 1st-level spell slot"}
- {:effect "When you score a critical strike, recover a 10% of your maximum class points (minimum 1)"}
+ {:effect "No more than once per minute, when you score a critical strike, recover a 1st-level spell slot."}
+ {:effect "No more than once per minute, when you score a critical strike, recover a 10% of your maximum class points (minimum 1)."}
  {:effect   "+1 AB with unarmed attacks"
   :metadata #{"armour"}}
  {:effect   "+1d4 %s damage with attacks with this weapon"
@@ -146,6 +147,8 @@
  {:effect "While wearing this item, you gain sustenance every 24 hours"}
  {:effect "This item sells for an extra 1d100 gold. You only roll after the item is sold"}
  {:effect "+4 Strength while restrained"}
+ {:effect   "Missed attacks with this weapon have a 20% chance to be critical hits instead while you are below 20% hit points."
+  :metadata #{"weapon"}}
  {:effect "Modifiers to your damage apply to your minions at 50% effectiveness (stacks, max 100%)"}
  {:effect "+1 incoming healing (not including from potions/healing surges)"}
  {:effect "+2 outgoing healing"}
@@ -156,7 +159,7 @@
   :metadata #{"armour"}}
  {:effect "You have resistance to all damage while taking the Dodge action"}
  {:effect "You take no additional damage from damage you are vulnerable to"
-  :points 5}
+  :points 3}
  {:effect "Your vulnerabilities cause you to receive 2x damage instead of 1.5"
   :points -2}
  {:effect "This item emits bright light in a 5 foot radius, and dim light for a further 5 feet"}
