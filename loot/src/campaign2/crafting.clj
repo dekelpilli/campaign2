@@ -42,6 +42,6 @@
 (defn &use []
   (let [opts (util/display-pairs (util/make-options crafting-actions))]
     (when-let [choice (some-> (util/&num)
-                              opts
-                              crafting-actions)]
+                              (opts)
+                              (crafting-actions))]
       (choice))))

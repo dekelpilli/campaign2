@@ -66,4 +66,5 @@
                  :else (static v2)))))]
     (let [{:keys [metadata] :as item} (rand-enabled coll)
           randomiser (reduce multi-item-reducer f metadata)]
-      (assoc item :amount (randomiser)))))
+      (fill-randoms
+        (assoc item :amount (randomiser))))))

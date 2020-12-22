@@ -1,30 +1,32 @@
-[
+[{:name   "The Matchmaker"
+  :effect "+1 Charisma for each ring type you are wearing more than one of."
+  :points 4}
  {:name   "The Doctor"
-  :effect "+2 to Medicine checks for stabilising allies for each ring the ally is wearing"
-  :points 3}
+  :effect "+2 to Medicine checks for stabilising allies for each ring the ally is wearing."
+  :points 4}
  {:name   "The Hardened"
-  :effect "+1 physical damage reduction for each non-synergy ring worn"
+  :effect "+1 physical damage reduction for each non-synergy ring worn."
   :points 7}
  {:name   "The Lone Wolf"
-  :effect "-1 critical strike requirement while this is your only ring"
+  :effect "-1 critical strike requirement while this is your only ring."
   :points 6}
  {:name   "The Conduit"
-  :effect "+1 to maximum number of rings"
+  :effect "+1 to maximum number of rings."
   :points 1}
  {:name   "The Joker"
   :effect "This ring has no effect, but may count as any ring type you choose. It can only count as one ring type at one time."
   :points 0}
  {:name   "The Investment"
-  :effect "-1 to maximum number of rings worn"
+  :effect "-1 to maximum number of rings worn."
   :points -4}
  {:name   "The Elite"
-  :effect "+1 proficiency bonus while wearing at least 7 synergy rings"
+  :effect "+1 proficiency bonus while wearing at least 7 synergy rings."
   :points 6}
  {:name   "The Speedster"
-  :effect "+5 feet to all of your speed types for each 'The Speedster' ring worn"
+  :effect "+5 feet to all of your speed types for each 'The Speedster' ring worn."
   :points 5}
  {:name   "The Prosperous"
-  :effect "+5 gold found for each 'The Prosperous' ring worn"
+  :effect "+5 gold found for each 'The Prosperous' ring worn."
   :points 1}
  {:name   "The Simpleton"
   :effect "Your non-synergy rings' cost decreases by 1 point. Your synergy rings' cost increases by 2."
@@ -41,14 +43,14 @@
              "Dual Wielder" "Dungeon Delver" "Durable" "Eldritch Adept" "Elemental Adept" "Fighting Initiate"
              "Grappler" "Great Weapon Master" "Healer" "Heavy Armor Master" "Inspiring Leader" "Keen Mind"
              "Light Armor Master" "Mage Slayer" "Magic Initiate" "Martial Adept" "Medium Armor Master"
-             "Metamagic Adept" "Mobile" "Mounted Combatant""Polearm Master" "Resilient" "Ritual Caster"
+             "Metamagic Adept" "Mobile" "Mounted Combatant" "Polearm Master" "Resilient" "Ritual Caster"
              "Savage Attacker" "Sentinel" "Sharpshooter" "Shield Master" "Skilled" "Skulker" "Spell Sniper"
              "Spell Touched" "Telekinetic" "Telepathic" "War Caster" "Weapon Master"]]
   :points  0}
- {:name "The Able"
-  :effect "+1 %s while not wearing any synergy rings that are not 'The Able'"
+ {:name    "The Able"
+  :effect  "+1 %s while not wearing any synergy rings that are not 'The Able'"
   :randoms [["Strength" "Dexterity" "Constitution" "Wisdom" "Intelligence" "Charisma"]]
-  :points 8}
+  :points  8}
  {:name   "Vengeful"
   :effect "Once per short rest, as a reaction to being damaged, you may cast Hex on the creature that damaged you. Normal range/visibility/concentration restrictions apply."
   :points 4}
@@ -56,7 +58,7 @@
   :effect "None of your attributes can be below 10. Any ability scores below 10 are considered to be 10 instead."
   :points 5}
  {:name   "Ready"
-  :effect "You have advantage on attacks and skill checks with readied actions"
+  :effect "You have advantage on attacks and skill checks with readied actions."
   :points 5}
  {:name   "Stable"
   :effect "You cannot critically fail death saves. You only need two failed death saves to die, and two successful ones to stabilise."

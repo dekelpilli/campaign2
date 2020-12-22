@@ -37,6 +37,7 @@
   (override-relics! (mapv #(if (= (:name %) name) relic %) @relics)))
 
 ;TODO: think about allowing relics to go into negatives. If not, probably best to always give an option for doing nothing and an option for negative mods(?)
+;TODO: implement multi-stage mod levelling with guaranteed offering
 (defn &level!
   ([] (let [relic (&upgradeable)]
         (when relic (&level! relic))))

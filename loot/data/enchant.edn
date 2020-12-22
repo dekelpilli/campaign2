@@ -1,8 +1,11 @@
 [{:effect "+1 AC"
   :points 30}
  {:effect "You have an additional spell slot of your second highest spell slot where you have at least one spell slot available"}
- {:effect "+5ft attack reach with melee attacks on your turn"}
- {:effect "Stone's Endurance (if you already have it, you get another use per long/short rest) (Volo's p109)"}
+ {:effect       "+5ft attack reach with melee attacks on your turn"
+  :points       30
+  :upgradeable? false}
+ {:effect "Stone's Endurance (if you already have it, you get another use per long/short rest) (Volo's p109)"
+  :points 16}
  {:effect   "+1 resistance to all damage"
   :metadata #{"armour"}
   :points   22}
@@ -16,7 +19,8 @@
   :points   11}
  {:effect "Recover a 1st-level spell slot when you roll for initiative"}
  {:effect "Recover 10% of your maximum class points (minimum 1) when you roll for initiative"}
- {:effect   "+1d4 %s damage with attacks with this weapon",
+ {:effect   "+1d4 %s damage with attacks with this weapon"
+  :points 17
   :metadata #{"weapon"}
   :randoms  [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]}
  {:effect "+1 spell save DC"
@@ -24,7 +28,7 @@
  {:effect     "+1 AC while unarmoured and not using a Shield or Targe weapons"
   :not-traits #{"Targe"}
   :not-type   #{"Shield"}
-  :points 20}
+  :points     20}
  {:effect "+1 AC while using a Shield or a Targe weapon"
   :points 25}
  {:effect "Gain resistance to physical damage equal to half the CR total of your highest CR active minion"}
@@ -37,9 +41,9 @@
  {:effect  "+1 %s"
   :randoms [["Dexterity" "Constitution" "Wisdom" "Charisma" "Strength" "Intelligence"]]
   :points  20}
- {:effect "+2 to loot rolls result, -1 loot roll die size"}
  {:effect "You have an additional second level spell slot (only if you already had at least 1)"}
- {:effect "+1 proficiency bonus if this mod is empowered or appears twice on the same item"}
+ {:effect "+1 proficiency bonus if this mod is empowered or appears twice on the same item"
+  :points 20}
  {:effect "-1 critical strike requirement with attacks (including spell attacks)"}
  {:effect "Targets have +1 critical strike avoidance minimum when saving against your spells"}
  {:effect "+1 weapon attack AB with attacks that deal non-physical damage"}
@@ -249,11 +253,11 @@
  {:effect "Enemies are considered to enter and leave your reach at both 5 and 10 feet"
   :points 25
   :traits #{"Reach"}}
- {:effect "Ranged attacks with this weapon do not suffer disadvantage from enemies being within 5 feet of you if the target of the attack is within 5 feet of you."
+ {:effect  "Ranged attacks with this weapon do not suffer disadvantage from enemies being within 5 feet of you if the target of the attack is within 5 feet of you."
   :ranged? true
-  :points 13}
- {:effect "You cannot make ranged attacks with this weapon against targets in the disadvantage range."
+  :points  13}
+ {:effect  "You cannot make ranged attacks with this weapon against targets in the disadvantage range."
   :ranged? true
-  :points -5}
+  :points  -5}
 
  ]
