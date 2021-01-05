@@ -30,7 +30,7 @@
            "When you roll 7 or lower on a loot roll, you have advantage on the result of the roll (you get two options, choose one)."
            "The cost of levelling relics attuned to you is reduced by 100 gold, to a minimum of 10."
            "You may cast Fortune's Favour at any spell level as a bonus action. You can use no more than 10 spell slot levels on this per long rest."
-           "You gain inspiration rolling a natural 20 on an attack, ability check, or saving throw. You also gain inspiration when an enemy critically fails an attack against you, or a save against an effect of yours."
+           "You gain inspiration when rolling a natural 20 on an attack, ability check, or saving throw. You also gain inspiration when an enemy critically fails an attack against you, or a save against an effect of yours."
            "Your inspiration point maximum goes up to 2. Additionally, you may choose to expend inspiration after completing a roll rather than to simply gain advantage."]}
  {:name   "Vuneta",
   :levels ["You have advantage on Persuasion checks with creatures you are friendly with"
@@ -67,27 +67,15 @@
            "You have Truesight to a range of 60 feet."]}
  {:name   "Thetia"
   :levels ["You and your allies gain +1 damage in battle while outnumbered (>0hp only)."
-           "If, when rolling for initiative, you health is below 50%, you gain temporary hit points equal to the difference between your current health and 50% of your maximum health. These temporary hit points dissipate at the end of the combat."
-           "When you land a Killing Blow in combat, you have advantage on all rolls until the end of your next turn."
+           "When using a consumable in combat, you have a 25% chance for that consumable to be refunded immediately."
+           "When you land a Killing Blow, all allies of the killed creature within 60 feet that saw the kill suffer a -2 penalty to their mental attributes for the next 12 seconds (does not stack)."
+           "You have +1 AB and +1 to spell save DCs against enemies within 5 feet of two or more of your allies, including yourself, excluding incapacitated creatures."
            "You and your allies may choose to use the highest initiative result from rolled among the group. The order within the party is still as per each character's rolls."
-           "x"
-           "x"
-           "x"
-           "x"
-           "Once per long rest, when you would otherwise go down, you may instead remain on 1 hit point. Until the end of your next turn, you are immune to damage. At the end of your next turn, if you have not received healing, you go down and have one failed death saving throw."
-           "x"
-
-           ;"+1 damage while you're within 30 feet of more than one hostile creature"
-           ;"You have advantage on Deception checks when the lie is about deaths you've been involved in, and advantage in Persuasion checks that would allow you to engage in more battles"
-           ;"You gain +10% XP in combat where you landed a Killing Blow. You are always the one to gain this XP (even if the other ~91% goes to another party member)."
-           ;"Once per long rest, as a bonus action, you may reduce the duration of conditions on willing creature within 30 feet of you by 1 minute."
-           ;"You gain temporary hit points equal to two times your level when you land a Killing Blow"
-           ;"Enemies you land a Killing Blow against generate an additional loot roll of size 1d8"
-           ;"Once per short rest, when you take damage that would bring you down to 0 hit points or below, you may transfer the damage to a random creature within 60 feet, potentially including allies."
-           ;"The loot roll you gain from Killing Blows now becomes 1d12. If you skipped that step, you gain it now instead."
-           ;"+5 global damage"
-           ;"Once per long rest, when you finish an encounter, you may immediately gain the benefits of a short rest."
-           ]}
+           "You gain proficiency in saving throws of types you've failed in the last 12 seconds."
+           "You gain proficiency in Charisma (Intimidation). Additionally, your proficiency bonus is doubled for any ability check you make with this skill when attempting to get information from a vanquished foe (non-lethaled)."
+           "Once per minute, when an enemy recovers from a condition you caused in battle (e.g. breaking a grapple, succeeding on a spell save, you lose concentration), you may force it also gain 3 points of exhaustion until the end of its next turn."
+           "Once per long rest, when you would otherwise go down, you may instead remain on 1 hit point. Until the end of your next turn, you cannot be reduced to be below 1 hit point. At the end of your next turn, if you are on 1 hit point, you go down and have one failed death saving throw."
+           "You gain the Inspiring Leader feat.  If you already have the Inspiring Leader feat, you may gain a different feat instead. Additionally, instead of temporary hit points, you may choose to grant inspiration instead (decision is per creature). This inspiration point expires at the end of combat."]}
  {:name   "Cerasil",
   :levels ["You have advantage on Charisma checks directed at non-hostile or non-intelligent plant and beast creatures. Additionally, you can communicate telepathically with them within 30 feet."
            "You are immune to natural diseases."
