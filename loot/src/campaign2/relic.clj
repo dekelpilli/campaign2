@@ -51,7 +51,7 @@
                            (conj '(:new-relic-mod :new-random-mod)
                                  (if (empty? upgradeable-mods) (rand-nth [:new-relic-mod :new-random-mod]) :upgrade-existing-mod))
                            (repeatedly :negative-mod 3))
-         valid-enchants (e/find-valid-enchants (campaign2.mundane/find-base base type) type)
+         valid-enchants (e/find-valid-enchants (mundane/find-base base type) type)
          type-mods (->> upgrade-options
                         (map (fn [o] [o (case o
                                           :negative-mod (->> valid-enchants

@@ -20,6 +20,8 @@
   :metadata ["1"]}
  {:name   "Orb(s) of Purification"
   :effect "Apply to an amulet and roll 1d6. If you roll above its current CR capacity, you may increase its capacity by 1. Contained creature does not change."}
+ {:name   "Orb(s) of Favouritism"
+  :effect "Reroll the monster contained inside an amulet, forcing a specific monster type. If none are available of that type in the appropriate CR, you may roll with a lower CR."}
  {:name     "Orb(s) of Disavowment"
   :effect   "You lose all progress from your current prayer path and all effects it granted."
   :enabled? false}]

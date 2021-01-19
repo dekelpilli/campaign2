@@ -8,8 +8,7 @@
              "When casting non-cantrip Illusion spells, you may choose to use the spell slot level below that spell's natural casting requirement, to a minimum of 1"
              "+2 to the DCs of Illusion spells"
              "You may cast Zone of Truth once per short rest. When cast in this way, the spell is centered on you and lasts for 1 hour."
-             "You have 30 feet of Truesight"],
-  :progress 0}
+             "You have 30 feet of Truesight"]}
  {:name   "Esher",
   :levels ["When you roll a 1 on a die for gaining healing from healing surges, you may reroll the die and must use the new result."
            "You and your minions have +3 to maximum hit points, and you have +3 to maximum hit points while transformed."
@@ -65,17 +64,17 @@
            "While below 50% HP, as a reaction to being hit, or as a reaction to taking a critical hit, you may cast Foresight. You can do this once per long rest."
            "You gain the Keen Mind feat. If you already have the Keen Mind feat, you may gain a different feat instead."
            "You have Truesight to a range of 60 feet."]}
- {:name   "Thetia"
+ {:name   "Thetia" ;TODO: balance check, might be a bit weak?
   :levels ["You and your allies gain +1 damage in battle while outnumbered (>0hp only)."
            "When using a consumable in combat, you have a 25% chance for that consumable to be refunded immediately."
-           "When you land a Killing Blow, all allies of the killed creature within 60 feet that saw the kill suffer a -2 penalty to their mental attributes for the next 12 seconds (does not stack)."
+           "When you land a Killing Blow, all allies of the killed creature within 60 feet that saw the kill suffer a -2 penalty to their mental attributes (min 1) for the next 12 seconds (does not stack)."
            "You have +1 AB and +1 to spell save DCs against enemies within 5 feet of two or more of your allies, including yourself, excluding incapacitated creatures."
+           "You gain proficiency in Charisma (Intimidation). Additionally, your proficiency bonus is doubled for any ability check you make with this skill when attempting to get information from a vanquished foe (e.g. non-lethaled)."
            "You and your allies may choose to use the highest initiative result from rolled among the group. The order within the party is still as per each character's rolls."
            "You gain proficiency in saving throws of types you've failed in the last 12 seconds."
-           "You gain proficiency in Charisma (Intimidation). Additionally, your proficiency bonus is doubled for any ability check you make with this skill when attempting to get information from a vanquished foe (non-lethaled)."
            "Once per minute, when an enemy recovers from a condition you caused in battle (e.g. breaking a grapple, succeeding on a spell save, you lose concentration), you may force it also gain 3 points of exhaustion until the end of its next turn."
            "Once per long rest, when you would otherwise go down, you may instead remain on 1 hit point. Until the end of your next turn, you cannot be reduced to be below 1 hit point. At the end of your next turn, if you are on 1 hit point, you go down and have one failed death saving throw."
-           "You gain the Inspiring Leader feat.  If you already have the Inspiring Leader feat, you may gain a different feat instead. Additionally, instead of temporary hit points, you may choose to grant inspiration instead (decision is per creature). This inspiration point expires at the end of combat."]}
+           "You gain the Inspiring Leader feat. If you already have the Inspiring Leader feat, you may gain a different feat instead. Additionally, instead of temporary hit points, you may choose to grant inspiration instead (decision is per creature). This inspiration point expires at the end of combat."]}
  {:name   "Cerasil",
   :levels ["You have advantage on Charisma checks directed at non-hostile or non-intelligent plant and beast creatures. Additionally, you can communicate telepathically with them within 30 feet."
            "You are immune to natural diseases."
@@ -111,7 +110,7 @@
            "You may cast the Time Ravage spell once per long rest. If this spell kills a creature, you may cast Soul Cage to capture its soul."]}
  {:name   "Ketis"
   :levels ["You have +1 resistance to cold, fire, and lightning damage"
-           "When you take fire, cold, or lightning damage, you only become resistant to any of those damage types that instance of damage did not contain. Maximum 1 instance of this buff."
+           "When you take fire, cold, or lightning damage, you become resistant to any of those damage types that instance of damage did not contain. Maximum 1 instance of this buff."
            "You can cast Absorb Elements WIS Mod (min 1) times per long rest"
            "As a reaction to being targeted by a melee attack, You can cast Thunderwave CON Mod (min 1) times per short rest. Mental attribute of your choice."
            "When you perform a check to learn a creatures stats, regardless of your roll, you learn about the target creature's vulnerability/resistance/immunity to fire/cold/lightning."
