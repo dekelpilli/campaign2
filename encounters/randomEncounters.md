@@ -19,6 +19,3 @@ Difficulties:
     - Investigation: Collective DC35 for \[3d12, 1d10\]; DC45 for \[3d12, 2d10, 1d8\]; DC60 for \[5d12, 1d10\].
 
 http://dhmstark.co.uk/rpgs/encounter-calculator-5th/
-
-Wild: 30%, then 15% for positive
-City: 40%, then 20% for positive

@@ -47,7 +47,7 @@
       "weapon" (filter #(compatible-weapon? base %) enabled-enchants)
       "armour" (filter #(compatible-armour? base %) enabled-enchants))))
 
-(defn- add-enchants [base type points-target points-validator]
+(defn add-enchants [base type points-target points-validator]
   (let [points-comparator (if (neg? points-target) > <)
         valid-enchants (->> (find-valid-enchants base type)
                             (filter #(points-validator (:points % default-points)))

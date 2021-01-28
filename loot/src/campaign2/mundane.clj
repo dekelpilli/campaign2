@@ -32,6 +32,6 @@
   (util/rand-enabled @armours))
 
 (defn new []
-  (util/rand-enabled (if (> 66 (rand-int 100))
-                       @weapons
-                       @armours)))
+  (util/rand-enabled (if (util/occurred? 66)
+                       @armours
+                       @weapons)))

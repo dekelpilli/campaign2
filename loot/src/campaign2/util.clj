@@ -20,25 +20,31 @@
   coll)
 
 (defn display-pairs
-  ([p m] (println p) (display-pairs m))
-  ([m] (table
-         (->> m
-              (into [])
-              (sort)
-              (concat [["Key" "Value"]])))
+  ([m] (display-pairs m nil))
+  ([m {:keys [sort? k v]
+       :or   {sort? true
+              k     "Key"
+              v     "Value"}}]
+   (table
+     (as-> m $
+           (into [] $)
+           (if sort? (sort $) $)
+           (concat [[k v]] $)))
    m))
 
-(defn make-options [coll]
-  (->> (if (map? coll) (keys coll) coll)
-       (sort)
-       (map-indexed (fn [i option] [i option]))
-       (into {})))
+(defn make-options
+  ([coll] (make-options coll nil))
+  ([coll {:keys [sort?] :or {sort? true}}]
+   (as-> (if (map? coll) (keys coll) coll) $
+         (if sort? (sort $) $)
+         (map-indexed (fn [i option] [i option]) $)
+         (into {} $))))
 
 (defn rand-enabled [coll]
   (as-> coll $
-       (filter #(:enabled? % true) $)
-       (if (empty? $) nil (rand-nth $))
-       (dissoc $ :enabled?)))
+        (filter #(:enabled? % true) $)
+        (if (empty? $) nil (rand-nth $))
+        (dissoc $ :enabled?)))
 
 (defn fill-randoms [{:keys [randoms] :as item-modifier}]
   (if (not-empty randoms)
@@ -46,6 +52,9 @@
         (update :effect #(apply format % (map rand-nth randoms)))
         (dissoc :randoms))
     item-modifier))
+
+(defn occurred? [likelihood-percentage]
+  (< (rand-int 100) likelihood-percentage))
 
 (defn- disadv [f] #(min (f) (f)))
 (defn- adv [f] #(max (f) (f)))

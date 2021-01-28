@@ -8,7 +8,7 @@
              [consumable :as consumable]
              [prayer :as prayer]
              [monster :as monster]
-             [magic :as magic]
+             [encounter :as encounter]
              [dice :as dice]
              [ring :as ring]
              [state :as state]]
@@ -58,7 +58,11 @@
    22 {:name   "Add modifiers to an existing items with the given total"
        :action enchant/&add-totalling}
    23 {:name   "Perform a ring sacrifice"
-       :action ring/&sacrifice}})
+       :action ring/&sacrifice}
+   24 {:name   "Generate random encounters"
+       :action encounter/&randomise}
+   25 {:name   "Calculate loot rewards"
+       :action encounter/&rewards}})
 
 (defn start []
   (let [loot-action-names (->> loot-actions
