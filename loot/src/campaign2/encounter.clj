@@ -2,9 +2,7 @@
   (:require [campaign2.util :as util]
             [clojure.string :as str]))
 
-(def loot-values {:1d16 5
-                  :2d8 4
-                  :1d12 2})
+(def extra-loot-threshold 13)
 
 (defn &randomise []
   (println "How many days?")
@@ -14,7 +12,7 @@
                 [i
                  (when (util/occurred? 30)
                    (if (util/occurred? 20)
-                     :positive ;todo: choose from positives
+                     :positive
                      :random))]))
          (into {}))))
 
@@ -23,24 +21,26 @@
                        (util/make-options [:easy :medium :hard :deadly] {:sort? false})
                        {:sort? false})
         difficulty (difficulties (util/&num))
-        type (when difficulty ((util/display-pairs
-                                 (util/make-options [:random :noticeboard :main]
-                                                    {:sort? false})
-                                 {:sort? false})
-                               (util/&num)))
-        investigations (when type
+        investigations (when difficulty
                          (println "List investigations: ")
                          (read-line))
         avg (when investigations
               (as-> (str/split investigations #",") $
                     (map #(Integer/parseInt %) $)
-                    (/ (reduce + $) (count $))))]
+                    (/ (reduce + $) (count $))
+                    (Math/round (double $))))]
     (when avg
-      (let [xp (case difficulty
-                 :easy (+ 4 (rand-int 3))
-                 :medium (+ 6 (rand-int 4))
-                 :hard (+ 8 (rand-int 5))
-                 :deadly (+ 12 (rand-int 6)))]
-        {:xp   xp
-         :loot avg ;TODO: use avg + difficulty/encounter type to get loot totals
-         }))))
+      {:xp   (case difficulty
+               :easy (+ 4 (rand-int 4))
+               :medium (+ 6 (rand-int 5))
+               :hard (+ 8 (rand-int 6))
+               :deadly (+ 12 (rand-int 7)))
+       :loot (when (and avg (>= avg extra-loot-threshold))
+               (let [excess (- avg extra-loot-threshold)
+                     remainder (mod (int excess) 3)]
+                 (cond-> [(str (-> excess
+                                   (/ 3)
+                                   (int)
+                                   (inc)) "x 1d16")]
+                         (= remainder 1) (conj "1x 1d12")
+                         (= remainder 2) (conj "1x 2d8"))))})))
