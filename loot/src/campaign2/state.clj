@@ -24,6 +24,7 @@
 (def enchants (atom nil))
 (def rings (atom nil))
 (def consumables (atom nil))
+(def miscreations (atom nil))
 (def monsters (atom nil))
 
 (defn reload! []
@@ -38,6 +39,7 @@
   (reset! enchants (load-data "enchant"))
   (reset! rings (load-data "ring"))
   (reset! consumables (load-data "consumable"))
+  (reset! miscreations (load-data "miscreation"))
   (reset! monsters (load-data "monster"))
   "Done")
 

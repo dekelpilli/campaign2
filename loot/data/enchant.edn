@@ -253,7 +253,8 @@
   :upgradeable? false}
  {:effect "Once per short rest, while transformed into a Monstrosity, you may take two standard actions instead of one on your turn."}
  {:effect "While transformed into a Plant, you regenerate health equal to your Constitution modifier every round, to a minimum of 1 (the plant's value + any of your bonuses)."}
- {:effect "+5 feet range for applying stabilising Medicine checks"}
+ {:effect "+5 feet range for applying stabilising Medicine checks."}
+ {:effect "25% chance when using a Miscreation to not consume the item."}
  {:effect  "+2 to your %s maximum."
   :points  15
   :randoms [["Dexterity" "Constitution" "Wisdom" "Charisma" "Strength" "Intelligence"]]}

@@ -8,6 +8,7 @@
              [consumable :as consumable]
              [prayer :as prayer]
              [monster :as monster]
+             [miscreation :as miscreation]
              [encounter :as encounter]
              [dice :as dice]
              [ring :as ring]
@@ -16,12 +17,12 @@
 
 (def loot-actions
   {-1 {:name "Exit"}
-   1  {:name   "Negatively enchanted item"
-       :action enchant/random-negative-enchanted}
-   2  {:name   "1-20 gold"
-       :action #(str (inc (rand-int 20)) " gold")}
-   3  {:name   "Mundane item"
+   1  {:name   "1-10 gold"
+       :action #(str (inc (rand-int 10)) " gold")}
+   2  {:name   "Mundane item"
        :action mundane/new}
+   3  {:name   "Miscreation"
+       :action miscreation/new}
    4  {:name   "Consumable"
        :action consumable/new}
 

@@ -1,0 +1,23 @@
+[{:name   "Nail bomb"
+  :effect "20ft thrown, 10ft radius, DEX save, 1d10 + level piercing, or half on success."}
+ {:name   "Overcharged bomb"
+  :effect "5ft thrown, 120ft line in centered on bomb in direction of choice, CON save, 2d10 + level lightning, or half on success."}
+ {:name   "Life absorbing machine"
+  :effect "Touch attack or 10ft DEX/STR throw, sticking to target on a hit. For 3 rounds or until removed as action, the target cannot heal and takes 10 + prof necrotic at the start of each turn."}
+ {:name   "Holy attenuation device"
+  :effect "Touch attack, sticking to target on a hit. For 3 rounds or until removed as an action, the target's necrotic damage is halved and the target takes 5 + prof radiant at the start of each turn."}
+ {:name   "Sound bomb"
+  :effect "20ft thrown, warned creatures may use a reaction to avoid. 30ft radius, CON save or 1d8 + level thunder and deafened for 2 rounds."}
+ {:name "Acid sprinkler"
+  :effect "40ft thrown, roots to ground on landings, lasts 3 rounds. Creatures within 30ft of sprinkler make a CON save at the start of each turn, taking 2d6 + level acid damage or half on save."}
+ ;TODO make one for each damage type
+ #_[
+    "Bludgeoning"
+    "Cold"
+    "Fire"
+    "Force"
+    "Poison"
+    "Psychic"
+    "Slashing"
+    ]
+ ]

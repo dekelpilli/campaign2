@@ -17,6 +17,11 @@ Moving mods:
     Between rings
     Between armours
 
+Miscreations:
+    Always with proficiency if throw is an attack.
+    Unsellable
+    Can hold no more than 3 unique bomb types at a time
+
 Rings:
     Max number of rings worn = prof bonus
     Max number of ring points used = char level + highest attribute modifier
