@@ -61,21 +61,20 @@
 (defn- multi [f multiplier-str] #(* (f) (Long/parseLong (subs multiplier-str 1))))
 (defn- static [const] (constantly (Long/parseLong const)))
 (defn get-multiple-items [coll f]
-  (letfn [(multi-item-reducer
-            ([default] default)
-            ([v1 v2] (multi-item-reducer nil v1 v2))
-            ([default v1 v2]
-             (if-not (fn? v1)
-               (multi-item-reducer (multi-item-reducer default v1) v2)
-               (cond
-                 (nil? v2) (multi-item-reducer nil default v1)
-                 (= "disadvantage" v2) (disadv v1)
-                 (= "advantage" v2) (adv v1)
-                 (.startsWith v2 "x") (multi v1 v2)
-                 :else (static v2)))))]
-    (let [{:keys [metadata] :as item} (rand-enabled coll)
-          randomiser (reduce multi-item-reducer f metadata)]
-      (-> item
-          (assoc :amount (randomiser))
-          (fill-randoms)
-          (dissoc :metadata)))))
+  (let [{:keys [metadata] :as item} (rand-enabled coll)
+        randomiser (loop [randomiser f
+                          coll metadata]
+                     (let [modifier (first coll)
+                           updated (cond
+                                     (= "disadvantage" modifier) (disadv randomiser)
+                                     (= "advantage" modifier) (adv randomiser)
+                                     (.startsWith modifier "x") (multi randomiser modifier)
+                                     :else (static modifier))
+                           remaining (rest coll)]
+                       (if (empty? remaining)
+                         updated
+                         (recur updated remaining))))]
+    (-> item
+        (assoc :amount (randomiser))
+        (fill-randoms)
+        (dissoc :metadata))))

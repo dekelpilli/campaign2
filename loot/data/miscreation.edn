@@ -1,23 +1,24 @@
 [{:name   "Nail bomb"
-  :effect "20ft thrown, 10ft radius, DEX save, 1d10 + level piercing, or half on success."}
+  :effect "20ft thrown, 10ft radius, DEX save, 1d10 + level piercing, or half on success. Affected area becomes difficult terrain until traversed."}
  {:name   "Overcharged bomb"
-  :effect "5ft thrown, 120ft line in centered on bomb in direction of choice, CON save, 2d10 + level lightning, or half on success."}
+  :effect "5ft thrown, 120ft line in centered on bomb in direction of choice. CON save, marked to take 2 lightning damage on a fail"}
  {:name   "Life absorbing machine"
   :effect "Touch attack or 10ft DEX/STR throw, sticking to target on a hit. For 3 rounds or until removed as action, the target cannot heal and takes 10 + prof necrotic at the start of each turn."}
  {:name   "Holy attenuation device"
   :effect "Touch attack, sticking to target on a hit. For 3 rounds or until removed as an action, the target's necrotic damage is halved and the target takes 5 + prof radiant at the start of each turn."}
  {:name   "Sound bomb"
-  :effect "20ft thrown, warned creatures may use a reaction to avoid. 30ft radius, CON save or 1d8 + level thunder and deafened for 2 rounds."}
- {:name "Acid sprinkler"
-  :effect "40ft thrown, roots to ground on landings, lasts 3 rounds. Creatures within 30ft of sprinkler make a CON save at the start of each turn, taking 2d6 + level acid damage or half on save."}
+  :effect "20ft thrown, warned creatures may use a reaction to avoid. 30ft radius, CON save or 1d8 + level thunder and deafened for 2 rounds. Immune if deaf."}
+ {:name   "Sentry plant"
+  :effect "40ft thrown seeds, grow into a robotic plant and root to ground on landings, lasts 3 rounds. Creatures that move towards the sentry while within 30 feet of it are grabbed by vines. DEX save or 1d6 + prof bludgeoning damage from constriction and grappled until end of turn."}
+ {:name   "Weather altering device"
+  :effect "Place on the floor within 5 feet. At the end of your next turn, and three turns thereafter, glaciers rain from the sky/ceiling. STR save or prone and 1d8 + level cold damage, half on success."}
  ;TODO make one for each damage type
  #_[
-    "Bludgeoning"
-    "Cold"
-    "Fire"
-    "Force"
-    "Poison"
-    "Psychic"
+    "Acid"
+    "Fire" ;smoke + fire = heavily obscured
+    "Force" ; knockback?
+    "Poison" ; lower DC save to also become poisoned? dot?
+    "Psychic" ;int save, lose reaction on save
     "Slashing"
     ]
  ]

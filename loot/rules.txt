@@ -20,7 +20,6 @@ Moving mods:
 Miscreations:
     Always with proficiency if throw is an attack.
     Unsellable
-    Can hold no more than 3 unique bomb types at a time
 
 Rings:
     Max number of rings worn = prof bonus
