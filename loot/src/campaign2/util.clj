@@ -22,7 +22,7 @@
 (defn display-pairs
   ([m] (display-pairs m nil))
   ([m {:keys [sort? k v]
-       :or   {sort? true
+       :or   {sort? false
               k     "Key"
               v     "Value"}}]
    (table
@@ -34,7 +34,7 @@
 
 (defn make-options
   ([coll] (make-options coll nil))
-  ([coll {:keys [sort?] :or {sort? true}}]
+  ([coll {:keys [sort?] :or {sort? false}}]
    (as-> (if (map? coll) (keys coll) coll) $
          (if sort? (sort $) $)
          (map-indexed (fn [i option] [i option]) $)

@@ -18,8 +18,7 @@
 
 (defn &rewards []
   (let [difficulties (util/display-pairs
-                       (util/make-options [:easy :medium :hard :deadly] {:sort? false})
-                       {:sort? false})
+                       (util/make-options [:easy :medium :hard :deadly]))
         difficulty (difficulties (util/&num))
         investigations (when difficulty
                          (println "List investigations: ")

@@ -12,6 +12,7 @@
              [encounter :as encounter]
              [dice :as dice]
              [ring :as ring]
+             [unique :as unique]
              [state :as state]]
             [clojure.tools.logging :as log]))
 
@@ -25,7 +26,8 @@
        :action miscreation/new}
    4  {:name   "Consumable"
        :action consumable/new}
-
+   6  {:name   "Unique"
+       :action unique/new}
    7  {:name   "Enchanted item (10 points)"
        :action #(enchant/random-enchanted 10)}
    8  {:name   "100-150 gold"

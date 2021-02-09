@@ -1,0 +1,67 @@
+[
+ {:name    "Pacifist's Vow"
+  :base    "Blowgun"
+  :effects [{:effect "Non-damaging spells have a 50% chance consume a spell slot 1 level lower."}
+            {:effect "You may forego dealing damage with a spell to make it count as a non-damaging spell."}
+            {:effect "The damage you deal with spells and cantrips is halved."}]}
+ {:name    "Researcher's Power"
+  :base    "Staff"
+  :effects [{:effect "Intelligence is not capped at 20."}
+            {:effect "+2 intelligence."}
+            {:effect "+2 to non-highest mental attribute (choose if equal)."}
+            {:effect "You cannot use intelligence to cast spells."}
+            {:effect "You can use a different mental attribute for spells that you would normally cast with intelligence."}]}
+ {:name    "Wrestler's Perseverance"
+  :base    "Any body armour"
+  :effects [{:effect "You have advantage with melee attacks while grappled or restrained. You do not suffer disadvantage on melee attacks while restrained."}
+            {:effect "You have proficiency with Athletics and Acrobatics."}
+            {:effect "Creatures you grappled are considered to be restrained."}
+            {:effect "You are considered to be restrained while you are grappling a creature."}]}
+ {:name    "Garb of the Divine"
+  :base    "Any body armour"
+  :effects [{:effect "You gain Divinity until the end of your next turn when you hit a creature with an attack."}
+            {:effect "+10 fire, radiant, cold, and lightning damage while you have Divinity."}
+            {:effect "You may convert any physical damage you deal to fire, radiant, cold, or lightning damage while you have Divinity."}
+            {:effect "You are immune to curses."}
+            {:effect "You take no extra damage from critical strikes from creatures within 5 feet of you."}
+            {:effect "May only be worn if you have 20 intelligence and 20 strength."}
+            {:effect "Your may not add your intelligence or strength to any damage you deal."}]}
+ {:name    "Infernal Mantle"
+  :base    "Any body armour"
+  :effects [{:effect "+3 fire damage with spells."}
+            {:effect "-1 critical strike requirement with spells."}
+            {:effect "Targets have +1 critical strike avoidance minimum when saving against your spells."}
+            {:effect "You are vulnerable to all spell damage if you have expended your spell slots at any level."}
+            {:effect "Can only be donned or doffed after a long rest."}]}
+ {:name    "Giant's Simplicity"
+  :base    "Any body armour"
+  :effects [{:effect "Your hit die size is increased by 2. This increases your maximum hit points."}
+            {:effect "You regenerate 4 life per round in combat."}
+            {:effect "You have advantage on damage physical damage dice rolls with melee attacks."}
+            {:effect "You are large."}
+            {:effect "You cannot cast spells."}
+            {:effect "You cannot wear relics."}]}
+ {:name    "Garb of the Unhinged"
+  :base    "any body armour"
+  :effects [{:effect "+2 to all attributes."}
+            {:effect "Your critical strike requirement is 13 while you are not mad."}
+            {:effect "Targets have a critical strike avoidance minimum of 7 when saving against your spells while you are not mad."}
+            {:effect "+3 resistance to all damage while mad."}
+            {:effect "Healing your receive while mad is applied as if the maximum value was rolled."}
+            {:effect "Roll a d20 at the start of each turn in combat where you are conscious. If you roll 10 or lower, roll a d100 on the short term madness table. You are afflicted by the matching effect until the start of your next turn."}]
+  :madness {"01-20" "The character retreats into his or her mind and becomes paralyzed. The effect ends if the character takes any damage."
+            "21-30" "The character becomes incapacitated and spends the duration screaming, laughing, or weeping."
+            "31-40" "The character becomes frightened and must use his or her action and movement each round to flee from the source of the fear."
+            "41-50" "The character begins babbling and is incapable of normal speech or spellcasting."
+            "51-60" "The character must use his or her action each round to attack the nearest creature."
+            "61-70" "The character experiences vivid hallucinations and has disadvantage on ability checks."
+            "71-75" "The character does whatever anyone tells him or her to do that isn't obviously self-destructive."
+            "76-80" "The character experiences an overpowering urge to eat something strange such as dirt, slime, or offal."
+            "81-90" "The character is stunned."
+            "91-100" "The character falls unconscious."}}
+ ;stolen ideas from all chests, need to do others
+ {:name     "Template"
+  :base     "string"
+  :effects  [{:effect "description"}]
+  :enabled? false}
+ ]

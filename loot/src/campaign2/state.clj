@@ -26,6 +26,7 @@
 (def consumables (atom nil))
 (def miscreations (atom nil))
 (def monsters (atom nil))
+(def uniques (atom nil))
 
 (defn reload! []
   (println "Loading...")
@@ -41,6 +42,7 @@
   (reset! consumables (load-data "consumable"))
   (reset! miscreations (load-data "miscreation"))
   (reset! monsters (load-data "monster"))
+  (reset! uniques (load-data "unique"))
   "Done")
 
 (reload!)
