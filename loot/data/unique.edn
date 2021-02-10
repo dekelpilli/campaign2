@@ -33,7 +33,7 @@
             {:effect "Targets have +1 critical strike avoidance minimum when saving against your spells."}
             {:effect "You are vulnerable to all spell damage if you have expended your spell slots at any level."}
             {:effect "Can only be donned or doffed after a long rest."}]}
- {:name    "Giant's Simplicity"
+ {:name    "Werebear's Pelt"
   :base    "Any body armour"
   :effects [{:effect "Your hit die size is increased by 2. This increases your maximum hit points."}
             {:effect "You regenerate 4 life per round in combat."}
@@ -59,7 +59,34 @@
             "76-80" "The character experiences an overpowering urge to eat something strange such as dirt, slime, or offal."
             "81-90" "The character is stunned."
             "91-100" "The character falls unconscious."}}
- ;stolen ideas from all chests, need to do others
+ {:name     "Slow and Steady"
+  :base     "Any boots"
+  :effects  [{:effect "You are immune to the grappled and restrained conditions."}
+             {:effect "+2 maximum constitution."}
+             {:effect "+1 constitution."}
+             {:effect "Your speed is reduced by 5 feet."}]}
+ {:name     "Fast and Furious"
+  :base     "Any boots"
+  :effects  [{:effect "Your speed is increased by 5 feet for each attack you've made during your turn."}
+             {:effect "You may sacrifice half of your movement to disengage if you've made an attack in your bonus action. "}
+             {:effect "Your speed is reduced by 10 feet."}]}
+ {:name     "Gluttony"
+  :base     "Any boots"
+  :effects  [{:effect "You and allies heal 3 life when hitting enemies cursed by you, no more than onc per turn."}
+             {:effect "Allies gain 3 hit points on hitting enemies you have cursed."}
+             {:effect "You cannot gain temporary hit points."}
+             {:effect "Take 5 true damage when you dash."}]}
+ {:name     "Unreserved"
+  :base     "Any gloves"
+  :effects  [{:effect "+2 global damage."}
+             {:effect "+1 damage vulnerability."}
+             {:effect "+1 incoming healing."}]}
+ {:name     "Relentless"
+  :base     "Any helmet"
+  :effects  [{:effect "Regenerate 5 life each round in combat while conscious."}
+             {:effect "Gain temporary hit points equal to twice your level when you roll for initiative and do not have full health."}
+             {:effect "You cannot benefit from healing surges while conscious."}]}
+ ;stolen ideas from all chests/boots/belts, need to do others
  {:name     "Template"
   :base     "string"
   :effects  [{:effect "description"}]
