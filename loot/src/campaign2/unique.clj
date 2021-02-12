@@ -2,8 +2,20 @@
   (:require
     [campaign2
      [util :as util]
-     [state :refer [uniques]]]))
+     [state :refer [uniques]]]
+    [clojure.walk :as walk]))
 
 (defn new []
-  ;TODO format effects in more readable way
-  (util/rand-enabled @uniques))
+  (let [{:keys [effects] :as unique} (util/rand-enabled @uniques)]
+    (loop [[current & remaining] effects
+           unique unique
+           n 1]
+      (let [new (assoc unique (str n) (:effect (util/fill-randoms current)))]
+        (if current
+          (recur remaining
+                 new
+                 (inc n))
+          (as-> unique $
+                (dissoc $ :effects)
+                (walk/stringify-keys $)
+                (into (sorted-map) $)))))))
