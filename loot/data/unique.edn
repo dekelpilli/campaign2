@@ -49,44 +49,79 @@
             {:effect "+3 resistance to all damage while mad."}
             {:effect "Healing your receive while mad is applied as if the maximum value was rolled."}
             {:effect "Roll a d20 at the start of each turn in combat where you are conscious. If you roll 10 or lower, roll a d100 on the short term madness table. You are afflicted by the matching effect until the start of your next turn."}]
-  :madness {"01-20" "The character retreats into his or her mind and becomes paralyzed. The effect ends if the character takes any damage."
-            "21-30" "The character becomes incapacitated and spends the duration screaming, laughing, or weeping."
-            "31-40" "The character becomes frightened and must use his or her action and movement each round to flee from the source of the fear."
-            "41-50" "The character begins babbling and is incapable of normal speech or spellcasting."
-            "51-60" "The character must use his or her action each round to attack the nearest creature."
-            "61-70" "The character experiences vivid hallucinations and has disadvantage on ability checks."
-            "71-75" "The character does whatever anyone tells him or her to do that isn't obviously self-destructive."
-            "76-80" "The character experiences an overpowering urge to eat something strange such as dirt, slime, or offal."
-            "81-90" "The character is stunned."
+  :madness {"01-20"  "The character retreats into his or her mind and becomes paralyzed. The effect ends if the character takes any damage."
+            "21-30"  "The character becomes incapacitated and spends the duration screaming, laughing, or weeping."
+            "31-40"  "The character becomes frightened and must use his or her action and movement each round to flee from the source of the fear."
+            "41-50"  "The character begins babbling and is incapable of normal speech or spellcasting."
+            "51-60"  "The character must use his or her action each round to attack the nearest creature."
+            "61-70"  "The character experiences vivid hallucinations and has disadvantage on ability checks."
+            "71-75"  "The character does whatever anyone tells him or her to do that isn't obviously self-destructive."
+            "76-80"  "The character experiences an overpowering urge to eat something strange such as dirt, slime, or offal."
+            "81-90"  "The character is stunned."
             "91-100" "The character falls unconscious."}}
- {:name     "Slow and Steady"
-  :base     "Any boots"
-  :effects  [{:effect "You are immune to the grappled and restrained conditions."}
-             {:effect "+2 maximum constitution."}
-             {:effect "+1 constitution."}
-             {:effect "Your speed is reduced by 5 feet."}]}
- {:name     "Fast and Furious"
-  :base     "Any boots"
-  :effects  [{:effect "Your speed is increased by 5 feet for each attack you've made during your turn."}
-             {:effect "You may sacrifice half of your movement to disengage if you've made an attack in your bonus action. "}
-             {:effect "Your speed is reduced by 10 feet."}]}
- {:name     "Gluttony"
-  :base     "Any boots"
-  :effects  [{:effect "You and allies heal 3 life when hitting enemies cursed by you, no more than onc per turn."}
-             {:effect "Allies gain 3 hit points on hitting enemies you have cursed."}
-             {:effect "You cannot gain temporary hit points."}
-             {:effect "Take 5 true damage when you dash."}]}
- {:name     "Unreserved"
-  :base     "Any gloves"
-  :effects  [{:effect "+2 global damage."}
-             {:effect "+1 damage vulnerability."}
-             {:effect "+1 incoming healing."}]}
- {:name     "Relentless"
-  :base     "Any helmet"
-  :effects  [{:effect "Regenerate 5 life each round in combat while conscious."}
-             {:effect "Gain temporary hit points equal to twice your level when you roll for initiative and do not have full health."}
-             {:effect "You cannot benefit from healing surges while conscious."}]}
- ;stolen ideas from all chests/boots/belts, need to do others
+ {:name    "Slow and Steady"
+  :base    "Any boots"
+  :effects [{:effect "You are immune to the grappled and restrained conditions."}
+            {:effect "+2 maximum constitution."}
+            {:effect "+1 constitution."}
+            {:effect "Your speed is reduced by 5 feet."}]}
+ {:name    "Fast and Furious"
+  :base    "Any boots"
+  :effects [{:effect "Your speed is increased by 5 feet for each attack you've made during your turn."}
+            {:effect "You may sacrifice half of your movement to disengage if you've made an attack in your bonus action. "}
+            {:effect "Your speed is reduced by 10 feet."}]}
+ {:name    "Gluttony"
+  :base    "Any boots"
+  :effects [{:effect "You and allies heal 3 life when hitting enemies cursed by you, no more than onc per turn."}
+            {:effect "Allies gain 3 hit points on hitting enemies you have cursed."}
+            {:effect "You cannot gain temporary hit points."}
+            {:effect "Take 5 true damage when you dash."}]}
+ {:name    "Unreserved"
+  :base    "Any gloves"
+  :effects [{:effect "+2 global damage."}
+            {:effect "+1 damage vulnerability."}
+            {:effect "+1 incoming healing."}]}
+ {:name    "Relentless"
+  :base    "Any helmet"
+  :effects [{:effect "Regenerate 5 life each round in combat while conscious."}
+            {:effect "Gain temporary hit points equal to twice your level when you roll for initiative and do not have full health."}
+            {:effect "You cannot benefit from healing surges while conscious."}]}
+ {:name    "Mitts of the Frostbitten"
+  :base    "any gloves"
+  :effects [{:effect "+1 cold thorns"}
+            {:effect "+2 cold damage"}
+            {:effect "Physical damage you would deal is dealt as cold damage instead."}
+            {:effect "Your physical damage is halved"}]}
+ {:name    "Cryomancer's Obsession"
+  :base    "any helmet"
+  :effects [{:effect "+1d4 cold damage with attacks and spells."}
+            {:effect "Enemies you score a critical strike against are frozen; +2 cold vulnerability, fire resistance, restrained. CON save at end of turn (8+prof+mental) to end, or until taking fire damage."}
+            {:effect "You can only land killing blows against frozen enemies (including non-frozen enemies you have just hit with a crit)."}]}
+ {:name    "Desecration"
+  :base    "any weapon"
+  :effects [{:effect "You may add your character level to the life of one of your minions upon creation."}
+            {:effect "You may raise undead minions without the requisite corpses."}
+            {:effect "You may only have minions that would normally require corpses to be created."}
+            {:effect "You may only have undead minions."}]}
+ {:name    "Corrosion"
+  :base    "any 1h weapon"
+  :effects [{:effect "Physical damage you would deal with this weapon is dealt as acid damage instead."}
+            {:effect "+1d4 acid damage with this weapon."}
+            {:effect "+1 die size with acid damage."}
+            {:effect "Take 1 acid damage whenever you make an attack with this weapon."}]}
+ {:name    "Apothecary's expertise"
+  :base    "any gloves"
+  :effects [{:effect "Poisons you inflict end one round after their regular duration (including being ended with a save)."}
+            {:effect "When deal poison damage to a poison-immune enemy, they become resistant to poison instead."}
+            {:effect "When deal poison damage to a poison-resistant enemy, they lose their resistance to poison."}
+            {:effect "-2 damage with non-poison damage types."}]}
+ {:name    "Thunderfist"
+  :base    "any Unarmed weapon"
+  :effects [{:effect "+1d4 thunder damage with this weapon."}
+            {:effect "+20 temporary hit points when you take thunder damage."}
+            {:effect "You may force enemies that take thunder damage from a critical strike from this weapon to make a STR save (DC: 8+AB) or be knocked back 5feet."}
+            {:effect "You are vulnerable to lightning damage."}]}
+ ;stolen ideas from all chests/boots/belts/gloves, need to do others
  {:name     "Template"
   :base     "string"
   :effects  [{:effect "description"}]
