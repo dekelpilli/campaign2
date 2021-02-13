@@ -36,7 +36,6 @@
 (defn- override-relic! [{:keys [name] :as relic}]
   (override-relics! (mapv #(if (= (:name %) name) relic %) @relics)))
 
-;TODO: think about allowing relics to go into negatives. If not, probably best to always give an option for doing nothing and an option for negative mods(?)
 ;TODO: implement multi-stage mod levelling with guaranteed offering
 (defn &level!
   ([] (let [relic (&upgradeable)]
@@ -47,17 +46,11 @@
          points-remaining (- (* points-per-level (inc level))
                              current-points-total)
          upgradeable-mods (filter #(:upgradeable? % true) existing)
-         upgrade-options (if-not (neg? points-remaining)
-                           (conj '(:new-relic-mod :new-random-mod)
-                                 (if (empty? upgradeable-mods) (rand-nth [:new-relic-mod :new-random-mod]) :upgrade-existing-mod))
-                           (repeatedly :negative-mod 3))
+         upgrade-options (conj '(:new-relic-mod :new-random-mod) ;TODO: player-specific mods
+                               (if (empty? upgradeable-mods) (rand-nth [:new-relic-mod :new-random-mod]) :upgrade-existing-mod))
          valid-enchants (e/find-valid-enchants (mundane/find-base base type) type)
          type-mods (->> upgrade-options
                         (map (fn [o] [o (case o
-                                          :negative-mod (->> valid-enchants
-                                                             (filter (fn [enchant] (neg? (:points enchant e/default-points))))
-                                                             (util/rand-enabled)
-                                                             (util/fill-randoms))
                                           :new-relic-mod (util/rand-enabled available)
                                           :upgrade-existing-mod (->> upgradeable-mods
                                                                      (util/rand-enabled)

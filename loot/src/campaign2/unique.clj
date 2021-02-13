@@ -10,12 +10,11 @@
     (loop [[current & remaining] effects
            unique unique
            n 1]
-      (let [new (assoc unique (str n) (:effect (util/fill-randoms current)))]
-        (if current
-          (recur remaining
-                 new
-                 (inc n))
-          (as-> unique $
-                (dissoc $ :effects)
-                (walk/stringify-keys $)
-                (into (sorted-map) $)))))))
+      (if current
+        (recur remaining
+               (assoc unique (str n) (:effect (util/fill-randoms current)))
+               (inc n))
+        (as-> unique $
+              (dissoc $ :effects)
+              (walk/stringify-keys $)
+              (into (sorted-map) $))))))

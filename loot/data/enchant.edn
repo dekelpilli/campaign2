@@ -171,9 +171,6 @@
  {:effect       "You take no additional damage from damage you are vulnerable to"
   :points       3
   :upgradeable? false}
- {:effect       "Your vulnerabilities cause you to receive 2x damage instead of 1.5"
-  :points       -2
-  :upgradeable? false}
  {:effect "+1 damage to melee and touch attacks"}
  {:effect "Recover a 1st-level spell slot on Killing Blow"}
  {:effect "Recover 10% of your maximum class points (minimum 1) on Killing Blow"}
@@ -260,24 +257,9 @@
   :randoms [["Dexterity" "Constitution" "Wisdom" "Charisma" "Strength" "Intelligence"]]}
  {:effect "You are considered to be proficient in Acrobatics checks that are made with disadvantage."
   :points 4}
- {:effect   "-1 to death saves"
-  :points   -10
-  :metadata #{"armour"}}
  {:effect   "+1 to death saves in sunlight"
   :points   5
   :metadata #{"armour"}}
- {:effect       "You cannot cast spells"
-  :points       -10
-  :metadata     #{"weapon"}
-  :not-traits   #{"Conduit"}
-  :upgradeable? false}
- {:effect       "You cannot cast spells"
-  :points       -20
-  :metadata     #{"weapon"}
-  :traits       #{"Conduit"}
-  :upgradeable? false}
- {:effect "-1 to skill checks you are not proficient in"
-  :points -10}
  {:effect "If you successfully disarm an enemy with this weapon, you may use a bonus action in the same turn to make an attack against the creature you disarmed."
   :points 15
   :traits #{"Disarm"}}
@@ -288,8 +270,4 @@
  {:effect       "Ranged attacks with this weapon do not suffer disadvantage from enemies being within 5 feet of you if the target of the attack is within 5 feet of you."
   :ranged?      true
   :points       13
-  :upgradeable? false}
- {:effect       "You cannot make ranged attacks with this weapon against targets in the disadvantage range."
-  :ranged?      true
-  :points       -5
   :upgradeable? false}]

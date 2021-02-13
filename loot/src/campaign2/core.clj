@@ -37,9 +37,9 @@
    10 {:name   "Synergy ring"
        :action ring/new-synergy}
    11 {:name   "Enchanted item (20 points, positive only)"
-       :action #(enchant/random-positive-enchanted 20)}
+       :action #(enchant/random-enchanted 20)}
    12 {:name   "Enchanted item (30 points, positive only)"
-       :action #(enchant/random-positive-enchanted 30)}
+       :action #(enchant/random-enchanted 30)}
    13 {:name   "Crafting item"
        :action crafting/new}
    14 {:name   "Amulet"
