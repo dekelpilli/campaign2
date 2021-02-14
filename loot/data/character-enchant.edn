@@ -1,0 +1,5 @@
+{:tester [{:effect "+1 Constitution"
+           :points 20}
+          {:effect       "When you decrease damage with Fortify, you are inflicted with blight of 20%/5 instead of 25%/4."
+           :upgradeable? false}]
+ }
