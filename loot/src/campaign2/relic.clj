@@ -50,15 +50,15 @@
          upgrade-options (conj (take 2 (concat progressed (repeatedly #(rand-nth possible-options))))
                                :none)
          valid-enchants (e/find-valid-enchants (mundane/find-base base type) type)
+         rand-filled #(->> % util/rand-enabled util/fill-randoms)
          type-mods (->> upgrade-options
-                        (map (fn [o] [o (case o
-                                          :new-character-mod (character-enchants owner)
-                                          :new-relic-mod available
-                                          :upgrade-existing-mod upgradeable-mods
-                                          :new-random-mod valid-enchants
-                                          :none [nil])]))
-                        (util/rand-enabled)
-                        (util/fill-randoms)
+                        (map (fn [o] [o (rand-filled
+                                          (case o
+                                            :new-character-mod (@character-enchants owner)
+                                            :new-relic-mod available
+                                            :upgrade-existing-mod upgradeable-mods
+                                            :new-random-mod valid-enchants
+                                            :none [nil]))]))
                         (into {}))
          mod-options (->> type-mods
                           (map-indexed #(concat [%1] %2))

@@ -44,7 +44,7 @@
   (as-> coll $
         (filter #(:enabled? % true) $)
         (if (empty? $) nil (rand-nth $))
-        (dissoc $ :enabled?)))
+        (when $ (dissoc $ :enabled?))))
 
 (defn fill-randoms [{:keys [randoms] :as item-modifier}]
   (if (not-empty randoms)
