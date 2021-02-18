@@ -18,6 +18,7 @@
   :level 1}
  {:name "Example Weapon Relic",
   :type "weapon",
+  :owner :tester,
   :base "Flail",
   :existing
   [{:effect "effect",
@@ -27,16 +28,16 @@
     :points 1}
    {:effect "+1 Weapon Damage",
     :upgradeable? true,
-    :level 3,
-    :upgrade-points 5,
-    :points 20}],
+    :level 7,
+    :upgrade-points 20,
+    :points 85}],
   :available
   [{:effect "upgradeableEffect",
     :upgradeable? true,
     :level 1,
     :upgrade-points 10,
     :points 10}],
+  :progressed [],
   :enabled? true,
   :found? true,
-  :level 4}
- :owner :tester]
+  :level 9}]
