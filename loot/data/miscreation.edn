@@ -12,13 +12,15 @@
   :effect "40ft thrown seeds, grow into a robotic plant and root to ground on landings, lasts 3 rounds. Creatures that move towards the sentry while within 30 feet of it are grabbed by vines. DEX save or 1d6 + prof bludgeoning damage from constriction and grappled until end of turn."}
  {:name   "Weather altering device"
   :effect "Place on the floor within 5 feet. At the end of your next turn, and three turns thereafter, glaciers rain from the sky/ceiling. STR save or prone and 1d8 + level cold damage, half on success."}
- ;TODO make one for each damage type
+ {:name   "Incendiary bomb"
+  :effect "20ft thrown, 5ft radius, CON save, 1d8 + level fire, or half on success. The bomb ignites flammable objects in its area that aren't being worn or carried. Additionally, the area of the bomb becomes heavily obscured for 1 minute."}
+ {:name   "Magical container"
+  :effect "You crack open the container, releasing a pulse of magic in a 15 foot radius around you. CHA save or 1d8 + level force damage and knocked back 5ft away from you. Half damage on success and no knockback."}
  #_[
     "Acid"
-    "Fire" ;smoke + fire = heavily obscured
-    "Force" ; knockback?
     "Poison" ; lower DC save to also become poisoned? dot?
     "Psychic" ;int save, lose reaction on save
     "Slashing"
     ]
+ ;TODO make one for each damage type
  ]

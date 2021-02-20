@@ -7,8 +7,7 @@
 
 (def ^:private points-per-level 10)
 
-;TODO: add func for selling (mark as enabled?=false, give price)
-(def prices [0 75 200 300 600 800 1100 1300 1500 2000])
+(def upgrade-prices [0 75 200 300 600 800 1100 1300 1500 2000])
 
 (defn &choose-relic [relics]
   (util/&choose (->> relics
@@ -29,6 +28,12 @@
 
 (defn- override-relic! [{:keys [name] :as relic}]
   (override-relics! (mapv #(if (= (:name %) name) relic %) @relics)))
+
+(defn &sell! []
+  (when-let [{:keys [name level] :as relic} (&owned)]
+    (println "Sell" name "for" (int (+ 300 (/ (reduce + (take level upgrade-prices)) 2))) "?")
+    (when (util/&choose [true false])
+      (override-relic! (assoc relic :enabled? false)))))
 
 (defn &level!
   ([] (let [relic (&upgradeable)]

@@ -40,11 +40,13 @@
          (map-indexed (fn [i option] [i option]) $)
          (into {} $))))
 
-(defn &choose [coll]
-  (let [options (display-pairs (make-options coll))]
-    (when-let [n (&num)]
-      (as-> (options n) $
-            (if (map? coll) (coll $) $)))))
+(defn &choose
+  ([coll] (&choose coll nil))
+  ([coll opts]
+   (let [options (display-pairs (make-options coll opts) opts)]
+     (when-let [n (&num)]
+       (as-> (options n) $
+             (if (map? coll) (coll $) $))))))
 
 (defn rand-enabled [coll]
   (as-> coll $

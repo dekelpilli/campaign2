@@ -11,7 +11,7 @@
                   (let [{:keys [base type]} (mundane/&base)]
                     {:base     base
                      :enchants (enchant/add-enchants base type
-                                                     (- (rand-int 71) 20)
+                                                     (- (rand-int 51))
                                                      (constantly true))}))
    :destruction (fn []
                   (println "How many mods on the item?")
@@ -27,9 +27,10 @@
                                                           (+ (rand-int 21) (rand-int 21)))
                                                      (constantly true))}))
    :annexation  (fn []
-                  (let [{:keys [base type]} (mundane/&base)]
-                    (util/rand-enabled
-                      (enchant/find-valid-enchants base type)))) ;TODO
+                  (when-let [{:keys [base type]} (mundane/&base)]
+                    (-> (enchant/find-valid-enchants base type)
+                        (util/rand-enabled)
+                        (util/fill-randoms))))
    :exalted     (fn []
                   (let [{:keys [base type]} (mundane/&base)]
                     (->> (enchant/find-valid-enchants base type)
@@ -40,8 +41,5 @@
   (util/get-multiple-items @crafting-items #(inc (rand-int 3))))
 
 (defn &use []
-  (let [opts (util/display-pairs (util/make-options crafting-actions))]
-    (when-let [choice (some-> (util/&num)
-                              (opts)
-                              (crafting-actions))]
-      (choice))))
+  (when-let [choice (util/&choose crafting-actions)]
+    (choice)))

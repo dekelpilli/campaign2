@@ -35,11 +35,10 @@ Rings:
 
 Relics:
     Relics related to a specific personality are unlocked at a certain quest state.
-    Relics can only be attuned to one person (old attunements need to be let go, but artifacts are found without attunements). Attunements simply provide a free level up (1 -> 2).
-    Mods with a weighting of <= 3 are not upgradeable until level 10.
+    Relics can only be attuned to one person (old attunements need to be let go).
     Last relic level (10) is a choice of level (new random mod from list of mods available on artifact, upgrade existing mod of choice, new random mod)
     Costs:
-        1:  0,
+        1:  0 (attunement),
         2:  75,
         3:  200,
         4:  300,

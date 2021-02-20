@@ -11,19 +11,14 @@
 
 (defn &base
   ([]
-   (let [opts (util/display-pairs (util/make-options base-types))
-         input (util/&num)
-         choice (opts input)]
+   (let [choice (util/&choose (keys base-types))]
      (when choice
        {:base (&base choice)
         :type choice})))
   ([type]
-   (let [base-maps (group-by :name (base-types type))
-         base-options (util/display-pairs (util/make-options base-maps))]
-     (->> (util/&num)
-          (base-options)
-          (base-maps)
-          (first)))))
+   (-> (group-by :name (base-types type))
+       (util/&choose {:sort? true :v "Base"})
+       (first))))
 
 (defn new-weapon []
   (util/rand-enabled @weapons))

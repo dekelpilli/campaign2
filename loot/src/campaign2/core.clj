@@ -26,6 +26,7 @@
        :action miscreation/new}
    4  {:name   "Consumable"
        :action consumable/new}
+   ;TODO 5 (or make uniques 5)
    6  {:name   "Unique"
        :action unique/new}
    7  {:name   "Enchanted item (10 points)"
@@ -62,9 +63,11 @@
        :action enchant/&add-totalling}
    23 {:name   "Perform a ring sacrifice"
        :action ring/&sacrifice}
-   24 {:name   "Generate random encounters"
+   24 {:name   "Sell a relic"
+       :action relic/&sell!}
+   25 {:name   "Generate random encounters"
        :action encounter/&randomise}
-   25 {:name   "Calculate loot rewards"
+   26 {:name   "Calculate loot rewards"
        :action encounter/&rewards}})
 
 (defn start []
