@@ -20,13 +20,14 @@
   {-1 {:name "Exit"}
    1  {:name   "1-10 gold"
        :action #(str (inc (rand-int 10)) " gold")}
-   2  {:name   "Mundane item"
+   2  {:name   "Trap"
+       :action (constantly "TODO")} ;TODO
+   3  {:name   "Mundane item"
        :action mundane/new}
-   3  {:name   "Miscreation"
+   4  {:name   "Miscreation"
        :action miscreation/new}
-   4  {:name   "Consumable"
+   5  {:name   "Consumable"
        :action consumable/new}
-   ;TODO 5 (or make uniques 5)
    6  {:name   "Unique"
        :action unique/new}
    7  {:name   "Enchanted item (10 points)"

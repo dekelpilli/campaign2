@@ -24,7 +24,8 @@ Enchant rules:
     Die size increases increase the size of a single die (2d6 -> 1d6 + 1d8, 8d6 -> 5d6 + 1d8)
 
 Miscreations:
-    Always with proficiency if throw is an attack.
+    Always use 8 + prof + highest attribute mod for DCs and prof + highest attribute for ABs
+    Cantrip scaling (multiply flats/die amounts)
     Unsellable
 
 Rings:
