@@ -1,8 +1,11 @@
 (ns campaign2.encounter
   (:require [campaign2.util :as util]
+            [campaign2.state :refer [positive-encounters]]
             [clojure.string :as str]))
 
 (def extra-loot-threshold 13)
+(def races ["Aarakocra" "Aasimar" "Bugbear" "Centaur" "Changeling" "Dragonborn" "Dwarf" "Elf" "Firbolg" "Genasi" "Gith" "Gnome" "Goblin" "Goliath" "Half-Elf" "Half-Orc" "Halfling" "Hobgoblin" "Human" "Kalashtar" "Kenku" "Kobold" "Lizardfolk" "Loxodon" "Minotaur" "Orc" "Satyr" "Shifter" "Tabaxi" "Tiefling" "Tortle" "Triton" "Vedalken" "Yuan-Ti Pureblood"])
+(def sexes ["female" "male"])
 
 (defn &randomise []
   (println "How many days?")
@@ -43,3 +46,8 @@
                                    (inc)) "x 1d16")]
                          (= remainder 1) (conj "1x 1d12")
                          (= remainder 2) (conj "1x 2d8"))))})))
+
+(defn new-positive []
+  {:race      (rand-nth races)
+   :sex       (rand-nth sexes)
+   :encounter (rand-nth @positive-encounters)})

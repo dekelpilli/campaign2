@@ -38,9 +38,9 @@
        :action ring/new}
    10 {:name   "Synergy ring"
        :action ring/new-synergy}
-   11 {:name   "Enchanted item (20 points, positive only)"
+   11 {:name   "Enchanted item (20 points)"
        :action #(enchant/random-enchanted 20)}
-   12 {:name   "Enchanted item (30 points, positive only)"
+   12 {:name   "Enchanted item (30 points)"
        :action #(enchant/random-enchanted 30)}
    13 {:name   "Crafting item"
        :action crafting/new}
@@ -69,7 +69,9 @@
    25 {:name   "Generate random encounters"
        :action encounter/&randomise}
    26 {:name   "Calculate loot rewards"
-       :action encounter/&rewards}})
+       :action encounter/&rewards}
+   27 {:name   "Calculate loot rewards"
+       :action encounter/new-positive}})
 
 (defn start []
   (let [loot-action-names (->> loot-actions
