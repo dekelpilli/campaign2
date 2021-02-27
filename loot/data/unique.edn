@@ -121,7 +121,52 @@
             {:effect "+20 temporary hit points when you take thunder damage."}
             {:effect "You may force enemies that take thunder damage from a critical strike from this weapon to make a STR save (DC: 8+AB) or be knocked back 5feet."}
             {:effect "You are vulnerable to lightning damage."}]}
- ;stolen ideas from all chests/boots/belts/gloves, need to do others
+ {:name     "Flame's Embrace"
+  :base     "any helmet"
+  :effects  [{:effect "You cannot become vulnerable, resistant, or immune to fire."}
+             {:effect "You may choose to ignite yourself as a bonus action, taking 1d4 fire damage at the start of your turn while burning. This lasts as long as you are conscious, or until you use an action to stop it."}
+             {:effect "While burning: your hits deal no fire damage, but instead burn for 50% of hit's fire damage every round for 3 rounds."}
+             {:effect "While burning: Once per turn (not round), when an enemy takes fire damage from you, you also take 1 fire damage."}
+             {:effect "While burning: Your non-fire damage is halved."}]}
+ {:name     "Dominion"
+  :base     "any helmet"
+  :effects  [{:effect "+1 resistance to physical damage per minion you control, max 3."}
+             {:effect "Your minion's hit point maximum is increased by twice the spell level used to create them."}
+             {:effect "Your minions' damage is halved."}]}
+ {:name     "Pashupatastra"
+  :base     "any bow"
+  :effects  [{:effect "Modifiers to minion damage apply to attacks with this weapon, as projectiles you shoot with this weapon are replaced by spectral tigers."}
+             {:effect "This weapon's base damage is radiant."}
+             {:effect "When you score a critical strike with this weapon, all creatures within 30 feet of the target take 10 radiant damage."}
+             {:effect "You cannot attack more than once per round."}
+             {:effect "+1 radiant damage with this weapon for each attack you would normally be able to do in a round (can scale with things such as Action Surge or ki points, still consuming the resource)."}]}
+ {:name     "Gungir"
+  :base     "any spear"
+  :effects  [{:effect "+1AB with this weapon for each consecutive attack you've missed previously."}
+             {:effect "Gain 3 temporary hit points when you kill an enemy with this weapon."}
+             {:effect "-2 damage with this weapon against creatures that are not larger than you."}]}
+ {:name     "Mjolnir"
+  :base     "any hammer"
+  :effects  [{:effect "+1d6 thunder damage with this weapon."}
+             {:effect "This weapon's base damage is converted to lightning."}
+             {:effect "Requires 22 strength to wield."}]}
+ {:name     "Excalibur"
+  :base     "any sword"
+  :effects  [{:effect "This weapon becomes light; if it was previously tagged with Heavy, it loses that tag."}
+             {:effect "This weapon becomes a finesse weapon."}
+             {:effect "+1 critical strike requirement with this weapon."}]}
+ {:name     "Malediction"
+  :base     "any gloves"
+  :effects  [{:effect "You may cast curses as bonus action instead of an action. Curses cast in this way take effect with a 5 turn delay, although they still require a save if the original spell did. You do not need to concentrate on the curse until it takes effect."}
+             {:effect "Cursed enemies take necrotic damage equal to twice your level when a curse on them expires due to its duration ending."}
+             {:effect "The duration of your curses is reduce by 18 seconds."}]}
+ {:name     "Generosity"
+  :base     "any helmet"
+  :effects  [{:effect "Buffs you grant "}
+             {:effect "Cursed enemies take necrotic damage equal to twice your level when a curse on them expires due to its duration ending."}
+             {:effect "The duration of your curses is reduce by 18 seconds."}]}
+ ;https://en.wikipedia.org/wiki/List_of_magical_weapons
+ ;stolen ideas from all chests/boots/belts/gloves/rings, need to do others
  {:name     "Template"
   :base     "string"
   :effects  [{:effect "description"}]

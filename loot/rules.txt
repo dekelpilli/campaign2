@@ -34,6 +34,10 @@ Rings:
     Sacrifice: Smash n rings together (n > 1) to get a choice of 1 from n unique new rings that can't be of the same type as any of the inputs.
     Synergy rings = rings whose name starts with "The" = rings whose purpose is to interact with other rings.
 
+Uniques:
+    Unique items are, lore-wise, failed attempts creating relics, or at replicating items from myths/folk stories
+    Sell for 50g
+
 Relics:
     Relics related to a specific personality are unlocked at a certain quest state.
     Relics can only be attuned to one person (old attunements need to be let go).
