@@ -116,7 +116,7 @@
             {:effect "When deal poison damage to a poison-resistant enemy, they lose their resistance to poison."}
             {:effect "-2 damage with non-poison damage types."}]}
  {:name    "Thunderfist"
-  :base    "any Unarmed weapon"
+  :base    "any brawling weapon"
   :effects [{:effect "+1d4 thunder damage with this weapon."}
             {:effect "+20 temporary hit points when you take thunder damage."}
             {:effect "You may force enemies that take thunder damage from a critical strike from this weapon to make a STR save (DC: 8+AB) or be knocked back 5feet."}
@@ -190,14 +190,59 @@
             {:effect "Non-blind enemies you critically strike become blinded for a minute, CON save at turn end to end, mental attribute of choice."}
             {:effect "You are blinded upon blinding a creature, with the same condition for ending the effect. Creating darkness, for example, does not count as blinding a creature."}]}
  {:name    "The Sentinel"
-  :base    "any shield or targe weapon"
+  :base    "any shield or shield weapon"
   :effects [{:effect "+1 bludgeoning, slashing, and piercing resistance."}
             {:effect "Regenerate 1 hit point when you block an attack."}
             {:effect "You may make an opportunity attack against creatures within 5 feet of you when you block their melee attacks."}
             {:effect "You take 3 damage whenever you make an attack."}]}
-
+ {:name    "Savage"
+  :base    "any one handed axe"
+  :effects [{:effect "+1 damage while duel wielding."}
+            {:effect "+1 global damage while wielding a flail."}
+            {:effect "You cannot gain temporary hit points."}]}
+ {:name    "Controlling"
+  :base    "any one handed sword"
+  :effects [{:effect "+1 damage while duel wielding."}
+            {:effect "+1 AB with this weapon while wielding a pick."}
+            {:effect "+1 critical strike requirement."}]}
+ {:name    "Tankie"
+  :base    "any one handed knife"
+  :effects [{:effect "+1 damage while duel wielding."}
+            {:effect "+1 AC while wielding a hammer."}
+            {:effect "-5 feet speed."}]}
+ {:name    "Meticulous"
+  :base    "any shield weapon"
+  :effects [{:effect "+1 damage while duel wielding."}
+            {:effect "+1 reactions while wielding a club."}
+            {:effect "-1 to all Strength and Dexterity skill checks, and -1 to Concentration checks."}]}
+ {:name    "Unyielding"
+  :base    "any non-caster weapon"
+  :effects [{:effect "+1 AC if you have cast a spell since the beginning of your previous turn."}
+            {:effect "+1 damage with cantrips if you haven't cast any non-cantrip spells since the beginning of your previous turn."}
+            {:effect "-2 to concentration checks if you haven't cast any non-cantrip spells since the beginning of your previous turn."}]}
+ {:name    "Alpha"
+  :base    "any weapon"
+  :effects [{:effect "When you land a killing blow or a natural critical strike with a weapon, you may summon a wolf (CR1/4, MM p341). This wolf is placed immediately after you on the initiative tacker."}
+            {:effect "+3 minion damage when the minion is a beast."}
+            {:effect "+5 minion hit points when the minion is a beast."}
+            {:effect "You cannot have more than one minion active at any given time. If you would summon one while you already have one active, you may choose which one supersedes."}]}
+ {:name    "Hidden"
+  :base    "any knife"
+  :effects [{:effect "You are invisible if you haven't attacked in the last 18 seconds."}
+            {:effect "Gain 5 temporary hit points when you critically strike with this weapon."}
+            {:effect "Creatures that can see you take no damage from attacks with this weapon."}]}
+ {:name    "The Resilient"
+  :base    "shield"
+  :effects [{:effect "You are resistant to all damage from attacks whose attack roll total was below (your AC+5)."}
+            {:effect "This shield can be used without proficiency in shields."}
+            {:effect "-2 AC."}]}
+ {:name    "Thornwall"
+  :base    "shield"
+  :effects [{:effect "Deal 2 piecing damage to melee attackers within 5 feet on blocking their attacks."}
+            {:effect "-1 damage during your turn."}]}
  ;https://en.wikipedia.org/wiki/List_of_magical_weapons - done hindus
- ;stolen ideas from all chests/boots/belts/gloves/rings/amulets/shields until surrender, need to do weapons/jewels?
+ ;https://en.wikipedia.org/wiki/List_of_mythological_objects#Personal_armor
+ ;stolen ideas from all chests/boots/belts/gloves/rings/amulets/shields, axes, need to do weapons/jewels?
  {:name     "Template"
   :base     "string"
   :effects  [{:effect "description"}]

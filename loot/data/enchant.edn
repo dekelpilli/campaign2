@@ -263,7 +263,7 @@
  {:effect "If you successfully disarm an enemy with this weapon, you may use a bonus action in the same turn to make an attack against the creature you disarmed."
   :points 15
   :traits #{"Disarm"}}
- {:effect       "Enemies are considered to enter and leave your reach at both 5 and 10 feet"
+ {:effect       "Enemies are considered to enter and leave your reach at both 5 and 10 feet."
   :points       25
   :traits       #{"Reach"}
   :upgradeable? false}
