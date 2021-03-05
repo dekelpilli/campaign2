@@ -228,7 +228,7 @@
             {:effect "You cannot have more than one minion active at any given time. If you would summon one while you already have one active, you may choose which one supersedes."}]}
  {:name    "Hidden"
   :base    "any knife"
-  :effects [{:effect "You are invisible if you haven't attacked in the last 18 seconds."}
+  :effects [{:effect "You are invisible if you haven't attacked or cast a spell in the last 18 seconds."}
             {:effect "Gain 5 temporary hit points when you critically strike with this weapon."}
             {:effect "Creatures that can see you take no damage from attacks with this weapon."}]}
  {:name    "The Resilient"
@@ -240,8 +240,35 @@
   :base    "shield"
   :effects [{:effect "Deal 2 piecing damage to melee attackers within 5 feet on blocking their attacks."}
             {:effect "-1 damage during your turn."}]}
- ;https://en.wikipedia.org/wiki/List_of_magical_weapons - done hindus
- ;https://en.wikipedia.org/wiki/List_of_mythological_objects#Personal_armor
+ {:name    "Dáinsleif"
+  :base    "any sword"
+  :effects [{:effect "+1d6 necrotic damage with this weapon."}
+            {:effect "When you damage a creature with this weapon, its maximum hit points are reduced by an amount equal to the necrotic damage dealt."}
+            {:effect "When you remove more than half of a creature's remaining hit points with an attack with this weapon, the creature is killed. This supersedes non-lethal."}
+            {:effect "Take damage equal to your level when you end a combat without landing a killing blow."}
+            {:effect "-2 slashing resistance."}]}
+ {:name    "Carnwennan"
+  :base    "any knife"
+  :effects [{:effect "-2 critical strike requirement against creatures in magical darkness."}
+            {:effect "Your space becomes engulfed in magical darkness when you hit a creature with an attack with this weapon."}
+            {:effect "-1 AB while in magical darkness."}]}
+ {:name    "Amenonuhoko"
+  :base    "any polearm"
+  :effects [{:effect "The first time on your turn that you hit a creature with this weapon, you cast Earth Tremor as a first level spell. DC based mental attribute of choice."}
+            {:effect "You must concentrate to hold this weapon. Whenever you lose concentration, you may either drop the weapon or immediately cast Earth Tremor. When cast in this way, the spell also affects you, but does no invoke further concentration saves."}]}
+ {:name     "Babr-e Bayan"
+  :base     "any heavy body armour"
+  :effects  [{:effect "You are immune to fire and cold damage."}
+             {:effect "+2 AC against weapon attacks."}
+             {:effect "-1 AC."}
+             {:effect "Your speed is reduced by 10 feet."}]}
+ {:name     "Diomedian Cunning"
+  :base     "any body armour"
+  :effects  [{:effect "This armour sells for triple the regular price."}]}
+ ;0 wands :(
+ ;https://davidgemmell.fandom.com/wiki/Snaga
+ ;https://en.wikipedia.org/wiki/Ruyi_Jingu_Bang
+ ;https://en.wikipedia.org/wiki/List_of_mythological_objects#Personal_armor - done helmets, maybe add halo?
  ;stolen ideas from all chests/boots/belts/gloves/rings/amulets/shields, axes, need to do weapons/jewels?
  {:name     "Template"
   :base     "string"
