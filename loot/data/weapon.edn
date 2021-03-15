@@ -158,6 +158,14 @@
   :damage-types ["Bludgeoning"],
   :range        nil,
   :traits       ["Two-handed" "Parry" "Reach" "Trip"]}
+ {:category     "Club",
+  :proficiency  "Martial",
+  :name         "Boomerang",
+  :type         "Melee",
+  :damage       "1d4",
+  :damage-types ["Slashing"],
+  :range        "20/30",
+  :traits       ["Thrown" "Returning"]}
  {:category     "Sword",
   :proficiency  "Martial",
   :name         "Falchion",
@@ -216,20 +224,20 @@
   :traits       ["Two-handed" "Flexible" "Heavy"]}
  {:category     "Shield",
   :proficiency  "Martial",
-  :name         "Great Shield",
+  :name         "Tower Shield",
   :type         "Melee",
   :damage       "1d6",
   :damage-types ["Bludgeoning"],
   :range        nil,
-  :traits       ["Targe"]}
+  :traits       ["Heavy" "Shove" "Targe" "Two-handed"]}
  {:category     "Shield",
   :proficiency  "Martial",
-  :name         "Great Spiked Shield",
+  :name         "Spiked Tower Shield",
   :type         "Melee",
   :damage       "1d6",
   :damage-types ["Piercing"],
   :range        nil,
-  :traits       ["Targe"]}
+  :traits       ["Heavy" "Shove" "Targe" "Two-handed"]}
  {:category     "Polearm",
   :proficiency  "Martial",
   :name         "Guisarme",

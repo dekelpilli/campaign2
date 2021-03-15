@@ -267,6 +267,10 @@
   :points       25
   :traits       #{"Reach"}
   :upgradeable? false}
+ {:effect       "This weapon only requires 10 strength instead of 15. It is still considered heavy for the purpose of dual wielding."
+  :points       5
+  :traits       #{"Heavy"}
+  :upgradeable? false}
  {:effect       "Ranged attacks with this weapon do not suffer disadvantage from enemies being within 5 feet of you if the target of the attack is within 5 feet of you."
   :ranged?      true
   :points       13

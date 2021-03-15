@@ -32,15 +32,15 @@
            "You gain inspiration when rolling a natural 20 on an attack, ability check, or saving throw. You also gain inspiration when an enemy critically fails an attack against you, or a save against an effect of yours."
            "Your inspiration point maximum goes up to 2. Additionally, you may choose to expend inspiration after completing a roll rather than to simply gain advantage."]}
  {:name   "Vuneta",
-  :levels ["You have advantage on Persuasion checks with creatures you are friendly with"
-           "You have expertise in Persuasion and Insight when attempting to avoid violence"
-           "Your spells that cause conditions have +1 DC against creatures that have damaged you in the last minute"
+  :levels ["You have advantage on Persuasion checks with creatures you are friendly with."
+           "You have expertise in Persuasion and Insight when attempting to avoid violence."
+           "Your spells that cause conditions have +1 DC against creatures that have damaged you in the last minute."
            "You can cast Misty Step once per long rest. When cast in this way, the spell targets you and up to 5 other creatures that you can see within 60 feet, and can teleport you up to 100 feet away."
-           "Creatures of your choice within 10 feet of you have -1 AB"
-           "Add your Charisma bonus to the damage of chosen creatures within 20 feet of you, including yourself, when making non-lethal attacks"
+           "Creatures of your choice within 10 feet of you have -1 AB."
+           "Add your Charisma bonus to the damage of chosen creatures within 20 feet of you, including yourself, when making non-lethal attacks."
            "+1 AC in combats where an enemy has been brought down non-lethally."
-           "Once per short rest, as a reaction to getting hit by an enemy, you may cast the Invulnerability spell on both yourself and the enemy that damaged you"
-           "You may cast the Prismatic Wall spell once per long rest, but you may only choose the Violet variation"
+           "Once per short rest, as a reaction to getting hit by an enemy, you may cast the Invulnerability spell on both yourself and the enemy that damaged you."
+           "You may cast the Prismatic Wall spell once per long rest, but you may only choose the Violet variation."
            "You may cast the Imprisonment spell as an action once per long rest. When cast in this way, the target also becomes invulnerable and the spell's duration is 1 hour."]}
  {:name   "Zetnos",
   :levels ["Enemies that damage you become marked for a minute. Marked enemies have -1 damage against you."
@@ -54,27 +54,27 @@
            "+5 radiant thorns."
            "You have advantage on attacks against marked enemies."]}
  {:name   "Odi",
-  :levels ["You have Expertise with Sleight of Hand when stealing documents (can be plans, contracts, maps, etc)",
+  :levels ["You have Expertise with Sleight of Hand when stealing documents (can be plans, contracts, maps, etc).",
            "You have advantage on all Wisdom and Intelligence skill checks if you have taken at least 10 damage in the last minute. You may self-inflict this damage to trigger this."
            "When learning creature stats, changing the target creature does not consume questions."
-           "As a bonus action when you successfully learn about a creature within 5 feet of you, you may force that creature to make against 8 + your prof mod + a mental attribute mod of your choice. On a failed save, it has disadvantage when attacking you for a minute."
+           "As an action when you successfully learn about a creature within 5 feet of you, you may force that creature to make a WIS save against 8 + your prof mod + a mental attribute mod of your choice. On a failed save, it has disadvantage when attacking you for a minute."
            "As a reaction to being targeted by an opportunity attack, you immediately gain 4 questions about that creature."
            "When you are forced to make a save with a mental attribute, you may use your Investigation bonus instead of your save bonus. You may do this an amount of times equal to your Int Mod per short rest."
            "You get 8 spell slot levels every long rest. You can use these to cast any non-cantrip Divination spell of 5th level of lower, using a mental attribute of your choice."
-           "While below 50% HP, as a reaction to being hit, or as a reaction to taking a critical hit, you may cast Foresight. You can do this once per long rest."
+           "As a reaction to taking a critical hit, or to being hit while below 50% HP, you may cast Foresight. You can do this once per long rest."
            "You gain the Keen Mind feat. If you already have the Keen Mind feat, you may gain a different feat instead."
            "You have Truesight to a range of 60 feet."]}
- {:name   "Thetia" ;TODO: balance check, might be a bit weak?
+ {:name   "Thetia"
   :levels ["You and your allies gain +1 damage in battle while outnumbered (>0hp only)."
            "When using a consumable in combat, you have a 25% chance for that consumable to be refunded immediately."
-           "When you land a Killing Blow, all allies of the killed creature within 60 feet that saw the kill suffer a -2 penalty to their mental attributes (min 1) for the next 12 seconds (does not stack)."
-           "You have +1 AB and +1 to spell save DCs against enemies within 5 feet of two or more of your allies, including yourself, excluding incapacitated creatures."
            "You gain proficiency in Charisma (Intimidation). Additionally, your proficiency bonus is doubled for any ability check you make with this skill when attempting to get information from a vanquished foe (e.g. non-lethaled)."
-           "You and your allies may choose to use the highest initiative result from rolled among the group. The order within the party is still as per each character's rolls."
+           "When you land a Killing Blow, all allies of the killed creature within 60 feet that saw the kill suffer a -2 penalty to their mental attributes (min 1) for the next 12 seconds (does not stack). Additionally, you gain 5 temporary hit points for each enemy affected."
+           "You have +1 AB and +1 to spell save DCs against enemies within 5 feet of two or more of your allies, including yourself."
+           "You and your allies may choose to use the highest initiative result from rolled among the group, and decide the order within the team. If more than once party member has this ability, the party has +3 to initiative checks."
            "You gain proficiency in saving throws of types you've failed in the last 12 seconds."
-           "Once per minute, when an enemy recovers from a condition you caused in battle (e.g. breaking a grapple, succeeding on a spell save, you lose concentration), you may force it also gain 3 points of exhaustion until the end of its next turn."
+           "Once per minute, when an enemy recovers from a condition you caused in battle (e.g. breaking a grapple, succeeding on a spell save, you lose concentration), you may force it to gain 3 points of exhaustion until the end of its next turn."
            "Once per long rest, when you would otherwise go down, you may instead remain on 1 hit point. Until the end of your next turn, you cannot be reduced to be below 1 hit point. At the end of your next turn, if you are on 1 hit point, you go down and have one failed death saving throw."
-           "You gain the Inspiring Leader feat. If you already have the Inspiring Leader feat, you may gain a different feat instead. Additionally, instead of temporary hit points, you may choose to grant inspiration instead (decision is per creature). This inspiration point expires at the end of combat."]}
+           "You gain the Inspiring Leader feat. If you already have the Inspiring Leader feat, you may gain a different feat instead. Additionally, instead of temporary hit points, you may choose to grant inspiration instead (decision is per creature). This inspiration point expires after 10 minutes."]}
  {:name   "Cerasil",
   :levels ["You have advantage on Charisma checks directed at non-hostile or non-intelligent plant and beast creatures. Additionally, you can communicate telepathically with them within 30 feet."
            "You are immune to natural diseases."
@@ -109,15 +109,16 @@
            "You become undead. You may choose the extent to which this is visibly obvious (as little as Vampire, as much as Skeleton). You become resistant to poison and necrotic damage and immune to diseases and Turn Undead."
            "You may cast the Time Ravage spell once per long rest. If this spell kills a creature, you may cast Soul Cage to capture its soul."]}
  {:name   "Ketis"
-  :levels ["You have +1 resistance to cold, fire, and lightning damage"
+  :levels ["You have +1 resistance to cold, fire, and lightning damage."
            "When you take fire, cold, or lightning damage, you become resistant to any of those damage types that instance of damage did not contain. Maximum 1 instance of this buff."
-           "You can cast Absorb Elements WIS Mod (min 1) times per long rest"
+           "You can cast Absorb Elements WIS Mod (min 1) times per long rest."
            "As a reaction to being targeted by a melee attack, You can cast Thunderwave CON Mod (min 1) times per short rest. Mental attribute of your choice."
            "When you perform a check to learn a creatures stats, regardless of your roll, you learn about the target creature's vulnerability/resistance/immunity to fire/cold/lightning."
            "You may cast Fire Shield once per short rest. When cast in this way, you may also target other willing creatures."
            "You may cast Elemental Weapon once per long rest. When cast in this way, the spell does not require concentration."
-           "+1 AB with attacks that would deal fire, cold, or lightning damage, and +1 spell save DC to spells that would deal fire, cold, or lightning damage"
+           "+1 AB with attacks that would deal fire, cold, or lightning damage, and +1 spell save DC to spells that would deal fire, cold, or lightning damage."
            "Once per long rest, when an enemy successfully saves against an effect that would deal fire, cold, or lightning damage, you may instead choose to make them critically fail. This can still be nullified by legendary resistance, but can also nullify a use of legendary resistance."
            "You may cast Meteor Swarm once per long rest. When cast in this way, you can replace the bludgeoning damage with fire damage. Mental attribute of your choice."]}
  {:name   "Eion", ;TODO - new (conj/teleportation/creation)
-  :levels []}]
+  :levels ["You learn the Mage Hand cantrip. This does not count towards your limit of known cantrips."
+           ""]}]

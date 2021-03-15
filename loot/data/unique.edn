@@ -265,11 +265,38 @@
  {:name     "Diomedian Cunning"
   :base     "any body armour"
   :effects  [{:effect "This armour sells for triple the regular price."}]}
- ;0 wands :(
- ;https://davidgemmell.fandom.com/wiki/Snaga
- ;https://en.wikipedia.org/wiki/Ruyi_Jingu_Bang
- ;https://en.wikipedia.org/wiki/List_of_mythological_objects#Personal_armor - done helmets, maybe add halo?
- ;stolen ideas from all chests/boots/belts/gloves/rings/amulets/shields, axes, need to do weapons/jewels?
+ {:name     "Forceslinger"
+  :base     "wand"
+  :effects  [{:effect "You may sacrifice a spell slot to add {spell slot level}d4 to the attack roll and damage from an attack with this weapon."}
+             {:effect "You ignore resistances and immunities to force with this weapon."}
+             {:effect "Wand attacks made during your bonus action have advantage."}
+             {:effect "-1 damage with damage types other than force."}]}
+ {:name     "Antimagic stick"
+  :base     "wand"
+  :effects  [{:effect "Creatures you attack with this weapon gain one level of vulnerability (immune->resistant->regular->vulnerable) to damage types from this weapon."}
+             {:effect "You cannot deal force damage with this weapon."}
+             {:effect "Your spells consume two spell slots instead of one while holding this weapon or if you have attacked with this weapon in the last minute. If you have fewer than two available, you cannot cast the spell at that spell slot level."}
+             {:effect "-1 cantrips known."}]}
+ {:name     "Lorg Mór"
+  :base     "any club or hammer"
+  :effects  [{:effect "This weapon gains the Sweep property."}
+             {:effect "+3 to Medicine checks for healing downed allies."}
+             {:effect "+1 incoming healing."}
+             {:effect "You are large."}
+             {:effect "-2 Intelligence."}
+             {:effect "-2 Charisma."}]}
+ {:name     "Staff of Moses"
+  :base     "any club or staff"
+  :effects  [{:effect "Once per long rest, you may transform this weapon into a Giant Constrictor Snake (MM 324). The snake spawns in a space within 5 feet of you. As an action, you may transform your snake back into this weapon. While this weapon is a snake, you do not benefit from its magical effects."}
+             {:effect "+2 fire resistance."}
+             {:effect "+1 Charisma."}
+             {:effect "You have disadvantage on attacks with this weapon against Elemental creatures."}
+             {:effect "You have disadvantage on all checks relating to grapples and restrains."}]}
+ {:name     "Miner's Greed"
+  :base     "any pick"
+  :effects  [{:effect "-2 critical strike requirement."}
+             {:effect "This weapon gains the Deadly trait."}
+             {:effect "When you deal a natural critical strike, you take true damage equal to thrice the difference between your natural roll and 20 (e.g. take 6 damage after critting with an 18)."}]}
  {:name     "Template"
   :base     "string"
   :effects  [{:effect "description"}]
