@@ -99,7 +99,7 @@
            "Whenever you cast a spell that was ineffective (e.g. a spell attack that missed), you may make Constitution saving throw against a DC of 8 + twice the spell slot used. On a success, you regain the consumed spell slot."]}
  {:name   "Thatar"
   :levels ["You can communicate telepathically (bidirectional) with undead creatures within 120 feet. The creature must be able to understand a language."
-           "Hostile undead creatures prioritise attacking your allies instead of you."
+           "Hostile undead creatures prioritise attacking your allies instead of you." ;TODO: replace
            "As a reaction, you may redirect any damage you take to an undead minion you control within 5 feet of you."
            "You may reroll non-undead monsters in your amulet for free. When rerolled in this way, the resulting monster is undead and 1CR higher than the amulet's usual capacity."
            "Once per short rest, when you land a killing blow with Necrotic damage on your turn, you may take on additional turn immediately after your current turn."
@@ -111,8 +111,8 @@
  {:name   "Ketis"
   :levels ["You have +1 resistance to cold, fire, and lightning damage."
            "When you take fire, cold, or lightning damage, you become resistant to any of those damage types that instance of damage did not contain. Maximum 1 instance of this buff."
-           "You can cast Absorb Elements WIS Mod (min 1) times per long rest."
-           "As a reaction to being targeted by a melee attack, You can cast Thunderwave CON Mod (min 1) times per short rest. Mental attribute of your choice."
+           "You can cast Absorb Elements an amount of times equal to your mental attribute of choice, to a minimum of once, per long rest."
+           "As a reaction to being targeted by a melee attack, you emit a thunderous burst (same effect as Thunderwave but not magical) CON Mod (min 1) times per short rest. Attribute of your choice (not necessarily mental)."
            "When you perform a check to learn a creatures stats, regardless of your roll, you learn about the target creature's vulnerability/resistance/immunity to fire/cold/lightning."
            "You may cast Fire Shield once per short rest. When cast in this way, you may also target other willing creatures."
            "You may cast Elemental Weapon once per long rest. When cast in this way, the spell does not require concentration."
@@ -120,5 +120,11 @@
            "Once per long rest, when an enemy successfully saves against an effect that would deal fire, cold, or lightning damage, you may instead choose to make them critically fail. This can still be nullified by legendary resistance, but can also nullify a use of legendary resistance."
            "You may cast Meteor Swarm once per long rest. When cast in this way, you can replace the bludgeoning damage with fire damage. Mental attribute of your choice."]}
  {:name   "Eion", ;TODO - new (conj/teleportation/creation)
-  :levels ["You learn the Mage Hand cantrip. This does not count towards your limit of known cantrips."
-           ""]}]
+  :levels ["You may conjure a piece of Adventuring Gear worth between 1cp and 10gp (inclusive). Items conjured in this way dissipate after 10 minutes. You may do this 5 times per long rest. (For items not on the list, you can ask me an I might be willing to let you conjure anyway)."
+           "When you make an opportunity attack, you may forgo the damage from the attack to instead teleport them to a random space you can see within 20 feet of them (2d9, where 5/5 is no effect). Note that you can make opportunity attacks with ranged weapons as improvised weapons."
+           "You learn the Mage Hand cantrip. This does not count towards your limit of known cantrips. You may cast Mage Hand as a bonus action, as well as al dismiss and control it as a bonus action. Additionally, it is no longer restricted to 10 pounds - you may make checks with a mental attribute of choice equivalent to strength checks to determine the hand's power. This cannot be used for creature interactions (e.g. shoves)."
+           "You may replace your regular movement with a 5 foot teleportation in a direction of your choice. This teleportation does not provoke opportunity attacks and ignores non-magical grapples and restraints."
+           ""
+
+           ;create magen? remove wish requirement, increase HP reduction
+           ]}]

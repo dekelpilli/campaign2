@@ -271,6 +271,9 @@
   :points       5
   :traits       #{"Heavy"}
   :upgradeable? false}
+ {:effect "+1 damage die size from marks you caused."
+  :points 15}
+ {:effect "+1 damage against marked enemies."}
  {:effect       "Ranged attacks with this weapon do not suffer disadvantage from enemies being within 5 feet of you if the target of the attack is within 5 feet of you."
   :ranged?      true
   :points       13
