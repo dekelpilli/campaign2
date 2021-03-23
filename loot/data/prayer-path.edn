@@ -121,10 +121,11 @@
            "You may cast Meteor Swarm once per long rest. When cast in this way, you can replace the bludgeoning damage with fire damage. Mental attribute of your choice."]}
  {:name   "Eion", ;TODO - new (conj/teleportation/creation)
   :levels ["You may conjure a piece of Adventuring Gear worth between 1cp and 10gp (inclusive). Items conjured in this way dissipate after 10 minutes. You may do this 5 times per long rest. (For items not on the list, you can ask me an I might be willing to let you conjure anyway)."
-           "When you make an opportunity attack, you may forgo the damage from the attack to instead teleport them to a random space you can see within 20 feet of them (2d9, where 5/5 is no effect). Note that you can make opportunity attacks with ranged weapons as improvised weapons."
+           "When you make an opportunity attack, you may make a proficient spell attack instead (mental attribute of choice). On a hit, teleport them to a random space you can see within 20 feet of them (2d9, where 5/5 is no effect). Note that you can make opportunity attacks with ranged weapons as improvised weapons."
            "You learn the Mage Hand cantrip. This does not count towards your limit of known cantrips. You may cast Mage Hand as a bonus action, as well as al dismiss and control it as a bonus action. Additionally, it is no longer restricted to 10 pounds - you may make checks with a mental attribute of choice equivalent to strength checks to determine the hand's power. This cannot be used for creature interactions (e.g. shoves)."
            "You may replace your regular movement with a 5 foot teleportation in a direction of your choice. This teleportation does not provoke opportunity attacks and ignores non-magical grapples and restraints."
-           ""
+           "As a bonus action, you may conjure up to 5 pillars (5 feet squared each) from the ground on a space you can see within 120 feet of you. These pillars are 20 feet tall, to a maximum of the ceiling. Creatures on those spaces are pushed to a surrounding empty space of their choice, then make a Dex save (ment att of choice) or take 1d10 force damage. These pillars last for 10 minutes. Max 25 active pillars at once time."
+           "You may cast Temple of The Gods once per long rest, dedicated to Eion. While in a Temeple of the Gods dedicated to Eion, you may cast Conjuration spells at two levels above the spell slot level used."
 
            ;create magen? remove wish requirement, increase HP reduction
            ]}]
