@@ -40,5 +40,4 @@
   :progressed [],
   :enabled? true,
   :found? true,
-  :level 9
-  :owner :tester}]
+  :level 9}]

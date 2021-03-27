@@ -8,14 +8,14 @@
 
 (defn new []
   (->> @rings
-       util/rand-enabled
-       util/fill-randoms))
+       (util/rand-enabled)
+       (util/fill-randoms)))
 
 (defn new-synergy []
   (->> @rings
        (filter (fn [{:keys [name]}] (.startsWith name "The")))
-       util/rand-enabled
-       util/fill-randoms))
+       (util/rand-enabled)
+       (util/fill-randoms)))
 
 (defn &sacrifice []
   (println "Which rings are being sacrificed?")

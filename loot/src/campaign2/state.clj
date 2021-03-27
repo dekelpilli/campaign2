@@ -29,6 +29,7 @@
 (def uniques (atom nil))
 (def character-enchants (atom nil))
 (def positive-encounters (atom nil))
+(def riddles (atom nil))
 
 (defn reload! []
   (println "Loading...")
@@ -47,6 +48,7 @@
   (reset! uniques (load-data "unique"))
   (reset! character-enchants (load-data "character-enchant"))
   (reset! positive-encounters (load-data "positive-encounter"))
+  (reset! riddles (load-data "riddle"))
   "Done")
 
 (reload!)
@@ -71,3 +73,7 @@
 (defn override-prayer-progress! [new-progress]
   (reset! prayer-progressions new-progress)
   (write-data! prayer-progressions "prayer-progress"))
+
+(defn override-riddles! [new-riddles]
+  (reset! riddles new-riddles)
+  (write-data! riddles "riddle"))

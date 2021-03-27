@@ -13,6 +13,7 @@
              [dice :as dice]
              [ring :as ring]
              [unique :as unique]
+             [riddle :as riddle]
              [state :as state]]
             [clojure.tools.logging :as log]))
 
@@ -20,8 +21,8 @@
   {-1 {:name "Exit"}
    1  {:name   "1-10 gold"
        :action #(str (inc (rand-int 10)) " gold")}
-   2  {:name   "Trap"
-       :action (constantly "TODO")} ;TODO
+   2  {:name   "Riddle"
+       :action riddle/new!}
    3  {:name   "Mundane item"
        :action mundane/new}
    4  {:name   "Miscreation"
