@@ -2,13 +2,13 @@
   :effect "+1 Charisma for each ring type you are wearing more than one of."
   :points 4}
  {:name   "The Doctor"
-  :effect "+2 to Medicine checks for stabilising allies for each ring the ally is wearing."
+  :effect "+2 to Medicine checks for stabilising allies for each synergy ring the ally is wearing."
   :points 4}
  {:name   "The Hardened"
   :effect "+1 physical damage reduction for each non-synergy ring worn."
   :points 7}
  {:name   "The Lone Wolf"
-  :effect "-1 critical strike requirement while this is your only ring."
+  :effect "-1 critical strike requirement while this is your only synergy ring."
   :points 6}
  {:name   "The Conduit"
   :effect "+1 to maximum number of rings."
@@ -50,7 +50,7 @@
  {:name    "The Able"
   :effect  "+1 %s while not wearing any synergy rings that are not 'The Able'"
   :randoms [["Strength" "Dexterity" "Constitution" "Wisdom" "Intelligence" "Charisma"]]
-  :points  8}
+  :points  5}
  {:name   "Vengeful"
   :effect "Once per short rest, as a reaction to being damaged, you may cast Hex on the creature that damaged you. Normal range/visibility/concentration restrictions apply."
   :points 4}
@@ -92,12 +92,9 @@
   :effect  "You lose proficiency in a saving throw of your choice. You gain proficiency in %s saving throws."
   :randoms [["Intelligence" "Charisma" "Strength"]]
   :points  2}
- {:name   "Reduced"
-  :effect "Your size becomes Small."
-  :points 1}
  {:name   "Powerful"
   :effect "Your strength is considered to be 15 for the purpose of wearing armour."
-  :points 6}
+  :points 5}
  {:name   "Acrobat"
   :effect "You make take high and long jumps without a run-up."
   :points 1}

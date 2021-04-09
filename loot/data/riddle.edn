@@ -30,16 +30,11 @@
  {:riddle "Feed me and I will live, give me a drink and I will die.",
   :answer "Fire."}
  {:riddle
-  "A curved stick and a straight twig means red sap and a snapped trunk.",
-  :answer "Death by arrow."}
- {:riddle
-  "No warning of Timber could have stopped the dropping petals.",
-  :answer "Death by axe.",}
- {:riddle "A fitting cravat for a poorly chosen suit.",
-  :answer "Death by hanging."}
- {:riddle
   "I build castles, yet tear down mountains, make some men blind, and others see. What am I?",
   :answer "Sand."}
+ {:riddle
+  "I'm lighter than a feather but even the world's stronger man cannot hold me for more than a few minutes. What am I?",
+  :answer "Air."}
  {:riddle
   "As I was going to St Ives I met a man with 7 wives. Each wife had 7 kids. Each kid had 7 cats. Each cat had 7 kittens. How many were going to St Ives?",
   :answer "1."}
@@ -48,22 +43,13 @@
   "if you take the first letter and put it on the end of the word, reading it backwards they spell the same word."}
  {:riddle
   "Twelve men walking by, twelve pears hanging high. Each took a pear and left eleven hanging there. How did it happen?",
-  :answer "Each is someone’s name."}
- {:riddle
-  "River bridge crossing, look out for the guards. Can you spell that without any ‘R’s?",
-  :answer "T-H-A-T."}
+  :answer "'Each' is someone’s name."}
  {:riddle
   "What is it that you keep when you need it not, but throw out when you do need it?",
   :answer "An anchor."}
  {:riddle
   "The foolish man wastes me, The average man spends me, And wise man invests me, Yet all men succumb to me. What am I?",
   :answer "Time."}
- {:riddle
-  "What is something that dawns on you even when it shouldn’t?",
-  :answer "The obvious."}
- {:riddle
-  "When you come to the end of all you know, I am there. Who am I? HINTS: I start out wonderful, but then begin worse.",
-  :answer "The letter W."}
  {:riddle
   "What has four legs in the morning, two legs in the afternoon and three legs in the evening?",
   :answer
@@ -83,7 +69,7 @@
  {:riddle
   "Two men drink poisoned Iced Tea. One man drinks his fast and lives. The other man drinks his slow and dies. How is this possible?",
   :answer
-  "The poison is in the ice not the tea. The ice melts in the slower drinker’s tea."}
+  "The poison is in the ice not the tea. The ice melts in the slower drinker's tea."}
  {:riddle
   "Towns without houses, forests without trees, mountains without boulders and waterless seas.",
   :answer "A Map."}
@@ -205,9 +191,6 @@
  {:riddle
   "A cloud was my mother, the wind is my father, my son is the cool stream, and my daughter is the fruit of the land. A rainbow is my bed, the earth my final resting place, what am I?",
   :answer "Rain."}
- {:riddle
-  "Poke your fingers in my eyes and I will open wide my jaws. Linen cloth, quills or paper, all will split before my might. What am I?",
-  :answer "Shears/Scissors"}
  {:riddle
   "What goes with a carriage, comes with a carriage, is of no use to a carriage and yet the carriage cannot go without it?",
   :answer "Noise."}
