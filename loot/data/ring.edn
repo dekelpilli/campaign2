@@ -99,5 +99,5 @@
   :effect "You make take high and long jumps without a run-up."
   :points 1}
  {:name   "Scapegoat"
-  :effect "When a creature within 5 feet of you takes damage, you may choose for them to take no damage instead. You then take twice that amount of damage instead."
+  :effect "When a creature within 5 feet of you takes damage, you may choose for them to take no damage instead. You then take twice that amount of damage."
   :points 2}]

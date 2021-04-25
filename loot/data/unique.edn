@@ -296,7 +296,7 @@
   :base     "any pick"
   :effects  [{:effect "-2 critical strike requirement."}
              {:effect "This weapon gains the Deadly trait."}
-             {:effect "When you deal a natural critical strike, you take true damage equal to thrice the difference between your natural roll and 20 (e.g. take 6 damage after critting with an 18)."}]}
+             {:effect "When you deal a natural critical strike, you take true damage equal to thrice the difference between your natural roll and 20 (e.g. take 6 damage after critting with an 18, 0 with a 20)."}]}
  {:name     "Template"
   :base     "string"
   :effects  [{:effect "description"}]

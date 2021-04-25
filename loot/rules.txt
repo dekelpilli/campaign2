@@ -19,7 +19,7 @@ Moving mods:
 
 Enchant rules:
     Double flat, dice additions, and die size enchants on single attackers (don't have extra attack, not dual wielding).
-    Double flat, dice additions, and die size enchants on cantrips.
+    Double flat, dice additions, and die size enchants for spells targeting a single creature.
     Multiply flat, dice additions, and die size enchants by the spell slot level for spells targeting a single creature.
     Die size increases increase the size of a single die (2d6 -> 1d6 + 1d8, 8d6 -> 5d6 + 1d8)
 
