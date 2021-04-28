@@ -1,5 +1,28 @@
-{:tester [{:effect "+1 Constitution"
-           :points 20}
-          {:effect       "When you decrease damage with Fortify, you are inflicted with blight of 20%/5 instead of 25%/4."
-           :upgradeable? false}]
- }
+{:todo-insert-declan-character-name-here
+        [{:effect "+1 %s"
+          :randoms [["Constitution" "Strength"]]
+          :points 20}
+         {:effect       "When you decrease damage with Fortify, you are inflicted with blight of 20%/5 instead of 25%/4."
+          :upgradeable? false}]
+ :heath [{:effect "+1 %s"
+          :randoms [["Constitution" "Charisma"]]
+          :points 20}
+         {:effect "+1 to skill checks in which you've gained expertise via Shifting Organs."
+          :points 10}
+         {:effect "+10 feet range to your Cruel Harvest area."
+          :points 5}
+         {:effect "+1 die size for the added damage granted by Cruel Harvest."
+          :points 15}
+         {:effect       "When you roll a double with Focused Mutation, you may choose to replace one of your rolls with 1-9 instead of rerolling."
+          :points       5
+          :upgradeable? false}
+         {:effect       "Growth and Rot no longer reduces your %s."
+          :randoms      [["Dexterity" "Strength" "Wisdom"]]
+          :upgradeable? false}
+         {:effect       "When you would normally activate your %s Touch, you may reroll instead. You must then accept that result."
+          :randoms      [["Annihilating" "Decaying" "Healing" "Hexing" "Nullifying" "Persistent" "Precise" "Shielding" "Slinging" "Splitting"]]
+          :upgradeable? false}
+         {:effect "You may gain the benefits of 1 additional option from Manifesting Power I."}
+         {:effect "+2 to Charisma checks during your first encounter with a creature." ;+1 on upgrade
+          :points 5}
+         {:effect "When you "}]}

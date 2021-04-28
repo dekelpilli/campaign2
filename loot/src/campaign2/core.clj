@@ -31,7 +31,7 @@
        :action consumable/new}
    6  {:name   "Unique"
        :action unique/new}
-   7  {:name   "Enchanted item (10 points)"
+   7  {:name   "Low value enchanted item (10 points)"
        :action #(enchant/random-enchanted 10)}
    8  {:name   "100-150 gold"
        :action #(str (+ 100 (rand-int 51)) " gold")}
@@ -41,7 +41,7 @@
        :action ring/new-synergy}
    11 {:name   "Enchanted item (20 points)"
        :action #(enchant/random-enchanted 20)}
-   12 {:name   "Enchanted item (30 points)"
+   12 {:name   "High value enchanted item (30 points)"
        :action #(enchant/random-enchanted 30)}
    13 {:name   "Crafting item"
        :action crafting/new}

@@ -9,9 +9,6 @@ Amulets:
 Prayer Stones:
     You can use any prayer stone to pray to any Deity, but when using the appropriate prayer stone, you get the option of skipping a step
 
-Spell Focus:
-    +1 spell save DC, +1 spell AB
-
 Moving mods:
     Between weapons, so long as all mods are compatible with new weapon. Incompatible mods can be removed as part of the transfer.
     Between rings
@@ -19,9 +16,9 @@ Moving mods:
 
 Enchant rules:
     Double flat, dice additions, and die size enchants on single attackers (don't have extra attack, not dual wielding).
-    Double flat, dice additions, and die size enchants for spells targeting a single creature.
-    Multiply flat, dice additions, and die size enchants by the spell slot level for spells targeting a single creature.
-    Die size increases increase the size of a single die (2d6 -> 1d6 + 1d8, 8d6 -> 5d6 + 1d8)
+    Double flat, dice additions, and die size enchants for cantrips targeting a single creature, including AoE cantrips that happen to only hit one creature..
+    Multiply flat, dice additions, and die size enchants by the spell slot level for spells targeting a single creature, including AoE spells that happen to only hit one creature..
+    Die size increases increase the size of a single die (2d6 -> 1d6 + 1d8, 8d6 -> 5d6 + 1d8).
 
 Miscreations:
     Always use 8 + prof + highest attribute mod for DCs and prof + highest attribute for ABs
@@ -55,23 +52,21 @@ Relics:
         10: 2000
 
 Vendor valuations:
-    Mundane: 30
+    Mundane: 25
     Ring: 15
-    Magical: 200 (must have positive mod points) ;TODO: rethink sale prices, relic level prices
+    Magical: 100/200/250 (low/medium/high value)
     Amulets: 50 * CR capacity
-    Crafting items: 40g
+    Crafting items: 40
     Prayer stones: 100
     Relics: 300 + half of money spent on levelling
-    Health potions: half buy price
-    Other potions: 10g
+    Other potions: 10
 
 Sales and services:
-    Orbs of Flux: 200g
-    Orb of Balance: 200g
-    Orbs of Disavowment: 50g
-    Mundanes: 60
-    Enchanted item: depends on power, TODO: decide. Remove in favour of loot roll option?
-    Loot: 2d8 unsellable loot roll?
+    Orbs of Flux: 200
+    Orb of Balance: 200
+    Orbs of Disavowment: 50
+    Mundanes: 50
+    Loot: 2d8 unsellable loot roll - 150
 
 XP      Challenge
 0       10

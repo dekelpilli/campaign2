@@ -3,7 +3,17 @@
             [clojure.java.io :as io])
   (:import (java.io PushbackReader)))
 
-(def path "loot/data/")
+(def ^:private path "loot/data/")
+(def ^:private relic-key-order {:name       0
+                                :type       1
+                                :owner      2
+                                :base       3
+                                :existing   4
+                                :available  5
+                                :progressed 6
+                                :enabled?   7
+                                :found?     8
+                                :level      9})
 
 (defn load-data [type]
   (with-open [r (PushbackReader. (io/reader (str path type ".edn")))]
@@ -51,18 +61,8 @@
 
 (reload!)
 
-(let [relic-key-order {:name       0
-                       :type       1
-                       :owner      2
-                       :base       3
-                       :existing   4
-                       :available  5
-                       :progressed 6
-                       :enabled?   7
-                       :found?     8
-                       :level      9}]
-  (defn- relic-comparator [x y]
-    (compare (relic-key-order x) (relic-key-order y))))
+(defn- relic-comparator [x y]
+  (compare (relic-key-order x) (relic-key-order y)))
 
 (defn override-relics! [new-relics]
   (reset! relics (mapv #(into (sorted-map-by relic-comparator) %) new-relics))

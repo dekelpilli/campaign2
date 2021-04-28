@@ -5,7 +5,7 @@
  {:name   "Life absorbing machine"
   :effect "Touch attack or 10ft DEX/STR throw, sticking to target on a hit. For 3 rounds or until removed as action, the target cannot heal and takes 1d10 necrotic at the start of each turn."}
  {:name   "Holy attenuation device"
-  :effect "Touch attack, sticking to target on a hit. For 3 rounds or until removed as an action, the target's necrotic damage is halved and the target takes 1d8 at the start of each turn."}
+  :effect "Touch attack, sticking to target on a hit. For 3 rounds or until removed as an action, the target's necrotic damage is halved and the target takes 1d8 radiant at the start of each turn."}
  {:name   "Sound bomb"
   :effect "20ft thrown, warned creatures may use a reaction to avoid. 30ft radius, CON save or 1d8 thunder and deafened for 2 rounds. Immune if deaf."}
  {:name   "Sentry plant"
@@ -16,13 +16,11 @@
   :effect "20ft thrown, 5ft radius, CON save, 1d6 fire or half on success. The bomb ignites flammable objects in its area that aren't being worn or carried. Additionally, the area of the bomb becomes heavily obscured for 1 minute."}
  {:name   "Magic container"
   :effect "You crack open the container, releasing a pulse of magic in a 15 foot radius around you. CHA save or 1d8 force damage and knocked back 5ft away from you. Half damage on success and no knockback."}
- {:name   "Acid Flask"
+ {:name   "Acid flask"
   :effect "10ft thrown, CON save or 1d8 acid, half on success, and blinded until the end of your next turn."}
- {:name   "Blade Sentry"
+ {:name   "Blade sentry"
   :effect "Place on an unoccupied space within 5 feet of you. Medium sized sentry, has 5ft radius, 1d4 slashing. For a minute, when creatures enter this area on their turn or start their turn in the area must make a Dex save. On a substantial failure, their movement becomes 0 until the end of their turn."}
- #_[
-    "Poison" ; lower DC save to also become poisoned? dot?
-    "Psychic" ;int save, lose reaction on save
-    ]
- ;TODO make one for each damage type
- ]
+ {:name   "Noxious gas"
+  :effect "30ft thrown, 15ft radius. For the next 1d4 rounds, creatures that enter this area or start their turn in it must make a CON save. On a failed save, they take 1d6 poison damage. On a substantial failure, they are also poisoned until the end of their turn."}
+ {:name   "Mind amplifier"
+  :effect "Place this device on your head as a free action. For the next minute, as a bonus action, you may force a creature you can see to make an INT save. On a failed save, the target takes 1d6 psychic damage and cannot take reactions until the start of your next turn."}]

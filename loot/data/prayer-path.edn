@@ -43,13 +43,13 @@
            "You may cast the Prismatic Wall spell once per long rest, but you may only choose the Violet variation."
            "You may cast the Imprisonment spell as an action once per long rest. When cast in this way, the target also becomes invulnerable and the spell's duration is 1 hour."]}
  {:name   "Zetnos",
-  :levels ["Enemies that damage you become marked for a minute. Marked enemies have -1 damage against you."
-           "You may cast Hellish Rebuke as a first level spell. You can do this an amount of times equal to a mental attribute of your choice (min 1) every long rest. If skipped 1, enemies that damage you become marked for a minute."
-           "Instead of having -1 damage against you, marked enemies now have -1 global damage."
+  :levels ["Enemies that damage you become marked by Brand of Vengeance for a minute. Creatures marked with BoV have +1 damage taken from you."
+           "You may cast Hellish Rebuke as a first level spell. You can do this an amount of times equal to a mental attribute of your choice (min 1) every long rest. If skipped 1, enemies that damage you become marked by BoV for a minute (no +1 damage)."
+           "Creatures marked with BoV now have -1 global damage."
            "Your attacks and spells deal +1d4 radiant damage against marked enemies."
-           "Enemies are now considered marked if they damage you or an ally, instead of just you."
+           "Enemies are marked with BoV if they damage you or an ally, instead of just you."
            "You have -1 critical strike requirement against marked enemies."
-           "Marked enemies have -1AB and -1AC."
+           "Enemies marked by BoV have -1AB and -1AC."
            "Gain 15 temporary hit points when you land a killing blow against marked enemy. "
            "+5 radiant thorns."
            "You have advantage on attacks against marked enemies."]}
@@ -99,7 +99,7 @@
            "Whenever you cast a spell that was ineffective (e.g. a spell attack that missed), you may make Constitution saving throw against a DC of 8 + twice the spell slot used. On a success, you regain the consumed spell slot."]}
  {:name   "Thatar"
   :levels ["You can communicate telepathically (bidirectional) with undead creatures within 120 feet. The creature must be able to understand a language."
-           "You and your undead minion have +1 necrotic damage."
+           "Undead creatures take 5 true damage upon damaging you."
            "As a reaction, you may redirect any damage you take to an undead minion you control within 5 feet of you."
            "You may reroll non-undead monsters in your amulet for free. When rerolled in this way, the resulting monster is undead and 1CR higher than the amulet's usual capacity."
            "Once per short rest, when you land a killing blow with Necrotic damage on your turn, you may take on additional turn immediately after your current turn."

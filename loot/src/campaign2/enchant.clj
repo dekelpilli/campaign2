@@ -47,7 +47,6 @@
       "weapon" (filter #(compatible-weapon? base %) enabled-enchants)
       "armour" (filter #(compatible-armour? base %) enabled-enchants))))
 
-;TODO: decide if to allow overflow based on points-validator
 (defn add-enchants [base type points-target points-validator]
   (let [valid-enchants (->> (find-valid-enchants base type)
                             (filter #(points-validator (:points % default-points)))
