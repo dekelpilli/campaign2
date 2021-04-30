@@ -16,28 +16,53 @@
   :enabled? false,
   :found? false,
   :level 1}
- {:name "Example Weapon Relic",
+ {:name "Norwood's Mastery",
   :type "weapon",
-  :owner :tester,
-  :base "Flail",
   :existing
-  [{:effect "effect",
-    :upgradeable? false,
-    :level 1,
-    :upgrade-points 10,
-    :points 1}
-   {:effect "+1 Weapon Damage",
-    :upgradeable? true,
-    :level 7,
-    :upgrade-points 20,
-    :points 85}],
+  [{:effect "You can prepare spells that would deal cold, fire, or lightning damage without consuming the spell slot. The spell slot is still consumed when you cast the spell."
+    :upgradeable? false
+    :level 1}]
   :available
-  [{:effect "upgradeableEffect",
-    :upgradeable? true,
-    :level 1,
-    :upgrade-points 10,
-    :points 10}],
-  :progressed [],
-  :enabled? true,
-  :found? true,
-  :level 9}]
+  [{:effect "When you cast Wall of Fire, Wall of Ice, or Wall of Water, you consume a spell slot [1] level below the one required by the spell.",
+    :level 1
+    :upgrade-points 20
+    :points 10}
+   {:effect "[Once] per long rest, when you deal cold, fire, or lightning damage with a critical strike, regain one class point or first level spell slot."
+    :level 1
+    :upgrade-points 10
+    :points 10}
+   {:effect "Whenever you take damage, you may choose to take it as cold damage instead."
+    :level 1
+    :upgrade-points 10
+    :points 10}
+   {:effect "Whenever you take lightning damage and do not go down as a result, you may gain temporary hit points equal to [half] your level."
+    :level 1
+    :upgrade-points 10
+    :points 10}
+   {:effect "Your fire damage is halved. When you deal fire damage to a creature, if it was resistant to lightning or cold damage, it loses that resistance until the end of your next turn ([1] round)."
+    :level 1
+    :upgrade-points 10
+    :points 10}]
+  :enabled? true
+  :found? false,
+  :level 1}
+ {:name "Rislog's Legacy"
+  :type "armour"
+  :existing
+  [{:effect "Allies that can see you cannot be frightened."
+    :upgradeable? false
+    :level 1}]
+  :available [{:effect "Your Strength cannot be below 15. If it was, it is considered to be 15 instead."
+               :upgradeable? false}
+              {:effect "Attacks with two handed melee weapons made during your bonus action have +[3] damage."
+               :upgrade-points 10}
+              {:effect "[Once] per turn, when an attack you make would otherwise have disadvantage, you may make the attack normally instead."
+               :upgrade-points 5}
+              {:effect "You may take the Shove as a bonus action. [Once] per minute, if you shoved successfully as a bonus action, you make take another bonus action in that turn.."
+               :upgrade-points 10}
+              {:effect "+[1] Charisma."
+               :upgrade-points 20}]
+
+  :enabled? true
+  :found? false
+  :level 1}]

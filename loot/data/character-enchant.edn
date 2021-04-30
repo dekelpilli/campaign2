@@ -13,9 +13,6 @@
           :points 5}
          {:effect "+1 die size for the added damage granted by Cruel Harvest."
           :points 15}
-         {:effect       "When you roll a double with Focused Mutation, you may choose to replace one of your rolls with 1-9 instead of rerolling."
-          :points       5
-          :upgradeable? false}
          {:effect       "Growth and Rot no longer reduces your %s."
           :randoms      [["Dexterity" "Strength" "Wisdom"]]
           :upgradeable? false}
@@ -24,5 +21,4 @@
           :upgradeable? false}
          {:effect "You may gain the benefits of 1 additional option from Manifesting Power I."}
          {:effect "+2 to Charisma checks during your first encounter with a creature." ;+1 on upgrade
-          :points 5}
-         {:effect "When you "}]}
+          :points 5}]}

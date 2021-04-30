@@ -76,9 +76,9 @@
 
 (defn start []
   (let [loot-action-names (->> loot-actions
-                               (map (fn [e] [(key e) (:name (val e))]))
-                               (into {}))]
-    (util/display-pairs loot-action-names)
+                               (map (fn [[k {:keys [name]}]] [k name]))
+                               (into (sorted-map)))]
+    (util/display-pairs loot-action-names {:sort? true})
     (loop [action (atom nil)]
       (try
         (let [input (read-line)
@@ -91,7 +91,7 @@
               result (when @action (@action))]
           (cond
             (string? result) (println result)
-            (map? result) (util/display-pairs result)
+            (map? result) (util/display-pairs result {:sort? (sorted? result)})
             (seqable? result) (doseq [r result] (util/display-multi-value r))
             :else (when result (util/display-multi-value result))))
         (catch Exception e

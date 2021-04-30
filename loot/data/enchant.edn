@@ -8,7 +8,7 @@
   :points 16}
  {:effect   "+1 resistance to all damage"
   :metadata #{"armour"}
-  :points   22}
+  :points   25}
  {:effect   "This weapon is considered magical for the purposes of overcoming resistances and immunities",
   :metadata #{"weapon"}
   :points   25}
@@ -35,9 +35,12 @@
  {:effect  "+2 %s damage"
   :randoms [["piercing" "slashing" "bludgeoning"]]
   :points  20}
- {:effect  "+2 % damage"
-  :randoms [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]
-  :points  12}
+ {:effect         "+[2] % damage"
+  :randoms        [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]
+  :points         15
+  :upgrade-points 10}
+ {:effect  "+1 % resistance"
+  :randoms [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]}
  {:effect  "+1 %s"
   :randoms [["Dexterity" "Constitution" "Wisdom" "Charisma" "Strength" "Intelligence"]]
   :points  20}
@@ -152,8 +155,8 @@
              "Shape Water", "Shillelagh", "Shocking Grasp", "Spare the Dying", "Sword Burst",
              "Thaumaturgy", "Thorn Whip", "Thunderclap", "Toll the Dead", "True Strike",
              "Vicious Mockery", "Word of Radiance"]]}
- {:effect "+2 to deception in languages other than Common"}
- {:effect         "This item sells for an extra 1d100 gold. You only roll after the item is sold."
+ {:effect "+2 to deception in languages other than Common."}
+ {:effect         "This item sells for an extra 1d[100] gold. You only roll after the item is sold."
   :upgrade-points 1}
  {:effect "+4 Strength while restrained"}
  {:effect   "Missed attacks with this weapon have a 20% chance to be critical hits instead while you are below 20% hit points."
@@ -164,25 +167,25 @@
  {:effect "Once per long rest, when rolling a natural 1 on a d20, you may reroll."}
  {:effect   "Heal 1 HP on hitting a creature with this weapon in combat",
   :metadata #{"weapon"}}
- {:effect   "+1 to saving throws made to end an ongoing condition if your HP is above 0",
+ {:effect   "+1 to saving throws made to end an ongoing condition if your HP is above 0."
   :metadata #{"armour"}}
- {:effect       "You have resistance to all damage while taking the Dodge action"
+ {:effect       "You have resistance to all damage while taking the Dodge action."
   :upgradeable? false}
- {:effect       "You take no additional damage from damage you are vulnerable to"
+ {:effect       "You take no additional damage from damage you are vulnerable to."
   :points       3
   :upgradeable? false}
- {:effect "+1 damage to melee and touch attacks"}
- {:effect "Recover a 1st-level spell slot on Killing Blow"}
- {:effect "Recover 10% of your maximum class points (minimum 1) on Killing Blow"}
+ {:effect "+1 damage to melee and touch attacks."}
+ {:effect "Recover a 1st-level spell slot on Killing Blow."}
+ {:effect "Recover 10% of your maximum class points (minimum 1) on Killing Blow."}
  {:effect   "At the start of your turn in combat, if you haven't taken damage since the start of your last turn, gain 1 temporary hit point. This stacks with any existing temporary hit points.",
   :metadata ["armour"]}
  {:effect   "+1 damage with weapon attacks"
   :metadata #{"weapon"}}
  {:effect   "Once per long rest, you can choose a target you can see as an action and then cast a random 1st-level spell on that target, ignoring range restrictions",
   :metadata ["weapon"]}
- {:effect "When you deliver a Killing Blow, gain +2 global damage for the remainder of the combat"}
- {:effect "+2 to physical resistance while taking Damage Over Time"}
- {:effect "+1 to damage with light weapons"}
+ {:effect "When you deliver a Killing Blow, gain +2 global damage for the remainder of the combat."}
+ {:effect "+2 to physical resistance while taking Damage Over Time."}
+ {:effect "+1 to damage with light weapons."}
  {:effect "Reroll, the resulting enchant is applied to minions instead of the wielder (10 points)."}
  {:effect "Your minions have +1 resistance to all damage"}
  {:effect "When an attack fails to hit you in combat, you can use your reaction to reduce your AC for the attack until it does hit you. Your next instance of damage in the next minute is then increased by 3 for each point of AC you dropped."}

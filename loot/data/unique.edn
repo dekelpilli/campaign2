@@ -149,6 +149,7 @@
   :base    "any hammer"
   :effects [{:effect "+1d6 thunder damage with this weapon."}
             {:effect "This weapon's base damage is converted to lightning."}
+            {:effect "+2 lightning damage."}
             {:effect "Requires 22 strength to wield."}]}
  {:name    "Excalibur"
   :base    "any sword"
