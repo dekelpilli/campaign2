@@ -29,15 +29,39 @@
 (defn- override-relic! [{:keys [name] :as relic}]
   (override-relics! (mapv #(if (= (:name %) name) relic %) @relics)))
 
-(defn &sell! []
-  (when-let [{:keys [name level] :as relic} (&owned)]
-    (println "Sell" name "for" (int (+ 300 (/ (reduce + (take level upgrade-prices)) 2))) "?")
-    (when (util/&choose [true false])
-      (override-relic! (assoc relic :enabled? false)))))
+(defn- upgrade-mod [{:keys [committed upgrade-points effect]
+                     :or   {committed 0} :as modifier}
+                    points-remaining relic]
+  (let [selected-mod-effect effect]
+    (if (>= (+ committed points-remaining) upgrade-points)
+      (-> relic
+          (update :progressed #(filterv (fn [{:keys [effect]}]
+                                          (not= selected-mod-effect effect)) %))
+          (update :existing #(mapv (fn [{:keys [effect] :as existing-mod}]
+                                     (if (= selected-mod-effect effect)
+                                       (-> existing-mod
+                                           (update :points (fn [points] (+ upgrade-points points)))
+                                           (update :level inc))
+                                       existing-mod)) %)))
+      (update relic :progressed
+              #(as-> % $
+                     (filterv (fn [{:keys [effect]}]
+                                (not= selected-mod-effect effect)) $)
+                     (conj $ (assoc modifier :committed (+ committed points-remaining))))))))
+
+(defn- attach-new-mod [{:keys [points upgrade-points]
+                        :or   {points 10} :as modifier}
+                       relic]
+  ;new random/player mods are always added as if they have max 10 points
+  (update relic :existing
+          #(conj % (assoc modifier
+                     :level 1
+                     :points (min points 10)
+                     :upgrade-points (or upgrade-points points)))))
 
 (defn &level!
-  ([] (let [relic (&upgradeable)]
-        (when relic (&level! relic))))
+  ([] (when-let [relic (&upgradeable)]
+        (&level! relic)))
   ([{:keys [level existing base type available progressed owner] :as relic}]
    (let [points-remaining (- (* points-per-level (inc level))
                              (reduce + (map :points existing))
@@ -62,42 +86,16 @@
                           (concat [["Key" "Type" "Value"]])
                           (util/display-multi-value))
          choice (util/&num)
-         [_ option-type modifier] (when (and choice (>= choice 0)) (nth mod-options (inc choice)))
-         attach-new-mod (fn [{:keys [points upgrade-points]
-                              :or   {points 10} :as modifier}]
-                          ;new random/player mods are always added as if they have max 10 points
-                          (update relic :existing
-                                  #(conj % (assoc modifier
-                                             :level 1
-                                             :points (min points 10)
-                                             :upgrade-points (or upgrade-points points)))))
-         upgrade-mod (fn [{:keys [committed upgrade-points effect]
-                           :or   {committed 0} :as modifier}]
-                       (let [selected-mod-effect effect]
-                         (if (>= (+ committed points-remaining) upgrade-points)
-                           (-> relic
-                               (update :progressed #(filterv (fn [{:keys [effect]}]
-                                                               (not= selected-mod-effect effect)) %))
-                               (update :existing #(mapv (fn [{:keys [effect] :as existing-mod}]
-                                                          (if (= selected-mod-effect effect)
-                                                            (-> existing-mod
-                                                                (update :points (fn [points] (+ upgrade-points points)))
-                                                                (update :level inc))
-                                                            existing-mod)) %)))
-                           (update relic :progressed
-                                   #(as-> % $
-                                          (filterv (fn [{:keys [effect]}]
-                                                     (not= selected-mod-effect effect)) $)
-                                          (conj $ (assoc modifier :committed (+ committed points-remaining))))))))]
+         [_ option-type modifier] (when (and choice (>= choice 0)) (nth mod-options (inc choice)))]
      (when option-type
        (-> (case option-type
-             :new-random-mod (attach-new-mod modifier)
-             :new-character-mod (attach-new-mod modifier)
+             :new-random-mod (attach-new-mod modifier relic)
+             :new-character-mod (attach-new-mod modifier relic)
              :new-relic-mod (-> relic
                                 (update :available #(filterv (fn [m] (not= modifier m)) %))
                                 (update :existing #(conj % modifier)))
-             :upgrade-existing-mod (upgrade-mod modifier)
-             :continue-progress (upgrade-mod modifier)
+             :upgrade-existing-mod (upgrade-mod modifier points-remaining relic)
+             :continue-progress (upgrade-mod modifier points-remaining relic)
              :none relic)
            (update :level inc)
            (override-relic!))))))
@@ -115,3 +113,9 @@
         (override-relic! (assoc relic :found? true
                                       :base base
                                       :owner owner))))))
+
+(defn &sell! []
+  (when-let [{:keys [name level] :as relic} (&owned)]
+    (println "Sell" name "for" (int (+ 300 (/ (reduce + (take level upgrade-prices)) 2))) "?")
+    (when (util/&choose [true false])
+      (override-relic! (assoc relic :enabled? false)))))
