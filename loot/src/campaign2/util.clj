@@ -55,7 +55,7 @@
         (when $ (dissoc $ :enabled?))))
 
 (defn fill-randoms [{:keys [randoms] :as item-modifier}]
-  (if (not-empty randoms)
+  (if (seq randoms)
     (-> item-modifier
         (update :effect #(apply format % (map rand-nth randoms)))
         (dissoc :randoms))

@@ -24,7 +24,7 @@
   :metadata #{"weapon"}
   :randoms  [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]}
  {:effect "+1 spell save DC"
-  :points 31}
+  :points 35}
  {:effect     "+1 AC while unarmoured and not using a Shield or Targe weapons"
   :not-traits #{"Targe"}
   :not-type   #{"Shield"}
@@ -35,11 +35,11 @@
  {:effect  "+2 %s damage"
   :randoms [["piercing" "slashing" "bludgeoning"]]
   :points  20}
- {:effect         "+[2] % damage"
+ {:effect         "+[2] %s damage"
   :randoms        [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]
   :points         15
   :upgrade-points 10}
- {:effect  "+1 % resistance"
+ {:effect  "+1 %s resistance"
   :randoms [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]}
  {:effect  "+1 %s"
   :randoms [["Dexterity" "Constitution" "Wisdom" "Charisma" "Strength" "Intelligence"]]
@@ -63,11 +63,11 @@
   :metadata #{"weapon"}}
  {:effect   "+1 to %s saving throws"
   :randoms  [["Intelligence" "Charisma" "Strength"]]
-  :metadata ["armour"]}
+  :metadata #{"armour"}}
  {:effect   "+1 to %s saving throws"
   :randoms  [["Constitution" "Dexterity" "Wisdom"]]
   :points   18
-  :metadata ["armour"]}
+  :metadata #{"armour"}}
  {:effect   "This weapon deals no base damage. Roll again and empower twice",
   :metadata #{"weapon"}}
  {:effect "You gain telepathy with a range of 10 feet"}
@@ -175,10 +175,10 @@
   :points       3
   :upgradeable? false}
  {:effect "+1 damage to melee and touch attacks."}
- {:effect "Recover a 1st-level spell slot on Killing Blow."}
+ {:effect "[Once] per short rest, recover a 1st-level spell slot on Killing Blow."}
  {:effect "Recover 10% of your maximum class points (minimum 1) on Killing Blow."}
  {:effect   "At the start of your turn in combat, if you haven't taken damage since the start of your last turn, gain 1 temporary hit point. This stacks with any existing temporary hit points.",
-  :metadata ["armour"]}
+  :metadata #{"armour"}}
  {:effect   "+1 damage with weapon attacks"
   :metadata #{"weapon"}}
  {:effect   "Once per long rest, you can choose a target you can see as an action and then cast a random 1st-level spell on that target, ignoring range restrictions",
@@ -190,7 +190,7 @@
  {:effect "Your minions have +1 resistance to all damage"}
  {:effect "When an attack fails to hit you in combat, you can use your reaction to reduce your AC for the attack until it does hit you. Your next instance of damage in the next minute is then increased by 3 for each point of AC you dropped."}
  {:effect "+1 to Damage Over Time"}
- {:effect "When you hit a creature with this weapon, they get -1 resistance to all damage dealt by creatures other than yourself for the remainder of combat. This does not stack, though multiple instances of this enchant do."}
+ {:effect "When you hit a creature with this weapon, they get a non-stacking -1 resistance to all damage dealt by creatures other than yourself for the remainder of combat."}
  {:effect   "+2 resistance to damage from projectiles",
   :metadata #{"armour"}}
  {:effect "When you deliver a Killing Blow, gain 10 temporary hit points"}
@@ -216,7 +216,7 @@
   :randoms [["Abberation" "Beast" "Celestial" "Construct" "Dragon" "Elemental" "Fey"
              "Fiend" "Giant" "Humanoid" "Monstrosity" "Ooze" "Plant" "Undead"]]}
  {:effect   "+25% chance to ignore bonus damage from incoming critical strikes",
-  :metadata ["armour"]}
+  :metadata #{"armour"}}
  {:effect       "While you have 3 different enchantments equipped that grant bonuses against the same type of creature, you have +1 to your proficiency bonus"
   :upgradeable? false}
  {:effect "+2 global damage while your hit points are below 50% of your hit point maximum"}
@@ -263,16 +263,19 @@
  {:effect   "+1 to death saves in sunlight"
   :points   5
   :metadata #{"armour"}}
- {:effect "If you successfully disarm an enemy with this weapon, you may use a bonus action in the same turn to make an attack against the creature you disarmed."
-  :points 15
-  :traits #{"Disarm"}}
+ {:effect   "If you successfully disarm an enemy with this weapon, you may use a bonus action in the same turn to make an attack against the creature you disarmed."
+  :points   15
+  :traits   #{"Disarm"}
+  :metadata #{"weapon"}}
  {:effect       "Enemies are considered to enter and leave your reach at both 5 and 10 feet."
   :points       25
   :traits       #{"Reach"}
+  :metadata     #{"weapon"}
   :upgradeable? false}
  {:effect       "This weapon only requires 10 strength instead of 15. It is still considered heavy for the purpose of dual wielding."
   :points       5
   :traits       #{"Heavy"}
+  :metadata     #{"weapon"}
   :upgradeable? false}
  {:effect "+1 damage die size from marks you caused."
   :points 15}
