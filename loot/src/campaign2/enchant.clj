@@ -35,7 +35,6 @@
 
 (defn- compatible-armour? [base
                            {:keys [metadata] :as enchant}]
-  (when metadata (println "A: " metadata))
   (and (or (empty? metadata)
            (contains? metadata "armour"))
        (compatible? base enchant :disadvantaged-stealth)
@@ -57,15 +56,12 @@
                       (map util/fill-randoms))]
     [base enchants]))
 
-(defn random-x-enchanted [points-target]
+(defn random-enchanted [points-target]
   (let [type (rand-nth ["weapon" "armour"])
         base (case type
                "armour" (mundane/new-armour)
                "weapon" (mundane/new-weapon))]
     (add-enchants base type points-target)))
-
-(defn random-enchanted [points-target]
-  (random-x-enchanted points-target))
 
 (defn &add []
   (let [{:keys [base type]} (mundane/&base)]

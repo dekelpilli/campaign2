@@ -1,4 +1,4 @@
-{:festus [{:effect "+[1] Strength"
+{:festus [{:effect "+[1] Strength."
            :points 20}
           {:effect       "When you decrease damage with Fortify, you are inflicted with blight of 20%/5 instead of 25%/4."
            :upgradeable? false}
@@ -15,7 +15,7 @@
            :points 5}
           {:effect         "+1 DC to the save required by your Bile feature."
            :upgrade-points 20}]
- :heath  [{:effect "+[1] Charisma"
+ :heath  [{:effect "+[1] Charisma."
            :points 20}
           {:effect "+[1] to skill checks in which you've gained expertise via Shifting Organs."}
           {:effect "+[10] feet range to your Cruel Harvest area."
@@ -47,4 +47,17 @@
            :upgradeable? false}
           {:effect "When you cast a Divination spell, you may add a minute to the spell's casting time to gain a [25]% chance to not consume a spell slot. Multiple instances of this enchant do not stack."} ;+5% per level
           {:effect       "You gain the Shell Defense ability (see Tortle)."
-           :upgradeable? false}]}
+           :upgradeable? false}]
+ :reven  [{:effect "+[1] Intelligence."
+           :points 20}
+          {:effect "+[1] to your Hemocraft die size."
+           :points 20}
+          {:effect       "You know all of the Primal Rites."
+           :upgradeable? false}
+          {:effect       "You Dark Augmentation feature also applies to Charisma saving throws."
+           :upgradeable? false}
+          {:effect       "%s also converts your weapon's base damage to the damage type it adds."
+           :randoms      [["Rite of the Flame" "Rite of the Frozen" "Rite of the Storm"
+                           "Rite of the Dead" "Rite of the Oracle" "Rite of the Roar"]]
+           :upgradeable? false}
+          {:effect       "Creatures under the effect of your Brand of Castigation have -[1] resistance to psychic damage from weapon attacks."}]}
