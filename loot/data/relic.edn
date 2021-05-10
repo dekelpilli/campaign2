@@ -1,117 +1,144 @@
-[{:name "Template"
-  :type "weapon/armour"
-  :base "Plate Body Armour"
+[{:name "Template",
+  :type "weapon/armour",
+  :base "Plate Body Armour",
   :existing
-  [{:effect "effect"
-    :upgradeable? false
-    :level 1
-    :upgrade-points 10
-    :points 10}]
+  [{:effect "effect",
+    :upgradeable? false,
+    :level 1,
+    :upgrade-points 10,
+    :points 10}],
   :available
-  [{:effect "upgradeableEffect"
-    :upgradeable? true
-    :level 1
-    :upgrade-points 10
-    :points 10}]
-  :enabled? false
-  :found? false
+  [{:effect "upgradeableEffect",
+    :upgradeable? true,
+    :level 1,
+    :upgrade-points 10,
+    :points 10}],
+  :enabled? false,
+  :found? false,
   :level 1}
  {:name "Norwood's Mastery",
   :type "weapon",
   :existing
-  [{:effect "You can prepare spells that would deal cold, fire, or lightning damage without consuming the spell slot. The spell slot is still consumed when you cast the spell."
-    :upgradeable? false
-    :level 1}]
+  [{:effect
+    "You can prepare spells that would deal cold, fire, or lightning damage without consuming the spell slot. The spell slot is still consumed when you cast the spell.",
+    :upgradeable? false,
+    :level 1}],
   :available
-  [{:effect "When you cast Wall of Fire, Wall of Ice, or Wall of Water, you consume a spell slot [1] level below the one required by the spell.",
-    :level 1
-    :upgrade-points 20
+  [{:effect
+    "When you cast Wall of Fire, Wall of Ice, or Wall of Water, you consume a spell slot [1] level below the one required by the spell.",
+    :level 1,
+    :upgrade-points 20,
     :points 10}
-   {:effect "[Once] per long rest, when you deal cold, fire, or lightning damage with a critical strike, regain one class point or first level spell slot."
-    :level 1
-    :upgrade-points 10
+   {:effect
+    "[Once] per long rest, when you deal cold, fire, or lightning damage with a critical strike, regain one class point or first level spell slot.",
+    :level 1,
+    :upgrade-points 10,
     :points 10}
-   {:effect "Whenever you take damage, you may choose to take it as cold damage instead."
-    :level 1
-    :upgrade-points 10
+   {:effect
+    "Whenever you take damage, you may choose to take it as cold damage instead.",
+    :level 1,
+    :upgrade-points 10,
     :points 10}
-   {:effect "Whenever you take lightning damage and do not go down as a result, you may gain temporary hit points equal to [half] your level."
-    :level 1
-    :upgrade-points 10
+   {:effect
+    "Whenever you take lightning damage and do not go down as a result, you may gain temporary hit points equal to [half] your level.",
+    :level 1,
+    :upgrade-points 10,
     :points 10}
-   {:effect "Your fire damage is halved. When you deal fire damage to a creature, if it was resistant to lightning or cold damage, it loses that resistance until the end of your next turn ([1] round)."
-    :level 1
-    :upgrade-points 10
-    :points 10}]
-  :enabled? true
+   {:effect
+    "Your fire damage is halved. When you deal fire damage to a creature, if it was resistant to lightning or cold damage, it loses that resistance until the end of your next turn ([1] round).",
+    :level 1,
+    :upgrade-points 10,
+    :points 10}],
+  :enabled? true,
   :found? false,
   :level 1}
- {:name "Rislog's Legacy"
-  :type "armour"
+ {:name "Rislog's Legacy",
+  :type "armour",
   :existing
-  [{:effect "Allies that can see you cannot be frightened."
-    :upgradeable? false
-    :level 1}]
-  :available [{:effect "Your Strength cannot be below 15. If it was, it is considered to be 15 instead."
-               :upgradeable? false}
-              {:effect "Attacks with two handed melee weapons made during your bonus action have +[3] damage."
-               :upgrade-points 10}
-              {:effect "[Once] per turn, when an attack you make would otherwise have disadvantage, you may make the attack normally instead."
-               :upgrade-points 5}
-              {:effect "You may take the Shove as a bonus action. [Once] per minute, if you shoved successfully as a bonus action, you make take another bonus action in that turn.."
-               :upgrade-points 10}
-              {:effect "+[1] Charisma."
-               :upgrade-points 20}]
-
-  :enabled? true
-  :found? false
-  :level 1}
- {:name "Eion's Uprising"
-  :type "weapon"
-  :existing
-  [{:effect "+[1] damage with Conjuration spells, and minions from Conjurations spells deal +[1] damage."
-    :level 1}]
-  :available [{:effect "Once per long rest, after rolling for a Concentration save for a Conjuration spell, you may choose to add [5] to the result."}
-              {:effect "Your speed is considered to be [10] feet higher for when teleporting."}
-              {:effect "You may teleport up to your speed when taking the Dash action."
-               :upgradeable? false}
-              {:effect "Minions from your Conjuration spells have +[2] maximum hit points for each spell level from which they originate."}
-              {:effect "[Twice] per minute, you make replace an attack with this weapon with the casting of a Conjuration cantrip (mental attribute of choice)."}]
-  :enabled? true
-  :found? false
-  :level 1}
- {:name "Vuneta's Peace"
-  :type "armour"
-  :existing
-  [{:effect "+1 resistance to damage dealt by creatures you have not damaged."
-    :upgradeable? false}]
-  :available [{:effect "+[2] AC if you have not dealt damage since your last initiative roll."
-               :upgrade-points 20}
-              {:effect "Non-damaging conditions you inflict required +[1] DC to escape. The DC returns to normal if the creature is damaged."}
-              {:effect "You may cast the Calm Emotions spell [once] per short rest. Mental of choice."}
-              {:effect "Creatures you have healed in the last hour have disadvantage against your charms and charm-like effects."
-               :upgradeable? false}
-              {:effect "Feeding others potions requires a bonus action instead of an action."
-               :upgradeable? false}]
-  :enabled? true
-  :found? false
-  :level 1}
- {:name "Thetia's Ruthlessness"
-  :type "armour"
-  :existing
-        [{:effect "+[2] die size when damaging prone or incapacitated creatures."
-          :upgrade-points 10}]
+  [{:effect "Allies that can see you cannot be frightened.",
+    :upgradeable? false,
+    :level 1}],
   :available
-        [{:effect "On killing blow, +[3] resistance to all damage until the end of your next turn."
-          :upgrade-points 10}
-         {:effect "You gain advantage on attacks until the end of your [next] turn upon an ally going down to 0 hit points."
-          :upgrade-points 10}
-         {:effect "+[15] feet movement turing the first round of combat."
-          :upgrade-points 10}
-         {:effect "You may cast Wrathful Smite as a free action once per short rest. DC = 8 + AB for the attack that applied it."
-          :upgradeable? false}
-         {:effect "+[2] investigation after combats in which you've landed a killing blow."
-          :upgrade-points 5}]
-  :enabled? false
-  :found? false
+  [{:effect
+    "Your Strength cannot be below 15. If it was, it is considered to be 15 instead.",
+    :upgradeable? false}
+   {:effect
+    "Attacks with two handed melee weapons made during your bonus action have +[3] damage.",
+    :upgrade-points 10}
+   {:effect
+    "[Once] per turn, when an attack you make would otherwise have disadvantage, you may make the attack normally instead.",
+    :upgrade-points 5}
+   {:effect
+    "You may take the Shove as a bonus action. [Once] per minute, if you shoved successfully as a bonus action, you make take another bonus action in that turn..",
+    :upgrade-points 10}
+   {:effect "+[1] Charisma.", :upgrade-points 20}],
+  :enabled? true,
+  :found? false,
+  :level 1}
+ {:name "Eion's Uprising",
+  :type "weapon",
+  :existing
+  [{:effect
+    "+[1] damage with Conjuration spells, and minions from Conjurations spells deal +[1] damage.",
+    :level 1}],
+  :available
+  [{:effect
+    "Once per long rest, after rolling for a Concentration save for a Conjuration spell, you may choose to add [5] to the result."}
+   {:effect
+    "Your speed is considered to be [10] feet higher for when teleporting."}
+   {:effect
+    "You may teleport up to your speed when taking the Dash action.",
+    :upgradeable? false}
+   {:effect
+    "Minions from your Conjuration spells have +[2] maximum hit points for each spell level from which they originate."}
+   {:effect
+    "[Twice] per minute, you make replace an attack with this weapon with the casting of a Conjuration cantrip (mental attribute of choice)."}],
+  :found? false,
+  :level 1}
+ {:name "Vuneta's Peace",
+  :type "armour",
+  :existing
+  [{:effect
+    "+1 resistance to damage dealt by creatures you have not damaged.",
+    :upgradeable? false}],
+  :available
+  [{:effect
+    "+[2] AC if you have not dealt damage since your last initiative roll.",
+    :upgrade-points 20}
+   {:effect
+    "Non-damaging conditions you inflict required +[1] DC to escape. The DC returns to normal if the creature is damaged."}
+   {:effect
+    "You may cast the Calm Emotions spell [once] per short rest. Mental of choice."}
+   {:effect
+    "Creatures you have healed in the last hour have disadvantage against your charms and charm-like effects.",
+    :upgradeable? false}
+   {:effect
+    "Feeding others potions requires a bonus action instead of an action.",
+    :upgradeable? false}],
+  :enabled? true,
+  :found? false,
+  :level 1}
+ {:name "Thetia's Ruthlessness",
+  :type "armour",
+  :existing
+  [{:effect
+    "+[2] die size when damaging prone or incapacitated creatures.",
+    :upgrade-points 10}],
+  :available
+  [{:effect
+    "On killing blow, +[3] resistance to all damage until the end of your next turn.",
+    :upgrade-points 10}
+   {:effect
+    "You gain advantage on attacks until the end of your [next] turn upon an ally going down to 0 hit points.",
+    :upgrade-points 10}
+   {:effect "+[15] feet movement turing the first round of combat.",
+    :upgrade-points 10}
+   {:effect
+    "You may cast Wrathful Smite as a free action once per short rest. DC = 8 + AB for the attack that applied it.",
+    :upgradeable? false}
+   {:effect
+    "+[2] investigation after combats in which you've landed a killing blow.",
+    :upgrade-points 5}],
+  :enabled? false,
+  :found? false,
   :level 1}]

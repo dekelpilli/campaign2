@@ -71,7 +71,7 @@
        :action encounter/&randomise}
    26 {:name   "Calculate loot rewards"
        :action encounter/&rewards}
-   27 {:name   "Calculate loot rewards"
+   27 {:name   "Positive encounter"
        :action encounter/new-positive}})
 
 (defn start []

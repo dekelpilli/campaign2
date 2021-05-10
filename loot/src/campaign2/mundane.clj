@@ -5,10 +5,6 @@
 
 (def base-types {"weapon" @weapons "armour" @armours})
 
-(defn find-base [base-name type]
-  (first (filter #(= base-name (:name %))
-                 (base-types type))))
-
 (defn &base
   ([]
    (let [choice (util/&choose (keys base-types))]

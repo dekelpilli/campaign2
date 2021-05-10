@@ -71,7 +71,7 @@
                                   (seq upgradeable-mods) (conj :upgrade-existing-mod))
          upgrade-options (conj (take 2 (concat (map (constantly :continue-progress) progressed) (repeatedly #(rand-nth possible-options))))
                                :none)
-         valid-enchants (e/find-valid-enchants (mundane/find-base base type) type)
+         valid-enchants (e/find-valid-enchants base type)
          rand-filled #(->> % util/rand-enabled util/fill-randoms)
          mod-options (->> upgrade-options
                           (map (fn [o] [o (rand-filled
@@ -105,7 +105,7 @@
                    (filter (fn [{:keys [found?]}] (not found?)))
                    (util/rand-enabled))]
     (if relic
-      (util/display-multi-value relic)
+      (util/display-multi-value (dissoc relic :available :found? :level))
       (throw (Exception. "Out of relics :(")))
     (let [base (mundane/&base (:type relic))
           owner (when base (util/&choose (keys @character-enchants)))]
