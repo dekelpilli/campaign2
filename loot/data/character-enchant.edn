@@ -48,7 +48,7 @@
           {:effect "When you cast a Divination spell, you may add a minute to the spell's casting time to gain a [25]% chance to not consume a spell slot. Multiple instances of this enchant do not stack."} ;+5% per level
           {:effect       "You gain the Shell Defense ability (see Tortle)."
            :upgradeable? false}]
- :reven  [{:effect "+[1] Intelligence."
+ :reven  [{:effect "+[1] Dexterity."
            :points 20}
           {:effect "+[1] to your Hemocraft die size."
            :points 20}
@@ -60,4 +60,7 @@
            :randoms      [["Rite of the Flame" "Rite of the Frozen" "Rite of the Storm"
                            "Rite of the Dead" "Rite of the Oracle" "Rite of the Roar"]]
            :upgradeable? false}
-          {:effect       "Creatures under the effect of your Brand of Castigation have -[1] resistance to psychic damage from weapon attacks."}]}
+          {:effect "Creatures under the effect of your Brand of Castigation have -[1] resistance to psychic damage from weapon attacks."}
+          {:effect       "While you have Rite of Flame active, if you roll a 1 or 2 on your damage die for a Scorching Ray cast from Revealed Arcana, you can reroll the die and choose which roll to use."
+           :upgradeable? false}
+          {:effect "Creatures affected by your Brand of the Sapping Scar feature that also have Magic Resistance take +[2] damage from your spells."}]}
