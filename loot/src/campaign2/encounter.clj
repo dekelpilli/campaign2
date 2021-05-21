@@ -53,10 +53,10 @@
         investigations (when investigations (str/split investigations #","))]
     (when difficulty
       {:xp   (case difficulty
-               :easy (+ 4 (rand-int 3))
-               :medium (+ 6 (rand-int 4))
-               :hard (+ 8 (rand-int 5))
-               :deadly (+ 10 (rand-int 6)))
+               :easy (+ 6 (rand-int 1))
+               :medium (+ 8 (rand-int 2))
+               :hard (+ 11 (rand-int 2))
+               :deadly (+ 13 (rand-int 3)))
        :loot (calculate-loot difficulty investigations)})))
 
 (defn new-positive []

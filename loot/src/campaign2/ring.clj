@@ -29,7 +29,7 @@
                                (map ban-opts)
                                set)]
       (->> @rings
-           (filter (complement #(contains? sacrificed (% :name))))
+           (remove #(contains? sacrificed (:name %)))
            (shuffle)
            (take (if (contains? sacrificed "The Catalyst")
                    (* 2 (count sacrificed))

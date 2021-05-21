@@ -102,7 +102,7 @@
 
 (defn &new! []
   (let [relic (->> @relics
-                   (filter (fn [{:keys [found?]}] (not found?)))
+                   (remove :found?)
                    (util/rand-enabled))]
     (if relic
       (util/display-multi-value (dissoc relic :available :found? :level))

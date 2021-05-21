@@ -18,15 +18,15 @@
   (let [files (->> dir
                    (File.)
                    (file-seq)
-                   (filter (complement #(.isDirectory %))))
+                   (remove #(.isDirectory %)))
         mons (->> files
                   (map slurp)
                   (map #(json/read-value % json/keyword-keys-object-mapper))
                   (map :monster)
                   (flatten)
-                  (filter (complement #(contains? % :_copy)))
+                  (remove #(contains? % :_copy))
                   (group-by find-cr)
-                  (filter (fn [[k _]] k))
+                  (filter first)
                   (map (fn [[k v]] [k
                                     (mapv #(select-keys % [:name :source :page :type]) v)]))
                   (into (sorted-map)))]
