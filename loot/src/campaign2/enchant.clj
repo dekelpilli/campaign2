@@ -23,7 +23,6 @@
 
 (defn- compatible-weapon? [{:keys [range] :as base}
                            {:keys [ranged? metadata] :as enchant}]
-  (when metadata (println "W: " metadata))
   (and (or (empty? metadata)
            (contains? metadata "weapon"))
        (or (nil? ranged?) (= ranged? (boolean range)))
