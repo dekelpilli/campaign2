@@ -4,7 +4,10 @@
             [clojure.string :as str]))
 
 (def ^:private extra-loot-threshold 13)
-(def ^:private races ["Aarakocra" "Aasimar" "Bugbear" "Centaur" "Changeling" "Dragonborn" "Dwarf" "Elf" "Firbolg" "Genasi" "Gith" "Gnome" "Goblin" "Goliath" "Half-Elf" "Half-Orc" "Halfling" "Hobgoblin" "Human" "Kalashtar" "Kenku" "Kobold" "Lizardfolk" "Loxodon" "Minotaur" "Orc" "Satyr" "Shifter" "Tabaxi" "Tiefling" "Tortle" "Triton" "Vedalken" "Yuan-Ti Pureblood"])
+(def ^:private races ["Aarakocra" "Aasimar" "Bugbear" "Centaur" "Changeling" "Dragonborn" "Dwarf" "Elf" "Firbolg"
+                      "Genasi" "Gith" "Gnome" "Goblin" "Goliath" "Half-Elf" "Half-Orc" "Halfling" "Hobgoblin" "Human"
+                      "Kalashtar" "Kenku" "Kobold" "Lizardfolk" "Loxodon" "Minotaur" "Orc" "Satyr" "Shifter" "Tabaxi"
+                      "Tiefling" "Tortle" "Triton" "Vedalken" "Yuan-Ti Pureblood"])
 (def ^:private sexes ["female" "male"])
 (def ^:private had-random? (atom false))
 
@@ -36,12 +39,11 @@
                       :hard ["1d16"]
                       :deadly ["1d16" "1d16"])]
       (frequencies
-        (cond-> base-loot
-                (>= avg extra-loot-threshold) (concat (repeat (-> excess
-                                                                  (/ 3)
-                                                                  (int)) "1d16"))
-                (= remainder 1) (conj "1d12")
-                (= remainder 2) (conj "2d8"))))))
+        (if (>= avg extra-loot-threshold)
+          (cond-> (concat base-loot (repeat (-> excess (/ 3) (int)) "1d16"))
+                  (= remainder 1) (conj "1d12")
+                  (= remainder 2) (conj "2d8"))
+          base-loot)))))
 
 (defn &rewards []
   (let [difficulties (util/display-pairs
@@ -53,10 +55,10 @@
         investigations (when investigations (str/split investigations #","))]
     (when difficulty
       {:xp   (case difficulty
-               :easy (+ 6 (rand-int 1))
-               :medium (+ 8 (rand-int 2))
-               :hard (+ 11 (rand-int 2))
-               :deadly (+ 13 (rand-int 3)))
+               :easy (+ 6 (rand-int 2))
+               :medium (+ 8 (rand-int 3))
+               :hard (+ 11 (rand-int 3))
+               :deadly (+ 13 (rand-int 4)))
        :loot (calculate-loot difficulty investigations)})))
 
 (defn new-positive []

@@ -15,7 +15,7 @@
   :base    "any body armour"
   :effects [{:effect "You have advantage with melee attacks while grappled or restrained. You do not suffer disadvantage on melee attacks while restrained."}
             {:effect "You have proficiency with Athletics and Acrobatics."}
-            {:effect "Creatures you grappled are considered to be restrained."}
+            {:effect "Creatures you are grappling are considered to be restrained."}
             {:effect "You are considered to be restrained while you are grappling a creature."}]}
  {:name    "Garb of the Divine"
   :base    "any body armour"
@@ -25,7 +25,7 @@
             {:effect "You are immune to curses."}
             {:effect "You take no extra damage from critical strikes from creatures within 5 feet of you."}
             {:effect "May only be worn if you have 20 intelligence and 20 strength."}
-            {:effect "Your may not add your intelligence or strength to any damage you deal."}]}
+            {:effect "You may not add your intelligence or strength to any damage you deal."}]}
  {:name    "Infernal Mantle"
   :base    "any body armour"
   :effects [{:effect "+3 fire damage with spells."}
@@ -36,7 +36,7 @@
  {:name    "Werebear's Pelt"
   :base    "any body armour"
   :effects [{:effect "Your hit die size is increased by 2. This increases your maximum hit points."}
-            {:effect "You regenerate 4 life per round in combat."}
+            {:effect "You regenerate 4 hit points per round in combat."}
             {:effect "You have advantage on physical damage dice rolls with melee attacks."}
             {:effect "You are large."}
             {:effect "You cannot cast spells."}
@@ -47,7 +47,7 @@
             {:effect "Your critical strike requirement is 13 while you are not mad."}
             {:effect "Targets have a critical strike avoidance minimum of 7 when saving against your spells while you are not mad."}
             {:effect "+3 resistance to all damage while mad."}
-            {:effect "Healing your receive while mad is applied as if the maximum value was rolled."}
+            {:effect "Healing you receive while mad is applied as if the maximum value was rolled."}
             {:effect "Roll a d20 at the start of each turn in combat where you are conscious. If you roll 10 or lower, roll a d100 on the short term madness table. You are afflicted by the matching effect until the start of your next turn."}]
   :madness {"01-20"  "The character retreats into his or her mind and becomes paralyzed. The effect ends if the character takes any damage."
             "21-30"  "The character becomes incapacitated and spends the duration screaming, laughing, or weeping."
@@ -62,20 +62,20 @@
  {:name    "Slow and Steady"
   :base    "any boots"
   :effects [{:effect "You are immune to the grappled and restrained conditions."}
-            {:effect "+2 maximum constitution."}
-            {:effect "+1 constitution."}
-            {:effect "Your speed is reduced by 5 feet."}]}
+            {:effect "+2 maximum Constitution."}
+            {:effect "+1 Constitution."}
+            {:effect "Your speed is reduced by 10 feet."}]}
  {:name    "Fast and Furious"
   :base    "any boots"
   :effects [{:effect "Your speed is increased by 5 feet for each attack you've made during your turn."}
-            {:effect "You may sacrifice half of your movement to disengage if you've made an attack in your bonus action. "}
+            {:effect "You may sacrifice half of your movement to disengage if you've made an attack in your bonus action."}
             {:effect "Your speed is reduced by 10 feet."}]}
  {:name    "Gluttony"
   :base    "any boots"
-  :effects [{:effect "You and allies heal 3 life when hitting enemies cursed by you, no more than onc per turn."}
-            {:effect "Allies gain 3 hit points on hitting enemies you have cursed."}
+  :effects [{:effect "You gain 3 hit points when hitting enemies cursed by you, no more than once per turn."}
+            {:effect "Allies gain 3 hit points on hitting enemies cursed by you."}
             {:effect "You cannot gain temporary hit points."}
-            {:effect "Take 5 true damage when you dash."}]}
+            {:effect "You take 5 true damage when you dash."}]}
  {:name    "Unreserved"
   :base    "any gloves"
   :effects [{:effect "+2 global damage."}
@@ -88,10 +88,10 @@
             {:effect "You cannot benefit from healing surges while conscious."}]}
  {:name    "Mitts of the Frostbitten"
   :base    "any gloves"
-  :effects [{:effect "+1 cold thorns"}
-            {:effect "+2 cold damage"}
+  :effects [{:effect "+1 cold thorns."}
+            {:effect "+2 cold damage."}
             {:effect "Physical damage you would deal is dealt as cold damage instead."}
-            {:effect "Your physical damage is halved"}]}
+            {:effect "Your physical damage is halved."}]}
  {:name    "Cryomancer's Obsession"
   :base    "any helmet"
   :effects [{:effect "+1d4 cold damage with attacks and spells."}
@@ -198,22 +198,22 @@
             {:effect "You take 3 damage whenever you make an attack."}]}
  {:name    "Savage"
   :base    "any one handed axe"
-  :effects [{:effect "+1 damage while duel wielding."}
+  :effects [{:effect "+1 damage while dual wielding."}
             {:effect "+1 global damage while wielding a flail."}
             {:effect "You cannot gain temporary hit points."}]}
  {:name    "Controlling"
   :base    "any one handed sword"
-  :effects [{:effect "+1 damage while duel wielding."}
+  :effects [{:effect "+1 damage while dual wielding."}
             {:effect "+1 AB with this weapon while wielding a pick."}
             {:effect "+1 critical strike requirement."}]}
  {:name    "Tankie"
   :base    "any one handed knife"
-  :effects [{:effect "+1 damage while duel wielding."}
+  :effects [{:effect "+1 damage while dual wielding."}
             {:effect "+1 AC while wielding a hammer."}
             {:effect "-5 feet speed."}]}
  {:name    "Meticulous"
   :base    "any shield weapon"
-  :effects [{:effect "+1 damage while duel wielding."}
+  :effects [{:effect "+1 damage while dual wielding."}
             {:effect "+1 reactions while wielding a club."}
             {:effect "-1 to all Strength and Dexterity skill checks, and -1 to Concentration checks."}]}
  {:name    "Unyielding"
@@ -223,7 +223,7 @@
             {:effect "-2 to concentration checks if you haven't cast any non-cantrip spells since the beginning of your previous turn."}]}
  {:name    "Alpha"
   :base    "any weapon"
-  :effects [{:effect "When you land a killing blow or a natural critical strike with a weapon, you may summon a wolf (CR1/4, MM p341). This wolf is placed immediately after you on the initiative tacker."}
+  :effects [{:effect "When you land a killing blow or a natural critical strike with this weapon, you may summon a wolf (CR1/4, MM p341). This wolf is placed immediately after you on the initiative tacker."}
             {:effect "+3 minion damage when the minion is a beast."}
             {:effect "+5 minion hit points when the minion is a beast."}
             {:effect "You cannot have more than one minion active at any given time. If you would summon one while you already have one active, you may choose which one supersedes."}]}
@@ -251,12 +251,12 @@
  {:name    "Carnwennan"
   :base    "any knife"
   :effects [{:effect "-2 critical strike requirement against creatures in magical darkness."}
-            {:effect "Your space becomes engulfed in magical darkness when you hit a creature with an attack with this weapon."}
+            {:effect "Your space becomes engulfed in magical darkness until the end of your next turn when you hit a creature with an attack with this weapon."}
             {:effect "-1 AB while in magical darkness."}]}
  {:name    "Amenonuhoko"
   :base    "any polearm"
   :effects [{:effect "The first time on your turn that you hit a creature with this weapon, you cast Earth Tremor as a first level spell. DC based mental attribute of choice."}
-            {:effect "You must concentrate to hold this weapon. Whenever you lose concentration, you may either drop the weapon or immediately cast Earth Tremor. When cast in this way, the spell also affects you, but does no invoke further concentration saves."}]}
+            {:effect "You must concentrate to hold this weapon. Whenever you lose concentration, you may either drop the weapon or immediately cast Earth Tremor. When cast in this way, the spell also affects you, but does not invoke further concentration saves."}]}
  {:name     "Babr-e Bayan"
   :base     "any heavy body armour"
   :effects  [{:effect "You are immune to fire and cold damage."}
