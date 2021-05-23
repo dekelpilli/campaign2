@@ -74,6 +74,7 @@
                           coll metadata]
                      (let [modifier (first coll)
                            updated (cond
+                                     (nil? modifier) randomiser
                                      (= "disadvantage" modifier) (disadv randomiser)
                                      (= "advantage" modifier) (adv randomiser)
                                      (.startsWith modifier "x") (multi randomiser modifier)

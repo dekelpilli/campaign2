@@ -1,6 +1,7 @@
 ({:riddle
   "It has a golden head. It has a golden tail. It has no body.",
-  :answer "A gold coin."}
+  :answer "A gold coin.",
+  :enabled? false}
  {:riddle
   "It wears a leather coat to keep its skins in working order. Escorts you to other realms, without a magic portal.",
   :answer "Book."}
