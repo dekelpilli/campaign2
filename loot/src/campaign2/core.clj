@@ -72,7 +72,9 @@
    26 {:name   "Calculate loot rewards"
        :action encounter/&rewards}
    27 {:name   "Positive encounter"
-       :action encounter/new-positive}})
+       :action encounter/new-positive}
+   28 {:name   "Generate dungeon template"
+       :action encounter/new-dungeon}})
 
 (defn start []
   (let [loot-action-names (->> loot-actions

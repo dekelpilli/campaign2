@@ -7,8 +7,8 @@
              "Creatures that currently believe one of your illusions are real have disadvantage when attacking you"
              "When casting non-cantrip Illusion spells, you may choose to use the spell slot level below that spell's natural casting requirement, to a minimum of 1"
              "+2 to the DCs of Illusion spells"
-             "You may cast Zone of Truth once per short rest. When cast in this way, the spell is centered on you and lasts for 1 hour."
-             "You have 30 feet of Truesight"]}
+             "You may cast Zone of Truth once per short rest. When cast in this way, the spell is centered on you and lasts for 1 hour." ;TODO: odi?
+             "You have 30 feet of Truesight, and may automatically discern illusions from reality at any distance (including non-visual illusions)."]}
  {:name   "Esher",
   :levels ["When you roll a 1 on a die for gaining healing from healing surges, you may reroll the die and must use the new result."
            "You and your minions have +3 to maximum hit points, and you have +3 to maximum hit points while transformed."
@@ -57,7 +57,7 @@
   :levels ["You have Expertise with Sleight of Hand when stealing documents (can be plans, contracts, maps, etc).",
            "You have advantage on all Wisdom and Intelligence skill checks if you have taken at least 10 damage in the last minute. You may self-inflict this damage to trigger this."
            "When learning creature stats, changing the target creature does not consume questions."
-           "As an action when you successfully learn about a creature within 5 feet of you, you may force that creature to make a WIS save against 8 + your prof mod + a mental attribute mod of your choice. On a failed save, it has disadvantage when attacking you for a minute."
+           "As an action when you successfully learn about a creature within 5 feet of you, you may force that creature to make a WIS save against 8 + your prof mod + a mental attribute mod of your choice. On a failed save, it has disadvantage when attacking you for up to a minute, saving at the end of each turn to end the effect."
            "As a reaction to being targeted by an opportunity attack, you immediately gain 4 questions about that creature."
            "When you are forced to make a save with a mental attribute, you may use your Investigation bonus instead of your save bonus. You may do this an amount of times equal to your Int Mod per short rest."
            "You get 8 spell slot levels every long rest. You can use these to cast any non-cantrip Divination spell of 5th level of lower, using a mental attribute of your choice."

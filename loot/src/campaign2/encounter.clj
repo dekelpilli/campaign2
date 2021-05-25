@@ -1,7 +1,8 @@
 (ns campaign2.encounter
   (:require [campaign2.util :as util]
             [campaign2.state :refer [positive-encounters]]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [clojure.core.match :refer [match]]))
 
 (def ^:private extra-loot-threshold 13)
 (def ^:private races ["Aarakocra" "Aasimar" "Bugbear" "Centaur" "Changeling" "Dragonborn" "Dwarf" "Elf" "Firbolg"
@@ -65,3 +66,27 @@
   {:race      (rand-nth races)
    :sex       (rand-nth sexes)
    :encounter (rand-nth @positive-encounters)})
+
+(defn- new-room-dimensions []
+  (vec (repeatedly 2 #(+ 4 (rand-int 6)))))
+
+(defn- new-room-contents []
+  ((rand-nth [#(format "Easy: %s mobs" (+ 2 (rand-int 5)))
+              #(format "Medium: %s mobs" (+ 2 (rand-int 4)))
+              #(format "Hard: %s mobs" (+ 4 (rand-int 3)))
+              (constantly "Hard: 2 mobs")
+              (constantly "Puzzle/trap")])))
+
+(defn new-dungeon []
+  (loop [remaining 3
+         rooms []]
+    (if (pos? remaining)
+      (let [room (new-room-dimensions)
+            [x y] room]
+        (match room
+               [9 9] (recur (inc remaining) (conj rooms {:x x :y y :contents (new-room-contents)}))
+               [9 _] (recur remaining (conj rooms {:x x :y y :contents (new-room-contents)}))
+               [_ 9] (recur remaining (conj rooms {:x x :y y :contents (new-room-contents)}))
+               [_ _] (recur (dec remaining) (conj rooms {:x x :y y :contents (new-room-contents)}))))
+      (as-> (new-room-dimensions) $
+            (conj rooms {:x (first $) :y (second $) :contents "Boss"})))))
