@@ -1,5 +1,5 @@
-{:paths   ["loot/src"]
- :deps    {org.clojure/clojure       {:mvn/version "1.10.2"}
+{:paths   ["src" "resources"]
+ :deps    {org.clojure/clojure       {:mvn/version "1.10.3"}
            org.clojure/data.codec    {:mvn/version "0.1.1"}
            org.clojure/tools.logging {:mvn/version "1.1.0"}
            org.clojure/core.match    {:mvn/version "1.0.0"}
@@ -9,5 +9,5 @@
            table/table               {:mvn/version "0.5.0"}
 
            org.fversnel/dnddice      {:mvn/version "3.0.3"}}
- :aliases {:run {:main-opts ["-m campaign2.core"]}
-           :dev {:extra-deps {com.hypirion/clj-xchart {:mvn/version "0.2.0"}}}}}
+ :aliases {:dev {:extra-deps {com.hypirion/clj-xchart {:mvn/version "0.2.0"}}
+                 :extra-paths ["data/5et"]}}}

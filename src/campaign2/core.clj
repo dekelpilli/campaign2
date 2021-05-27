@@ -1,4 +1,5 @@
 (ns campaign2.core
+  (:gen-class)
   (:require [campaign2
              [util :as util]
              [relic :as relic]
@@ -102,4 +103,5 @@
         (recur action)))))
 
 (defn -main [& _]
+  (println "starting")
   (start))

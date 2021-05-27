@@ -3,7 +3,7 @@
             [clojure.java.io :as io])
   (:import (java.io PushbackReader)))
 
-(def ^:private path "loot/data/")
+(def ^:private path "resources/")
 (def ^:private relic-key-order {:name       0
                                 :type       1
                                 :owner      2
