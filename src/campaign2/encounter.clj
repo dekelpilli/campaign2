@@ -5,6 +5,7 @@
             [clojure.core.match :refer [match]]))
 
 (def ^:private extra-loot-threshold 13)
+(def ^:private extra-loot-step 6)
 (def ^:private races ["Aarakocra" "Aasimar" "Bugbear" "Centaur" "Changeling" "Dragonborn" "Dwarf" "Elf" "Firbolg"
                       "Genasi" "Gith" "Gnome" "Goblin" "Goliath" "Half-Elf" "Half-Orc" "Halfling" "Hobgoblin" "Human"
                       "Kalashtar" "Kenku" "Kobold" "Lizardfolk" "Loxodon" "Minotaur" "Orc" "Satyr" "Shifter" "Tabaxi"
@@ -26,25 +27,34 @@
                        :random)))]))
          (into (sorted-map)))))
 
+(defn- add-loot [base-loot extra-loot-factor]
+  (let [extra-loot? (pos? extra-loot-factor)
+        loot (if extra-loot?
+               (concat base-loot (repeat (-> extra-loot-factor (/ extra-loot-step) (int)) "1d16"))
+               base-loot)
+        remainder (mod extra-loot-factor extra-loot-step)
+        remainder-above-half-step? (-> remainder
+                                       (> (int (/ extra-loot-step 2))))
+        bonus-loot (match [extra-loot? remainder remainder-above-half-step?]
+                          [false _ _] []
+                          [_ 0 _] []
+                          [true _ true] ["2d8"]
+                          [true _ false] ["1d12"])]
+    (concat loot bonus-loot)))
+
 (defn- calculate-loot [difficulty investigations]
-  (let [avg (when investigations
-              (as-> investigations $
-                    (map #(Integer/parseInt %) $)
-                    (/ (reduce + $) (count $))
-                    (Math/round (double $))))]
-    (let [excess (- avg extra-loot-threshold)
-          remainder (mod (int excess) 3)
+  (let [investigations (map #(Integer/parseInt %) investigations)
+        sum (reduce + investigations)]
+    (let [extra-loot-minimum (* extra-loot-threshold (count investigations))
+          extra-loot-factor (- sum extra-loot-minimum)
           base-loot (case difficulty
                       :easy ["2d8"]
                       :medium ["2d8" "1d12"]
-                      :hard ["1d16"]
+                      :hard ["1d16" "1d12"]
                       :deadly ["1d16" "1d16"])]
-      (frequencies
-        (if (>= avg extra-loot-threshold)
-          (cond-> (concat base-loot (repeat (-> excess (/ 3) (int)) "1d16"))
-                  (= remainder 1) (conj "1d12")
-                  (= remainder 2) (conj "2d8"))
-          base-loot)))))
+      (-> base-loot
+          (add-loot extra-loot-factor)
+          (frequencies)))))
 
 (defn &rewards []
   (let [difficulties (util/display-pairs

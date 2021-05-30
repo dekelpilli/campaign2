@@ -33,10 +33,10 @@
        (compatible? base enchant :type)))
 
 (defn- compatible-armour? [base
-                           {:keys [metadata] :as enchant}]
+                           {:keys [metadata disadvantaged-stealth?] :as enchant}]
   (and (or (empty? metadata)
            (contains? metadata "armour"))
-       (compatible? base enchant :disadvantaged-stealth)
+       (or (nil? disadvantaged-stealth?) (= disadvantaged-stealth? (:disadvantaged-stealth base)))
        (compatible? base enchant :type)))
 
 (defn find-valid-enchants [base type]
