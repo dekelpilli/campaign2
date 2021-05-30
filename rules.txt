@@ -54,6 +54,7 @@ Relics:
 Vendor valuations:
     Mundane: 25
     Ring: 15
+    Unique: 50
     Magical: 100/200/250 (low/medium/high value)
     Amulets: 50 * CR capacity
     Crafting items: 40
