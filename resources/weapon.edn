@@ -141,6 +141,13 @@
   :damage       "1d8",
   :damage-types ["Slashing"],
   :traits       ["Sweep"]}
+ {:category     "Sword",
+  :proficiency  "Martial",
+  :name         "Bastard Sword",
+  :type         "Melee",
+  :damage       "1d10",
+  :damage-types ["Slashing"],
+  :traits       ["Two-handed" "Grapple"]}
  {:category     "Club",
   :proficiency  "Martial",
   :name         "Bo Staff",
