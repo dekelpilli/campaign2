@@ -152,4 +152,19 @@
     :upgrade-points 5}],
   :enabled? false,
   :found? false,
+  :level 1}
+ {:name "Amman's Research",
+  :type "armour",
+  :existing
+  [{:effect "You have expertise with Arcana checks.",
+    :upgradeable? false}],
+  :available
+  [{:effect "You can fluently read text in any language that you recognise.",
+    :upgradeable? false}
+   {:effect "[Once] per short rest, you may cause a creature with Magic Resistance to make a spell saving throw without advantage."}
+   {:effect "You and your minions have +[2] fire damage."}
+   {:effect "You may cast Glyph of Warding [once] per long rest with a casting time 1 minute."}
+   {:effect "+1 AC while concentrating on a spell. +[1] fire thorns."}]
+  :enabled? false,
+  :found? false,
   :level 1}]
