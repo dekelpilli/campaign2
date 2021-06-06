@@ -10,18 +10,22 @@
 (def upgrade-prices [0 75 200 300 600 800 1100 1300 1500 2000])
 
 (defn &choose-relic [relics]
-  (util/&choose (->> relics
-                     (map (fn [relic] [(:name relic) relic]))
-                     (into {}))))
+  (some->> relics
+           (not-empty)
+           (map (fn [relic] [(:name relic) relic]))
+           (into {})
+           (util/&choose)))
 
 (defn- &owned []
-  (let [owned? (fn [{:keys [found? enabled?]}] (and found? enabled?))]
+  (let [owned? (fn [{:keys [found? enabled?]
+                     :or   {enabled? true}}] (and found? enabled?))]
     (->> @relics
          (filter owned?)
          (&choose-relic))))
 
 (defn- &upgradeable []
-  (let [upgradeable? (fn [{:keys [found? enabled? level]}] (and found? enabled? (<= level 10)))]
+  (let [upgradeable? (fn [{:keys [found? enabled? level]
+                           :or   {enabled? true}}] (and found? enabled? (<= level 10)))]
     (->> @relics
          (filter upgradeable?)
          (&choose-relic))))
