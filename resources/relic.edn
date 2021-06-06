@@ -77,6 +77,16 @@
   :level 1}
  {:name "Eion's Uprising",
   :type "weapon",
+  :owner :reven,
+  :base
+  {:category "Bow",
+   :proficiency "Simple",
+   :name "Heavy Crossbow",
+   :type "Ranged",
+   :damage "1d10",
+   :damage-types ["Piercing"],
+   :range "120/240",
+   :traits ["Two-handed" "Reload"]},
   :existing
   [{:effect
     "+[1] damage with Conjuration spells, and minions from Conjurations spells deal +[1] damage.",
@@ -93,7 +103,8 @@
     "Minions from your Conjuration spells have +[2] maximum hit points for each spell level from which they originate."}
    {:effect
     "[Twice] per minute, you make replace an attack with this weapon with the casting of a Conjuration cantrip (mental attribute of choice)."}],
-  :found? false,
+  :found? true,
+  :enabled? false
   :level 1}
  {:name "Vuneta's Peace",
   :type "armour",
