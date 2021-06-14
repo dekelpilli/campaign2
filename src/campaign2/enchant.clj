@@ -56,10 +56,7 @@
     [base enchants]))
 
 (defn random-enchanted [points-target]
-  (let [type (rand-nth ["weapon" "armour"])
-        base (case type
-               "armour" (mundane/new-armour)
-               "weapon" (mundane/new-weapon))]
+  (let [{:keys [base type]} (mundane/new)]
     (add-enchants base type points-target)))
 
 (defn &add []

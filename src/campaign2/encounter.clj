@@ -19,8 +19,8 @@
     (->> (range 1 (inc days))
          (map (fn [i]
                 [i
-                 (when (util/occurred? (if @had-random? 15 30))
-                   (if (util/occurred? 20)
+                 (when (util/occurred? (if @had-random? 0.15 0.3))
+                   (if (util/occurred? 0.2)
                      :positive
                      (do
                        (reset! had-random? true)

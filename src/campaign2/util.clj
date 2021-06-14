@@ -61,8 +61,8 @@
         (dissoc :randoms))
     item-modifier))
 
-(defn occurred? [likelihood-percentage]
-  (< (rand-int 100) likelihood-percentage))
+(defn occurred? [likelihood-probability]
+  (< (rand) likelihood-probability))
 
 (defn- disadv [f] #(min (f) (f)))
 (defn- adv [f] #(max (f) (f)))

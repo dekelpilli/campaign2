@@ -16,13 +16,7 @@
        (util/&choose {:sort? true :v "Base"})
        (first))))
 
-(defn new-weapon []
-  (util/rand-enabled @weapons))
-
-(defn new-armour []
-  (util/rand-enabled @armours))
-
 (defn new []
-  (util/rand-enabled (if (util/occurred? 66)
-                       @armours
-                       @weapons)))
+  (let [type (if (util/occurred? 2/3) "armour" "weapon")]
+    {:base (util/rand-enabled (get base-types type))
+     :type type}))

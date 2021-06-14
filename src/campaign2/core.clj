@@ -25,7 +25,7 @@
    2  {:name   "Riddle"
        :action riddle/new!}
    3  {:name   "Mundane item"
-       :action mundane/new}
+       :action #(:base (mundane/new))}
    4  {:name   "Miscreation"
        :action miscreation/new}
    5  {:name   "Consumable"

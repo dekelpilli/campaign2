@@ -109,7 +109,7 @@
   :points 4}
  {:effect       "When you score a critical strike with an attack of opportunity, the target is paralyzed until the end of their turn."
   :upgradeable? false}
- {:effect       "When you hit a creature with an attack, they are silenced until the end of their next turn.",
+ {:effect       "When you hit a creature with an attack with this weapon, they are silenced until the end of their next turn.",
   :metadata     #{"weapon"}
   :upgradeable? false}
  {:effect       "You're acclimated to high altitude, including elevations above 20,000 feet."
