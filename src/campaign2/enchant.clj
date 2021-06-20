@@ -62,7 +62,9 @@
 (defn &add []
   (let [{:keys [base type]} (mundane/&base)]
     (when (and base type)
-      (util/rand-enabled (find-valid-enchants base type)))))
+      (->> (find-valid-enchants base type)
+           (util/rand-enabled)
+           (util/fill-randoms)))))
 
 (defn &add-totalling []
   (let [randomise-enchants (fn [points {:keys [base type] :as input}]
@@ -73,6 +75,4 @@
     (if-let [points (util/&num)]
       (if-not (zero? points)
         (randomise-enchants points (mundane/&base)))
-      []))
-  (let [{:keys [base type]} (mundane/&base)]
-    (util/rand-enabled (find-valid-enchants base type))))
+      [])))

@@ -1,6 +1,6 @@
 {:festus [{:effect "+[1] Strength."
            :points 20}
-          {:effect       "When you decrease damage with Fortify, you are inflicted with blight of 20%/5 instead of 25%/4."
+          {:effect       "+1AC against attacks when both your and the attacking creature have at least one stack of blight."
            :upgradeable? false}
           {:effect       "The duration of your blights does not deplete while you are transformed. Your blights continue to deal damage."
            :upgradeable? false}

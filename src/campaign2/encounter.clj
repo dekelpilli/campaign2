@@ -44,17 +44,18 @@
 
 (defn- calculate-loot [difficulty investigations]
   (let [investigations (map #(Integer/parseInt %) investigations)
-        sum (reduce + investigations)]
-    (let [extra-loot-minimum (* extra-loot-threshold (count investigations))
-          extra-loot-factor (- sum extra-loot-minimum)
-          base-loot (case difficulty
-                      :easy ["2d8"]
-                      :medium ["2d8" "1d12"]
-                      :hard ["1d16" "1d12"]
-                      :deadly ["1d16" "1d16"])]
-      (-> base-loot
-          (add-loot extra-loot-factor)
-          (frequencies)))))
+        sum (reduce + investigations)
+        extra-loot-minimum (* extra-loot-threshold (count investigations))
+        extra-loot-factor (- sum extra-loot-minimum)
+        base-loot (case difficulty
+                    :easy ["2d8"]
+                    :medium ["2d8" "1d12"]
+                    :hard ["1d16" "1d16"]
+                    :deadly ["1d16" "1d16" "1d12"])]
+    (-> base-loot
+        (add-loot extra-loot-factor)
+        (frequencies)
+        (sort-by {"1d16" 1 "2d8" 2 "1d12" 3}))))
 
 (defn &rewards []
   (let [difficulties (util/display-pairs

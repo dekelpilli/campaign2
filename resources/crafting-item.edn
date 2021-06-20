@@ -1,25 +1,19 @@
 [{:name   "Chaos Orb(s)"
-  :effect "remove all mods on a magical item and replace them with new ones (-20 to 50)"}
- {:name     "Orb(s) of Balance"
-  :effect   "adds mods to an item until its total mod points are equal to at least 0."
-  :enabled? false}
+  :effect "Remove all mods on a magical item and replace them with new ones (3d20 points)."}
  {:value  "Orb(s) of Destruction"
   :effect "Remove a random mod from a magic item or relic"}
  {:name   "Orb(s) of Creation"
   :effect "Convert a mundane item into a magical item (2d20 total enchant points, min 5)"}
  {:name   "Orb(s) of Flux"
   :effect "Swap magical properties between compatible items, including simply moving enchantments to mundane items"}
- {:name     "Orb(s) of Annexation"
-  :effect   "Add a mod to a magical item"
-  :metadata ["disadvantage"]}
  {:name     "Exalted Orb(s)"
-  :effect   "add a positive mod to a magical item"
+  :effect   "Add a mod to a magical item"
   :metadata ["disadvantage"]}
  {:name     "Orb of Mulligan"
   :effect   "completely level down a relic or artefact, then level it back up to its current level. Before levelling it back up, you can let go of your attunement to it.",
   :metadata ["1"]}
  {:name   "Orb(s) of Purification"
-  :effect "Apply to an amulet and roll 1d6. If you roll above its current CR capacity, you may increase its capacity by 1. Contained creature does not change."}
+  :effect "Apply to an amulet and roll 1d6. If you roll above its current CR capacity, you may increase its CR capacity by 1. Contained creature does not change."}
  {:name   "Orb(s) of Favouritism"
   :effect "Reroll the monster contained inside an amulet, forcing a specific monster type. If none are available of that type in the appropriate CR, you may roll with a lower CR."}
  {:name     "Orb(s) of Disavowment"

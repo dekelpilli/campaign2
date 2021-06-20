@@ -5,14 +5,18 @@
      [state :refer [rings]]]
     [clojure.string :as str]))
 
-(defn new []
+(defn- synergy? [{:keys [name]}]
+  (str/starts-with? name "The"))
+
+(defn new-non-synergy []
   (->> @rings
+       (remove synergy?)
        (util/rand-enabled)
        (util/fill-randoms)))
 
 (defn new-synergy []
   (->> @rings
-       (filter (fn [{:keys [name]}] (str/starts-with? name "The")))
+       (filter synergy?)
        (util/rand-enabled)
        (util/fill-randoms)))
 

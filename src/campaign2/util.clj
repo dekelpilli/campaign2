@@ -1,6 +1,7 @@
 (ns campaign2.util
   (:require [table.core :as t]
-            [clojure.edn :as edn]))
+            [clojure.edn :as edn]
+            [clojure.string :as str]))
 
 (defn ->num [s]
   (try
@@ -77,7 +78,7 @@
                                      (nil? modifier) randomiser
                                      (= "disadvantage" modifier) (disadv randomiser)
                                      (= "advantage" modifier) (adv randomiser)
-                                     (.startsWith modifier "x") (multi randomiser modifier)
+                                     (str/starts-with? modifier "x") (multi randomiser modifier)
                                      :else (static modifier))
                            remaining (rest coll)]
                        (if (empty? remaining)

@@ -36,8 +36,8 @@
        :action #(enchant/random-enchanted 10)}
    8  {:name   "100-150 gold"
        :action #(str (+ 100 (rand-int 51)) " gold")}
-   9  {:name   "Ring"
-       :action ring/new}
+   9  {:name   "Non-synergy ring"
+       :action ring/new-non-synergy}
    10 {:name   "Synergy ring"
        :action ring/new-synergy}
    11 {:name   "Enchanted item (20 points)"
