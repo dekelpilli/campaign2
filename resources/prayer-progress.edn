@@ -1,3 +1,3 @@
-[{:character "heath", :path "Cerasil", :taken #{3 2}}
+[{:character "heath", :path "Cerasil-heath", :taken #{3 2}}
  {:character "jumlin", :path "Odi", :taken #{3 2}}
  {:character "festus", :path "Thatar", :taken #{1 2}}]

@@ -1,14 +1,14 @@
-[{:name     "Rheztol",
-  :levels   ["You learn the Minor Illusion cantrip. This does not count towards your limit of known cantrips. The spellcasting modifier can be a mental attribute of your choice."
-             "You have expertise in Investigation when identifying illusions."
-             "You become proficient in Deception. If you are already proficient, gain +2 deception instead."
-             "You become proficient in Persuasion. If you are already proficient, gain +2 persuasion instead. You may choose to use persuasion instead of deception when communicating something true in a misleading way."
-             "When making Insight checks to analyse a person's statement(s), you may also make a Deception to detect they are lying/concealing information, but not to attempt to understand motivations"
-             "Creatures that currently believe one of your illusions are real have disadvantage when attacking you"
-             "When casting non-cantrip Illusion spells, you may choose to use the spell slot level below that spell's natural casting requirement, to a minimum of 1"
-             "+2 to the DCs of Illusion spells"
-             "You may cast Zone of Truth once per short rest. When cast in this way, the spell is centered on you and lasts for 1 hour." ;TODO: odi?
-             "You have 30 feet of Truesight, and may automatically discern illusions from reality at any distance (including non-visual illusions)."]}
+[{:name   "Rheztol",
+  :levels ["You learn the Minor Illusion cantrip. This does not count towards your limit of known cantrips. The spellcasting modifier can be a mental attribute of your choice."
+           "You have expertise in Investigation when identifying illusions."
+           "You become proficient in Deception. If you are already proficient, gain +2 deception instead."
+           "You become proficient in Persuasion. If you are already proficient, gain +2 persuasion instead. You may choose to use persuasion instead of deception when communicating something true in a misleading way."
+           "When making Insight checks to analyse a person's statement(s), you may also make a Deception to detect they are lying/concealing information, but not to attempt to understand motivations"
+           "Creatures that currently believe one of your illusions are real have disadvantage when attacking you"
+           "When casting non-cantrip Illusion spells, you may choose to use the spell slot level below that spell's natural casting requirement, to a minimum of 1"
+           "+2 to the DCs of Illusion spells"
+           "You may cast Zone of Truth once per short rest. When cast in this way, the spell is centered on you and lasts for 1 hour." ;TODO: odi?
+           "You have 30 feet of Truesight, and may automatically discern illusions from reality at any distance (including non-visual illusions)."]}
  {:name   "Esher",
   :levels ["When you roll a 1 on a die for gaining healing from healing surges, you may reroll the die and must use the new result."
            "You and your minions have +3 to maximum hit points, and you have +3 to maximum hit points while transformed."
@@ -78,14 +78,26 @@
  {:name   "Cerasil",
   :levels ["You have advantage on Charisma checks directed at non-hostile or non-intelligent plant and beast creatures. Additionally, you can communicate telepathically with them within 30 feet."
            "You are immune to natural diseases."
-           "You have +2 resistance against non-magical damage from living creatures."
+           "You have +2 resistance to non-magical damage from living creatures."
            "You become acclimatised to both extreme hot and cold environments, and you gain +30ft of Darkvision."
            "You may cast Grasping Vines [Prof Mod] times per short rest."
            "As a bonus action, you may grow/remove a hard bark shell. While this is active, you have +2 AC, but are vulnerable to fire damage and have -10ft movement."
            "You have +1d6 poison damage with attacks and spells."
            "You may cast Sunburst once per long rest, and one additional time while outdoors. You may use a mental attribute of your choice."
            "In addition to your regular amulet, you are always considered to be wearing an amulet that contains a Treant. Using this is independent of your other amulet's uses."
-           "You are permanently under the effect of the Freedom of Movement spell."]}
+           "You may cast Storm of Vengeance once per long rest. Mental attribute of choice. When cast in this way, you may also use a bonus action to move the storm up to 100 feet in any direction."]}
+ {:name     "Cerasil-heath",
+  :enabled? false
+  :levels   ["_"
+             "You are immune to natural diseases, and have expertise on Medicine checks relating to natural diseases."
+             "You have +2 resistance to damage from living creatures."
+             "You become acclimatised to both extreme hot and cold environments, and you gain +30ft of Darkvision. Your Darkvision can also see through magical darkness."
+             "You may cast Grasping Vines [Prof Mod] times per short rest. When a creature of size Large or smaller substantially fails a its saving throw against your Grasping Vines, it is also knocked prone."
+             "As a bonus action, you may grow/remove a hard bark shell. While this is active, you have +2 AC, but are vulnerable to fire damage."
+             "You and your minions have +1d8 poison damage with attacks and spells."
+             "You may cast Sunburst twice per long rest. You may use a mental attribute of your choice."
+             "In addition to your regular amulet, you are always considered to be wearing an amulet that contains a Treant. Using this is independent of your other amulet's uses. Plant creatures you transform into have 50% more health."
+             "You may cast Storm of Vengeance once per long rest. Mental attribute of choice. When cast in this way, you may also use a bonus action to move the storm up to 100 feet in any direction. Additionally, on rounds 4+, you may use a bonus action to call up to two bolts of lightning (see Round 3)."]}
  {:name   "Qhanas"
   :levels ["You have an additional first level spell slot, assuming you already have at least one."
            "You may use your own Spell Save DC and Spell AB when using Spells and Cantrips while transformed."

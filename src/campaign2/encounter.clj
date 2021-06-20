@@ -27,7 +27,7 @@
                        :random)))]))
          (into (sorted-map)))))
 
-(defn- add-loot [base-loot extra-loot-factor]
+(defn- add-loot [extra-loot-factor base-loot]
   (let [extra-loot? (pos? extra-loot-factor)
         loot (if extra-loot?
                (concat base-loot (repeat (-> extra-loot-factor (/ extra-loot-step) (int)) "1d16"))
@@ -52,7 +52,7 @@
                     :medium ["2d8" "1d12"]
                     :hard ["1d16" "1d16"]
                     :deadly ["1d16" "1d16" "1d12"])]
-    (-> base-loot
+    (->> base-loot
         (add-loot extra-loot-factor)
         (frequencies)
         (sort-by {"1d16" 1 "2d8" 2 "1d12" 3}))))
