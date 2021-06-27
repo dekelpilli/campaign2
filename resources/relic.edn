@@ -103,15 +103,32 @@
     "Minions from your Conjuration spells have +[2] maximum hit points for each spell level from which they originate."}
    {:effect
     "[Twice] per minute, you make replace an attack with this weapon with the casting of a Conjuration cantrip (mental attribute of choice)."}],
+  :enabled? false,
   :found? true,
-  :enabled? false
   :level 1}
  {:name "Vuneta's Peace",
   :type "armour",
+  :owner :heath,
+  :base
+  {:ac 0,
+   :name "Unarmoured helmet",
+   :type "Unarmoured",
+   :disadvantaged-stealth? false},
   :existing
   [{:effect
     "+1 resistance to damage dealt by creatures you have not damaged.",
-    :upgradeable? false}],
+    :upgradeable? false}
+   {:effect
+    "+[1] to skill checks in which you've gained expertise via Shifting Organs.",
+    :level 1,
+    :points 10,
+    :upgrade-points 10}
+   {:effect
+    "When you would normally activate your Shielding Touch, you may reroll instead. You must then accept that result.",
+    :upgradeable? false,
+    :level 1,
+    :points 10,
+    :upgrade-points 10}],
   :available
   [{:effect
     "+[2] AC if you have not dealt damage since your last initiative roll.",
@@ -126,9 +143,8 @@
    {:effect
     "Feeding others potions requires a bonus action instead of an action.",
     :upgradeable? false}],
-  :enabled? true,
-  :found? false,
-  :level 1}
+  :found? true,
+  :level 4}
  {:name "Thetia's Ruthlessness",
   :type "armour",
   :existing
@@ -159,12 +175,16 @@
   [{:effect "You have expertise with Arcana checks.",
     :upgradeable? false}],
   :available
-  [{:effect "You can fluently read text in any language that you recognise.",
+  [{:effect
+    "You can fluently read text in any language that you recognise.",
     :upgradeable? false}
-   {:effect "[Once] per short rest, you may cause a creature with Magic Resistance to make a spell saving throw without advantage."}
+   {:effect
+    "[Once] per short rest, you may cause a creature with Magic Resistance to make a spell saving throw without advantage."}
    {:effect "You and your minions have +[2] fire damage."}
-   {:effect "You may cast Glyph of Warding [once] per long rest with a casting time 1 minute."}
-   {:effect "+1 AC while concentrating on a spell. +[1] fire thorns."}]
+   {:effect
+    "You may cast Glyph of Warding [once] per long rest with a casting time 1 minute."}
+   {:effect
+    "+1 AC while concentrating on a spell. +[1] fire thorns."}],
   :enabled? false,
   :found? false,
   :level 1}]

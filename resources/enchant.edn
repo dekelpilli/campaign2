@@ -7,7 +7,7 @@
   :upgradeable? false}
  {:effect "Stone's Endurance (if you already have it, you get another use per long/short rest) (Volo's p109),"
   :points 16}
-  {:effect       "This weapon is considered magical for the purposes of overcoming resistances and immunities.",
+ {:effect       "This weapon is considered magical for the purposes of overcoming resistances and immunities.",
   :metadata     #{"weapon"}
   :points       25
   :upgradeable? false}
@@ -22,7 +22,7 @@
   :points   17
   :metadata #{"weapon"}
   :randoms  [["acid" "cold" "fire" "force" "lightning" "necrotic" "poison" "psychic" "radiant" "thunder"]]}
- {:effect "+1 spell save DC"
+ {:effect "+1 spell save and special feature DCs"
   :points 35}
  {:effect     "+1 AC while unarmoured and not using a Shield or Targe weapons."
   :not-traits #{"Targe"}
@@ -57,7 +57,8 @@
  {:effect "No more than once per minute, when you score a critical strike, recover a 1st-level spell slot."}
  {:effect "No more than once per minute, when you score a critical strike, recover a 10% of your maximum class points (minimum 1)."}
  {:effect   "+1 AB with unarmed attacks."
-  :metadata #{"armour"}}
+  :metadata #{"armour"}
+  :points   25}
  {:effect   "+1d4 %s damage with attacks with this weapon."
   :points   20
   :randoms  [["Bludgeoning" "Piercing" "Slashing"]]
@@ -138,7 +139,6 @@
   :points   3}
  {:effect "Your long rests can be 1 hour shorter, to a minimum of 3 hours."
   :points 3}
- {:effect "You need [4] failed death save points to die, instead of 3."}
  {:effect  "+2 %s."
   :randoms [["arcana" "athletics" "acrobatics" "sleight of hand" "stealth" "history"
              "nature" "religion" "animal handling" "survival" "intimidation" "performance"]]
@@ -320,6 +320,6 @@
   :upgradeable? false
   :metadata     #{"armour"}
   :type         #{"Heavy"}}
- {:effect       "+1 to Dexterity saving throws if wearing a light or unarmoured body armour, helmet, gloves, and boots, and no using a shield."
-  :metadata     #{"armour"}
-  :type         #{"Light" "Unarmoured"}}]
+ {:effect   "+1 to Dexterity saving throws if wearing a light or unarmoured body armour, helmet, gloves, and boots, and no using a shield."
+  :metadata #{"armour"}
+  :type     #{"Light" "Unarmoured"}}]

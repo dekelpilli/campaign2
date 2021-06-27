@@ -17,6 +17,17 @@
        (first))))
 
 (defn new []
-  (let [type (if (util/occurred? 2/3) "armour" "weapon")]
-    {:base (util/rand-enabled (get base-types type))
+  (let [type (if (util/occurred? 2/3) "armour" "weapon")
+        mundanes (get base-types type)
+        base (case type
+               "weapon" (util/rand-enabled mundanes)
+               "armour" (let [slot (util/weighted-rand-choice {"body"   3
+                                                               "helmet" 3
+                                                               "gloves" 3
+                                                               "boots"  3
+                                                               "shield" 1})]
+                          (->> mundanes
+                               (filter #(= slot (:slot %)))
+                               (rand-nth))))]
+    {:base base
      :type type}))

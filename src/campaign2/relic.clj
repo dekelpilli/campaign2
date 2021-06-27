@@ -68,12 +68,18 @@
         (&level! relic)))
   ([{:keys [level existing base type available progressed owner] :as relic}]
    (let [points-remaining (- (* points-per-level (inc level))
-                             (reduce + (map :points existing))
-                             (reduce + (map :committed progressed)))
+                             (or (->> existing
+                                      (map #(:points % 10))
+                                      (reduce +)) 0)
+                             (->> progressed
+                                  (map :committed)
+                                  (reduce +)))
          upgradeable-mods (filter #(:upgradeable? % true) existing)
          possible-options (cond-> [:new-relic-mod :new-random-mod :new-character-mod]
                                   (seq upgradeable-mods) (conj :upgrade-existing-mod))
-         upgrade-options (conj (take 2 (concat (map (constantly :continue-progress) progressed) (repeatedly #(rand-nth possible-options))))
+         upgrade-options (conj (take 2 (concat
+                                         (map (constantly :continue-progress) progressed)
+                                         (repeatedly #(rand-nth possible-options))))
                                :none)
          valid-enchants (e/find-valid-enchants base type)
          rand-filled #(->> % util/rand-enabled util/fill-randoms)

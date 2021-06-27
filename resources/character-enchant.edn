@@ -1,5 +1,5 @@
-{:festus [{:effect "+[1] Strength."
-           :points 20}
+{:festus [{:effect         "+[1] Strength."
+           :upgrade-points 20}
           {:effect       "+1AC against attacks when both your and the attacking creature have at least one stack of blight."
            :upgradeable? false}
           {:effect       "The duration of your blights does not deplete while you are transformed. Your blights continue to deal damage."
@@ -15,13 +15,13 @@
            :points 5}
           {:effect         "+1 DC to the save required by your Bile feature."
            :upgrade-points 20}]
- :heath  [{:effect "+[1] Charisma."
-           :points 20}
+ :heath  [{:effect         "+[1] Charisma."
+           :upgrade-points 20}
           {:effect "+[1] to skill checks in which you've gained expertise via Shifting Organs."}
           {:effect "+[10] feet range to your Cruel Harvest area."
            :points 5}
-          {:effect "+[1] die size for the added damage granted by Cruel Harvest."
-           :points 15}
+          {:effect         "+[1] die size for the added damage granted by Cruel Harvest."
+           :upgrade-points 15}
           {:effect       "Growth and Rot no longer reduces your %s."
            :randoms      [["Dexterity" "Strength" "Wisdom"]]
            :upgradeable? false}
@@ -31,8 +31,8 @@
           {:effect "You may gain the benefits of [1] additional option from Manifesting Power I."}
           {:effect "+[2] to Charisma checks during your first encounter with a creature." ;+1 on upgrade
            :points 5}]
- :jumlin [{:effect "+[1] Wisdom"
-           :points 20}
+ :jumlin [{:effect         "+[1] Wisdom"
+           :upgrade-points 20}
           {:effect       "Your Cosmic Omen feature grants both the Woe and Weal option at all times, rather than having to roll on long rest."
            :upgradeable? false}
           {:effect       "When you cast Guiding Bolt via your Star Map feature, it is cast as a second level spell slot instead of first."
@@ -48,10 +48,10 @@
           {:effect "When you cast a Divination spell, you may add a minute to the spell's casting time to gain a [25]% chance to not consume a spell slot. Multiple instances of this enchant do not stack."} ;+5% per level
           {:effect       "You gain the Shell Defense ability (see Tortle)."
            :upgradeable? false}]
- :reven  [{:effect "+[1] Dexterity."
-           :points 20}
-          {:effect "+[1] to your Hemocraft die size."
-           :points 20}
+ :reven  [{:effect         "+[1] Dexterity."
+           :upgrade-points 20}
+          {:effect         "+[1] to your Hemocraft die size."
+           :upgrade-points 20}
           {:effect       "You know all of the Primal Rites."
            :upgradeable? false}
           {:effect       "You Dark Augmentation feature also applies to Charisma saving throws."
