@@ -20,7 +20,7 @@
   :type "weapon",
   :existing
   [{:effect
-    "You can prepare spells that would deal cold, fire, or lightning damage without consuming the spell slot. The spell slot is still consumed when you cast the spell.",
+    "You can ready spells that would deal cold, fire, or lightning damage without consuming the spell slot. The spell slot is still consumed when you cast the spell.",
     :upgradeable? false,
     :level 1}],
   :available
@@ -166,7 +166,7 @@
    {:effect
     "+[2] investigation after combats in which you've landed a killing blow.",
     :upgrade-points 5}],
-  :enabled? false,
+  :enabled? true,
   :found? false,
   :level 1}
  {:name "Amman's Research",
@@ -185,6 +185,6 @@
     "You may cast Glyph of Warding [once] per long rest with a casting time 1 minute."}
    {:effect
     "+1 AC while concentrating on a spell. +[1] fire thorns."}],
-  :enabled? false,
+  :enabled? true,
   :found? false,
   :level 1}]
