@@ -54,10 +54,22 @@
   :level 1}
  {:name "Rislog's Legacy",
   :type "armour",
+  :owner :heath,
+  :base
+  {:ac 0,
+   :name "Unarmoured gloves",
+   :type "Unarmoured",
+   :slot "gloves",
+   :disadvantaged-stealth? false},
   :existing
   [{:effect "Allies that can see you cannot be frightened.",
     :upgradeable? false,
-    :level 1}],
+    :level 1}
+   {:effect
+    "+[1] to skill checks in which you've gained expertise via Shifting Organs.",
+    :level 1,
+    :points 10,
+    :upgrade-points 10}],
   :available
   [{:effect
     "Your Strength cannot be below 15. If it was, it is considered to be 15 instead.",
@@ -72,9 +84,8 @@
     "You may take the Shove as a bonus action. [Once] per minute, if you shoved successfully as a bonus action, you make take another bonus action in that turn..",
     :upgrade-points 10}
    {:effect "+[1] Charisma.", :upgrade-points 20}],
-  :enabled? true,
-  :found? false,
-  :level 1}
+  :found? true,
+  :level 2}
  {:name "Eion's Uprising",
   :type "weapon",
   :owner :reven,
@@ -128,6 +139,12 @@
     :upgradeable? false,
     :level 1,
     :points 10,
+    :upgrade-points 10}
+   {:effect
+    "+25% chance to ignore bonus damage from incoming critical strikes.",
+    :metadata #{"armour"},
+    :level 1,
+    :points 10,
     :upgrade-points 10}],
   :available
   [{:effect
@@ -144,7 +161,7 @@
     "Feeding others potions requires a bonus action instead of an action.",
     :upgradeable? false}],
   :found? true,
-  :level 4}
+  :level 5}
  {:name "Thetia's Ruthlessness",
   :type "armour",
   :existing

@@ -68,7 +68,7 @@
        :action ring/&sacrifice}
    24 {:name   "Sell a relic"
        :action relic/&sell!}
-   25 {:name   "Generate random encounters"
+   25 {:name   "Travel"
        :action encounter/&randomise}
    26 {:name   "Calculate loot rewards"
        :action encounter/&rewards}

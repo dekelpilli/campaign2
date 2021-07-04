@@ -1,5 +1,5 @@
 [{:name   "Nail bomb"
-  :effect "20ft thrown, 10ft radius, DEX save, 1d10 or half on success. Affected area becomes difficult terrain until traversed."}
+  :effect "20ft thrown, 10ft radius, DEX save, 1d10 piercing or half on success. Affected area becomes difficult terrain until traversed."}
  {:name   "Overcharged bomb"
   :effect "5ft thrown, 120ft line in centered on bomb in direction of choice. CON save, on fail marked for 1 minute to take 1 lightning damage on a fail."}
  {:name   "Life absorbing machine"

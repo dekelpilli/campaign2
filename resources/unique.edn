@@ -1,5 +1,4 @@
-[
- {:name    "Pacifist's Vow"
+[{:name    "Pacifist's Vow"
   :base    "Blowgun"
   :effects [{:effect "Non-damaging spells have a 50% chance consume a spell slot 1 level lower."}
             {:effect "You may forego dealing damage with a spell to make it count as a non-damaging spell."}
@@ -158,14 +157,14 @@
             {:effect "+1 critical strike requirement with this weapon."}]}
  {:name    "Malediction"
   :base    "any gloves"
-  :effects [{:effect "You may cast curses as bonus action instead of an action. Curses cast in this way take effect with a 5 turn delay, although they still require a save if the original spell did. You do not need to concentrate on the curse until it takes effect."}
+  :effects [{:effect "You may cast curse spells as bonus action instead of an action. Curses cast in this way take effect with a 3 round delay, although they still require a save if the original spell did. You do not need to concentrate on the curse until it takes effect."}
             {:effect "Cursed enemies take necrotic damage equal to twice your level when a curse on them expires due to its duration ending."}
             {:effect "The duration of your curses is reduce by 18 seconds."}]}
  {:name    "Pasha"
   :base    "any flail"
   :effects [{:effect "Enemies you critically strike with this weapon become restrained until they use an action to end the effect."}
             {:effect "+2 damage with this weapon against grappled and restrained enemies."}
-            {:effect "Attacks with this weapon cannot cause its health to go below 1."}]}
+            {:effect "Attacks with this weapon cannot cause a creature's hit points to go below 1."}]}
  {:name    "Vel"
   :base    "any thrown weapon"
   :effects [{:effect "You can always see through illusions disguising the true nature or presence of a living creature."}
