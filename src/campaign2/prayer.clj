@@ -7,12 +7,12 @@
 (defn new-stone []
   (-> @prayer-paths util/rand-enabled :name))
 
-(defn override-progress! [{:keys [character path] :as new-progression}]
+(defn- override-progress! [{:keys [character path] :as new-progression}]
   (override-prayer-progress! (mapv
                                #(if (and (= (:character %) character) (= (:path %) path)) new-progression %)
                                @prayer-progressions)))
 
-(defn &progress! []
+(defn &progress-path! []
   (let [done? #(contains? (:taken %) 10)
         unfinished-paths (filter #(and (not (done? %)) (:enabled? % true)) @prayer-progressions)
         player-paths (group-by :character unfinished-paths)

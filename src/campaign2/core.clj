@@ -2,20 +2,20 @@
   (:gen-class)
   (:require [campaign2
              [util :as util]
-             [relic :as relic]
+             [relic :as relic :refer [&leve-relic]]
              [mundane :as mundane]
-             [enchant :as enchant]
+             [enchant :as enchant :refer [add-totalling]]
              [crafting :as crafting]
              [consumable :as consumable]
-             [prayer :as prayer]
+             [prayer :as prayer :refer [&progress-path]]
              [monster :as monster]
              [miscreation :as miscreation]
-             [encounter :as encounter]
-             [dice :as dice]
-             [ring :as ring]
+             [encounter :as encounter :refer [rewards]]
+             [dice :as dice :refer [roll]]
+             [ring :as ring :refer [&sacrifice]]
              [unique :as unique]
              [riddle :as riddle]
-             [state :as state]]
+             [state :as state :refer [reload!]]]
             [clojure.tools.logging :as log]))
 
 (def loot-actions
@@ -55,9 +55,9 @@
    17 {:name   "Reload data from files"
        :action state/reload!}
    18 {:name   "Level a relic"
-       :action relic/&level!}
+       :action relic/&level-relic!}
    19 {:name   "Progress a prayer path"
-       :action prayer/&progress!}
+       :action prayer/&progress-path!}
    20 {:name   "Choose monsters from given CRs"
        :action monster/&new}
    21 {:name   "Add a modifier to an existing item"
@@ -75,7 +75,14 @@
    27 {:name   "Positive encounter"
        :action encounter/new-positive}
    28 {:name   "Generate dungeon template"
-       :action encounter/new-dungeon}})
+       :action encounter/new-dungeon}
+   29 {:name   "Use a crafting item"
+       :action crafting/&use}})
+
+(defn perform [n]
+  (when-let [action (some-> (get loot-actions n)
+                            (:action))]
+    (action)))
 
 (defn start []
   (let [loot-action-names (->> loot-actions

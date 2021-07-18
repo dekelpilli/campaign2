@@ -63,9 +63,9 @@
                      :points (min points 10)
                      :upgrade-points (or upgrade-points points)))))
 
-(defn &level!
+(defn &level-relic!
   ([] (when-let [relic (&upgradeable)]
-        (&level! relic)))
+        (&level-relic! relic)))
   ([{:keys [level existing base type available progressed owner] :as relic}]
    (let [points-remaining (- (* points-per-level (inc level))
                              (or (->> existing

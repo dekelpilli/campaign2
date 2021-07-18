@@ -11,8 +11,7 @@
                   (let [{:keys [base type]} (mundane/&base)]
                     {:base     base
                      :enchants (enchant/add-enchants base type
-                                                     (- (rand-int 51))
-                                                     (constantly true))}))
+                                                     (- (rand-int 51)))}))
    :destruction (fn []
                   (println "How many mods on the item?")
                   (let [num-mods (util/&num)]
@@ -24,8 +23,7 @@
                     {:base     base
                      :enchants (enchant/add-enchants base type
                                                      (max 5
-                                                          (+ (rand-int 21) (rand-int 21)))
-                                                     (constantly true))}))
+                                                          (+ (rand-int 21) (rand-int 21))))}))
    :annexation  (fn []
                   (when-let [{:keys [base type]} (mundane/&base)]
                     (-> (enchant/find-valid-enchants base type)

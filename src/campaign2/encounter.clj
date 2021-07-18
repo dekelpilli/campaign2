@@ -13,19 +13,21 @@
 (def ^:private sexes ["female" "male"])
 (def ^:private had-random? (atom false))
 
-(defn &randomise []
-  (println "How many days?")
-  (when-let [days (util/&num)]
-    (->> (range 1 (inc days))
-         (map (fn [i]
-                [i
-                 (when (util/occurred? (if @had-random? 0.10 0.25))
-                   (if (util/occurred? 0.2)
-                     :positive
-                     (do
-                       (reset! had-random? true)
-                       :random)))]))
-         (into (sorted-map)))))
+(defn &randomise
+  ([]
+   (println "How many days?")
+   (some-> (util/&num) (&randomise)))
+  ([^int days]
+   (->> (range 1 (inc days))
+        (map (fn [i]
+               [i
+                (when (util/occurred? (if @had-random? 0.10 0.25))
+                  (if (util/occurred? 0.2)
+                    :positive
+                    (do
+                      (reset! had-random? true)
+                      :random)))]))
+        (into (sorted-map)))))
 
 (defn- add-loot [extra-loot-factor base-loot]
   (let [extra-loot? (pos? extra-loot-factor)
@@ -57,21 +59,24 @@
          (frequencies)
          (sort-by {"1d16" 1 "2d8" 2 "1d12" 3}))))
 
-(defn &rewards []
-  (let [difficulties (util/display-pairs
-                       (util/make-options [:easy :medium :hard :deadly]))
-        difficulty (difficulties (util/&num))
-        investigations (when difficulty
-                         (println "List investigations: ")
-                         (read-line))
-        investigations (when investigations (str/split investigations #","))]
-    (when difficulty
-      {:xp   (case difficulty
-               :easy (+ 6 (rand-int 2))
-               :medium (+ 8 (rand-int 3))
-               :hard (+ 11 (rand-int 3))
-               :deadly (+ 13 (rand-int 4)))
-       :loot (calculate-loot difficulty investigations)})))
+(defn rewards [difficulty investigations]
+  (when (and (keyword? difficulty) (vector? investigations))
+    {:xp   (case difficulty
+             :easy (+ 6 (rand-int 2))
+             :medium (+ 8 (rand-int 3))
+             :hard (+ 11 (rand-int 3))
+             :deadly (+ 13 (rand-int 4)))
+     :loot (calculate-loot difficulty investigations)}))
+(defn &rewards
+  ([]
+   (let [difficulties (util/display-pairs
+                        (util/make-options [:easy :medium :hard :deadly]))
+         difficulty (difficulties (util/&num))
+         investigations (when difficulty
+                          (println "List investigations: ")
+                          (read-line))
+         investigations (when investigations (str/split investigations #","))]
+     (rewards difficulty investigations))))
 
 (defn new-positive []
   {:race      (rand-nth races)

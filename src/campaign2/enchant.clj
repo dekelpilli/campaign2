@@ -66,13 +66,14 @@
            (util/rand-enabled)
            (util/fill-randoms)))))
 
-(defn &add-totalling []
-  (let [randomise-enchants (fn [points {:keys [base type] :as input}]
-                             (if input
-                               (second (add-enchants base type points))
-                               []))]
-    (println "Enter desired points total: ")
-    (if-let [points (util/&num)]
-      (if-not (zero? points)
-        (randomise-enchants points (mundane/&base)))
-      [])))
+(defn add-totalling [^int points]
+  (if (and points (pos-int? points))
+    (if-let [{:keys [base type]} (mundane/&base)]
+      (-> (add-enchants base type points)
+          (second))
+      [])
+    []))
+(defn &add-totalling
+  []
+  (println "Enter desired points total: ")
+  (add-totalling (util/&num)))
