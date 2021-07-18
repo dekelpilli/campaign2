@@ -197,7 +197,8 @@
  {:effect "+2 to physical resistance while taking Damage Over Time."}
  {:effect "+1 to damage with light weapons."}
  {:effect "Reroll, the resulting enchant is applied to minions instead of the wielder (10 points)."}
- {:effect "Your minions have +1 resistance to all damage."}
+ {:effect   "Your minions have +1 resistance to all damage."
+  :enabled? false}
  {:effect "When an attack fails to hit you in combat, you can use your reaction to reduce your AC for the attack until it does hit you. Your next instance of damage in the next minute is then increased by 3 for each point of AC you dropped."}
  {:effect "+1 to Damage Over Time."}
  {:effect "When you hit a creature with this weapon, they get a non-stacking -1 resistance to all damage dealt by creatures other than yourself for [1] minute."}
@@ -231,7 +232,8 @@
  {:effect "+3 to maximum HP."}
  {:effect "+3 to minion damage."
   :points 15}
- {:effect "+5 to minion HP per minion CR."}
+ {:effect   "+5 to minion HP per minion CR."
+  :enabled? false}
  {:effect "+10HP while transformed."}
  {:effect "When you exit your transformed state, you gain temporary hit points equal to twice the CR of the creature you were transformed into."}
  {:effect "+2 global damage and +10ft speed while transformed into a Beast."}

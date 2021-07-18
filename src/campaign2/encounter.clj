@@ -19,7 +19,7 @@
     (->> (range 1 (inc days))
          (map (fn [i]
                 [i
-                 (when (util/occurred? (if @had-random? 0.15 0.3))
+                 (when (util/occurred? (if @had-random? 0.10 0.25))
                    (if (util/occurred? 0.2)
                      :positive
                      (do
@@ -53,9 +53,9 @@
                     :hard ["1d16" "1d16"]
                     :deadly ["1d16" "1d16" "1d12"])]
     (->> base-loot
-        (add-loot extra-loot-factor)
-        (frequencies)
-        (sort-by {"1d16" 1 "2d8" 2 "1d12" 3}))))
+         (add-loot extra-loot-factor)
+         (frequencies)
+         (sort-by {"1d16" 1 "2d8" 2 "1d12" 3}))))
 
 (defn &rewards []
   (let [difficulties (util/display-pairs
@@ -92,12 +92,13 @@
   (loop [remaining 3
          rooms []]
     (if (pos? remaining)
-      (let [room (new-room-dimensions)
-            [x y] room]
-        (match room
-               [9 9] (recur (inc remaining) (conj rooms {:x x :y y :contents (new-room-contents)}))
-               [9 _] (recur remaining (conj rooms {:x x :y y :contents (new-room-contents)}))
-               [_ 9] (recur remaining (conj rooms {:x x :y y :contents (new-room-contents)}))
-               [_ _] (recur (dec remaining) (conj rooms {:x x :y y :contents (new-room-contents)}))))
+      (let [[x y] (new-room-dimensions)
+            new-room {:x x :y y :contents (new-room-contents)}
+            rooms (conj rooms new-room)]
+        (match [x y]
+               [9 9] (recur (inc remaining) rooms)
+               [9 _] (recur remaining rooms)
+               [_ 9] (recur remaining rooms)
+               [_ _] (recur (dec remaining) rooms)))
       (as-> (new-room-dimensions) $
             (conj rooms {:x (first $) :y (second $) :contents "Boss"})))))

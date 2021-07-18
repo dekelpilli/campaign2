@@ -56,7 +56,7 @@
 
 (defn rand-enabled [coll]
   (as-> coll $
-        (filter #(:enabled? % true) $)
+        (remove (comp false? :enabled?) $)
         (if (empty? $) nil (rand-nth $))
         (when $ (dissoc $ :enabled?))))
 
@@ -76,19 +76,12 @@
 (defn- static [const] (constantly (Long/parseLong const)))
 (defn get-multiple-items [coll f]
   (let [{:keys [metadata] :as item} (rand-enabled coll)
-        randomiser (loop [randomiser f
-                          coll metadata]
-                     (let [modifier (first coll)
-                           updated (cond
-                                     (nil? modifier) randomiser
-                                     (= "disadvantage" modifier) (disadv randomiser)
-                                     (= "advantage" modifier) (adv randomiser)
-                                     (str/starts-with? modifier "x") (multi randomiser modifier)
-                                     :else (static modifier))
-                           remaining (rest coll)]
-                       (if (empty? remaining)
-                         updated
-                         (recur updated remaining))))]
+        randomiser (reduce #(cond
+                              (= "disadvantage" %2) (disadv %1)
+                              (= "advantage" %2) (adv %1)
+                              (str/starts-with? %2 "x") (multi %1 %2)
+                              :else (static %2))
+                           f metadata)]
     (-> item
         (assoc :amount (randomiser))
         (fill-randoms)
