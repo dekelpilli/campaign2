@@ -24,7 +24,8 @@
   :answer "A Wound."}
  {:riddle
   "This fire is smothered best not by water or sand but by words.",
-  :answer "Desire."}
+  :answer "Desire.",
+  :enabled? false}
  {:riddle
   "Two friends stand and travel together, one nearly useless without the other.",
   :answer "Boots"}
@@ -50,7 +51,8 @@
   :answer "An anchor."}
  {:riddle
   "The foolish man wastes me, The average man spends me, And wise man invests me, Yet all men succumb to me. What am I?",
-  :answer "Time."}
+  :answer "Time.",
+  :enabled? false}
  {:riddle
   "What has four legs in the morning, two legs in the afternoon and three legs in the evening?",
   :answer
@@ -77,7 +79,8 @@
  {:riddle "Two bodies in one, the longer I stand, the faster I run.",
   :answer "Hourglass."}
  {:riddle "Men desire me in public, but fear me in private.",
-  :answer "Truth."}
+  :answer "Truth.",
+  :enabled? false}
  {:riddle "What is so fragile, even speaking its name will break it?",
   :answer "Silence."}
  {:riddle

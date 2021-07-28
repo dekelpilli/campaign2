@@ -66,8 +66,8 @@
            (util/rand-enabled)
            (util/fill-randoms)))))
 
-(defn add-totalling [^int points]
-  (if (and points (pos-int? points))
+(defn add-totalling [^long points]
+  (if (pos-int? points)
     (if-let [{:keys [base type]} (mundane/&base)]
       (-> (add-enchants base type points)
           (second))
@@ -76,4 +76,4 @@
 (defn &add-totalling
   []
   (println "Enter desired points total: ")
-  (add-totalling (util/&num)))
+  (some-> (util/&num) (add-totalling)))

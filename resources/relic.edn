@@ -129,29 +129,24 @@
   [{:effect
     "+1 resistance to damage dealt by creatures you have not damaged.",
     :upgradeable? false}
-   {:effect
-    "+[1] to skill checks in which you've gained expertise via Shifting Organs.",
-    :level 1,
-    :points 10,
-    :upgrade-points 10}
-   {:effect
-    "When you would normally activate your Shielding Touch, you may reroll instead. You must then accept that result.",
+   {:effect "Growth and Rot no longer reduces your Dexterity.",
     :upgradeable? false,
     :level 1,
     :points 10,
     :upgrade-points 10}
    {:effect
-    "+25% chance to ignore bonus damage from incoming critical strikes.",
+    "At the start of your turn in combat, if you haven't taken damage since the start of your last turn, gain 1 temporary hit point. This stacks with any existing temporary hit points.",
     :metadata #{"armour"},
-    :level 1,
-    :points 10,
-    :upgrade-points 10}],
+    :level 2,
+    :points 20,
+    :upgrade-points 10,
+    :upgradeable? false}
+   {:effect
+    "Non-damaging conditions you inflict require +[1] DC to escape. The DC returns to normal if the creature is damaged."}],
   :available
   [{:effect
     "+[2] AC if you have not dealt damage since your last initiative roll.",
     :upgrade-points 20}
-   {:effect
-    "Non-damaging conditions you inflict required +[1] DC to escape. The DC returns to normal if the creature is damaged."}
    {:effect
     "You may cast the Calm Emotions spell [once] per short rest. Mental of choice."}
    {:effect
@@ -160,10 +155,18 @@
    {:effect
     "Feeding others potions requires a bonus action instead of an action.",
     :upgradeable? false}],
+  :progressed [],
   :found? true,
   :level 5}
  {:name "Thetia's Ruthlessness",
   :type "armour",
+  :owner :reven,
+  :base
+  {:ac 0,
+   :name "Unarmoured boots",
+   :type "Unarmoured",
+   :slot "boots",
+   :disadvantaged-stealth? false},
   :existing
   [{:effect
     "+[2] die size when damaging prone or incapacitated creatures.",
@@ -183,8 +186,7 @@
    {:effect
     "+[2] investigation after combats in which you've landed a killing blow.",
     :upgrade-points 5}],
-  :enabled? true,
-  :found? false,
+  :found? true,
   :level 1}
  {:name "Amman's Research",
   :type "armour",

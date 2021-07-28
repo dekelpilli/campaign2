@@ -13,21 +13,21 @@
 (def ^:private sexes ["female" "male"])
 (def ^:private had-random? (atom false))
 
-(defn &randomise
+(defn travel [^long days]
+  (->> (range 1 (inc days))
+       (map (fn [i]
+              [i
+               (when (util/occurred? (if @had-random? 0.10 0.25))
+                 (if (util/occurred? 0.2)
+                   :positive
+                   (do
+                     (reset! had-random? true)
+                     :random)))]))
+       (into (sorted-map))))
+(defn &travel
   ([]
    (println "How many days?")
-   (some-> (util/&num) (&randomise)))
-  ([^int days]
-   (->> (range 1 (inc days))
-        (map (fn [i]
-               [i
-                (when (util/occurred? (if @had-random? 0.10 0.25))
-                  (if (util/occurred? 0.2)
-                    :positive
-                    (do
-                      (reset! had-random? true)
-                      :random)))]))
-        (into (sorted-map)))))
+   (some-> (util/&num) (travel))))
 
 (defn- add-loot [extra-loot-factor base-loot]
   (let [extra-loot? (pos? extra-loot-factor)

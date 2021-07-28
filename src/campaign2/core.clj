@@ -2,12 +2,12 @@
   (:gen-class)
   (:require [campaign2
              [util :as util]
-             [relic :as relic :refer [&leve-relic]]
+             [relic :as relic :refer [&level-relic!]]
              [mundane :as mundane]
              [enchant :as enchant :refer [add-totalling]]
              [crafting :as crafting]
              [consumable :as consumable]
-             [prayer :as prayer :refer [&progress-path]]
+             [prayer :as prayer :refer [&progress-path!]]
              [monster :as monster]
              [miscreation :as miscreation]
              [encounter :as encounter :refer [rewards]]
@@ -69,7 +69,7 @@
    24 {:name   "Sell a relic"
        :action relic/&sell!}
    25 {:name   "Travel"
-       :action encounter/&randomise}
+       :action encounter/&travel}
    26 {:name   "Calculate loot rewards"
        :action encounter/&rewards}
    27 {:name   "Positive encounter"
@@ -102,7 +102,7 @@
           (cond
             (string? result) (println result)
             (map? result) (util/display-pairs result {:sort? (sorted? result)})
-            (seqable? result) (doseq [r result] (util/display-multi-value r))
+            (seqable? result) (run! util/display-multi-value result)
             :else (when result (util/display-multi-value result))))
         (catch Exception e
           (log/errorf e "Unexpected error")))
