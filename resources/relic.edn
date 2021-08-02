@@ -16,6 +16,25 @@
   :enabled? false,
   :found? false,
   :level 1}
+ {:name "Challengers' Downfall",
+  :type "armour",
+  :existing
+  [{:effect "While in combat with exactly one enemy, your first Healing Surge of each turn does not consume a surge.",
+    :upgradeable? false}],
+  :available
+  [{:effect "+1 AB with melee attacks against restrained creatures.",
+    :upgradeable? false,}
+   {:effect "[Once] per long rest, when you make a saving throw that does not result in a critical failure, you may attempt it again, but must keep this result.",
+    :upgrade-points 20}
+   {:effect "Once per long rest, when you cast a spell as an action on your turn, you may immediately cast it a second time at the same target (location or creature), consuming no additional spell slots. If you choose to do this, both of the casts are made with disadvantaged offence.",
+    :upgradeable? false}
+   {:effect "You learn the Mage Armor spell may cast it once per turn as a free action. You can have no more than 10 active Mage Armors cast in this way."
+    :upgradeable? false}
+   {:effect "When an enemy fails a saving throw against an effect of yours that deals Necrotic damage, future instances of that effect have +1 DC against that creature. This does not stack."
+    :upgradeable? false}],
+  :enabled? true,
+  :found? false,
+  :level 1}
  {:name "Norwood's Mastery",
   :type "weapon",
   :existing
