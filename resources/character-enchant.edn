@@ -1,20 +1,18 @@
 {:festus [{:effect         "+[1] Strength."
            :upgrade-points 20}
-          {:effect       "+1AC against attacks when both your and the attacking creature have at least one stack of blight."
+          {:effect       "+1AC against attacks when both you and the attacking creature have at least one stack of blight."
            :upgradeable? false}
           {:effect       "The duration of your blights does not deplete while you are transformed. Your blights continue to deal damage."
            :upgradeable? false}
           {:effect       "The duration of your blights decreases by one (potentially to 0). The first instance of damage from each blight is doubled. This does not stack."
            :upgradeable? false}
-          {:effect       "The damage of your Noxious Aura is increased by one."
-           :upgradeable? false}
-          {:effect         "+1 resistance to damage taken from creatures afflicted by at least one stack of blight."
-           :upgrade-points 20}
+          {:effect       "+[1] damage resistance against critical hits while affected by Enhance."}
+          {:effect         "Whenever you inflict blight on a creature but cause no additional affects, you instead deal 1d[4] necrotic damage to it."}
           {:effect "+1 die size for Necrotic damage."}
           {:effect "+10 feet of flying speed for each creature that has become unable to fly as a result of your Sticky Pus feature."
            :points 5}
           {:effect         "+1 DC to the save required by your Bile feature."
-           :upgrade-points 20}]
+           :upgrade-points 30}]
  :heath  [{:effect         "+[1] Charisma."
            :upgrade-points 20}
           {:effect "+[1] to skill checks in which you've gained expertise via Shifting Organs."}
@@ -60,7 +58,9 @@
            :randoms      [["Rite of the Flame" "Rite of the Frozen" "Rite of the Storm"
                            "Rite of the Dead" "Rite of the Oracle" "Rite of the Roar"]]
            :upgradeable? false}
-          {:effect "Creatures under the effect of your Brand of Castigation have -[1] resistance to psychic damage from weapon attacks."}
+          {:effect       "When you block an attack from creatures under the effect of your Brand of Castigation, you take 1 damage instead of none."
+           :upgradeable? false}
           {:effect       "While you have Rite of Flame active, if you roll a 1 or 2 on your damage die for a Scorching Ray cast from Revealed Arcana, you can reroll the die and choose which roll to use."
            :upgradeable? false}
-          {:effect "Creatures affected by your Brand of the Sapping Scar feature that also have Magic Resistance take +[2] damage from your spells."}]}
+          {:effect "Creatures affected by your Brand of the Sapping Scar feature that also have Magic Resistance take +[2] damage from your spells."
+           :upgrade-points 5}]}

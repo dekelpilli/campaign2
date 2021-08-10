@@ -19,18 +19,23 @@
  {:name "Challengers' Downfall",
   :type "armour",
   :existing
-  [{:effect "While in combat with exactly one enemy, your first Healing Surge of each turn does not consume a surge.",
+  [{:effect
+    "While in combat with exactly one enemy, your first Healing Surge of each turn does not consume a surge.",
     :upgradeable? false}],
   :available
   [{:effect "+1 AB with melee attacks against restrained creatures.",
-    :upgradeable? false,}
-   {:effect "[Once] per long rest, when you make a saving throw that does not result in a critical failure, you may attempt it again, but must keep this result.",
+    :upgradeable? false}
+   {:effect
+    "[Once] per long rest, when you make a saving throw that does not result in a critical failure, you may attempt it again, but must keep this result.",
     :upgrade-points 20}
-   {:effect "Once per long rest, when you cast a spell as an action on your turn, you may immediately cast it a second time at the same target (location or creature), consuming no additional spell slots. If you choose to do this, both of the casts are made with disadvantaged offence.",
+   {:effect
+    "Once per long rest, when you cast a spell as an action on your turn, you may immediately cast it a second time at the same target (location or creature), consuming no additional spell slots. If you choose to do this, both of the casts are made with disadvantaged offence.",
     :upgradeable? false}
-   {:effect "You learn the Mage Armor spell may cast it once per turn as a free action. You can have no more than 10 active Mage Armors cast in this way."
+   {:effect
+    "You learn the Mage Armor spell may cast it once per turn as a free action. You can have no more than 10 active Mage Armors cast in this way.",
     :upgradeable? false}
-   {:effect "When an enemy fails a saving throw against an effect of yours that deals Necrotic damage, future instances of that effect have +1 DC against that creature. This does not stack."
+   {:effect
+    "When an enemy fails a saving throw against an effect of yours that deals Necrotic damage, future instances of that effect have +1 DC against that creature. This does not stack.",
     :upgradeable? false}],
   :enabled? true,
   :found? false,
@@ -88,7 +93,10 @@
     "+[1] to skill checks in which you've gained expertise via Shifting Organs.",
     :level 1,
     :points 10,
-    :upgrade-points 10}],
+    :upgrade-points 10}
+   {:effect
+    "[Once] per turn, when an attack you make would otherwise have disadvantage, you may make the attack normally instead.",
+    :upgrade-points 5}],
   :available
   [{:effect
     "Your Strength cannot be below 15. If it was, it is considered to be 15 instead.",
@@ -97,14 +105,11 @@
     "Attacks with two handed melee weapons made during your bonus action have +[3] damage.",
     :upgrade-points 10}
    {:effect
-    "[Once] per turn, when an attack you make would otherwise have disadvantage, you may make the attack normally instead.",
-    :upgrade-points 5}
-   {:effect
     "You may take the Shove as a bonus action. [Once] per minute, if you shoved successfully as a bonus action, you make take another bonus action in that turn..",
     :upgrade-points 10}
    {:effect "+[1] Charisma.", :upgrade-points 20}],
   :found? true,
-  :level 2}
+  :level 3}
  {:name "Eion's Uprising",
   :type "weapon",
   :owner :reven,
@@ -209,9 +214,21 @@
   :level 1}
  {:name "Amman's Research",
   :type "armour",
+  :owner :festus,
+  :base
+  {:ac 0,
+   :name "Unarmoured boots",
+   :type "Unarmoured",
+   :slot "boots",
+   :disadvantaged-stealth? false},
   :existing
   [{:effect "You have expertise with Arcana checks.",
-    :upgradeable? false}],
+    :upgradeable? false}
+   {:effect
+    "+1 resistance to damage taken from creatures afflicted by at least one stack of blight.",
+    :upgrade-points 20,
+    :level 1,
+    :points 10}],
   :available
   [{:effect
     "You can fluently read text in any language that you recognise.",
@@ -223,6 +240,5 @@
     "You may cast Glyph of Warding [once] per long rest with a casting time 1 minute."}
    {:effect
     "+1 AC while concentrating on a spell. +[1] fire thorns."}],
-  :enabled? true,
-  :found? false,
-  :level 1}]
+  :found? true,
+  :level 2}]
