@@ -1,19 +1,34 @@
 [{:name "Template",
   :type "weapon/armour",
-  :base "Plate Body Armour",
   :existing
   [{:effect "effect",
     :upgradeable? false,
     :level 1,
-    :upgrade-points 10,
-    :points 10}],
+    :upgrade-points 10}],
   :available
   [{:effect "upgradeableEffect",
     :upgradeable? true,
     :level 1,
-    :upgrade-points 10,
-    :points 10}],
+    :upgrade-points 10,}],
   :enabled? false,
+  :found? false,
+  :level 1}
+ {:name "Zauvek's Rescue",
+  :type "weapon",
+  :existing
+        [{:effect "+1 AB with this weapon against grappled creatures.",
+          :upgrade-points 10}]
+  :available
+        [{:effect "Upon taking poison damage, gain resistance to poison damage until the start of your next turn.",
+          :upgradeable? false}
+         {:effect "This weapon gains the Forceful Property. If it already has that tag, its effects are added one additional time."
+          :upgrade-points 30}
+         {:effect "+1d[4] poison damage with this weapon."}
+         {:effect "+1 DC for effects that would cause the Charmed condition."
+          :upgrade-points 20}
+         {:effect "[Once] per long rest, when you Frighten a creature, you may choose for it to also be Poisoned while Frightened in this way."
+          :upgrade-points 10}],
+  :enabled? true
   :found? false,
   :level 1}
  {:name "Challengers' Downfall",
