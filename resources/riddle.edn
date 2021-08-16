@@ -12,7 +12,8 @@
   :answer "A coat of paint."}
  {:riddle
   "Many have heard me, yet nobody has seen me. I won’t speak back unless spoken to. What am I?",
-  :answer "An echo."}
+  :answer "An echo.",
+  :enabled? false}
  {:riddle
   "What five long word become shorter when you add two letters?",
   :answer "Short"}
