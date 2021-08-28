@@ -17,13 +17,16 @@
   :type "weapon",
   :existing
         [{:effect "+1 AB with this weapon against grappled creatures.",
+          :upgrade-points 10}
+         {:effect "+1d[4] poison damage with this weapon."
+          :points 0
           :upgrade-points 10}]
   :available
         [{:effect "Upon taking poison damage, gain resistance to poison damage until the start of your next turn.",
           :upgradeable? false}
          {:effect "This weapon gains the Forceful Property. If it already has that tag, its effects are added one additional time."
           :upgrade-points 30}
-         {:effect "+1d[4] poison damage with this weapon."}
+         {:effect "+1 poison damage."}
          {:effect "+1 DC for effects that would cause the Charmed condition."
           :upgrade-points 20}
          {:effect "[Once] per long rest, when you Frighten a creature, you may choose for it to also be Poisoned while Frightened in this way."
@@ -35,8 +38,10 @@
   :type "armour",
   :existing
   [{:effect
-    "While in combat with exactly one enemy, your first Healing Surge of each turn does not consume a surge.",
-    :upgradeable? false}],
+    "While in combat with exactly one enemy, your first Healing Surge of each turn does not consume a surge."
+    :points 0
+    :upgradeable? false}
+   {:effect "[Once] per short rest, when you land a killilng blow, regain half of your consumed healing surges."}],
   :available
   [{:effect "+1 AB with melee attacks against restrained creatures.",
     :upgradeable? false}
@@ -61,7 +66,9 @@
   [{:effect
     "You can ready spells that would deal cold, fire, or lightning damage without consuming the spell slot. The spell slot is still consumed when you cast the spell.",
     :upgradeable? false,
-    :level 1}],
+    :points 0}
+   {:effect
+    "You learn the Witch Bolt spell and may cast it as a 5th level spell [once] per long rest. When cast in this way, the target must make a Constitution saving throw whenever it takes damage from this spell, becoming restrained until the start of its next turn on a failed save.",}],
   :available
   [{:effect
     "When you cast Wall of Fire, Wall of Ice, or Wall of Water, you consume a spell slot [1] level below the one required by the spell.",
@@ -102,8 +109,10 @@
    :disadvantaged-stealth? false},
   :existing
   [{:effect "Allies that can see you cannot be frightened.",
+    :upgradeable? false}
+   {:effect "You are proficient in all weapon types. +1 damage with martial weapons.",
     :upgradeable? false,
-    :level 1}
+    :points 0}
    {:effect
     "+[1] to skill checks in which you've gained expertise via Shifting Organs.",
     :level 1,
@@ -120,7 +129,7 @@
     "Attacks with two handed melee weapons made during your bonus action have +[3] damage.",
     :upgrade-points 10}
    {:effect
-    "You may take the Shove as a bonus action. [Once] per minute, if you shoved successfully as a bonus action, you make take another bonus action in that turn..",
+    "You may take the Shove action as a bonus action. [Once] per minute, if you shoved successfully as a bonus action, you make take another bonus action in that turn.",
     :upgrade-points 10}
    {:effect "+[1] Charisma.", :upgrade-points 20}],
   :found? true,
@@ -166,7 +175,11 @@
    :disadvantaged-stealth? false},
   :existing
   [{:effect
-    "+1 resistance to damage dealt by creatures you have not damaged.",
+    "+1 resistance to damage dealt by creatures you have not damaged."
+    :points 0
+    :upgradeable? false}
+   {:effect
+    "You may choose to make critical strikes non-lethally.",
     :upgradeable? false}
    {:effect "Growth and Rot no longer reduces your Dexterity.",
     :upgradeable? false,
@@ -207,9 +220,10 @@
    :slot "boots",
    :disadvantaged-stealth? false},
   :existing
-  [{:effect
-    "+[2] die size when damaging prone or incapacitated creatures.",
-    :upgrade-points 10}],
+  [{:effect "+[2] die size when damaging prone or incapacitated creatures.",
+    :upgrade-points 10}
+   {:effect "Your ranged attacks do not suffer disadvantage as a result of targeting prone creatures."
+    :upgradeable? false}],
   :available
   [{:effect
     "On killing blow, +[3] resistance to all damage until the end of your next turn.",
@@ -238,6 +252,9 @@
    :disadvantaged-stealth? false},
   :existing
   [{:effect "You have expertise with Arcana checks.",
+    :upgradeable? false}
+   {:effect "When a creature attempts a saving throw against a magical effect of yours, you immediately learn whether or not it has Magic Resistance.",
+    :points 0
     :upgradeable? false}
    {:effect
     "+1 resistance to damage taken from creatures afflicted by at least one stack of blight.",
