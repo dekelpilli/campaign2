@@ -46,7 +46,8 @@
   "if you take the first letter and put it on the end of the word, reading it backwards they spell the same word."}
  {:riddle
   "Twelve men walking by, twelve pears hanging high. Each took a pear and left eleven hanging there. How did it happen?",
-  :answer "'Each' is someone’s name."}
+  :answer "'Each' is someone’s name.",
+  :enabled? false}
  {:riddle
   "What is it that you keep when you need it not, but throw out when you do need it?",
   :answer "An anchor."}
@@ -208,7 +209,8 @@
   "I met a man with a load of wood which was neither straight nor crooked. What kind of wood was it?",
   :answer "Sawdust."}
  {:riddle "What binds two people yet touches only one?",
-  :answer "A wedding ring."}
+  :answer "A wedding ring.",
+  :enabled? false}
  {:riddle
   "I am the beginning of sorrow and the end of sickness. There’s no happiness without me nor is there sadness. I am always in risk, yet never in danger. You will find me in the sun, but I am never out of darkness.",
   :answer "The letter S."}
