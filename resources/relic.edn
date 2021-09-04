@@ -1,17 +1,63 @@
 [{:name "Template",
   :type "weapon/armour",
   :existing
-  [{:effect "effect",
-    :upgradeable? false,
-    :level 1,
-    :upgrade-points 10}],
+        [{:effect "effect",
+          :upgradeable? false,
+          :level 1,
+          :upgrade-points 10}],
   :available
-  [{:effect "upgradeableEffect",
-    :upgradeable? true,
-    :level 1,
-    :upgrade-points 10,}],
+        [{:effect "upgradeableEffect",
+          :upgradeable? true,
+          :level 1,
+          :upgrade-points 10,}],
   :enabled? false,
   :found? false,
+  :level 1}
+ {:name "Staff of the Blessed Disease"
+  :type "weapon"
+  :existing
+        [{:effect "Creature you hit with this weapon are afflicted by Blight equivalent to that of your Bile."
+          :upgradeable? false,
+          :level 1,
+          :upgrade-points 10}
+         {:effect "This weapon cannot deal its base damage type. Instead, you may choose to convert that damage type to Poison or Necrotic damage."
+          :upgradeable? false,
+          :level 1,
+          :upgrade-points 10}],
+  :available
+        [{:effect "Enemies blighted by you have +1 vulnerability to Poison and Necrotic damage per stack of blight.",
+          :upgradeable? false}
+         {:effect "When applying a blight to yourself, you may choose to extend the blight's duration by up to a minute. This can be done after rolling for damage.",
+          :upgradeable? false}
+         {:effect "+[5] feet Noxious Aura radius."}
+         {:effect "Enemies you critically strike with this weapon become poisoned for 12 seconds. Enemies that critically fail a save against becoming blighted by you are afflicted by two instances of that blight."
+          :upgradeable? false}
+         {:effect "+1 AB with this weapon against enemies afflicted by at least one stack of blight."
+          :upgrade-points 20}],
+  :enabled? false,
+  :found? false,
+  :level 1}
+ {:name "Reven's Invitation",
+  :type "weapon",
+  :existing
+  [{:effect "Damage from your Crimson Rite damage dice is always rolled as at least [5] (max of die size).",
+    :level 1
+    :points 10}
+   {:effect "Spells you cast via your Revealed Arcana and Unsealed Arcana features can be cast at two levels above your spell slot level.",
+    :level 1
+    :points 0
+    :upgradeable? false}],
+  :available
+  [{:effect "When activating your Crimson Rite, instead of choosing a weapon, you may choose for the effect to apply to all of your spells instead.",
+    :upgradeable? false}
+   {:effect "You may use your Brand of Castigation [one] additional time per short rest."}
+   {:effect "+2 damage with this weapon against cursed enemies."}
+   {:effect "When you score a critical strike with this weapon, you may immediately apply a curse that would normally require a bonus action.",
+    :upgradeable? false}
+   {:effect "When you score a critical strike with this weapon, you may immediately apply a curse that would normally require a bonus action.",
+    :upgradeable? false}]
+  :enabled? false
+  :found? false
   :level 1}
  {:name "Zauvek's Rescue",
   :type "weapon",
