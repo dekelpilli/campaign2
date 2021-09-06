@@ -77,7 +77,8 @@
   "The poison is in the ice not the tea. The ice melts in the slower drinker's tea."}
  {:riddle
   "Towns without houses, forests without trees, mountains without boulders and waterless seas.",
-  :answer "A Map."}
+  :answer "A Map.",
+  :enabled? false}
  {:riddle "Two bodies in one, the longer I stand, the faster I run.",
   :answer "Hourglass."}
  {:riddle "Men desire me in public, but fear me in private.",
@@ -142,7 +143,8 @@
   "I am gifted to you only when I am unwanted. I have the power to kill kings or the lowliest paupers. My strength is unquestioned and I move far and wide, yet my power can falter from potions imbibed. What am I?",
   :answer "Sickness or Disease"}
  {:riddle "The more you take out the bigger I get. What am I?",
-  :answer "A hole"}
+  :answer "A hole",
+  :enabled? false}
  {:riddle
   "Up and down they go and travel, but never do they move an inch.",
   :answer "Stairs"}
@@ -157,7 +159,9 @@
   :answer "A watch"}
  {:riddle "The more you take, the more you leave behind. What am I?",
   :answer "Footsteps"}
- {:riddle "What is long, brown, and sticky?", :answer "A stick."}
+ {:riddle "What is long, brown, and sticky?",
+  :answer "A stick.",
+  :enabled? false}
  {:riddle
   "What is black when you buy it, red when you use it, and white when you throw it away?",
   :answer "Coal."}
@@ -175,7 +179,8 @@
   :answer "Hope."}
  {:riddle
   "I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost everybody.",
-  :answer "Pencil lead."}
+  :answer "Pencil lead.",
+  :enabled? false}
  {:riddle
   "What goes round the house and in the house but never touches the house?",
   :answer "The sun."}
@@ -196,7 +201,8 @@
   :answer "Water, fire, earth, wind."}
  {:riddle
   "A cloud was my mother, the wind is my father, my son is the cool stream, and my daughter is the fruit of the land. A rainbow is my bed, the earth my final resting place, what am I?",
-  :answer "Rain."}
+  :answer "Rain.",
+  :enabled? false}
  {:riddle
   "What goes with a carriage, comes with a carriage, is of no use to a carriage and yet the carriage cannot go without it?",
   :answer "Noise."}
@@ -213,7 +219,8 @@
   :enabled? false}
  {:riddle
   "I am the beginning of sorrow and the end of sickness. There’s no happiness without me nor is there sadness. I am always in risk, yet never in danger. You will find me in the sun, but I am never out of darkness.",
-  :answer "The letter S."}
+  :answer "The letter S.",
+  :enabled? false}
  {:riddle "What holds water yet is full of holes?",
   :answer "A sponge."}
  {:riddle

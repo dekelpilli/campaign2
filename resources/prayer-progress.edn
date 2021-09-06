@@ -1,4 +1,4 @@
 [{:character "heath", :path "Cerasil-heath", :taken #{7 4 6 3 2 5 8}}
  {:character "jumlin", :path "Odi", :taken #{7 4 6 3 2}}
  {:character "festus", :path "Thatar", :taken #{1 4 2}}
- {:character "reven", :path "Vuneta", :taken #{1 4 2 5}}]
+ {:character "reven", :path "Vuneta", :taken #{1 4 6 2 5}}]

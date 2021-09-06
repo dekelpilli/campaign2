@@ -1,93 +1,110 @@
 [{:name "Template",
   :type "weapon/armour",
   :existing
-        [{:effect "effect",
-          :upgradeable? false,
-          :level 1,
-          :upgrade-points 10}],
+  [{:effect "effect",
+    :upgradeable? false,
+    :level 1,
+    :upgrade-points 10}],
   :available
-        [{:effect "upgradeableEffect",
-          :upgradeable? true,
-          :level 1,
-          :upgrade-points 10,}],
+  [{:effect "upgradeableEffect",
+    :upgradeable? true,
+    :level 1,
+    :upgrade-points 10}],
   :enabled? false,
   :found? false,
   :level 1}
- {:name "Staff of the Blessed Disease"
-  :type "weapon"
+ {:name "Staff of the Blessed Disease",
+  :type "weapon",
   :existing
-        [{:effect "Creature you hit with this weapon are afflicted by Blight equivalent to that of your Bile."
-          :upgradeable? false,
-          :level 1,
-          :upgrade-points 10}
-         {:effect "This weapon cannot deal its base damage type. Instead, you may choose to convert that damage type to Poison or Necrotic damage."
-          :upgradeable? false,
-          :level 1,
-          :upgrade-points 10}],
+  [{:effect
+    "Creature you hit with this weapon are afflicted by Blight equivalent to that of your Bile.",
+    :upgradeable? false,
+    :level 1,
+    :upgrade-points 10}
+   {:effect
+    "This weapon cannot deal its base damage type. Instead, you may choose to convert that damage type to Poison or Necrotic damage.",
+    :upgradeable? false,
+    :level 1,
+    :upgrade-points 10}],
   :available
-        [{:effect "Enemies blighted by you have +1 vulnerability to Poison and Necrotic damage per stack of blight.",
-          :upgradeable? false}
-         {:effect "When applying a blight to yourself, you may choose to extend the blight's duration by up to a minute. This can be done after rolling for damage.",
-          :upgradeable? false}
-         {:effect "+[5] feet Noxious Aura radius."}
-         {:effect "Enemies you critically strike with this weapon become poisoned for 12 seconds. Enemies that critically fail a save against becoming blighted by you are afflicted by two instances of that blight."
-          :upgradeable? false}
-         {:effect "+1 AB with this weapon against enemies afflicted by at least one stack of blight."
-          :upgrade-points 20}],
+  [{:effect
+    "Enemies blighted by you have +1 vulnerability to Poison and Necrotic damage per stack of blight.",
+    :upgradeable? false}
+   {:effect
+    "When applying a blight to yourself, you may choose to extend the blight's duration by up to a minute. This can be done after rolling for damage.",
+    :upgradeable? false}
+   {:effect "+[5] feet Noxious Aura radius."}
+   {:effect
+    "Enemies you critically strike with this weapon become poisoned for 12 seconds. Enemies that critically fail a save against becoming blighted by you are afflicted by two instances of that blight.",
+    :upgradeable? false}
+   {:effect
+    "+1 AB with this weapon against enemies afflicted by at least one stack of blight.",
+    :upgrade-points 20}],
   :enabled? false,
   :found? false,
   :level 1}
  {:name "Reven's Invitation",
   :type "weapon",
   :existing
-  [{:effect "Damage from your Crimson Rite damage dice is always rolled as at least [5] (max of die size).",
-    :level 1
+  [{:effect
+    "Damage from your Crimson Rite damage dice is always rolled as at least [5] (max of die size).",
+    :level 1,
     :points 10}
-   {:effect "Spells you cast via your Revealed Arcana and Unsealed Arcana features can be cast at two levels above your spell slot level.",
-    :level 1
-    :points 0
+   {:effect
+    "Spells you cast via your Revealed Arcana and Unsealed Arcana features can be cast at two levels above your spell slot level.",
+    :level 1,
+    :points 0,
     :upgradeable? false}],
   :available
-  [{:effect "When activating your Crimson Rite, instead of choosing a weapon, you may choose for the effect to apply to all of your spells instead.",
+  [{:effect
+    "When activating your Crimson Rite, instead of choosing a weapon, you may choose for the effect to apply to all of your spells instead.",
     :upgradeable? false}
-   {:effect "You may use your Brand of Castigation [one] additional time per short rest."}
+   {:effect
+    "You may use your Brand of Castigation [one] additional time per short rest."}
    {:effect "+2 damage with this weapon against cursed enemies."}
-   {:effect "When you score a critical strike with this weapon, you may immediately apply a curse that would normally require a bonus action.",
+   {:effect
+    "When you score a critical strike with this weapon, you may immediately apply a curse that would normally require a bonus action.",
     :upgradeable? false}
-   {:effect "When you score a critical strike with this weapon, you may immediately apply a curse that would normally require a bonus action.",
-    :upgradeable? false}]
-  :enabled? false
-  :found? false
+   {:effect
+    "When you score a critical strike with this weapon, you may immediately apply a curse that would normally require a bonus action.",
+    :upgradeable? false}],
+  :enabled? false,
+  :found? false,
   :level 1}
  {:name "Zauvek's Rescue",
   :type "weapon",
   :existing
-        [{:effect "+1 AB with this weapon against grappled creatures.",
-          :upgrade-points 10}
-         {:effect "+1d[4] poison damage with this weapon."
-          :points 0
-          :upgrade-points 10}]
+  [{:effect "+1 AB with this weapon against grappled creatures.",
+    :upgrade-points 10}
+   {:effect "+1d[4] poison damage with this weapon.",
+    :points 0,
+    :upgrade-points 10}],
   :available
-        [{:effect "Upon taking poison damage, gain resistance to poison damage until the start of your next turn.",
-          :upgradeable? false}
-         {:effect "This weapon gains the Forceful Property. If it already has that tag, its effects are added one additional time."
-          :upgrade-points 30}
-         {:effect "+1 poison damage."}
-         {:effect "+1 DC for effects that would cause the Charmed condition."
-          :upgrade-points 20}
-         {:effect "[Once] per long rest, when you Frighten a creature, you may choose for it to also be Poisoned while Frightened in this way."
-          :upgrade-points 10}],
-  :enabled? true
+  [{:effect
+    "Upon taking poison damage, gain resistance to poison damage until the start of your next turn.",
+    :upgradeable? false}
+   {:effect
+    "This weapon gains the Forceful Property. If it already has that tag, its effects are added one additional time.",
+    :upgrade-points 30}
+   {:effect "+1 poison damage."}
+   {:effect
+    "+1 DC for effects that would cause the Charmed condition.",
+    :upgrade-points 20}
+   {:effect
+    "[Once] per long rest, when you Frighten a creature, you may choose for it to also be Poisoned while Frightened in this way.",
+    :upgrade-points 10}],
+  :enabled? true,
   :found? false,
   :level 1}
  {:name "Challengers' Downfall",
   :type "armour",
   :existing
   [{:effect
-    "While in combat with exactly one enemy, your first Healing Surge of each turn does not consume a surge."
-    :points 0
+    "While in combat with exactly one enemy, your first Healing Surge of each turn does not consume a surge.",
+    :points 0,
     :upgradeable? false}
-   {:effect "[Once] per short rest, when you land a killilng blow, regain half of your consumed healing surges."}],
+   {:effect
+    "[Once] per short rest, when you land a killilng blow, regain half of your consumed healing surges."}],
   :available
   [{:effect "+1 AB with melee attacks against restrained creatures.",
     :upgradeable? false}
@@ -114,7 +131,7 @@
     :upgradeable? false,
     :points 0}
    {:effect
-    "You learn the Witch Bolt spell and may cast it as a 5th level spell [once] per long rest. When cast in this way, the target must make a Constitution saving throw whenever it takes damage from this spell, becoming restrained until the start of its next turn on a failed save.",}],
+    "You learn the Witch Bolt spell and may cast it as a 5th level spell [once] per long rest. When cast in this way, the target must make a Constitution saving throw whenever it takes damage from this spell, becoming restrained until the start of its next turn on a failed save."}],
   :available
   [{:effect
     "When you cast Wall of Fire, Wall of Ice, or Wall of Water, you consume a spell slot [1] level below the one required by the spell.",
@@ -156,7 +173,8 @@
   :existing
   [{:effect "Allies that can see you cannot be frightened.",
     :upgradeable? false}
-   {:effect "You are proficient in all weapon types. +1 damage with martial weapons.",
+   {:effect
+    "You are proficient in all weapon types. +1 damage with martial weapons.",
     :upgradeable? false,
     :points 0}
    {:effect
@@ -221,11 +239,10 @@
    :disadvantaged-stealth? false},
   :existing
   [{:effect
-    "+1 resistance to damage dealt by creatures you have not damaged."
-    :points 0
+    "+1 resistance to damage dealt by creatures you have not damaged.",
+    :points 0,
     :upgradeable? false}
-   {:effect
-    "You may choose to make critical strikes non-lethally.",
+   {:effect "You may choose to make critical strikes non-lethally.",
     :upgradeable? false}
    {:effect "Growth and Rot no longer reduces your Dexterity.",
     :upgradeable? false,
@@ -266,10 +283,17 @@
    :slot "boots",
    :disadvantaged-stealth? false},
   :existing
-  [{:effect "+[2] die size when damaging prone or incapacitated creatures.",
+  [{:effect
+    "+[2] die size when damaging prone or incapacitated creatures.",
     :upgrade-points 10}
-   {:effect "Your ranged attacks do not suffer disadvantage as a result of targeting prone creatures."
-    :upgradeable? false}],
+   {:effect
+    "Your ranged attacks do not suffer disadvantage as a result of targeting prone creatures.",
+    :upgradeable? false}
+   {:effect "You know all of the Primal Rites.",
+    :upgradeable? false,
+    :level 1,
+    :points 10,
+    :upgrade-points 10}],
   :available
   [{:effect
     "On killing blow, +[3] resistance to all damage until the end of your next turn.",
@@ -285,8 +309,13 @@
    {:effect
     "+[2] investigation after combats in which you've landed a killing blow.",
     :upgrade-points 5}],
+  :progressed
+  [{:effect
+    "+[2] die size when damaging prone or incapacitated creatures.",
+    :upgrade-points 10,
+    :committed 0}],
   :found? true,
-  :level 1}
+  :level 3}
  {:name "Amman's Research",
   :type "armour",
   :owner :festus,
@@ -299,8 +328,9 @@
   :existing
   [{:effect "You have expertise with Arcana checks.",
     :upgradeable? false}
-   {:effect "When a creature attempts a saving throw against a magical effect of yours, you immediately learn whether or not it has Magic Resistance.",
-    :points 0
+   {:effect
+    "When a creature attempts a saving throw against a magical effect of yours, you immediately learn whether or not it has Magic Resistance.",
+    :points 0,
     :upgradeable? false}
    {:effect
     "+1 resistance to damage taken from creatures afflicted by at least one stack of blight.",
