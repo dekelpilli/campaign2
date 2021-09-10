@@ -37,9 +37,9 @@
            "Your spells that cause conditions have +1 DC against creatures that have damaged you in the last minute."
            "You can cast Misty Step once per long rest. When cast in this way, the spell targets you and up to 5 other willing creatures that you can see within 60 feet, and can teleport you up to 100 feet away."
            "Creatures of your choice within 10 feet of you have -1 AB."
-           "Add your Charisma bonus to the damage of chosen creatures within 20 feet of you, including yourself, when making non-lethal attacks."
+           "Upon being damaged by an enemy, you may immediately apply Enfeeblement on them, as per the Ray of Enfeeblement spell. This still requires concentration, and saves at the end of each of the target's turns."
            "+1 AC in combats where an enemy has been brought down non-lethally."
-           "Once per short rest, as a reaction to getting hit by an enemy, you may cast the Invulnerability spell on both yourself and the enemy that damaged you."
+           "Once per long rest, as a reaction to getting hit by an enemy, you apply invulnerability (as per the Invulnerability spell) on both yourself and the enemy that damaged you, requiring concentration."
            "You may cast the Prismatic Wall spell once per long rest, but you may only choose the Violet variation."
            "You may cast the Imprisonment spell as an action once per long rest. When cast in this way, the target also becomes invulnerable and the spell's duration is 1 hour."]}
  {:name   "Zetnos",
