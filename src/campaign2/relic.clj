@@ -68,9 +68,9 @@
         (&level-relic! relic)))
   ([{:keys [level existing base type available progressed owner] :as relic}]
    (let [points-remaining (- (* points-per-level (inc level))
-                             (or (->> existing
-                                      (map #(:points % 10))
-                                      (reduce +)) 0)
+                             (->> existing
+                                  (map #(:points % 10))
+                                  (reduce + 0))
                              (->> progressed
                                   (map :committed)
                                   (reduce +)))

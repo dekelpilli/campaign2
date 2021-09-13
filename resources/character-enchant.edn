@@ -21,7 +21,7 @@
           {:effect         "+[1] die size for the added damage granted by Cruel Harvest."
            :upgrade-points 15}
           {:effect       "Growth and Rot no longer reduces your %s."
-           :randoms      [["Dexterity" "Strength" "Wisdom"]]
+           :randoms      [["Dexterity" "Intelligence" "Wisdom"]]
            :upgradeable? false}
           {:effect       "When you would normally activate your %s Touch, you may reroll instead. You must then accept that result."
            :randoms      [["Annihilating" "Decaying" "Healing" "Hexing" "Nullifying" "Persistent" "Precise" "Shielding" "Slinging" "Splitting"]]

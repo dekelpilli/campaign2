@@ -45,6 +45,16 @@
   :level 1}
  {:name "Reven's Invitation",
   :type "weapon",
+  :owner :reven,
+  :base
+  {:category "Bow",
+   :proficiency "Simple",
+   :name "Heavy Crossbow",
+   :type "Ranged",
+   :damage "1d10",
+   :damage-types ["Piercing"],
+   :range "120/240",
+   :traits ["Two-handed" "Reload"]},
   :existing
   [{:effect
     "Damage from your Crimson Rite damage dice is always rolled as at least [5] (max of die size).",
@@ -54,13 +64,21 @@
     "Spells you cast via your Revealed Arcana and Unsealed Arcana features can be cast at two levels above your spell slot level.",
     :level 1,
     :points 0,
-    :upgradeable? false}],
+    :upgradeable? false}
+   {:effect "+[1] to your Hemocraft die size.",
+    :upgrade-points 20,
+    :level 1,
+    :points 10}
+   {:effect
+    "You may use your Brand of Castigation [one] additional time per short rest."}
+   {:effect "+1 spell save and special feature DCs",
+    :points 10,
+    :level 1,
+    :upgrade-points 35}],
   :available
   [{:effect
     "When activating your Crimson Rite, instead of choosing a weapon, you may choose for the effect to apply to all of your spells instead.",
     :upgradeable? false}
-   {:effect
-    "You may use your Brand of Castigation [one] additional time per short rest."}
    {:effect "+2 damage with this weapon against cursed enemies."}
    {:effect
     "When you score a critical strike with this weapon, you may immediately apply a curse that would normally require a bonus action.",
@@ -68,9 +86,8 @@
    {:effect
     "When you score a critical strike with this weapon, you may immediately apply a curse that would normally require a bonus action.",
     :upgradeable? false}],
-  :enabled? false,
-  :found? false,
-  :level 1}
+  :found? true,
+  :level 4}
  {:name "Zauvek's Rescue",
   :type "weapon",
   :existing
@@ -184,7 +201,17 @@
     :upgrade-points 10}
    {:effect
     "[Once] per turn, when an attack you make would otherwise have disadvantage, you may make the attack normally instead.",
-    :upgrade-points 5}],
+    :upgrade-points 5}
+   {:effect "Growth and Rot no longer reduces your Intelligence.",
+    :upgradeable? false,
+    :level 1,
+    :points 10,
+    :upgrade-points 10}
+   {:effect
+    "After receiving damage for the first time in a combat, you may choose to become resistant to that damage type for the rest of the combat. If you choose to do so, you then become vulnerable Lightning and Cold",
+    :level 1,
+    :points 10,
+    :upgrade-points 10}],
   :available
   [{:effect
     "Your Strength cannot be below 15. If it was, it is considered to be 15 instead.",
@@ -197,7 +224,7 @@
     :upgrade-points 10}
    {:effect "+[1] Charisma.", :upgrade-points 20}],
   :found? true,
-  :level 3}
+  :level 5}
  {:name "Eion's Uprising",
   :type "weapon",
   :owner :reven,
@@ -271,6 +298,7 @@
     "Feeding others potions requires a bonus action instead of an action.",
     :upgradeable? false}],
   :progressed [],
+  :enabled? false,
   :found? true,
   :level 5}
  {:name "Thetia's Ruthlessness",
@@ -293,12 +321,12 @@
     :upgradeable? false,
     :level 1,
     :points 10,
+    :upgrade-points 10}
+   {:effect
+    "On killing blow, +[3] resistance to all damage until the end of your next turn.",
     :upgrade-points 10}],
   :available
   [{:effect
-    "On killing blow, +[3] resistance to all damage until the end of your next turn.",
-    :upgrade-points 10}
-   {:effect
     "You gain advantage on attacks until the end of your [next] turn upon an ally going down to 0 hit points.",
     :upgrade-points 10}
    {:effect "+[15] feet movement turing the first round of combat.",
@@ -309,13 +337,8 @@
    {:effect
     "+[2] investigation after combats in which you've landed a killing blow.",
     :upgrade-points 5}],
-  :progressed
-  [{:effect
-    "+[2] die size when damaging prone or incapacitated creatures.",
-    :upgrade-points 10,
-    :committed 0}],
   :found? true,
-  :level 3}
+  :level 4}
  {:name "Amman's Research",
   :type "armour",
   :owner :festus,
@@ -335,8 +358,8 @@
    {:effect
     "+1 resistance to damage taken from creatures afflicted by at least one stack of blight.",
     :upgrade-points 20,
-    :level 1,
-    :points 10}],
+    :level 2,
+    :points 30}],
   :available
   [{:effect
     "You can fluently read text in any language that you recognise.",
@@ -348,5 +371,6 @@
     "You may cast Glyph of Warding [once] per long rest with a casting time 1 minute."}
    {:effect
     "+1 AC while concentrating on a spell. +[1] fire thorns."}],
+  :progressed [],
   :found? true,
-  :level 2}]
+  :level 4}]
