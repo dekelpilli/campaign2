@@ -5,7 +5,7 @@
  {:riddle
   "It wears a leather coat to keep its skins in working order. Escorts you to other realms, without a magic portal.",
   :answer "Book."}
- {:riddle "It dampens as it dries.", :answer "Towel."}
+ {:riddle "It dampens as it dries.", :answer "Towel.", :enabled? false}
  {:riddle "What has two hands on its face but no arms?",
   :answer "A clock"}
  {:riddle "What kind of coat is always wet when you put it on?",
@@ -37,7 +37,8 @@
   :answer "Sand."}
  {:riddle
   "I'm lighter than a feather but even the world's stronger man cannot hold me for more than a few minutes. What am I?",
-  :answer "Air."}
+  :answer "Air.",
+  :enabled? false}
  {:riddle
   "As I was going to St Ives I met a man with 7 wives. Each wife had 7 kids. Each kid had 7 cats. Each cat had 7 kittens. How many were going to St Ives?",
   :answer "1."}
@@ -114,7 +115,8 @@
   :answer "A leg."}
  {:riddle
   "You keep it, but it never ages. Once shared it is gone forever.",
-  :answer "Secret."}
+  :answer "Secret.",
+  :enabled? false}
  {:riddle
   "I can bring down the mightiest of men. Nobody can defy me. I am the enemy of flight. Yet you can’t even sense my presence. What am I?",
   :answer "Gravity"}
@@ -129,7 +131,8 @@
   :answer "A Treasure Chest"}
  {:riddle
   "My body’s thin and slender and I grow shorter every day. You can use my single purpose, and I’ll be sure to lead the way. When I am placed upon a pastry then my life is soon to fade. What am I?",
-  :answer "A candle"}
+  :answer "A candle",
+  :enabled? false}
  {:riddle
   "I am what’s desired above of all fame and wealth. Without me it’s assured that you’ll begin to lose your health. I’m not a fluid dancer, but you can put me on a shelf. What am I?",
   :answer "Food"}

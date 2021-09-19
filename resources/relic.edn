@@ -15,17 +15,25 @@
   :level 1}
  {:name "Staff of the Blessed Disease",
   :type "weapon",
+  :owner :festus,
+  :base
+  {:category "Axe",
+   :proficiency "Martial",
+   :name "Battle Axe",
+   :type "Melee",
+   :damage "1d8",
+   :damage-types ["Slashing"],
+   :traits ["Sweep"]},
   :existing
   [{:effect
-    "Creature you hit with this weapon are afflicted by Blight equivalent to that of your Bile.",
+    "Creatures you hit with this weapon are afflicted by Blight equivalent to that of your Bile.",
     :upgradeable? false,
     :level 1,
     :upgrade-points 10}
    {:effect
     "This weapon cannot deal its base damage type. Instead, you may choose to convert that damage type to Poison or Necrotic damage.",
     :upgradeable? false,
-    :level 1,
-    :upgrade-points 10}],
+    :level 1}],
   :available
   [{:effect
     "Enemies blighted by you have +1 vulnerability to Poison and Necrotic damage per stack of blight.",
@@ -40,8 +48,7 @@
    {:effect
     "+1 AB with this weapon against enemies afflicted by at least one stack of blight.",
     :upgrade-points 20}],
-  :enabled? false,
-  :found? false,
+  :found? true,
   :level 1}
  {:name "Reven's Invitation",
   :type "weapon",
@@ -74,12 +81,12 @@
    {:effect "+1 spell save and special feature DCs",
     :points 10,
     :level 1,
-    :upgrade-points 35}],
+    :upgrade-points 35}
+   {:effect "+2 damage with this weapon against cursed enemies."}],
   :available
   [{:effect
     "When activating your Crimson Rite, instead of choosing a weapon, you may choose for the effect to apply to all of your spells instead.",
     :upgradeable? false}
-   {:effect "+2 damage with this weapon against cursed enemies."}
    {:effect
     "When you score a critical strike with this weapon, you may immediately apply a curse that would normally require a bonus action.",
     :upgradeable? false}
@@ -87,7 +94,7 @@
     "When you score a critical strike with this weapon, you may immediately apply a curse that would normally require a bonus action.",
     :upgradeable? false}],
   :found? true,
-  :level 4}
+  :level 5}
  {:name "Zauvek's Rescue",
   :type "weapon",
   :existing
@@ -115,13 +122,32 @@
   :level 1}
  {:name "Challengers' Downfall",
   :type "armour",
+  :owner :reven,
+  :base
+  {:ac 0,
+   :name "Unarmoured helmet",
+   :type "Unarmoured",
+   :slot "helmet",
+   :disadvantaged-stealth? false},
   :existing
   [{:effect
     "While in combat with exactly one enemy, your first Healing Surge of each turn does not consume a surge.",
     :points 0,
     :upgradeable? false}
    {:effect
-    "[Once] per short rest, when you land a killilng blow, regain half of your consumed healing surges."}],
+    "[Once] per short rest, when you land a killilng blow, regain half of your consumed healing surges."}
+   {:effect
+    "+1 to Dexterity saving throws if wearing a light or unarmoured body armour, helmet, gloves, and boots, and no using a shield.",
+    :metadata #{"armour"},
+    :type #{"Unarmoured" "Light"},
+    :level 1,
+    :points 10,
+    :upgrade-points 10}
+   {:effect
+    "+1 weapon attack AB with attacks that deal non-physical damage.",
+    :points 10,
+    :level 1,
+    :upgrade-points 30}],
   :available
   [{:effect "+1 AB with melee attacks against restrained creatures.",
     :upgradeable? false}
@@ -137,11 +163,19 @@
    {:effect
     "When an enemy fails a saving throw against an effect of yours that deals Necrotic damage, future instances of that effect have +1 DC against that creature. This does not stack.",
     :upgradeable? false}],
-  :enabled? true,
-  :found? false,
-  :level 1}
+  :found? true,
+  :level 3}
  {:name "Norwood's Mastery",
   :type "weapon",
+  :owner :reven,
+  :base
+  {:category "Flail",
+   :proficiency "Martial",
+   :name "Whip",
+   :type "Melee",
+   :damage "1d4",
+   :damage-types ["Slashing"],
+   :traits ["Disarm" "Finesse" "Non-lethal" "Reach" "Trip"]},
   :existing
   [{:effect
     "You can ready spells that would deal cold, fire, or lightning damage without consuming the spell slot. The spell slot is still consumed when you cast the spell.",
@@ -175,8 +209,8 @@
     :level 1,
     :upgrade-points 10,
     :points 10}],
-  :enabled? true,
-  :found? false,
+  :enabled? false,
+  :found? true,
   :level 1}
  {:name "Rislog's Legacy",
   :type "armour",
@@ -196,8 +230,8 @@
     :points 0}
    {:effect
     "+[1] to skill checks in which you've gained expertise via Shifting Organs.",
-    :level 1,
-    :points 10,
+    :level 2,
+    :points 20,
     :upgrade-points 10}
    {:effect
     "[Once] per turn, when an attack you make would otherwise have disadvantage, you may make the attack normally instead.",
@@ -224,7 +258,7 @@
     :upgrade-points 10}
    {:effect "+[1] Charisma.", :upgrade-points 20}],
   :found? true,
-  :level 5}
+  :level 6}
  {:name "Eion's Uprising",
   :type "weapon",
   :owner :reven,
@@ -313,7 +347,9 @@
   :existing
   [{:effect
     "+[2] die size when damaging prone or incapacitated creatures.",
-    :upgrade-points 10}
+    :upgrade-points 10
+    :level 2
+    :points 20}
    {:effect
     "Your ranged attacks do not suffer disadvantage as a result of targeting prone creatures.",
     :upgradeable? false}
