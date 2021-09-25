@@ -8,5 +8,4 @@
       nil)))
 
 (defn roll [r]
-  (update (d/roll r)
-          :die-rolls #(into '() %)))
+  (update (d/roll r) :die-rolls seq))

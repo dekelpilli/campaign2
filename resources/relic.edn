@@ -13,6 +13,24 @@
   :enabled? false,
   :found? false,
   :level 1}
+ {:name "Zetnos' Vengeance"
+  :type "armour"
+  :existing
+        [{:effect "Attacks you block from creatures within 5 feet of you that have already hit you in that turn trigger an opportunity attack."
+          :upgradeable? false}
+         {:effect "+[1] AC against creatures that have landed a killing blow in the last minute."
+          :upgrade-points 20}]
+  :available
+        [{:effect "+[1] to all saving throws against effects from creatures that have landed a killing blow in the last minute."
+          :upgrade-points 20}
+         {:effect "[Once] per short rest, when an enemy provokes an opportunity attack from you by attacking you, you may instead cast Hex on the creature."}
+         {:effect "+[1] resistance against damage from enemies marked or cursed by you."
+          :upgrade-points 20}
+         {:effect "Once per long rest, on your next turn after gaining hit points while on 0 hit points, you are affected by the Haste Spell. You do not suffer from lethargy as a result."
+          :upgradeable? false}]
+  :enabled? true
+  :found? false
+  :level 1}
  {:name "Staff of the Blessed Disease",
   :type "weapon",
   :owner :festus,
