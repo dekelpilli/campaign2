@@ -22,7 +22,7 @@
            "You learn the Mass Heal spell and may cast it once per long rest. When cast in this way, you may choose to concentrate on the spell to stagger the healing over up to 3 rounds, but must still use an action to deliver that healing."]}
  {:name   "Ateus",
   :levels ["Your skill checks have a minimum result (after bonuses) equal to the total number of relics and rings you are wearing, to a maximum of 14."
-           "You are considered to be wearing an additional \"The Prosperous\" ring which does not reserve ring points or count towards your worn rings maximum. You may turn this effect off during a long rest."
+           "You are considered to be wearing an additional \"The Prosperous\" ring which does not reserve ring points or count towards your worn rings maximum. You may turn this effect on or off during a long rest."
            "Prayer stones you find are advantaged (favouring your current path over other stones)."
            "You may roll an additional die to attempt a critical hit after hitting a creature with an attack. Similarly, creatures that fail a save against a spell of yours must roll again and use the lowest result."
            "You obtain an additional item from crafting and consumable loot rolls."

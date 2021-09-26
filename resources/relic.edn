@@ -31,6 +31,24 @@
   :enabled? true
   :found? false
   :level 1}
+ {:name "Gasco's Alliance"
+  :type "armour"
+  :existing
+        [{:effect "+[1] to necrotic damage."}
+         {:effect "Heal 1 point whenever a creature you can see, including yourself, takes necrotic damage."
+          :upgradeable? false
+          :points 0}]
+  :available
+        [{:effect "Necromancy spells you cast have a [10]% chance to not consume a spell slot."
+          :upgrade-points 20}
+         {:effect "Undead creatures you transform into have Undead Fortitude."
+          :upgradeable? false}
+         {:effect "Whenever you deal Necrotic damage to a creature as an action, bonus action, or reaction, that creature also takes 1 necrotic damage at the start of its next turn."
+          :upgradeable? false}
+         {:effect "You may conjure a skeleton to deliver a message for you following the rules of the Sending spell, [once] per long rest. The skeleton then collapses."}]
+  :enabled? false
+  :found? false
+  :level 1}
  {:name "Staff of the Blessed Disease",
   :type "weapon",
   :owner :festus,
