@@ -78,8 +78,8 @@
  {:name    "Unreserved"
   :base    "any gloves"
   :effects [{:effect "+2 global damage."}
-            {:effect "+1 damage vulnerability."}
-            {:effect "+1 incoming healing."}]}
+            {:effect "+1 incoming healing."}
+            {:effect "+1 damage vulnerability."}]}
  {:name    "Relentless"
   :base    "any helmet"
   :effects [{:effect "Regenerate 5 life each round in combat while conscious."}
@@ -94,7 +94,7 @@
  {:name    "Cryomancer's Obsession"
   :base    "any helmet"
   :effects [{:effect "+1d4 cold damage with attacks and spells."}
-            {:effect "Enemies you score a critical strike against are frozen; +2 cold vulnerability, fire resistance, restrained. CON save at end of turn (8+prof+mental) to end, or until taking fire damage."}
+            {:effect "Enemies you score a critical strike against are frozen; +2 cold vulnerability, fire resistance, restrained. CON save at end of turn (8+prof+att) to end, or until taking fire damage."}
             {:effect "You can only land killing blows against frozen enemies (including non-frozen enemies you have just hit with a crit)."}]}
  {:name     "Desecration"
   :base     "any weapon"
@@ -126,7 +126,7 @@
   :effects [{:effect "You cannot become vulnerable, resistant, or immune to fire."}
             {:effect "You may choose to ignite yourself as a bonus action, taking 1d4 fire damage at the start of your turn while burning. This lasts as long as you are conscious, or until you use an action to stop it."}
             {:effect "While burning: your hits deal no fire damage, but instead burn for 50% of hit's fire damage every round for 3 rounds."}
-            {:effect "While burning: Once per turn (not round), when an enemy takes fire damage from you, you also take 1 fire damage."}
+            {:effect "While burning: Once per round, when an enemy takes fire damage from you, you also take 1d4 fire damage."}
             {:effect "While burning: Your non-fire damage is halved."}]}
  {:name    "Dominion"
   :base    "any helmet"
@@ -139,11 +139,11 @@
             {:effect "This weapon's base damage is radiant."}
             {:effect "When you score a critical strike with this weapon, all creatures within 30 feet of the target take 10 radiant damage."}
             {:effect "You cannot attack more than once per round."}
-            {:effect "+1 radiant damage with this weapon for each attack you would normally be able to do in a round (can scale with things such as Action Surge or ki points, still consuming the resource)."}]}
+            {:effect "+3 radiant damage with this weapon for each attack you would normally be able to do in a round (can scale with things such as Action Surge or ki points, still consuming the resource)."}]}
  {:name    "Gungir"
   :base    "any spear"
   :effects [{:effect "+1AB with this weapon for each consecutive attack you've missed previously."}
-            {:effect "Gain 3 temporary hit points when you kill an enemy with this weapon."}
+            {:effect "Gain 3 hit points and 3 temporary hit points when you kill an enemy with this weapon."}
             {:effect "-2 damage with this weapon against creatures that are not larger than you."}]}
  {:name    "Mjolnir"
   :base    "any hammer"

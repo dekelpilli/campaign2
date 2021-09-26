@@ -45,8 +45,30 @@
           :upgradeable? false}
          {:effect "Whenever you deal Necrotic damage to a creature as an action, bonus action, or reaction, that creature also takes 1 necrotic damage at the start of its next turn."
           :upgradeable? false}
+         {:effect "Once per short rest, you may convert the damage of a spell of level [3] or lower to necrotic."}
          {:effect "You may conjure a skeleton to deliver a message for you following the rules of the Sending spell, [once] per long rest. The skeleton then collapses."}]
   :enabled? false
+  :found? false
+  :level 1}
+ {:name "Ateus' Serendipity"
+  :type "armour"
+  :existing
+        [{:effect "You have a [50]% chance to avoid extra damage from critical strikes."
+          :upgrade-points 20}
+         {:effect "Your loot rolls have a 5% chance to receive +1 to the roll, to a maximum of the dice's maximum (12 on 1d12 stays as 12)."
+          :upgradeable? false
+          :points 0}]
+  :available
+        [{:effect "[Once] per minute, when taking damage (after learning the amount), you may roll 1d20 to attempt to halve that damage: 1-10 = take 1.5x, 11-20 take half."}
+         {:effect "Gain 15 temporary hit points when a creature within 10 feet of you scores or receives a natural critical strikes."
+          :upgradeable? false}
+         {:effect "-1 critical strike requirement with attacks."
+          :points 20}
+         {:effect "When finding a non-synergy ring, you have a 50% chance to instead find a synergy ring. When finding a synergy ring, you have a 25% chance to find two instead."
+          :upgradeable? false}
+         {:effect "When finding unique items, you instead reveal three and choose one."
+          :upgradeable? false}]
+  :enabled? true
   :found? false
   :level 1}
  {:name "Staff of the Blessed Disease",
