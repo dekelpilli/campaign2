@@ -7,7 +7,8 @@
   :answer "Book."}
  {:riddle "It dampens as it dries.", :answer "Towel.", :enabled? false}
  {:riddle "What has two hands on its face but no arms?",
-  :answer "A clock"}
+  :answer "A clock",
+  :enabled? false}
  {:riddle "What kind of coat is always wet when you put it on?",
   :answer "A coat of paint."}
  {:riddle
@@ -81,7 +82,8 @@
   :answer "A Map.",
   :enabled? false}
  {:riddle "Two bodies in one, the longer I stand, the faster I run.",
-  :answer "Hourglass."}
+  :answer "Hourglass.",
+  :enabled? false}
  {:riddle "Men desire me in public, but fear me in private.",
   :answer "Truth.",
   :enabled? false}
@@ -89,7 +91,8 @@
   :answer "Silence."}
  {:riddle
   "You never see it, but it’s almost always there, and most people quickly notice when it’s absent.",
-  :answer "Oxygen/Breathable Air."}
+  :answer "Oxygen/Breathable Air.",
+  :enabled? false}
  {:riddle
   "An untiring servant it is, carrying loads across muddy earth. But one thing that cannot be forced, is a return to the place of its birth.",
   :answer "River."}
@@ -109,7 +112,8 @@
   :answer "Name."}
  {:riddle
   "In the form of fork or sheet, I hit the ground. And if you wait a heartbeat, You can hear my roaring sound.",
-  :answer "Lightning."}
+  :answer "Lightning.",
+  :enabled? false}
  {:riddle
   "I have no tears but I perspire, I stretch but cannot respire, I can jump, walk, run and dance, Though I have no mind. I’ll take a stance. What am I?",
   :answer "A leg."}
@@ -228,7 +232,8 @@
   :answer "A sponge."}
  {:riddle
   "Lives without a body, hears without ears, speaks without a mouth, to which the air alone gives birth.",
-  :answer "An echo."}
+  :answer "An echo.",
+  :enabled? false}
  {:riddle "What goes into the water red and comes out black?",
   :answer "A red-hot poker."}
  {:riddle

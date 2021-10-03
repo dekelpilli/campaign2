@@ -13,63 +13,90 @@
   :enabled? false,
   :found? false,
   :level 1}
- {:name "Zetnos' Vengeance"
-  :type "armour"
+ {:name "Zetnos' Vengeance",
+  :type "armour",
   :existing
-        [{:effect "Attacks you block from creatures within 5 feet of you that have already hit you in that turn trigger an opportunity attack."
-          :upgradeable? false}
-         {:effect "+[1] AC against creatures that have landed a killing blow in the last minute."
-          :upgrade-points 20}]
+  [{:effect
+    "Attacks you block from creatures within 5 feet of you that have already hit you in that turn trigger an opportunity attack.",
+    :upgradeable? false}
+   {:effect
+    "+[1] AC against creatures that have landed a killing blow in the last minute.",
+    :upgrade-points 20}],
   :available
-        [{:effect "+[1] to all saving throws against effects from creatures that have landed a killing blow in the last minute."
-          :upgrade-points 20}
-         {:effect "[Once] per short rest, when an enemy provokes an opportunity attack from you by attacking you, you may instead cast Hex on the creature."}
-         {:effect "+[1] resistance against damage from enemies marked or cursed by you."
-          :upgrade-points 20}
-         {:effect "Once per long rest, on your next turn after gaining hit points while on 0 hit points, you are affected by the Haste Spell. You do not suffer from lethargy as a result."
-          :upgradeable? false}]
-  :enabled? true
-  :found? false
+  [{:effect
+    "+[1] to all saving throws against effects from creatures that have landed a killing blow in the last minute.",
+    :upgrade-points 20}
+   {:effect
+    "[Once] per short rest, when an enemy provokes an opportunity attack from you by attacking you, you may instead cast Hex on the creature."}
+   {:effect
+    "+[1] resistance against damage from enemies marked or cursed by you.",
+    :upgrade-points 20}
+   {:effect
+    "Once per long rest, on your next turn after gaining hit points while on 0 hit points, you are affected by the Haste Spell. You do not suffer from lethargy as a result.",
+    :upgradeable? false}],
+  :enabled? true,
+  :found? false,
   :level 1}
- {:name "Gasco's Alliance"
-  :type "armour"
+ {:name "Gasco's Alliance",
+  :type "armour",
+  :owner :heath,
+  :base
+  {:ac 0,
+   :name "Unarmoured body armour (shirt)",
+   :type "Unarmoured",
+   :slot "body",
+   :disadvantaged-stealth? false},
   :existing
-        [{:effect "+[1] to necrotic damage."}
-         {:effect "Heal 1 point whenever a creature you can see, including yourself, takes necrotic damage."
-          :upgradeable? false
-          :points 0}]
+  [{:effect "+[1] to necrotic damage.",
+    :points 20,
+    :level 2,
+    :upgrade-points 10}
+   {:effect
+    "Heal 1 point whenever a creature you can see, including yourself, takes necrotic damage.",
+    :upgradeable? false,
+    :points 0}],
   :available
-        [{:effect "Necromancy spells you cast have a [10]% chance to not consume a spell slot."
-          :upgrade-points 20}
-         {:effect "Undead creatures you transform into have Undead Fortitude."
-          :upgradeable? false}
-         {:effect "Whenever you deal Necrotic damage to a creature as an action, bonus action, or reaction, that creature also takes 1 necrotic damage at the start of its next turn."
-          :upgradeable? false}
-         {:effect "Once per short rest, you may convert the damage of a spell of level [3] or lower to necrotic."}
-         {:effect "You may conjure a skeleton to deliver a message for you following the rules of the Sending spell, [once] per long rest. The skeleton then collapses."}]
-  :enabled? false
-  :found? false
-  :level 1}
- {:name "Ateus' Serendipity"
-  :type "armour"
+  [{:effect
+    "Necromancy spells you cast have a [10]% chance to not consume a spell slot.",
+    :upgrade-points 20}
+   {:effect
+    "Undead creatures you transform into have Undead Fortitude.",
+    :upgradeable? false}
+   {:effect
+    "Whenever you deal Necrotic damage to a creature as an action, bonus action, or reaction, that creature also takes 1 necrotic damage at the start of its next turn.",
+    :upgradeable? false}
+   {:effect
+    "Once per short rest, you may convert the damage of a spell of level [3] or lower to necrotic."}
+   {:effect
+    "You may conjure a skeleton to deliver a message for you following the rules of the Sending spell, [once] per long rest. The skeleton then collapses."}],
+  :progressed [],
+  :found? true,
+  :level 2}
+ {:name "Ateus' Serendipity",
+  :type "armour",
   :existing
-        [{:effect "You have a [50]% chance to avoid extra damage from critical strikes."
-          :upgrade-points 20}
-         {:effect "Your loot rolls have a 5% chance to receive +1 to the roll, to a maximum of the dice's maximum (12 on 1d12 stays as 12)."
-          :upgradeable? false
-          :points 0}]
+  [{:effect
+    "You have a [50]% chance to avoid extra damage from critical strikes.",
+    :upgrade-points 20}
+   {:effect
+    "Your loot rolls have a 5% chance to receive +1 to the roll, to a maximum of the dice's maximum (12 on 1d12 stays as 12).",
+    :upgradeable? false,
+    :points 0}],
   :available
-        [{:effect "[Once] per minute, when taking damage (after learning the amount), you may roll 1d20 to attempt to halve that damage: 1-10 = take 1.5x, 11-20 take half."}
-         {:effect "Gain 15 temporary hit points when a creature within 10 feet of you scores or receives a natural critical strikes."
-          :upgradeable? false}
-         {:effect "-1 critical strike requirement with attacks."
-          :points 20}
-         {:effect "When finding a non-synergy ring, you have a 50% chance to instead find a synergy ring. When finding a synergy ring, you have a 25% chance to find two instead."
-          :upgradeable? false}
-         {:effect "When finding unique items, you instead reveal three and choose one."
-          :upgradeable? false}]
-  :enabled? true
-  :found? false
+  [{:effect
+    "[Once] per minute, when taking damage (after learning the amount), you may roll 1d20 to attempt to halve that damage: 1-10 = take 1.5x, 11-20 take half."}
+   {:effect
+    "Gain 15 temporary hit points when a creature within 10 feet of you scores or receives a natural critical strikes.",
+    :upgradeable? false}
+   {:effect "-1 critical strike requirement with attacks.", :points 20}
+   {:effect
+    "When finding a non-synergy ring, you have a 50% chance to instead find a synergy ring. When finding a synergy ring, you have a 25% chance to find two instead.",
+    :upgradeable? false}
+   {:effect
+    "When finding unique items, you instead reveal three and choose one.",
+    :upgradeable? false}],
+  :enabled? true,
+  :found? false,
   :level 1}
  {:name "Staff of the Blessed Disease",
   :type "weapon",
@@ -89,15 +116,25 @@
     :level 1,
     :upgrade-points 10}
    {:effect
+    "+[1] damage resistance against critical hits while affected by Enhance.",
+    :level 1,
+    :upgrade-points 10}
+   {:effect
     "This weapon cannot deal its base damage type. Instead, you may choose to convert that damage type to Poison or Necrotic damage.",
     :upgradeable? false,
-    :level 1}],
+    :level 1}
+   {:effect
+    "+1AC against attacks when both you and the attacking creature have at least one stack of blight.",
+    :upgradeable? false,
+    :level 1,
+    :points 10,
+    :upgrade-points 10}
+   {:effect
+    "When applying a blight to yourself, you may choose to extend the blight's duration by up to a minute. This can be done after rolling for damage.",
+    :upgradeable? false}],
   :available
   [{:effect
     "Enemies blighted by you have +1 vulnerability to Poison and Necrotic damage per stack of blight.",
-    :upgradeable? false}
-   {:effect
-    "When applying a blight to yourself, you may choose to extend the blight's duration by up to a minute. This can be done after rolling for damage.",
     :upgradeable? false}
    {:effect "+[5] feet Noxious Aura radius."}
    {:effect
@@ -107,7 +144,7 @@
     "+1 AB with this weapon against enemies afflicted by at least one stack of blight.",
     :upgrade-points 20}],
   :found? true,
-  :level 1}
+  :level 4}
  {:name "Reven's Invitation",
   :type "weapon",
   :owner :reven,
@@ -151,8 +188,14 @@
    {:effect
     "When you score a critical strike with this weapon, you may immediately apply a curse that would normally require a bonus action.",
     :upgradeable? false}],
+  :progressed
+  [{:effect "+[1] to your Hemocraft die size.",
+    :upgrade-points 20,
+    :level 1,
+    :points 10,
+    :committed 10}],
   :found? true,
-  :level 5}
+  :level 6}
  {:name "Zauvek's Rescue",
   :type "weapon",
   :existing
@@ -405,8 +448,8 @@
   :existing
   [{:effect
     "+[2] die size when damaging prone or incapacitated creatures.",
-    :upgrade-points 10
-    :level 2
+    :upgrade-points 10,
+    :level 2,
     :points 20}
    {:effect
     "Your ranged attacks do not suffer disadvantage as a result of targeting prone creatures.",

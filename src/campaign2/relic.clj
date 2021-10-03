@@ -33,10 +33,11 @@
 (defn- override-relic! [{:keys [name] :as relic}]
   (override-relics! (mapv #(if (= (:name %) name) relic %) @relics)))
 
-(defn- upgrade-mod [{:keys [committed upgrade-points effect]
+(defn- upgrade-mod [{:keys [committed points upgrade-points effect]
                      :or   {committed 0} :as modifier}
                     points-remaining relic]
-  (let [selected-mod-effect effect]
+  (let [upgrade-points (or upgrade-points points 10)
+        selected-mod-effect effect]
     (if (>= (+ committed points-remaining) upgrade-points)
       (-> relic
           (update :progressed #(filterv (fn [{:keys [effect]}]
