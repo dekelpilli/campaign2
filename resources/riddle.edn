@@ -23,7 +23,8 @@
   :answer "Fire"}
  {:riddle
   "Better old than young; the healthier it is, the smaller it will be.",
-  :answer "A Wound."}
+  :answer "A Wound.",
+  :enabled? false}
  {:riddle
   "This fire is smothered best not by water or sand but by words.",
   :answer "Desire.",
@@ -142,7 +143,8 @@
   :answer "Food"}
  {:riddle
   "I give people purpose, I am the gardener pulling weeds. In fact I keep a watchful eye over everybody’s deeds. I am the cobbler making shoes I am the blacksmith shoeing steeds. What am I?",
-  :answer "A job"}
+  :answer "A job",
+  :enabled? false}
  {:riddle
   "Born by fire, stone, or rain I feel most comfortable at home on the planes. When I am out of my element, I feel much disarray. What am I?",
   :answer "An elemental"}
@@ -177,10 +179,12 @@
   :answer "A candle."}
  {:riddle
   "I can build castles, I can stop a flood, I can show the time flow, I can make people blind, I can make others see. What am I?",
-  :answer "Sand"}
+  :answer "Sand",
+  :enabled? false}
  {:riddle
   "If I’m in front I don’t matter, If I’m in back I make everything be more, I am something yet I am nothing. What am I?",
-  :answer "Zero"}
+  :answer "Zero",
+  :enabled? false}
  {:riddle
   "I shine brightest in the dark. I am there but cannot be seen. To have me costs you nothing. To be without me costs you everything.",
   :answer "Hope."}

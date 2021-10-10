@@ -48,8 +48,8 @@
    :disadvantaged-stealth? false},
   :existing
   [{:effect "+[1] to necrotic damage.",
-    :points 20,
-    :level 2,
+    :points 30,
+    :level 3,
     :upgrade-points 10}
    {:effect
     "Heal 1 point whenever a creature you can see, including yourself, takes necrotic damage.",
@@ -71,9 +71,16 @@
     "You may conjure a skeleton to deliver a message for you following the rules of the Sending spell, [once] per long rest. The skeleton then collapses."}],
   :progressed [],
   :found? true,
-  :level 2}
+  :level 3}
  {:name "Ateus' Serendipity",
   :type "armour",
+  :owner :jumlin,
+  :base
+  {:ac 0,
+   :name "Unarmoured gloves",
+   :type "Unarmoured",
+   :slot "gloves",
+   :disadvantaged-stealth? false},
   :existing
   [{:effect
     "You have a [50]% chance to avoid extra damage from critical strikes.",
@@ -81,11 +88,11 @@
    {:effect
     "Your loot rolls have a 5% chance to receive +1 to the roll, to a maximum of the dice's maximum (12 on 1d12 stays as 12).",
     :upgradeable? false,
-    :points 0}],
+    :points 0}
+   {:effect
+    "[Once] per minute, when taking damage (after learning the amount), you may roll 1d20 to attempt to halve that damage: 1-10 = take 1.5x, 11-20 take half."}],
   :available
   [{:effect
-    "[Once] per minute, when taking damage (after learning the amount), you may roll 1d20 to attempt to halve that damage: 1-10 = take 1.5x, 11-20 take half."}
-   {:effect
     "Gain 15 temporary hit points when a creature within 10 feet of you scores or receives a natural critical strikes.",
     :upgradeable? false}
    {:effect "-1 critical strike requirement with attacks.", :points 20}
@@ -95,9 +102,8 @@
    {:effect
     "When finding unique items, you instead reveal three and choose one.",
     :upgradeable? false}],
-  :enabled? true,
-  :found? false,
-  :level 1}
+  :found? true,
+  :level 2}
  {:name "Staff of the Blessed Disease",
   :type "weapon",
   :owner :festus,
