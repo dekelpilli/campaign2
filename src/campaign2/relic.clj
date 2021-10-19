@@ -78,23 +78,21 @@
          upgradeable-mods (filter #(:upgradeable? % true) existing)
          possible-options (cond-> [:new-relic-mod :new-random-mod :new-character-mod]
                                   (seq upgradeable-mods) (conj :upgrade-existing-mod))
-         upgrade-options (->> (concat
-                                (map (constantly :continue-progress) progressed)
-                                (repeat :random))
-                              (concat [:none]))
+         upgrade-options (concat [:none]
+                                 (repeat (count progressed) :continue-progress)
+                                 (repeatedly #(rand-nth possible-options)))
          valid-enchants (e/find-valid-enchants base type)
          rand-filled #(->> % util/rand-enabled util/fill-randoms)
          mod-options (->> upgrade-options
                           (map (fn [o]
-                                 (let [o (or (#{:continue-progress :none} o) (rand-nth possible-options))]
-                                   [o (rand-filled
-                                        (case o
-                                          :continue-progress progressed
-                                          :none [nil]
-                                          :new-character-mod (@character-enchants owner)
-                                          :new-relic-mod available
-                                          :upgrade-existing-mod upgradeable-mods
-                                          :new-random-mod valid-enchants))])))
+                                 [o (rand-filled
+                                      (case o
+                                        :continue-progress progressed
+                                        :none [nil]
+                                        :new-character-mod (@character-enchants owner)
+                                        :new-relic-mod available
+                                        :upgrade-existing-mod upgradeable-mods
+                                        :new-random-mod valid-enchants))]))
                           (dedupe)
                           (take 3)
                           (map-indexed #(into [%1] %2))
