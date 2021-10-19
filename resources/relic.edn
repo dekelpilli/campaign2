@@ -151,6 +151,32 @@
     :upgrade-points 20}],
   :found? true,
   :level 4}
+ {:name "Heath's Anointment",
+  :type "armour"
+  :existing
+  [{:effect
+    "+25% chance to have an additional mutation upon rolling initiative.",
+    :upgradeable? false,
+    :level 1,
+    :upgrade-points 10}
+   {:effect "+[1] global damage per active mutation.",
+    :level 1,
+    :upgrade-points 20}],
+  :available
+  [{:effect "+[1] to your Guiding Bolt die size.",
+    :level 1
+    :upgrade-points 10}
+   {:effect "+[1] to your Glyphic Burst die size.",
+    :level 1
+    :upgrade-points 10}
+   {:effect "+[1] AB with cantrips for each consecutive previous turn where you cast a cantrip attack that missed.",
+    :upgradeable? false}
+   {:effect "You have [1] additional prayer path progression while wearing this item.",
+    :upgrade-points 20}
+   {:effect "Gain +[1] AC until the start of your next turn when damage is dealt by your cantrips or minions (does not stack).",
+    :upgrade-points 30}]
+  :found? false
+  :enabled? false}
  {:name "Reven's Invitation",
   :type "weapon",
   :owner :reven,
