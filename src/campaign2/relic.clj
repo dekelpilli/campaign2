@@ -78,23 +78,27 @@
          upgradeable-mods (filter #(:upgradeable? % true) existing)
          possible-options (cond-> [:new-relic-mod :new-random-mod :new-character-mod]
                                   (seq upgradeable-mods) (conj :upgrade-existing-mod))
-         upgrade-options (conj (take 2 (concat
-                                         (map (constantly :continue-progress) progressed)
-                                         (repeatedly #(rand-nth possible-options))))
-                               :none)
+         upgrade-options (->> (concat
+                                (map (constantly :continue-progress) progressed)
+                                (repeat :random))
+                              (concat [:none]))
          valid-enchants (e/find-valid-enchants base type)
          rand-filled #(->> % util/rand-enabled util/fill-randoms)
          mod-options (->> upgrade-options
-                          (map (fn [o] [o (rand-filled
-                                            (case o
-                                              :continue-progress progressed
-                                              :new-character-mod (@character-enchants owner)
-                                              :new-relic-mod available
-                                              :upgrade-existing-mod upgradeable-mods
-                                              :new-random-mod valid-enchants
-                                              :none [nil]))]))
-                          (map-indexed #(concat [%1] %2))
-                          (concat [["Key" "Type" "Value"]])
+                          (map (fn [o]
+                                 (let [o (or (#{:continue-progress :none} o) (rand-nth possible-options))]
+                                   [o (rand-filled
+                                        (case o
+                                          :continue-progress progressed
+                                          :none [nil]
+                                          :new-character-mod (@character-enchants owner)
+                                          :new-relic-mod available
+                                          :upgrade-existing-mod upgradeable-mods
+                                          :new-random-mod valid-enchants))])))
+                          (dedupe)
+                          (take 3)
+                          (map-indexed #(into [%1] %2))
+                          (into [["Key" "Type" "Value"]])
                           (util/display-multi-value))
          choice (util/&num)
          [_ option-type modifier] (when (and choice (>= choice 0)) (nth mod-options (inc choice)))]
