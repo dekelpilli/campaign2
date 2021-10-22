@@ -102,13 +102,11 @@
          [_ option-type modifier] (when (and choice (>= choice 0)) (nth mod-options (inc choice)))]
      (when option-type
        (-> (case option-type
-             :new-random-mod (attach-new-mod modifier relic)
-             :new-character-mod (attach-new-mod modifier relic)
+             (:new-character-mod :new-random-mod) (attach-new-mod modifier relic)
+             (:continue-progress :upgrade-existing-mod) (upgrade-mod modifier points-remaining relic)
              :new-relic-mod (-> relic
                                 (update :available #(filterv (fn [m] (not= modifier m)) %))
                                 (update :existing #(conj % modifier)))
-             :upgrade-existing-mod (upgrade-mod modifier points-remaining relic)
-             :continue-progress (upgrade-mod modifier points-remaining relic)
              :none relic)
            (update :level inc)
            (override-relic!))))))
