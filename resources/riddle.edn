@@ -176,7 +176,8 @@
   :answer "Coal."}
  {:riddle
   "Tall I am young, Short I am old, While with life I glow, Wind is my foe. What am I?",
-  :answer "A candle."}
+  :answer "A candle.",
+  :enabled? false}
  {:riddle
   "I can build castles, I can stop a flood, I can show the time flow, I can make people blind, I can make others see. What am I?",
   :answer "Sand",
@@ -206,7 +207,8 @@
   :answer "The bark of a tree."}
  {:riddle
   "I have a little house in which I live all alone. It has no doors or windows, and if I want to go out I must break through the wall.",
-  :answer "A chick in an egg."}
+  :answer "A chick in an egg.",
+  :enabled? false}
  {:riddle
   "There are four siblings in this world, all born together. The first runs and never wearies. The second eats and is never full. The third drinks and is always thirsty. The fourth sings a song forever.",
   :answer "Water, fire, earth, wind."}
