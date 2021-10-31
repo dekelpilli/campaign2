@@ -15,32 +15,44 @@
   :level 1}
  {:name "Krenle's Return",
   :type "weapon",
+  :owner :jumlin,
+  :base
+  {:category "Magic",
+   :proficiency "Simple",
+   :name "Wand",
+   :type "Ranged",
+   :damage "1d4",
+   :damage-types ["Force"],
+   :range "30/60",
+   :traits ["Conduit" "Light" "Mental"]},
   :existing
-        [{:effect "Creatures that receive critical radiant damage from you must succeed on a Constitution saving throw or be blinded until the end of your next turn."
-          :upgradeable? false,
-          :level 1,
-          :points 0}
-         {:effect "+1d4 necrotic damage with spells."
-          :upgradeable? false,
-          :level 1,
-          :points 0}],
+  [{:effect
+    "Creatures that receive critical radiant damage from you must succeed on a Constitution saving throw or be blinded until the end of your next turn.",
+    :upgradeable? false,
+    :level 1,
+    :points 0}
+   {:effect "+1d4 necrotic damage with spells.",
+    :upgradeable? false,
+    :level 1,
+    :points 0}],
   :available
-        [{:effect "+[1] die size with your Cosmic Omen.",
-          :level 1}
-         {:effect "Healing Surges you give advantage to have +1 die size.",
-          :level 1,
-          :upgradeable? false}
-         {:effect "While concentrating, spells you cast below the level of the spell on which you're concentrating have a 10% chance to not consume a spell slot.",
-          :level 1,
-          :upgradeable? false}
-         {:effect "+[1] spell damage while within 30 feet of any enemies, +[5] feet speed when you start your turn within 10 feet of an enemy.",
-          :level 1,
-          :upgrade-points 10}
-         {:effect "When you make a Wisdom check, you can replace the number you roll with a [10].",
-          :level 1,
-          :upgrade-points 20}],
-  :enabled? false,
-  :found? false,
+  [{:effect "+[1] die size with your Cosmic Omen.", :level 1}
+   {:effect "Healing Surges you give advantage to have +1 die size.",
+    :level 1,
+    :upgradeable? false}
+   {:effect
+    "While concentrating, spells you cast below the level of the spell on which you're concentrating have a 10% chance to not consume a spell slot.",
+    :level 1,
+    :upgradeable? false}
+   {:effect
+    "+[1] spell damage while within 30 feet of any enemies, +[5] feet speed when you start your turn within 10 feet of an enemy.",
+    :level 1,
+    :upgrade-points 10}
+   {:effect
+    "When you make a Wisdom check, you can replace the number you roll with a [10].",
+    :level 1,
+    :upgrade-points 20}],
+  :found? true,
   :level 1}
  {:name "Zetnos' Vengeance",
   :type "armour",
@@ -77,13 +89,18 @@
    :disadvantaged-stealth? false},
   :existing
   [{:effect "+[1] to necrotic damage.",
-    :points 30,
-    :level 3,
+    :points 40,
+    :level 4,
     :upgrade-points 10}
    {:effect
     "Heal 1 point whenever a creature you can see, including yourself, takes necrotic damage.",
     :upgradeable? false,
-    :points 0}],
+    :points 0}
+   {:effect
+    "+[1] to Charisma checks during your first encounter with a creature.",
+    :points 5,
+    :level 1,
+    :upgrade-points 5}],
   :available
   [{:effect
     "Necromancy spells you cast have a [10]% chance to not consume a spell slot.",
@@ -100,7 +117,7 @@
     "You may conjure a skeleton to deliver a message for you following the rules of the Sending spell, [once] per long rest. The skeleton then collapses."}],
   :progressed [],
   :found? true,
-  :level 3}
+  :level 5}
  {:name "Ateus' Serendipity",
   :type "armour",
   :owner :jumlin,
@@ -181,7 +198,14 @@
   :found? true,
   :level 4}
  {:name "Heath's Anointment",
-  :type "armour"
+  :type "armour",
+  :owner :heath,
+  :base
+  {:ac 0,
+   :name "Unarmoured helmet",
+   :type "Unarmoured",
+   :slot "helmet",
+   :disadvantaged-stealth? false},
   :existing
   [{:effect
     "+25% chance to have an additional mutation upon rolling initiative.",
@@ -193,19 +217,21 @@
     :upgrade-points 20}],
   :available
   [{:effect "+[1] to your Guiding Bolt die size.",
-    :level 1
+    :level 1,
     :upgrade-points 10}
    {:effect "+[1] to your Glyphic Burst die size.",
-    :level 1
+    :level 1,
     :upgrade-points 10}
-   {:effect "+[1] AB with cantrips for each consecutive previous turn where you cast a cantrip attack that missed.",
+   {:effect
+    "+[1] AB with cantrips for each consecutive previous turn where you cast a cantrip attack that missed.",
     :upgradeable? false}
-   {:effect "You have [1] additional prayer path progression while wearing this item.",
+   {:effect
+    "You have [1] additional prayer path progression while wearing this item.",
     :upgrade-points 20}
-   {:effect "Gain +[1] AC until the start of your next turn when damage is dealt by your cantrips or minions (does not stack).",
-    :upgrade-points 30}]
-  :found? false
-  :enabled? false}
+   {:effect
+    "Gain +[1] AC until the start of your next turn when damage is dealt by your cantrips or minions (does not stack).",
+    :upgrade-points 30}],
+  :found? true}
  {:name "Reven's Invitation",
   :type "weapon",
   :owner :reven,

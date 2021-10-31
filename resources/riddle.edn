@@ -104,7 +104,8 @@
   :answer "Rust."}
  {:riddle
   "It is a journey whose path depends, on an other’s vision of where it ends.",
-  :answer "Book."}
+  :answer "Book.",
+  :enabled? false}
  {:riddle
   "Men seize it from its home, tear apart its flesh, drink the sweet blood, then cast its skin aside.",
   :answer "Orange."}
@@ -156,7 +157,8 @@
   :enabled? false}
  {:riddle
   "Up and down they go and travel, but never do they move an inch.",
-  :answer "Stairs"}
+  :answer "Stairs",
+  :enabled? false}
  {:riddle
   "Halo of water, tongue of wood, skin of stone and long I’ve stood. My fingers short reach to the sky, inside my heart men live and die. What am I?",
   :answer "Castle"}
