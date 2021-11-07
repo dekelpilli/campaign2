@@ -34,7 +34,11 @@
    {:effect "+1d4 necrotic damage with spells.",
     :upgradeable? false,
     :level 1,
-    :points 0}],
+    :points 0}
+   {:effect
+    "+[1] spell damage while within 30 feet of any enemies, +[5] feet speed when you start your turn within 10 feet of an enemy.",
+    :level 1,
+    :upgrade-points 10}],
   :available
   [{:effect "+[1] die size with your Cosmic Omen.", :level 1}
    {:effect "Healing Surges you give advantage to have +1 die size.",
@@ -45,17 +49,20 @@
     :level 1,
     :upgradeable? false}
    {:effect
-    "+[1] spell damage while within 30 feet of any enemies, +[5] feet speed when you start your turn within 10 feet of an enemy.",
-    :level 1,
-    :upgrade-points 10}
-   {:effect
     "When you make a Wisdom check, you can replace the number you roll with a [10].",
     :level 1,
     :upgrade-points 20}],
   :found? true,
-  :level 1}
+  :level 3}
  {:name "Zetnos' Vengeance",
   :type "armour",
+  :owner :festus,
+  :base
+  {:ac 2,
+   :name "Shield",
+   :type "Shield",
+   :slot "shield",
+   :disadvantaged-stealth? false},
   :existing
   [{:effect
     "Attacks you block from creatures within 5 feet of you that have already hit you in that turn trigger an opportunity attack.",
@@ -75,8 +82,7 @@
    {:effect
     "Once per long rest, on your next turn after gaining hit points while on 0 hit points, you are affected by the Haste Spell. You do not suffer from lethargy as a result.",
     :upgradeable? false}],
-  :enabled? true,
-  :found? false,
+  :found? true,
   :level 1}
  {:name "Gasco's Alliance",
   :type "armour",
@@ -214,7 +220,12 @@
     :upgrade-points 10}
    {:effect "+[1] global damage per active mutation.",
     :level 1,
-    :upgrade-points 20}],
+    :upgrade-points 20}
+   {:effect "You have advantage on initiative rolls.",
+    :upgradeable? false,
+    :level 1,
+    :points 10,
+    :upgrade-points 10}],
   :available
   [{:effect "+[1] to your Guiding Bolt die size.",
     :level 1,
@@ -231,7 +242,13 @@
    {:effect
     "Gain +[1] AC until the start of your next turn when damage is dealt by your cantrips or minions (does not stack).",
     :upgrade-points 30}],
-  :found? true}
+  :progressed
+  [{:effect "+[1] global damage per active mutation.",
+    :level 1,
+    :upgrade-points 20,
+    :committed 10}],
+  :found? true,
+  :level 4}
  {:name "Reven's Invitation",
   :type "weapon",
   :owner :reven,
@@ -285,6 +302,16 @@
   :level 6}
  {:name "Zauvek's Rescue",
   :type "weapon",
+  :owner :jumlin,
+  :base
+  {:category "Magic",
+   :proficiency "Simple",
+   :name "Wand",
+   :type "Ranged",
+   :damage "1d4",
+   :damage-types ["Force"],
+   :range "30/60",
+   :traits ["Conduit" "Light" "Mental"]},
   :existing
   [{:effect "+1 AB with this weapon against grappled creatures.",
     :upgrade-points 10}
@@ -305,8 +332,7 @@
    {:effect
     "[Once] per long rest, when you Frighten a creature, you may choose for it to also be Poisoned while Frightened in this way.",
     :upgrade-points 10}],
-  :enabled? true,
-  :found? false,
+  :found? true,
   :level 1}
  {:name "Challengers' Downfall",
   :type "armour",
@@ -335,7 +361,12 @@
     "+1 weapon attack AB with attacks that deal non-physical damage.",
     :points 10,
     :level 1,
-    :upgrade-points 30}],
+    :upgrade-points 30}
+   {:effect
+    "No more than once per minute, when you score a critical strike, recover a 10% of your maximum class points (minimum 1).",
+    :level 1,
+    :points 10,
+    :upgrade-points 10}],
   :available
   [{:effect "+1 AB with melee attacks against restrained creatures.",
     :upgradeable? false}
@@ -352,7 +383,7 @@
     "When an enemy fails a saving throw against an effect of yours that deals Necrotic damage, future instances of that effect have +1 DC against that creature. This does not stack.",
     :upgradeable? false}],
   :found? true,
-  :level 3}
+  :level 4}
  {:name "Norwood's Mastery",
   :type "weapon",
   :owner :reven,
