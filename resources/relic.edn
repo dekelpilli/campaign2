@@ -69,7 +69,12 @@
     :upgradeable? false}
    {:effect
     "+[1] AC against creatures that have landed a killing blow in the last minute.",
-    :upgrade-points 20}],
+    :upgrade-points 20}
+   {:effect
+    "Whenever you inflict blight on a creature but cause no additional affects, you instead deal 1d[4] necrotic damage to it.",
+    :level 1,
+    :points 10,
+    :upgrade-points 10}],
   :available
   [{:effect
     "+[1] to all saving throws against effects from creatures that have landed a killing blow in the last minute.",
@@ -83,7 +88,7 @@
     "Once per long rest, on your next turn after gaining hit points while on 0 hit points, you are affected by the Haste Spell. You do not suffer from lethargy as a result.",
     :upgradeable? false}],
   :found? true,
-  :level 1}
+  :level 3}
  {:name "Gasco's Alliance",
   :type "armour",
   :owner :heath,
