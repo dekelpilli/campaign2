@@ -67,12 +67,24 @@
                "psionic"       "P"
                "transmutation" "T"})
 
+(defn ->unit [unit]
+  (let [unit (str/replace unit #"\s|,|\(|\)" "")]
+    (get {"actions"   "action"
+          "reactions" "reaction"
+          "minutes"   "minute"
+          "hours"     "hour"
+          "days"      "day"
+          "weeks"     "week"
+          "months"    "month"
+          "years"     "year"} unit unit)))
+
 (defn sanitise
   ([coll]
    (sanitise coll nil))
   ([coll extra-keys]
-   (let [cmap (into {\space ""
-                     \,     ""} (map #(vector % "")) extra-keys)]
+   (let [cmap (into {\space   ""
+                     \newline ""
+                     \,       ""} (map #(vector % "")) extra-keys)]
      (map #(str/escape % cmap) coll))))
 
 (defn extract-spell-lines [^String file-name]
@@ -101,15 +113,15 @@
             (conj spells spell)
             (recur (conj spells spell) lines)))))))
 
-(defn merge-until-next-section [unparsed-lines next-prefix] ;TODO change next-prefix to next-pred to cater for optional sections
+(defn merge-until-next-section [unparsed-lines next-pred] ;TODO change next-prefix to next-pred to cater for optional sections
   (let [first-line (first unparsed-lines)
         unparsed-lines (rest unparsed-lines)
-        next-idx (reduce #(if (str/starts-with? %2 next-prefix)
+        next-idx (reduce #(if (next-pred %2)
                             (reduced %1)
                             (inc %1))
                          0 unparsed-lines)]
     {:lines   (nthrest unparsed-lines next-idx)
-     :content (reduce str first-line (take next-idx unparsed-lines))}))
+     :content (str/join \newline (cons first-line (take next-idx unparsed-lines)))}))
 
 (defn extract-spell-sections [spell-lines]
   (loop [spell {:name   (first spell-lines)
@@ -118,19 +130,20 @@
          section :level
          unparsed-lines (rest spell-lines)]
     (case section
-      :level (let [{:keys [content lines]} (merge-until-next-section unparsed-lines "Classes: ")
+      :level (let [{:keys [content lines]} (merge-until-next-section unparsed-lines
+                                                                     #(str/starts-with? % "Classes: "))
                    [level level-suffix] (str/split content #" \(" 2)
                    [school types] (str/split level-suffix #";" 2)
                    types (-> (str/split types #",")
                              (sanitise [\)]))]
                (recur
-                 (-> spell
-                     (assoc :level (->level level))
-                     (assoc :tags types)
-                     (assoc :school (->school school)))
+                 (assoc spell :level (->level level)
+                              :tags types
+                              :school (->school school))
                  :classes
                  lines))
-      :classes (let [{:keys [content lines]} (merge-until-next-section unparsed-lines "Casting Time: ")
+      :classes (let [{:keys [content lines]} (merge-until-next-section unparsed-lines
+                                                                       #(str/starts-with? % "Casting Time: "))
                      classes (-> content
                                  (subs (count "Classes: "))
                                  (str/split #",")
@@ -139,20 +152,42 @@
                                                                                 :source "A5E"}) classes)})
                         :casting-time
                         lines))
-      :casting-time (let [{:keys [content lines]} (merge-until-next-section unparsed-lines "Range: ")
+      :casting-time (let [{:keys [content lines]} (merge-until-next-section unparsed-lines
+                                                                            #(str/starts-with? % "Range: "))
                           [number unit other] (-> (subs content (count "Casting Time: "))
-                                                  (str/split #" " 3))]
+                                                  (str/split #"\s" 3))]
                       (recur
                         (-> spell
                             (assoc :time {:number (u/->num number)
-                                          ;TODO normalise unit (remove plurals)
-                                          :unit   unit})
+                                          :unit   (->unit unit)})
                             (cond->
                               (and other
                                    (str/includes? (str/lower-case other) "ritual")) (assoc-in [:meta :ritual] true)))
                         :range
                         lines))
-      :range (assoc spell :range \?))))
+      :range (let [{:keys [content lines]} (merge-until-next-section unparsed-lines
+                                                                     #(or (str/starts-with? % "Area: ")
+                                                                          (str/starts-with? % "Target: ")
+                                                                          (str/starts-with? % "Components: ")))
+                   range-str (subs content (count "Range: "))
+                   distance (if (#{"Self" "Touch"} range-str)
+                              {:type (str/lower-case range-str)}
+                              (as-> range-str $
+                                    (str/replace $ #"Short|Medium|Long|\(|\)" "")
+                                    (str/trim $)
+                                    (str/split $ #" ")
+                                    {:amount (u/->num (first $))
+                                     :type   (second $)}))
+                   next (cond
+                          (str/starts-with? (first lines) "Area: ") :area
+                          (str/starts-with? (first lines) "Target: ") :target
+                          (str/starts-with? (first lines) "Components: ") :components)]
+               (recur
+                 (-> spell
+                     (assoc-in [:range :type] "point")
+                     (assoc :distance distance))
+                 next
+                 lines)))))
 
 (defn convert-spells []
   (let [spell-lines (extract-spell-lines "data/a5e/spells/a/spells.txt")]
