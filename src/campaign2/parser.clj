@@ -112,6 +112,25 @@
             (conj spells spell)
             (recur (conj spells spell) lines)))))))
 
+(defn raw-content->entries [content]
+  (cond-> (loop [entry-lines []
+                 entries []
+                 [current & remaining] (str/split-lines content)]
+            (if current
+              (let [current (str/trim current)]
+                (if (re-matches #"[^.]+[\.:]" current)
+                  (recur []
+                         (conj entries (conj entry-lines current))
+                         remaining)
+                  (recur (conj entry-lines current)
+                         entries
+                         remaining)))
+              (->> (cond-> entries
+                           (seq entry-lines) (conj entries entry-lines))
+                   (mapv #(str/join \space %)))))
+          (str/includes? content "TABLE") (conj "<<<ADD TABLE MANUALLY>>>")
+          (str/includes? content "•") (conj "<<<ADD LIST MANUALLY>>>")))
+
 (defn merge-until-next-section [unparsed-lines next-pred]
   (let [first-line (first unparsed-lines)
         unparsed-lines (rest unparsed-lines)
@@ -231,7 +250,31 @@
                          lines))
       :entries (let [{:keys [content lines]} (merge-until-next-section unparsed-lines
                                                                        #(str/starts-with? % "Cast at Higher Levels. "))]
-                 (assoc spell :entries content)))))
+                 (recur
+                   (assoc spell :entries (raw-content->entries content))
+                   :higher-levels
+                   lines))
+      :higher-levels (if (and
+                           (seq unparsed-lines)
+                           (str/starts-with? (first unparsed-lines)
+                                             "Cast at Higher Levels. "))
+                       (let [{:keys [content lines]} (merge-until-next-section unparsed-lines #(str/starts-with? % "Rare: "))
+                             entries (raw-content->entries content)]
+                         (recur
+                           (assoc spell :entriesHighLevel
+                                        {:type    "entries"
+                                         :name    "Cast at Higher Levels"
+                                         :entries entries})
+                           :rare
+                           lines))
+                       spell)
+      :rare (if (seq unparsed-lines)
+              (let [entries (-> unparsed-lines
+                                (merge-until-next-section (constantly false))
+                                (:content)
+                                (raw-content->entries))]
+                (update spell :entries #(into % entries)))
+              spell))))
 
 (defn convert-spells []
   (let [spell-lines (extract-spell-lines "data/a5e/spells/a/spells.txt")]
