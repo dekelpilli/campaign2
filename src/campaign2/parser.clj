@@ -151,7 +151,7 @@
 (defn extract-spell-sections [spell-lines]
   (loop [spell {:name    (first spell-lines)
                 :page    497 ;spell page start, don't care about specifics
-                :source  "A5E"
+                :source  "LevelUpAdventurersGuideA5E"
                 :entries []}
          section :level
          unparsed-lines (rest spell-lines)]
@@ -173,7 +173,7 @@
                                  (subs (count "Classes: "))
                                  (->sanitised-list))]
                  (recur (assoc spell :classes {:fromClassList (map (fn [class] {:name   (str/capitalize class)
-                                                                                :source "A5E"}) classes)})
+                                                                                :source "LevelUpAdventurersGuideA5E"}) classes)})
                         :casting-time
                         lines))
       :casting-time (let [{:keys [content lines]} (merge-until-next-section unparsed-lines
@@ -181,12 +181,16 @@
                                                                                  (str/starts-with? % "Target: ")
                                                                                  (str/starts-with? % "Area: ")
                                                                                  (str/starts-with? % "Components: ")))
-                          [number unit other] (-> (subs content (count "Casting Time: "))
-                                                  (str/split #"\s" 3))]
+                          [number raw-unit other] (-> (subs content (count "Casting Time: "))
+                                                  (str/split #"\s" 3))
+                          normalised-unit (->unit raw-unit)
+                          amount (cond->  (u/->num number)
+                                          (= "week" normalised-unit) (* 168))
+                          unit (if (= "week" normalised-unit) "hour" normalised-unit)]
                       (recur
                         (-> spell
-                            (assoc :time {:number (u/->num number)
-                                          :unit   (->unit unit)})
+                            (assoc :time {:number amount
+                                          :unit   unit})
                             (cond->
                               (and other
                                    (str/includes? (str/lower-case other) "ritual")) (assoc-in [:meta :ritual] true)))
@@ -203,8 +207,9 @@
                                 (as-> range-str $
                                       (str/replace $ #"Short|Medium|Long|\(|\)" "")
                                       (str/trim $)
-                                      (str/split $ #" ")
+                                      (str/split $ #"\-| ")
                                       {:amount (u/->num (first $))
+                                       ;TODO normalise type
                                        :type   (second $)}))]
                  (recur
                    (-> spell
@@ -258,8 +263,8 @@
                                         (str/trim))
                       duration-text-lower (str/lower-case duration-text) ;inconsistent casing in pdf
                       duration (cond
-                                 (= duration-text-lower "until dispelled or the target is broken") {:type "permanent"
-                                                                                                    :ends ["dispel"]}
+                                 (str/starts-with? duration-text-lower "until dispelled") {:type "permanent"
+                                                                                           :ends ["dispel"]}
                                  (= duration-text-lower "instantaneous") {:type "instant"}
                                  (= duration-text-lower "varies") {:type "varies"}
                                  (= duration-text-lower "special") {:type "special"}
@@ -275,7 +280,7 @@
                                          (cond-> {:type (if special? "special" "timed")}
                                                  (not special?) (assoc :duration {:type   (->unit raw-unit)
                                                                                   :amount (u/->num amount)})
-                                                 concentration? (assoc :concatenation true))))]
+                                                 concentration? (assoc :concentration true))))]
                   (recur (assoc spell :duration duration)
                          :saving-throw
                          lines))
@@ -333,15 +338,14 @@
               (throw (ex-info (ex-cause e) {:original %} e)))) spell-lines)))
 
 (defn write-spells []
-  (let [spells (convert-spells)
-        full {:_meta {:sources {:json         "LevelUpAdventurersGuideA5E"
-                                :abbreviation "A5E"
-                                :full         "Level Up: Adventurers Guide (A5E)"
-                                :url          "https://www.levelup5e.com/"
-                                :authors      ["Level Up"]
-                                :convertedBy  ["TODO DMs"]
-                                :version      "0.0.1"}}
-              :spell spells}]
+  (let [full {:_meta {:sources [{:json         "LevelUpAdventurersGuideA5E"
+                                 :abbreviation "A5E"
+                                 :full         "Level Up: Adventurers Guide (A5E)"
+                                 :url          "https://www.levelup5e.com/"
+                                 :authors      ["Level Up"]
+                                 :convertedBy  ["TODO DMs"]
+                                 :version      "0.0.1"}]}
+              :spell (convert-spells)}]
     (.writeValue ^ObjectMapper (json/object-mapper {:encode-key-fn true, :decode-key-fn true
                                                     :pretty        true})
                  (File. "data/5et/generated/spells.json")
