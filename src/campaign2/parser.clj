@@ -4,7 +4,9 @@
             [jsonista.core :as json]
             [clojure.string :as str])
   (:import (java.io File FileWriter Writer)
-           (com.fasterxml.jackson.databind ObjectMapper)))
+           (com.fasterxml.jackson.databind ObjectMapper)
+           (java.util Date)
+           (java.util.concurrent TimeUnit)))
 
 (def ^String dir "loot/data/5et/")
 
@@ -148,6 +150,8 @@
                                                     (subs (+ 2 (count section-name)))
                                                     (str/escape {\newline \space}))]})
 
+;https://www.jsonschemavalidator.net/
+
 (defn extract-spell-sections [spell-lines]
   (loop [spell {:name    (first spell-lines)
                 :page    497 ;spell page start, don't care about specifics
@@ -160,10 +164,10 @@
                                                                      #(str/starts-with? % "Classes: "))
                    [level level-suffix] (str/split content #" \(" 2)
                    [school types] (str/split level-suffix #";" 2)
-                   types (->sanitised-list types)]
+                   types (->sanitised-list types)] ;TODO put these somehwere?
                (recur
                  (assoc spell :level (->level level)
-                              :tags types
+                              ;:tags types
                               :school (->school school))
                  :classes
                  lines))
@@ -182,10 +186,10 @@
                                                                                  (str/starts-with? % "Area: ")
                                                                                  (str/starts-with? % "Components: ")))
                           [number raw-unit other] (-> (subs content (count "Casting Time: "))
-                                                  (str/split #"\s" 3))
+                                                      (str/split #"\s" 3))
                           normalised-unit (->unit raw-unit)
-                          amount (cond->  (u/->num number)
-                                          (= "week" normalised-unit) (* 168))
+                          amount (cond-> (u/->num number)
+                                         (= "week" normalised-unit) (* 168))
                           unit (if (= "week" normalised-unit) "hour" normalised-unit)]
                       (recur
                         (-> spell
@@ -201,20 +205,21 @@
                                                                        #(or (str/starts-with? % "Target: ")
                                                                             (str/starts-with? % "Area: ")
                                                                             (str/starts-with? % "Components: ")))
-                     range-str (subs content (count "Range: "))
-                     distance (if (#{"Self" "Touch"} range-str)
-                                {:type (str/lower-case range-str)}
+                     range-str (str/lower-case (subs content (count "Range: ")))
+                     distance (if (#{"plane" "sight" "self" "touch" "unlimited"} range-str)
+                                {:type range-str}
                                 (as-> range-str $
-                                      (str/replace $ #"Short|Medium|Long|\(|\)" "")
+                                      (str/replace $ #"short|medium|long|\(|\)" "")
                                       (str/trim $)
                                       (str/split $ #"\-| ")
                                       {:amount (u/->num (first $))
                                        ;TODO normalise type
-                                       :type   (second $)}))]
+                                       :type   (let [raw-type (second $)]
+                                                 (get {"foot" "feet" "mile" "miles"} raw-type raw-type))}))]
                  (recur
                    (-> spell
                        (assoc-in [:range :type] "point") ;inaccurate, don't care
-                       (assoc :distance distance))
+                       (assoc-in [:range :distance] distance))
                    :target
                    lines))
                (recur spell :target unparsed-lines))
@@ -244,12 +249,13 @@
                                            (str/split #"," 3))
                         components (->> raw-components
                                         (map (comp #(str/split % #" " 2) str/trim))
-                                        (into {} (map (fn [[component text]] [component (if text
-                                                                                          {:text (-> text
-                                                                                                     (str/escape {\( ""
-                                                                                                                  \) ""})
-                                                                                                     (str/trim))}
-                                                                                          true)]))))]
+                                        (into {} (map (fn [[component text]] [(str/lower-case component)
+                                                                              (if text
+                                                                                {:text (-> text
+                                                                                           (str/escape {\( ""
+                                                                                                        \) ""})
+                                                                                           (str/trim))}
+                                                                                true)]))))]
                     (recur
                       (assoc spell :components components)
                       :duration
@@ -263,11 +269,13 @@
                                         (str/trim))
                       duration-text-lower (str/lower-case duration-text) ;inconsistent casing in pdf
                       duration (cond
-                                 (str/starts-with? duration-text-lower "until dispelled") {:type "permanent"
-                                                                                           :ends ["dispel"]}
+                                 (str/starts-with? duration-text-lower "until")
+                                 {:type "permanent"
+                                  :ends (cond-> []
+                                                (str/includes? duration-text-lower "dispelled") (conj "dispel")
+                                                (str/includes? duration-text-lower "trigger") (conj "trigger"))}
                                  (= duration-text-lower "instantaneous") {:type "instant"}
-                                 (= duration-text-lower "varies") {:type "varies"}
-                                 (= duration-text-lower "special") {:type "special"}
+                                 (#{"varies" "special"} duration-text-lower) {:type "special"}
                                  :else (let [concentration? (str/starts-with? duration-text "Concentration ")
                                              [amount raw-unit] (-> duration-text
                                                                    (cond->
@@ -310,9 +318,11 @@
                            (str/starts-with? (first unparsed-lines)
                                              "Cast at Higher Levels. "))
                        (let [{:keys [content lines]} (merge-until-next-section unparsed-lines #(str/starts-with? % "Rare: "))
-                             entries (raw-content->entries content)]
+                             entries (-> content
+                                         (subs (count "Cast at Higher Levels. "))
+                                         (raw-content->entries))]
                          (recur
-                           (assoc spell :entriesHighLevel
+                           (assoc spell :entriesHigherLevel
                                         {:type    "entries"
                                          :name    "Cast at Higher Levels"
                                          :entries entries})
@@ -338,15 +348,18 @@
               (throw (ex-info (ex-cause e) {:original %} e)))) spell-lines)))
 
 (defn write-spells []
-  (let [full {:_meta {:sources [{:json         "LevelUpAdventurersGuideA5E"
-                                 :abbreviation "A5E"
-                                 :full         "Level Up: Adventurers Guide (A5E)"
-                                 :url          "https://www.levelup5e.com/"
-                                 :authors      ["Level Up"]
-                                 :convertedBy  ["TODO DMs"]
-                                 :version      "0.0.1"}]}
+  (let [now (.toSeconds TimeUnit/MILLISECONDS (inst-ms (Date.)))
+        full {:_meta {:sources          [{:json         "LevelUpAdventurersGuideA5E"
+                                          :abbreviation "A5E"
+                                          :full         "Level Up: Adventurers Guide (A5E)"
+                                          :url          "https://www.levelup5e.com/"
+                                          :authors      ["Level Up"]
+                                          :convertedBy  ["TODO DMs"]
+                                          :version      "0.0.1"}]
+                      :dateAdded        now
+                      :dateLastModified now}
               :spell (convert-spells)}]
-    (.writeValue ^ObjectMapper (json/object-mapper {:encode-key-fn true, :decode-key-fn true
-                                                    :pretty        true})
+    (.writeValue ^ObjectMapper (json/object-mapper {:encode-key-fn true
+                                                    :decode-key-fn true})
                  (File. "data/5et/generated/spells.json")
                  full)))
