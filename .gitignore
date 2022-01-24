@@ -4,3 +4,4 @@
 .nrepl-port
 .cpcache
 target
+.DS_Store

@@ -333,8 +333,16 @@
               (throw (ex-info (ex-cause e) {:original %} e)))) spell-lines)))
 
 (defn write-spells []
-  (->> (convert-spells)
-       (doall)
-       (.writeValue ^ObjectMapper (json/object-mapper {:encode-key-fn true, :decode-key-fn true
-                                                       :pretty true})
-                    (File. "data/5et/generated/spells.json"))))
+  (let [spells (convert-spells)
+        full {:_meta {:sources {:json         "LevelUpAdventurersGuideA5E"
+                                :abbreviation "A5E"
+                                :full         "Level Up: Adventurers Guide (A5E)"
+                                :url          "https://www.levelup5e.com/"
+                                :authors      ["Level Up"]
+                                :convertedBy  ["TODO DMs"]
+                                :version      "0.0.1"}}
+              :spell spells}]
+    (.writeValue ^ObjectMapper (json/object-mapper {:encode-key-fn true, :decode-key-fn true
+                                                    :pretty        true})
+                 (File. "data/5et/generated/spells.json")
+                 full)))
