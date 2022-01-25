@@ -117,6 +117,7 @@
             (recur (conj spells spell) lines)))))))
 
 ;TODO fix empty string bug (e.g. cone of cold)
+;TODO fix escaped quotes nested entries thing
 (defn raw-content->entries [content]
   (cond-> (loop [entry-lines []
                  entries []
@@ -165,10 +166,10 @@
                                                                      #(str/starts-with? % "Classes: "))
                    [level level-suffix] (str/split content #" \(" 2)
                    [school types] (str/split level-suffix #";" 2)
-                   types (->sanitised-list types)] ;TODO put these somehwere?
+                   types (->sanitised-list types)]
                (recur
                  (assoc spell :level (->level level)
-                              ;:tags types
+                              :subschools types
                               :school (->school school))
                  :classes
                  lines))
