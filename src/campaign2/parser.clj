@@ -60,15 +60,16 @@
               "8th-level" 8
               "9th-level" 9})
 
-(def ->school {"abjuration"    "A"
-               "conjuration"   "C"
-               "divination"    "D"
-               "enchantment"   "E"
-               "evocation"     "V"
-               "illusion"      "I"
-               "necromancy"    "N"
-               "psionic"       "P"
-               "transmutation" "T"})
+(def ->school {"abjuration"     "A"
+               "conjuration"    "C"
+               "divination"     "D"
+               "enchantment"    "E"
+               "evocation"      "V"
+               "illusion"       "I"
+               "necromancy"     "N"
+               "psionic"        "P"
+               "transformation" "T" ;...
+               "transmutation"  "T"})
 
 (defn ->unit [unit]
   (let [unit (str/replace unit #"\s|,|\(|\)" "")]
@@ -193,36 +194,41 @@
                           unit (if (= "week" normalised-unit) "hour" normalised-unit)]
                       (recur
                         (-> spell
-                            (assoc :time {:number amount
-                                          :unit   unit})
+                            (assoc :time [{:number amount
+                                           :unit   unit}])
                             (cond->
                               (and other
                                    (str/includes? (str/lower-case other) "ritual")) (assoc-in [:meta :ritual] true)))
                         :range
                         lines))
-      :range (if (str/starts-with? (first unparsed-lines) "Range: ")
-               (let [{:keys [content lines]} (merge-until-next-section unparsed-lines
-                                                                       #(or (str/starts-with? % "Target: ")
-                                                                            (str/starts-with? % "Area: ")
-                                                                            (str/starts-with? % "Components: ")))
-                     range-str (str/lower-case (subs content (count "Range: ")))
-                     distance (if (#{"plane" "sight" "self" "touch" "unlimited"} range-str)
-                                {:type range-str}
-                                (as-> range-str $
-                                      (str/replace $ #"short|medium|long|\(|\)" "")
-                                      (str/trim $)
-                                      (str/split $ #"\-| ")
-                                      {:amount (u/->num (first $))
-                                       ;TODO normalise type
-                                       :type   (let [raw-type (second $)]
-                                                 (get {"foot" "feet" "mile" "miles"} raw-type raw-type))}))]
-                 (recur
-                   (-> spell
-                       (assoc-in [:range :type] "point") ;inaccurate, don't care
-                       (assoc-in [:range :distance] distance))
-                   :target
-                   lines))
-               (recur spell :target unparsed-lines))
+      :range (let [has-range? (str/starts-with? (first unparsed-lines) "Range: ")
+                   [distance lines] (if has-range?
+                                      (let [{:keys [content lines]} (merge-until-next-section unparsed-lines
+                                                                                              #(or (str/starts-with? % "Target: ")
+                                                                                                   (str/starts-with? % "Area: ")
+                                                                                                   (str/starts-with? % "Components: ")))
+                                            range-sections (-> content
+                                                               (subs (count "Range: "))
+                                                               (str/lower-case)
+                                                               (str/replace #"short|medium|long|\(|\)" "")
+                                                               (str/trim)
+                                                               (str/split #"\-| "))]
+                                        [(if-let [special-type (#{"plane" "sight" "self"
+                                                                  "touch" "unlimited" "special"} (first range-sections))]
+                                           {:type (get {"same" "plane"} special-type special-type)
+                                            ;:amount ;TODO check for amount
+                                            }
+                                           {:amount (u/->num (first range-sections))
+                                            :type   (let [raw-type (second range-sections)]
+                                                      (get {"foot" "feet" "mile" "miles"} raw-type raw-type))})
+                                         lines])
+                                      [{:type "special"} unparsed-lines])]
+               (recur
+                 (-> spell
+                     (assoc-in [:range :type] "point") ;inaccurate, don't care
+                     (assoc-in [:range :distance] distance))
+                 :target
+                 lines))
       :target (if (str/starts-with? (first unparsed-lines) "Target: ")
                 (let [{:keys [content lines]} (merge-until-next-section unparsed-lines
                                                                         #(or (str/starts-with? % "Area: ")
@@ -289,7 +295,7 @@
                                                  (not special?) (assoc :duration {:type   (->unit raw-unit)
                                                                                   :amount (u/->num amount)})
                                                  concentration? (assoc :concentration true))))]
-                  (recur (assoc spell :duration duration)
+                  (recur (assoc spell :duration [duration])
                          :saving-throw
                          lines))
       :saving-throw (if (str/starts-with? (first unparsed-lines) "Saving Throw: ")
@@ -323,9 +329,9 @@
                                          (raw-content->entries))]
                          (recur
                            (assoc spell :entriesHigherLevel
-                                        {:type    "entries"
-                                         :name    "Cast at Higher Levels"
-                                         :entries entries})
+                                        [{:type    "entries"
+                                          :name    "Cast at Higher Levels"
+                                          :entries entries}])
                            :rare
                            lines))
                        (recur spell :rare unparsed-lines))
@@ -347,6 +353,7 @@
             (catch Exception e
               (throw (ex-info (ex-cause e) {:original %} e)))) spell-lines)))
 
+;TODO find 2 missing spells from json->5etools, 3 missing spells from text->json,
 (defn write-spells []
   (let [now (.toSeconds TimeUnit/MILLISECONDS (inst-ms (Date.)))
         full {:_meta {:sources          [{:json         "LevelUpAdventurersGuideA5E"
