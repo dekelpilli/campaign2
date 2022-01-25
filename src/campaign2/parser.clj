@@ -3,7 +3,7 @@
             [campaign2.util :as u]
             [jsonista.core :as json]
             [clojure.string :as str])
-  (:import (java.io File FileWriter Writer)
+  (:import (java.io File)
            (com.fasterxml.jackson.databind ObjectMapper)
            (java.util Date)
            (java.util.concurrent TimeUnit)))
@@ -347,13 +347,12 @@
               spell))))
 
 (defn convert-spells []
-  (let [spell-lines (extract-spell-lines "data/a5e/spells/a5e-spells.txt")]
+  (let [spell-lines (extract-spell-lines "data/a5e/spells/a5e-spells-touched-up.txt")]
     (map #(try
             (extract-spell-sections %)
             (catch Exception e
               (throw (ex-info (ex-cause e) {:original %} e)))) spell-lines)))
 
-;TODO find 2 missing spells from json->5etools, 3 missing spells from text->json,
 (defn write-spells []
   (let [now (.toSeconds TimeUnit/MILLISECONDS (inst-ms (Date.)))
         full {:_meta {:sources          [{:json         "LevelUpAdventurersGuideA5E"
