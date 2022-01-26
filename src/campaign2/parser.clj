@@ -117,7 +117,6 @@
             (recur (conj spells spell) lines)))))))
 
 ;TODO fix empty string bug (e.g. cone of cold)
-;TODO fix escaped quotes nested entries thing
 (defn raw-content->entries [content]
   (cond-> (loop [entry-lines []
                  entries []
@@ -132,10 +131,10 @@
                          entries
                          remaining)))
               (->> (cond-> entries
-                           (seq entry-lines) (conj entries entry-lines))
+                           (seq entry-lines) (conj entry-lines))
                    (mapv #(str/join \space %)))))
           (str/includes? content "TABLE") (conj "<<<ADD TABLE MANUALLY>>>")
-          (str/includes? content "•") (conj "<<<ADD LIST MANUALLY>>>")))
+          (str/includes? content "•") (conj "<<<FIX LIST MANUALLY>>>")))
 
 (defn merge-until-next-section [unparsed-lines section-end-pred]
   (let [first-line (first unparsed-lines)
@@ -192,7 +191,7 @@
                           normalised-unit (->unit raw-unit)
                           amount (cond-> (u/->num number)
                                          (= "week" normalised-unit) (* 168))
-                          unit (if (= "week" normalised-unit) "hour" normalised-unit)]
+                          unit (get {"week" "hour"} normalised-unit normalised-unit)]
                       (recur
                         (-> spell
                             (assoc :time [{:number amount
