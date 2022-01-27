@@ -2,7 +2,8 @@
   (:require [campaign2.state :as state]
             [campaign2.util :as u]
             [jsonista.core :as json]
-            [clojure.string :as str])
+            [clojure.string :as str]
+            [clojure.set :as set])
   (:import (java.io File)
            (com.fasterxml.jackson.databind ObjectMapper)
            (java.util Date)
@@ -60,6 +61,8 @@
               "8th-level" 8
               "9th-level" 9})
 
+(def special-range-types #{"plane" "sight" "self" "touch" "unlimited" "special"})
+
 (def ->school {"abjuration"     "A"
                "conjuration"    "C"
                "divination"     "D"
@@ -116,13 +119,19 @@
             (conj spells spell)
             (recur (conj spells spell) lines)))))))
 
-;TODO fix empty string bug (e.g. cone of cold)
 (defn raw-content->entries [content]
   (cond-> (loop [entry-lines []
                  entries []
                  [current & remaining] (str/split-lines content)]
             (if current
-              (let [current (str/trim current)]
+              (let [current (-> current
+                                (str/trim)
+                                (str/replace
+                                  #"(([1-9]\d*)?[Dd][1-9]\d*)" ;TODO include d + const? e.g. 1d4 + 1 in Time Stop
+                                  "{@dice $1}")
+                                ;TODO remove stunned/paralyzed/incapacitated in favour of homebrew conditions
+                                (str/replace #"(?i)(blinded|charmed|deafened|exhaustion|frightened|grappled|incapacitated|invisible|paralyzed|petrified|poisoned|prone|restrained|stunned|unconscious)"
+                                             "{@condition $1}"))]
                 (if (re-matches #"[^.]+[\.:]" current)
                   (recur []
                          (conj entries (conj entry-lines current))
@@ -213,11 +222,14 @@
                                                                (str/replace #"short|medium|long|\(|\)" "")
                                                                (str/trim)
                                                                (str/split #"\-| "))]
-                                        [(if-let [special-type (#{"plane" "sight" "self"
-                                                                  "touch" "unlimited" "special"} (first range-sections))]
-                                           {:type (get {"same" "plane"} special-type special-type)
-                                            ;:amount ;TODO check for amount
-                                            }
+                                        [(if-let [special-type (special-range-types (first range-sections))]
+                                           (do
+                                             #_(when (> (count range-sections) 1)
+                                               (println range-sections))
+                                             {:type special-type
+                                              ;:amount ;TODO check for amount
+                                              #_["Clairvoyance" "Detect Evil and Good" "Detect Magic" "Detect Poison and Disease" "Detect Thoughts" "Dimension Door" "Earthquake" "Grapevine" "Hallucinatory Terrain" "Ice Storm" "Insect Plague" "Locate Animals or Plants" "Locate Creature" "Locate Object" "Magnificent Mansion" "Meteor Swarm" "Mirage Arcane" "Project Image" "Storm of Vengeance" "Wormway"]
+                                              })
                                            {:amount (u/->num (first range-sections))
                                             :type   (let [raw-type (second range-sections)]
                                                       (get {"foot" "feet" "mile" "miles"} raw-type raw-type))})
@@ -241,10 +253,31 @@
       :area (if (str/starts-with? (first unparsed-lines) "Area: ")
               (let [{:keys [content lines]} (merge-until-next-section unparsed-lines
                                                                       #(str/starts-with? % "Components: "))
-                    area (extract-pseudo-section-entries content "Area")]
+                    area (extract-pseudo-section-entries content "Area")
+                    area-words (-> area
+                                   (:entries)
+                                   (first)
+                                   (str/lower-case)
+                                   (str/replace #"\(|\)|\," "")
+                                   (str/trim)
+                                   (str/split #"\-| ")
+                                   (set))
+                    matched-words (set/intersection #{"cube" "hemisphere" "line" "cone" "square"
+                                                      "circle" "sphere" "wall" "cylinder"}
+                                                    area-words)
+                    area-tags (map {"cube"       "C"
+                                    "hemisphere" "H"
+                                    "line"       "L"
+                                    "cone"       "N"
+                                    "square"     "Q"
+                                    "circle"     "R"
+                                    "sphere"     "S"
+                                    "wall"       "W"
+                                    "cylinder"   "Y"} matched-words)]
                 (recur
-                  ;TODO add areaTags(?)
-                  (update spell :entries #(conj % area))
+                  (-> spell
+                      (update :entries #(conj % area))
+                      (assoc :areaTags area-tags))
                   :components lines))
               (recur spell :components unparsed-lines))
       :components (let [{:keys [content lines]} (merge-until-next-section unparsed-lines
